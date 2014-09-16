@@ -1,4 +1,4 @@
-package com.menudesigner.mvc;
+package com.menudesigner.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
