@@ -26,42 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cf30ca8-521e-415f-b56a-c9400b022ddc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/LoginController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/layout/default.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/login/index.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/pom.xml" afterPath="$PROJECT_DIR$/1/BG/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/java/com/menudesigner/mvc/controller/HelloController.java" afterPath="$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/HelloController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/java/com/menudesigner/mvc/controller/IndexController.java" afterPath="$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/IndexController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/java/com/menudesigner/mvc/github.txt" afterPath="$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/github.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF/pages/hello.jsp" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/hello.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/src/test/java/com/menudesigner/mvc/AppTests.java" afterPath="$PROJECT_DIR$/1/BG/src/test/java/com/menudesigner/mvc/AppTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG.war" afterPath="$PROJECT_DIR$/1/BG/target/MDBG.war" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/classes/com/menudesigner/mvc/controller/HelloController.class" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/classes/com/menudesigner/mvc/controller/HelloController.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/classes/com/menudesigner/mvc/controller/IndexController.class" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/classes/com/menudesigner/mvc/controller/IndexController.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/aopalliance-1.0.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/aopalliance-1.0.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/commons-logging-1.1.1.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/commons-logging-1.1.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/servlet-api-2.5.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/servlet-api-2.5.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-aop-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-aop-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-beans-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-beans-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-context-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-context-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-core-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-core-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-expression-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-expression-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-web-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-web-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/lib/spring-webmvc-3.2.0.RELEASE.jar" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/lib/spring-webmvc-3.2.0.RELEASE.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/pages/hello.jsp" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/pages/hello.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/pages/index.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/MDBG/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/1/BG/target/MDBG/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/classes/com/menudesigner/mvc/controller/HelloController.class" afterPath="$PROJECT_DIR$/1/BG/target/classes/com/menudesigner/mvc/controller/HelloController.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/classes/com/menudesigner/mvc/controller/IndexController.class" afterPath="$PROJECT_DIR$/1/BG/target/classes/com/menudesigner/mvc/controller/IndexController.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BG/target/test-classes/com/menudesigner/mvc/AppTests.class" afterPath="$PROJECT_DIR$/1/BG/target/test-classes/com/menudesigner/mvc/AppTests.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MenuDesigner.iws" />
@@ -148,7 +113,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/1/BG/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27659574" vertical-offset="0" max-vertical-offset="1290">
+            <state vertical-scroll-proportion="0.4276316" vertical-offset="0" max-vertical-offset="1290">
               <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
               <folding />
             </state>
@@ -906,22 +871,22 @@
       <updated>1410905769234</updated>
       <workItem from="1410905769706" duration="584000" />
       <workItem from="1410933288936" duration="1563000" />
-      <workItem from="1410941645459" duration="71000" />
+      <workItem from="1410941645459" duration="279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2218000" />
+    <option name="totallyTimeSpent" value="2426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1127,7 +1092,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27659574" vertical-offset="0" max-vertical-offset="1290">
+        <state vertical-scroll-proportion="0.4276316" vertical-offset="0" max-vertical-offset="1290">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
           <folding />
         </state>
