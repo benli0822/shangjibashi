@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BuildServerSettings">
-    <option name="LOGIN" value="" />
-    <option name="SERVER_URL" value="http://buildserver" />
-    <option name="PASSWORD" />
+    <option name="LOGIN" value="jinbenli" />
+    <option name="SERVER_URL" value="http://172.19.145.76:8001" />
+    <option name="PASSWORD" value="df9bdf98df99df9edf9f" />
     <option name="REMEMBER_ME" value="true" />
     <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
     <option name="INSPECTIONS_BUILD_TYPE_IDS" />
@@ -25,8 +25,122 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cf30ca8-521e-415f-b56a-c9400b022ddc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="8cf30ca8-521e-415f-b56a-c9400b022ddc" name="Default" comment="putting all resources together, in debugging">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/bootstrap/bootstrap-overrides.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/bootstrap/bootstrap-overrides.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/bootstrap/bootstrap.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/bootstrap/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/calendar.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/calendar.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/chart-showcase.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/chart-showcase.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/code-editor.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/code-editor.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/datatables.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/datatables.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/elements.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/elements.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/form-showcase.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/form-showcase.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/form-wizard.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/form-wizard.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/gallery.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/gallery.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/grids.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/grids.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/icons.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/icons.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/index.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/index.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/layout.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/layout.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/new-user.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/new-user.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/personal-info.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/personal-info.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/signin.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/signin.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/signup.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/signup.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/skins/dark.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/skins/dark.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/tables.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/tables.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/ui-elements.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/ui-elements.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/user-list.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/user-list.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/user-profile.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/user-profile.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/compiled/web-app-icons.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/compiled/web-app-icons.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/bootstrap.datepicker.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/bootstrap.datepicker.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/font-awesome.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/font-awesome.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/fullcalendar.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/fullcalendar.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/fullcalendar.print.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/fullcalendar.print.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/jquery-ui-1.10.2.custom.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/jquery-ui-1.10.2.custom.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/jquery.dataTables.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/jquery.dataTables.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/morris.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/morris.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/select2.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/select2.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/css/lib/uniform.default.css" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/css/lib/uniform.default.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/font/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/font/fontawesome-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/font/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/font/fontawesome-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/font/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/font/fontawesome-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/10.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/10.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/11.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/11.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/7.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/7.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/8.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/8.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/9.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/9.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/back-orange.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/back-orange.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/blueish.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/blueish.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/bgs/landscape.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/bgs/landscape.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/btn-attach.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/btn-attach.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/btn-setting.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/btn-setting.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/btn-shuffle.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/btn-shuffle.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/btn-tool.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/btn-tool.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/contact-img.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/contact-img.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/contact-img2.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/contact-img2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/contact-profile.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/contact-profile.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/back_disabled.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/back_disabled.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/back_enabled.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/back_enabled.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/back_enabled_hover.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/back_enabled_hover.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/forward_disabled.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/forward_disabled.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/forward_enabled.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/forward_enabled.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/forward_enabled_hover.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/forward_enabled_hover.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/sort_asc.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/sort_asc.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/sort_asc_disabled.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/sort_asc_disabled.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/sort_both.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/sort_both.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/sort_desc.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/sort_desc.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/datatables/sort_desc_disabled.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/datatables/sort_desc_disabled.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/gallery1.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/gallery1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/gallery2.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/gallery2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/gallery3.jpg" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/gallery3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-arrow-black.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-arrow-black.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-gallery-edit.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-gallery-edit.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-gallery-trash.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-gallery-trash.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-mail.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-mail.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-phone.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-phone.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-table-delete.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-table-delete.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-table-edit.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-table-edit.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/ico-table-new.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/ico-table-new.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/jquery-ui/slider-handler.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/jquery-ui/slider-handler.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/jquery-ui/slider-handler2.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/jquery-ui/slider-handler2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/jquery-ui/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/jquery-ui/ui-bg_gloss-wave_35_f6a828_500x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/jquery-ui/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/jquery-ui/ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/lens.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/lens.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/logo-white.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/logo-white.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/logo.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/new-gallery-img.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/new-gallery-img.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/no-img-gallery.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/no-img-gallery.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/personal-info.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/personal-info.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/select-bg.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/select-bg.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/select2/select2.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/select2/select2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/select2/select2x2.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/select2/select2x2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/select2/spinner.gif" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/select2/spinner.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/skin-nav-bullets.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/skin-nav-bullets.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/table-img.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/table-img.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/uniform/bg-input-focus.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/uniform/bg-input-focus.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/uniform/bg-input.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/uniform/bg-input.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/img/uniform/sprite.png" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/img/uniform/sprite.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/ace/ace.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/ace/ace.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/ace/mode-javascript.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/ace/mode-javascript.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/bootstrap.datepicker.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/bootstrap.datepicker.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/fuelux.wizard.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/fuelux.wizard.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/fullcalendar.min.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/fullcalendar.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery-ui-1.10.2.custom.min.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery-ui-1.10.2.custom.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery.dataTables.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery.flot.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery.flot.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery.flot.resize.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery.flot.resize.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery.flot.stack.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery.flot.stack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery.knob.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery.knob.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/jquery.uniform.min.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/jquery.uniform.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/morris.min.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/morris.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/select2.min.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/select2.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/theme.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/theme.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/js/wysihtml5-0.3.0.js" afterPath="$PROJECT_DIR$/1/BG/src/main/resources/js/wysihtml5-0.3.0.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1/BG/pom.xml" afterPath="$PROJECT_DIR$/1/BG/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MenuDesigner.iws" />
@@ -60,21 +174,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="375">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/login/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1065">
-              <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.8660508" vertical-offset="420" max-vertical-offset="1065">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -93,8 +197,8 @@
       <file leaf-file-name="header.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="735">
-              <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="690">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -103,18 +207,28 @@
       <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="360">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1/BG/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4276316" vertical-offset="0" max-vertical-offset="1290">
-              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1320">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,8 +237,8 @@
       <file leaf-file-name="footer.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="540">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="540">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -143,8 +257,8 @@
       <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="390">
+              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -170,6 +284,10 @@
         <option value="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp" />
         <option value="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF/pages/included/header.jsp" />
         <option value="$PROJECT_DIR$/1/BG/pom.xml" />
+        <option value="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp" />
+        <option value="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp" />
+        <option value="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
       </list>
     </option>
   </component>
@@ -195,8 +313,12 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="MDBG" />
+          <option name="myItemId" value="BG" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
         </PATH_ELEMENT>
       </PATH>
       <PATH>
@@ -205,7 +327,21 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="MDBG" />
+          <option name="myItemId" value="BG" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="BG" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -255,6 +391,10 @@
               <option name="myItemId" value="MenuDesigner" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -303,6 +443,18 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvc" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -365,6 +517,146 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BG" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BG" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BG" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MenuDesigner" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BG" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -391,17 +683,36 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="70" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="75" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="802" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="70" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="72" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="75" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="802" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/BG/src/main/webapp/WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/1/BG/src/main/resources" />
+      <recent name="$PROJECT_DIR$/1/BG/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/assets" />
       <recent name="$PROJECT_DIR$/1" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.52">
-    <configuration default="false" name="All in MDBG" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in BG">
+    <configuration default="false" name="All in BG" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="MDBG" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -848,11 +1159,11 @@
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.0.52" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in MDBG" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.All in BG" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in MDBG" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in BG" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -871,33 +1182,35 @@
       <updated>1410905769234</updated>
       <workItem from="1410905769706" duration="584000" />
       <workItem from="1410933288936" duration="1563000" />
-      <workItem from="1410941645459" duration="279000" />
+      <workItem from="1410941645459" duration="407000" />
+      <workItem from="1410954419279" duration="2673000" />
+      <workItem from="1410964033476" duration="87000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2426000" />
+    <option name="totallyTimeSpent" value="5314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849604" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -929,6 +1242,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="putting all resources together, in debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="putting all resources together, in debugging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -938,6 +1253,166 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/login/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1065">
+          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/layout/default.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="330">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="690">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="360">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1290">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="540">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="405">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="390">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="375">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/login/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1065">
+          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/layout/default.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="330">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="690">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1290">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="540">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="405">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/HelloController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -1018,14 +1493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="728">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/src/main/java/com/menudesigner/mvc/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
@@ -1058,42 +1525,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/login/index.jsp">
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1065">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="456">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="540">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="540">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.2.0.RELEASE/spring-webmvc-3.2.0.RELEASE.jar!/org/springframework/web/servlet/view/InternalResourceViewResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17401393" vertical-offset="0" max-vertical-offset="435">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/included/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="735">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="690">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="707">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1/BG/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4276316" vertical-offset="0" max-vertical-offset="1290">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1320">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1/BG/src/main/webapp/WEB-INF/pages/login/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8660508" vertical-offset="420" max-vertical-offset="1065">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1153,11 +1643,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring|MDBG</last-edited>
+          <last-edited>MenuDesigner</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
