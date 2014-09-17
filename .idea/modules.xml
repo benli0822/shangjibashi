@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BG/MDBG.iml" filepath="$PROJECT_DIR$/BG/MDBG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1/BG/MDBG.iml" filepath="$PROJECT_DIR$/1/BG/MDBG.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MenuDesigner.iml" filepath="$PROJECT_DIR$/.idea/MenuDesigner.iml" />
     </modules>
   </component>

@@ -4,7 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/BG" />
+    <file type="web" url="file://$PROJECT_DIR$/1/BG" />
   </component>
   <component name="IdProvider" IDEtalkID="0896363DD249081D4276218ADDCAC03E" />
   <component name="MavenProjectsManager">
@@ -268,21 +268,5 @@
     </entry>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="jdk1.7.0_55" project-jdk-type="JavaSDK" />
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>jdk1.6.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
-  </component>
 </project>
 
