@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView login(){
-        ModelAndView login = new ModelAndView("login/index");
+        ModelAndView login = new ModelAndView("login");
         return login;
     }
 }
