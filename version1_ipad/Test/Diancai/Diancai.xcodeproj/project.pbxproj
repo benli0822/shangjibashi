@@ -63,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C1E6EB919D1C207007ADBB0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3CC8533819D059B900668F13 /* MenuViewController.h */,
+				3CC8533919D059B900668F13 /* MenuViewController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		3CC8530319D0596800668F13 = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +135,7 @@
 		3CC8533B19D059C300668F13 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3CC8533819D059B900668F13 /* MenuViewController.h */,
-				3CC8533919D059B900668F13 /* MenuViewController.m */,
+				3C1E6EB919D1C207007ADBB0 /* Menu */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -428,6 +436,7 @@
 				3CC8533119D0596900668F13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CC8533219D0596900668F13 /* Build configuration list for PBXNativeTarget "DiancaiTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +445,7 @@
 				3CC8533419D0596900668F13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
