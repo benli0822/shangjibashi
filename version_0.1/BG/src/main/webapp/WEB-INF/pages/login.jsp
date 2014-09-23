@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="included/login/header.jsp" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- background switcher -->
 <div class="bg-switch visible-desktop">
     <div class="bgs">
@@ -52,14 +51,12 @@
                 <input id="remember-me" type="checkbox">
                 <label for="remember-me">记住密码</label>
             </div>
-            <a class="btn-glow primary login" href="index.html">登录</a>
+            <a class="btn-glow primary login" href="<c:url value="/index" />">登录</a>
         </div>
     </div>
 
     <div class="no-account">
         <p>还没账号?</p>
-        <a href="signup.html">注册</a>
+        <a href="signin.html">注册</a>
     </div>
 </div>
-
-<%@include file="included/login/footer.jsp" %>
