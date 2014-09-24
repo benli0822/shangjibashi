@@ -5,6 +5,7 @@
   Time: 08:54 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- navbar -->
 <header class="navbar navbar-inverse" role="banner">
     <div class="navbar-header">
@@ -106,7 +107,7 @@
         </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
-                你的账号
+                Your account
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
