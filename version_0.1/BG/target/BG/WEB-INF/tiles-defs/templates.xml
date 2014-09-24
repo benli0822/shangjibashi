@@ -35,7 +35,7 @@
         <put-attribute name="keywords" value="SJBS iMenu Back-end Management System"/>
         <put-attribute name="description" value="This is a management system for restaurant's menu"/>
         <put-attribute name="body" value="/WEB-INF/pages/index.jsp"/>
-        <put-list-attribute name="javascript">
+        <put-list-attribute name="javascript" inherit="true">
             <add-attribute value="/resources/js/jquery-ui-1.10.2.custom.min.js"/>
             <add-attribute value="/resources/js/jquery.knob.js"/>
             <add-attribute value="/resources/js/jquery.flot.js"/>
@@ -63,6 +63,11 @@
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/compiled/signin.css"/>
         </put-list-attribute>
+    </definition>
+
+    <definition name="dishes" extends="defaultTemplate">
+        <put-attribute name="title" value="Edit your dishes" />
+        <put-attribute name="body" value="/WEB-INF/pages/dishes.jsp"/>
     </definition>
 
 </tiles-definitions>
