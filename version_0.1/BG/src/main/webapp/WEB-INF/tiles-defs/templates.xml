@@ -8,6 +8,7 @@
         <put-attribute name="title" value=""/>
         <put-attribute name="keywords" value=""/>
         <put-attribute name="description" value=""/>
+        <put-attribute name="active" value="" />
         <put-attribute name="banner" value="/WEB-INF/template/default/banner.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/template/default/common_menu.jsp"/>
         <put-attribute name="body" value="/WEB-INF/template/default/home_body.jsp"/>
@@ -34,6 +35,7 @@
         <put-attribute name="title" value="SJBS iMenu System"/>
         <put-attribute name="keywords" value="SJBS iMenu Back-end Management System"/>
         <put-attribute name="description" value="This is a management system for restaurant's menu"/>
+        <put-attribute name="active" value="1" />
         <put-attribute name="body" value="/WEB-INF/pages/index.jsp"/>
         <put-list-attribute name="javascript" inherit="true">
             <add-attribute value="/resources/js/jquery-ui-1.10.2.custom.min.js"/>
@@ -67,6 +69,7 @@
 
     <definition name="dishes" extends="defaultTemplate">
         <put-attribute name="title" value="Edit your dishes" />
+        <put-attribute name="active" value="2" />
         <put-attribute name="body" value="/WEB-INF/pages/dishes.jsp"/>
     </definition>
 
