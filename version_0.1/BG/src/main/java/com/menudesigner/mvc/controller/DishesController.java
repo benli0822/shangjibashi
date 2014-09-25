@@ -12,26 +12,26 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by JIN Benli on 17/09/14.
+ * Created by JIN Benli on 24/09/14.
  */
 @Controller
-public class LoginController {
+public class DishesController {
+    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-
-
-    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
-    public String login(Locale locale, Model model) {
-        logger.info("Welcome login! The client locale is {}.", locale);
+    /**
+     * Simply selects the home view to render by returning its name.
+     */
+    @RequestMapping(value = "/dishes", method = RequestMethod.GET)
+    public String index(Locale locale, Model model) {
+        logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
         String formattedDate = dateFormat.format(date);
 
-        model.addAttribute("serverTime", formattedDate);
-        return "login";
+        model.addAttribute("serverTime", formattedDate );
 
+        return "dishes";
     }
-
 }
