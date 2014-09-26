@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "MenuCollectionView.h"
+#import "MenuCollectionViewControl.h"
 #import "DishCollectionViewCell.h"
 
 
-@implementation MenuCollectionView
+@implementation MenuCollectionViewControl
 
 - (void)setRecipeImage:(NSArray *)array{
     self.recipeImages = [array copy];

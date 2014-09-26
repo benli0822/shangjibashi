@@ -12,7 +12,7 @@
 
 
 #import "MenuViewController.h"
-#import "MenuCollectionView.h"
+#import "MenuCollectionViewControl.h"
 
 @interface MenuViewController ()
 
@@ -28,7 +28,7 @@
  
     //设置背景
        
-    self.MenuDishCollectionViewController = [[MenuCollectionView alloc] init];
+    self.MenuDishCollectionViewController = [[MenuCollectionViewControl alloc] init];
 
     
     
