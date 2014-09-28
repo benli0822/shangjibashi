@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class  MenuCollectionViewControl;
+
 @interface MenuViewController : UIViewController
+@property(nonatomic,retain)  MenuCollectionViewControl *MenuDishCollectionViewController;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *ColletionView;
 
 @end
