@@ -70,7 +70,16 @@
     <definition name="dishes" extends="defaultTemplate">
         <put-attribute name="title" value="Edit your dishes" />
         <put-attribute name="active" value="2" />
-        <put-attribute name="body" value="/WEB-INF/pages/dishes.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/pages/1/dishes.jsp"/>
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/resources/css/compiled/gallery.css"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="dishes/addNewDish" extends="defaultTemplate">
+        <put-attribute name="title" value="Add a new dish" />
+        <put-attribute name="active" value="2" />
+        <put-attribute name="body" value="/WEB-INF/pages/1/addSimpleDish.jsp"/>
     </definition>
 
 </tiles-definitions>
