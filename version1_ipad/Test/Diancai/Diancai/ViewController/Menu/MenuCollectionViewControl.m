@@ -15,6 +15,7 @@
 - (void)setRecipeImage:(NSArray *)array{
     self.recipeImages = [array copy];
 }
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.recipeImages.count;
 }

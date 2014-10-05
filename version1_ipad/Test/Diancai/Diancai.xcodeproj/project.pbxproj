@@ -12,8 +12,6 @@
 		3C4E480D19D31A85002BCDEC /* DishCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E480B19D31A85002BCDEC /* DishCollectionViewCell.m */; };
 		3C4E480E19D31A85002BCDEC /* DishCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4E480C19D31A85002BCDEC /* DishCollectionViewCell.xib */; };
 		3CC8531219D0596900668F13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8531119D0596900668F13 /* main.m */; };
-		3CC8531519D0596900668F13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8531419D0596900668F13 /* AppDelegate.m */; };
-		3CC8531819D0596900668F13 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8531719D0596900668F13 /* ViewController.m */; };
 		3CC8531B19D0596900668F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531919D0596900668F13 /* Main.storyboard */; };
 		3CC8531D19D0596900668F13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531C19D0596900668F13 /* Images.xcassets */; };
 		3CC8532019D0596900668F13 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531E19D0596900668F13 /* LaunchScreen.xib */; };
@@ -35,6 +33,9 @@
 		3CFE307019D53EF500210AD5 /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE306019D53EF500210AD5 /* vegetable_curry.jpg */; };
 		3CFE307119D53EF500210AD5 /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE306119D53EF500210AD5 /* white_chocolate_donut.jpg */; };
 		3CFE307419D53F6300210AD5 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE307319D53F6300210AD5 /* iCarousel.m */; };
+		3CFE307819D5537700210AD5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE307719D5537700210AD5 /* AppDelegate.m */; };
+		3CFE307C19D553CB00210AD5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE307A19D553CB00210AD5 /* ViewController.m */; };
+		3CFE308119D5568D00210AD5 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE308019D5568D00210AD5 /* XTSegmentControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +59,6 @@
 		3CC8530C19D0596800668F13 /* Diancai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diancai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC8531019D0596900668F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC8531119D0596900668F13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3CC8531319D0596900668F13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3CC8531419D0596900668F13 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3CC8531619D0596900668F13 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3CC8531719D0596900668F13 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3CC8531A19D0596900668F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CC8531C19D0596900668F13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3CC8531F19D0596900668F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,6 +83,12 @@
 		3CFE306119D53EF500210AD5 /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = white_chocolate_donut.jpg; path = resource/image/white_chocolate_donut.jpg; sourceTree = "<group>"; };
 		3CFE307219D53F6300210AD5 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = resource/iCarousel/iCarousel.h; sourceTree = "<group>"; };
 		3CFE307319D53F6300210AD5 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = resource/iCarousel/iCarousel.m; sourceTree = "<group>"; };
+		3CFE307619D5537700210AD5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppDelegate/AppDelegate.h; sourceTree = "<group>"; };
+		3CFE307719D5537700210AD5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AppDelegate/AppDelegate.m; sourceTree = "<group>"; };
+		3CFE307A19D553CB00210AD5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ViewController/ViewController.m; sourceTree = "<group>"; };
+		3CFE307B19D553CB00210AD5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ViewController/ViewController.h; sourceTree = "<group>"; };
+		3CFE307F19D5568D00210AD5 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XTSegmentControl.h; path = Helper/XTSegmentControl/XTSegmentControl.h; sourceTree = "<group>"; };
+		3CFE308019D5568D00210AD5 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XTSegmentControl.m; path = Helper/XTSegmentControl/XTSegmentControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,12 +161,10 @@
 		3CC8530E19D0596800668F13 /* Diancai */ = {
 			isa = PBXGroup;
 			children = (
+				3CFE307D19D5565300210AD5 /* Helper */,
+				3CFE307919D5538500210AD5 /* AppDelegate */,
 				3C1E6EC619D21A82007ADBB0 /* resource */,
 				3CC8533B19D059C300668F13 /* ViewController */,
-				3CC8531319D0596900668F13 /* AppDelegate.h */,
-				3CC8531419D0596900668F13 /* AppDelegate.m */,
-				3CC8531619D0596900668F13 /* ViewController.h */,
-				3CC8531719D0596900668F13 /* ViewController.m */,
 				3CC8531919D0596900668F13 /* Main.storyboard */,
 				3CC8531C19D0596900668F13 /* Images.xcassets */,
 				3CC8531E19D0596900668F13 /* LaunchScreen.xib */,
@@ -201,6 +202,8 @@
 		3CC8533B19D059C300668F13 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3CFE307A19D553CB00210AD5 /* ViewController.m */,
+				3CFE307B19D553CB00210AD5 /* ViewController.h */,
 				3C1E6EB919D1C207007ADBB0 /* Menu */,
 			);
 			name = ViewController;
@@ -236,6 +239,32 @@
 				3CFE307319D53F6300210AD5 /* iCarousel.m */,
 			);
 			name = iCarousel;
+			sourceTree = "<group>";
+		};
+		3CFE307919D5538500210AD5 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3CFE307619D5537700210AD5 /* AppDelegate.h */,
+				3CFE307719D5537700210AD5 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3CFE307D19D5565300210AD5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3CFE307E19D5567300210AD5 /* SegmentControl */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		3CFE307E19D5567300210AD5 /* SegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				3CFE307F19D5568D00210AD5 /* XTSegmentControl.h */,
+				3CFE308019D5568D00210AD5 /* XTSegmentControl.m */,
+			);
+			name = SegmentControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,11 +384,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CC8531819D0596900668F13 /* ViewController.m in Sources */,
-				3CC8531519D0596900668F13 /* AppDelegate.m in Sources */,
+				3CFE307C19D553CB00210AD5 /* ViewController.m in Sources */,
 				3C4E480D19D31A85002BCDEC /* DishCollectionViewCell.m in Sources */,
 				3C1E6EED19D21BCF007ADBB0 /* MenuCollectionViewControl.m in Sources */,
+				3CFE307819D5537700210AD5 /* AppDelegate.m in Sources */,
 				3CC8531219D0596900668F13 /* main.m in Sources */,
+				3CFE308119D5568D00210AD5 /* XTSegmentControl.m in Sources */,
 				3CFE307419D53F6300210AD5 /* iCarousel.m in Sources */,
 				3C1E6EE919D21B40007ADBB0 /* MenuViewController.m in Sources */,
 			);
