@@ -9,64 +9,55 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <div class="content">
-    <div id="pad-wrapper" class="new-user">
+    <div id="pad-wrapper" class="form-page">
         <div class="row header">
             <div class="col-md-12">
-                <h3><spring:message code="label.title1"/></h3>
+                <h3><spring:message code="add.title"/></h3>
             </div>
         </div>
 
 
         <div class="row form-wrapper">
             <!-- left column -->
-            <div class="col-md-9 with-sidebar">
-                <div class="container">
-                    <form class="new_dish_form">
-                        <div class="col-md-12 field-box">
-                            <label>Name:</label>
+            <div class="col-md-8 column">
+                <form>
+                    <div class="field-box">
+                        <label><spring:message code="add.name"/></label>
+
+                        <div class="col-md-7">
                             <input class="form-control" type="text"/>
                         </div>
-                        <div class="col-md-12 field-box">
-                            <label>Type:</label>
+                    </div>
+                    <div class="field-box">
+                        <label><spring:message code="add.type"/></label>
 
-                            <div class="ui-select span5">
-                                <select>
-                                    <option value="AK">Alaska</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="CA">California</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="WA">Washington</option>
-                                    <option value="AZ">Arizona</option>
-                                </select>
-                            </div>
+                        <div class="col-md-7">
+                            <select style="width:250px" class="select2">
+                                <option></option>
+                                <option value="AK">Alaska</option>
+                            </select>
                         </div>
-                    </form>
-                </div>
-
-                <!-- side right column -->
-                <div class="col-md-3 form-sidebar pull-right">
-                    <div class="btn-group toggle-inputs hidden-tablet">
-                        <button class="glow left active" data-input="normal">NORMAL INPUTS</button>
-                        <button class="glow right" data-input="inline">INLINE INPUTS</button>
                     </div>
-                    <div class="alert alert-info hidden-tablet">
-                        <i class="icon-lightbulb pull-left"></i>
-                        Click above to see difference between inline and normal inputs on a form
+                    <div class="field-box">
+                        <label><spring:message code="add.description"/></label>
+                        <div class="col-md-7">
+                            <textarea class="form-control" rows="4"></textarea>
+                        </div>
                     </div>
-                    <h6>Sidebar text for instructions</h6>
-
-                    <p>Add multiple users at once</p>
-
-                    <p>Choose one of the following file types:</p>
-                    <ul>
-                        <li><a href="#">Upload a vCard file</a></li>
-                        <li><a href="#">Import from a CSV file</a></li>
-                        <li><a href="#">Import from an Excel file</a></li>
-                    </ul>
-                </div>
-
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+<!-- call this page plugins -->
+<script type="text/javascript">
+    $(function () {
+
+        // select2 plugin for select elements
+        $(".select2").select2({
+            placeholder: "<spring:message code="add.selectType"/>"
+        });
+
+    });
+</script>
