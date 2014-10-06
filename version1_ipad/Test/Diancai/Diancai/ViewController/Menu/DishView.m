@@ -1,20 +1,64 @@
 //
-//  MenuCollectionView.m
+//  DishView.m
 //  Diancai
 //
-//  Created by james on 23/09/14.
+//  Created by james on 05/10/14.
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "MenuCollectionViewControl.h"
+#import "DishView.h"
 #import "DishCollectionViewCell.h"
 
 
-@implementation MenuCollectionViewControl
+
+@implementation DishView
 
 - (void)setRecipeImage:(NSArray *)array{
     self.recipeImages = [array copy];
 }
+
+
+
+
+- (id)initWithFrame:(CGRect)frame recipeList:(NSArray *)array
+{
+    
+    self.recipeImages = [array copy];
+    if (self = [super initWithFrame:frame]) {
+        [self addContentView];
+        
+        
+        [_contentCollectionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
+        
+    }
+    
+    return self;
+    
+}
+
+
+
+-(void)addContentView{
+    _contentCollectionView = ({
+        
+        
+         UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        collectionView.alwaysBounceVertical = YES;
+        //collectionView.numColsPortrait = 2;
+        collectionView.dataSource = self;
+        collectionView.delegate = self;
+       
+        collectionView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:collectionView];
+        collectionView;
+    });
+
+}
+
+#pragma mark collection view DataSource
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.recipeImages.count;
 }
@@ -41,5 +85,11 @@
     [cell setImage:(NSString *)[self.recipeImages objectAtIndex:indexPath.row]];
     return cell;
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(240, 220);
+}
+
 
 @end
