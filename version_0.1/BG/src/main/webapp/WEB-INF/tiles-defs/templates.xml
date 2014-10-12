@@ -83,9 +83,12 @@
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/compiled/form-showcase.css"/>
             <add-attribute value="/resources/css/lib/select2.css"/>
+            <add-attribute value="/resources/css/lib/bootstrap.datepicker.css"/>
         </put-list-attribute>
         <put-list-attribute name="javascript" inherit="true">
             <add-attribute value="/resources/js/select2.min.js"/>
+            <add-attribute value="/resources/js/bootstrap.datepicker.js"/>
+            <add-attribute value="/resources/js/jquery.uniform.min.js"/>
         </put-list-attribute>
     </definition>
 
