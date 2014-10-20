@@ -11,7 +11,7 @@
     <div id="pad-wrapper" class="gallery">
         <div class="row header">
             <div class="col-md-12">
-                <h3><spring:message code="label.title1"/></h3>
+                <h3><spring:message code="dishes.title1"/></h3>
             </div>
         </div>
 
@@ -48,15 +48,15 @@
         <div class="no-gallery">
             <div class="row header">
                 <div class="col-md-12">
-                    <h3><spring:message code="label.title1" /></h3>
+                    <h3><spring:message code="dishes.title1" /></h3>
                 </div>
             </div>
             <div class="center">
                 <img src="img/no-img-gallery.png">
-                <h6><spring:message code="label.noItemTitle" /></h6>
+                <h6><spring:message code="dishes.noItemTitle" /></h6>
 
-                <p><spring:message code="label.noItemContent" /></p>
-                <a data-toggle="modal" href="#myModal" class="btn-glow primary"><spring:message code="label.addItemButton"/></a>
+                <p><spring:message code="dishes.noItemContent" /></p>
+                <a data-toggle="modal" href="#myModal" class="btn-glow primary"><spring:message code="dishes.addItemButton"/></a>
             </div>
         </div>
         <!-- end blank state -->

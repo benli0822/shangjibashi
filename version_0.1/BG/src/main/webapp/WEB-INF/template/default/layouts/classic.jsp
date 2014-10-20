@@ -11,16 +11,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
+<%--<input type="hidden" value="<tiles:getAsString name="active" />"/>--%>
 
-<input type="hidden" value="<tiles:getAsString name="active" />" />
-
-<tilesx:useAttribute id="stylesheets" name="stylesheets" classname="java.util.List" />
-<tilesx:useAttribute id="javascript" name="javascript" classname="java.util.List" />
+<tilesx:useAttribute id="stylesheets" name="stylesheets" classname="java.util.List"/>
+<tilesx:useAttribute id="javascript" name="javascript" classname="java.util.List"/>
 <%--<tiles:importAttribute name="javascripts"/>--%>
 <%--<tiles:importAttribute name="stylesheets"/>--%>
 
 <!DOCTYPE html>
-<html class="login-bg">
+<html>
 <head>
     <title><tiles:getAsString name="title"/></title>
     <meta name="keywords" content="<tiles:getAsString name="keywords" />"/>
@@ -35,7 +34,7 @@
     <!-- end stylesheets -->
 
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"/>
     <![endif]-->
 </head>
 <body>
@@ -48,13 +47,6 @@
 <!-- end scripts -->
 <tiles:insertAttribute name="body"/>
 <tiles:insertAttribute name="credits"/>
-
-<script type="text/javascript">
-
-
-
-</script>
-
 
 <!-- pre load bg imgs -->
 <script type="text/javascript">
