@@ -1,6 +1,6 @@
-package com.menudesigner.database.dao;
+package com.menudesigner.sjbs.db.database.dao;
 
-import com.menudesigner.database.object.User;
+import com.menudesigner.sjbs.db.database.object.User;
 
 import javax.sql.DataSource;
 import java.util.List;

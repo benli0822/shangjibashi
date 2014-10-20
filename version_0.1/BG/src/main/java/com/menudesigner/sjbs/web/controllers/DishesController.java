@@ -1,4 +1,4 @@
-package com.menudesigner.mvc.controller;
+package com.menudesigner.sjbs.web.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
