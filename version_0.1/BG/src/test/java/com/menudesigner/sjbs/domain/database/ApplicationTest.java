@@ -1,7 +1,7 @@
-package com.menudesigner.sjbs.db.database;
+package com.menudesigner.sjbs.domain.database;
 
-import com.menudesigner.sjbs.db.database.object.User;
-import com.menudesigner.sjbs.db.database.repository.UserRepository;
+import com.menudesigner.sjbs.domain.database.object.User;
+import com.menudesigner.sjbs.domain.database.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -43,8 +43,8 @@ public class ApplicationTest {
         System.out.println();
 
         // fetch customers by last name
-        List<User> admin = repository.findUserByName("admin");
-        System.out.println("User found with findUserByName('admin'):");
+        List<User> admin = repository.findUserByUsername("admin");
+        System.out.println("User found with findUserByUsername('admin'):");
         System.out.println("--------------------------------------------");
         for (User ad : admin) {
             System.out.println(ad);

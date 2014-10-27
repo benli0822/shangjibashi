@@ -1,4 +1,4 @@
-package com.menudesigner.sjbs.db.database.object;
+package com.menudesigner.sjbs.domain.database.object;
 
 import javax.persistence.*;
 

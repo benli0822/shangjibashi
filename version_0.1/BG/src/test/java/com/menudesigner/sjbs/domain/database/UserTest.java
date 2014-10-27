@@ -1,7 +1,7 @@
 //package com.menudesigner.sjbs.db.database;
 //
-//import com.menudesigner.sjbs.db.database.JDBCTemplate.UserJDBCTemplate;
-//import com.menudesigner.sjbs.db.database.object.User;
+//import com.menudesigner.sjbs.domain.database.JDBCTemplate.UserJDBCTemplate;
+//import com.menudesigner.sjbs.domain.database.object.User;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
 //
