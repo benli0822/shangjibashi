@@ -22,8 +22,7 @@
     _imageView.image = [UIImage imageNamed:imagename];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
-    //PlatName label set width
-    //[_platNameLabel setFrame:CGRectMake(_platNameLabel.frame.origin.x, _platNameLabel.frame.origin.y, 160, _platNameLabel.frame.size.height)];
+   
     
 }
 @end

@@ -12,10 +12,10 @@
 
 
 
-- (id)initWithFrame:(CGRect)frame recipeList:(NSArray *)array;
+- (id)initWithFrame:(CGRect)frame ;
+- (void)loadCollectionViewWithArray:(NSArray *)array;
 
-
-@property (nonatomic, strong) NSArray *recipeImages;
+@property (nonatomic, strong) NSMutableArray *recipeImages;
 
 @property (nonatomic , strong) UICollectionView *contentCollectionView;
 

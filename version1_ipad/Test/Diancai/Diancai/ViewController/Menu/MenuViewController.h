@@ -14,5 +14,11 @@
 @property(nonatomic,retain)  MenuCollectionViewControl *MenuDishCollectionViewController;
 
 
+//NSDictionary 就像java 里面的 map. 这里一个字典key存放一个list菜单
+@property(nonatomic, strong) NSMutableDictionary *dishDictionary;
+
+//NSArray 存放次级菜单的string list
+@property(nonatomic, strong) NSArray *sousMenuList;
+
 
 @end

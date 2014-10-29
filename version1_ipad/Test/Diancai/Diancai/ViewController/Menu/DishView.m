@@ -14,21 +14,37 @@
 @implementation DishView
 
 @synthesize recipeImages = _recipeImages;
+@synthesize contentCollectionView = _contentCollectionView;
 
-- (void)setRecipeImage:(NSArray *)array{
-    self.recipeImages = [array copy];
+
+- (void)loadCollectionViewWithArray:(NSArray *)array{
+    
+    [self.contentCollectionView setContentOffset:CGPointMake(0, 0)];
+    
+    [_recipeImages removeAllObjects];
+    __weak typeof(self) weakSelf = self;
+
+    [weakSelf reloadListViewDataSource:array];
+    
+}
+- (void)reloadListViewDataSource:(NSArray *)array
+{
+    [_recipeImages addObjectsFromArray:array];
+    [self.contentCollectionView reloadData];
 }
 
 
 
-
-- (id)initWithFrame:(CGRect)frame recipeList:(NSArray *)array
+- (id)initWithFrame:(CGRect)frame
 {
     
-    self.recipeImages = [array copy];
+    
     if (self = [super initWithFrame:frame]) {
-        [self addContentView];
         
+        
+        _recipeImages = @[].mutableCopy;
+
+        [self addContentView];
         
         [_contentCollectionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
         
