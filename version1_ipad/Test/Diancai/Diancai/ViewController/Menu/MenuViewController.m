@@ -35,7 +35,7 @@
     [super viewDidLoad];
  
    
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 780, 700)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 780, 600)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
     _carousel.delegate = self;
@@ -43,6 +43,8 @@
     _carousel.type = iCarouselTypeLinear;
     _carousel.pagingEnabled = YES;
     //_carousel.edgeRecognition = YES;
+    //solve overflowing problem
+    _carousel.clipsToBounds = YES;
     
     _carousel.bounceDistance = 0.4;
     [self.view addSubview:_carousel];
