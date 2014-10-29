@@ -13,6 +13,8 @@
 
 @implementation DishView
 
+@synthesize recipeImages = _recipeImages;
+
 - (void)setRecipeImage:(NSArray *)array{
     self.recipeImages = [array copy];
 }
@@ -81,8 +83,8 @@
     //UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
     //recipeImageView.image = [UIImage imageNamed:[self.recipeImages objectAtIndex:indexPath.row]];
     //cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
-    
-    [cell setImage:(NSString *)[self.recipeImages objectAtIndex:indexPath.row]];
+    cell.platNameLabel.text = [_recipeImages objectAtIndex:indexPath.row];
+    [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
     return cell;
 }
 
