@@ -1,0 +1,13 @@
+# application.yml
+app:
+  company: SJBS
+  name: Menu Designer
+  description: $name is a $company product
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jb_menu_order
+    username: root
+    password: root
+
