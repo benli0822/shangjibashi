@@ -1,6 +1,6 @@
-package com.menudesigner.sjbs.domain.database.repository;
+package com.menudesigner.sjbs.service;
 
-import com.menudesigner.sjbs.domain.database.object.User;
+import com.menudesigner.sjbs.domain.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,13 +1,16 @@
-package com.menudesigner.sjbs.domain.database.object;
+package com.menudesigner.sjbs.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by JIN Benli on 12/10/14.
  */
 @Entity
 @Table(name = "jb_user")
-public class User {
+public class User implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

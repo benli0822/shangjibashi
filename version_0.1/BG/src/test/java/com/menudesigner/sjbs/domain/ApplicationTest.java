@@ -1,7 +1,6 @@
-package com.menudesigner.sjbs.domain.database;
+package com.menudesigner.sjbs.domain;
 
-import com.menudesigner.sjbs.domain.database.object.User;
-import com.menudesigner.sjbs.domain.database.repository.UserRepository;
+import com.menudesigner.sjbs.service.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
