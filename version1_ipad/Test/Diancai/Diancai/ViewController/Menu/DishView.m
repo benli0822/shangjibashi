@@ -8,6 +8,7 @@
 
 #import "DishView.h"
 #import "DishCollectionViewCell.h"
+#import "DishPopoverControllerViewController.h"
 
 
 
@@ -67,7 +68,7 @@
         //collectionView.numColsPortrait = 2;
         collectionView.dataSource = self;
         collectionView.delegate = self;
-       
+        collectionView.userInteractionEnabled = YES;
         collectionView.backgroundColor = [UIColor whiteColor];
         [self addSubview:collectionView];
         collectionView;
@@ -108,6 +109,24 @@
 {
     return CGSizeMake(240, 220);
 }
+
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    NSLog(@" select a view");
+    static NSString *identifier = @"Cell";
+     DishCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    CGRect rect=CGRectMake(cell.bounds.origin.x+600, cell.bounds.origin.y+10, 50, 30);
+    DishPopoverControllerViewController *PopoverView =[[DishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
+    
+#pragma 这里还有问题!!
+    UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
+    [popOver presentPopoverFromRect:rect inView:cell.contentView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+  
+    //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
 
 
 @end
