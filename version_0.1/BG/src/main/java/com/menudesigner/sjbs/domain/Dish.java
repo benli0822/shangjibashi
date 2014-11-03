@@ -1,15 +1,15 @@
 package com.menudesigner.sjbs.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.List;
 
 /**
  * Created by JIN Benli on 03/11/14.
  */
+@Entity
+@Table(name = "jb_dish")
 public class Dish implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,6 +20,9 @@ public class Dish implements Serializable {
 
     @Column(name = "NAME")
     private String name;
+
+    @OneToMany(mappedBy = "jb_dish")
+    private List<AssociationCommandAndDish> commands;
 
     //TODO what's the difference between type and type_id?
     @Column(name = "TYPE")
@@ -59,6 +62,14 @@ public class Dish implements Serializable {
         this.disabled = disabled;
         this.start_time = start_time;
         this.end_time = end_time;
+    }
+
+    public List<AssociationCommandAndDish> getCommands() {
+        return commands;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {

@@ -3,6 +3,7 @@ package com.menudesigner.sjbs.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.List;
 
 /**
  * Created by JIN Benli on 03/11/14.
@@ -16,6 +17,9 @@ public class Command implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @OneToMany(mappedBy = "jb_commands")
+    private List<AssociationCommandAndDish> dishes;
 
     //TODO should consider the difference between table and table nb
     @Column(name = "TABLE")
@@ -48,6 +52,93 @@ public class Command implements Serializable {
         this.menu_id = menu_id;
         this.order_time = order_time;
         this.table_nb = table_nb;
+        this.client_nb = client_nb;
+    }
+
+    /**
+     * Add a dish to this command, also add the quantity information
+     * Create an association object for the relationship and set its data
+     * @param dish
+     * @param quantity
+     */
+    public void addDish(Dish dish, int quantity) {
+        AssociationCommandAndDish association = new AssociationCommandAndDish();
+        association.setDish(dish);
+        association.setCommand(this);
+        association.setDish_id(dish.getId());
+        association.setCommand_id(this.getId());
+        association.setQuantity(quantity);
+
+        this.dishes.add(association);
+
+        dish.getCommands().add(association);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public List<AssociationCommandAndDish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<AssociationCommandAndDish> dishes) {
+        this.dishes = dishes;
+    }
+
+    public Integer getTable() {
+        return table;
+    }
+
+    public void setTable(Integer table) {
+        this.table = table;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getDish_id() {
+        return dish_id;
+    }
+
+    public void setDish_id(Integer dish_id) {
+        this.dish_id = dish_id;
+    }
+
+    public Integer getMenu_id() {
+        return menu_id;
+    }
+
+    public void setMenu_id(Integer menu_id) {
+        this.menu_id = menu_id;
+    }
+
+    public Time getOrder_time() {
+        return order_time;
+    }
+
+    public void setOrder_time(Time order_time) {
+        this.order_time = order_time;
+    }
+
+    public Integer getTable_nb() {
+        return table_nb;
+    }
+
+    public void setTable_nb(Integer table_nb) {
+        this.table_nb = table_nb;
+    }
+
+    public Integer getClient_nb() {
+        return client_nb;
+    }
+
+    public void setClient_nb(Integer client_nb) {
         this.client_nb = client_nb;
     }
 
