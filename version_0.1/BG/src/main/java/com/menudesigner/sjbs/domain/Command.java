@@ -3,7 +3,6 @@ package com.menudesigner.sjbs.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.List;
 
 /**
  * Created by JIN Benli on 03/11/14.
@@ -17,9 +16,6 @@ public class Command implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @OneToMany(mappedBy = "jb_commands")
-    private List<AssociationCommandAndDish> dishes;
 
     //TODO should consider the difference between table and table nb
     @Column(name = "TABLE")
@@ -53,37 +49,6 @@ public class Command implements Serializable {
         this.order_time = order_time;
         this.table_nb = table_nb;
         this.client_nb = client_nb;
-    }
-
-    /**
-     * Add a dish to this command, also add the quantity information
-     * Create an association object for the relationship and set its data
-     * @param dish
-     * @param quantity
-     */
-    public void addDish(Dish dish, int quantity) {
-        AssociationCommandAndDish association = new AssociationCommandAndDish();
-        association.setDish(dish);
-        association.setCommand(this);
-        association.setDish_id(dish.getId());
-        association.setCommand_id(this.getId());
-        association.setQuantity(quantity);
-
-        this.dishes.add(association);
-
-        dish.getCommands().add(association);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public List<AssociationCommandAndDish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<AssociationCommandAndDish> dishes) {
-        this.dishes = dishes;
     }
 
     public Integer getTable() {
