@@ -17,8 +17,9 @@ public class Command implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    //TODO should consider the difference between table and table nb
     @Column(name = "TABLE")
-    private Integer tb_nb;
+    private Integer table;
 
     @Column(name = "TITLE")
     private String title;
@@ -32,5 +33,67 @@ public class Command implements Serializable {
     @Column(name = "ORDER_TIME")
     private Time order_time;
 
+    @Column(name = "TABLE_NB")
+    private Integer table_nb;
 
+    @Column(name = "CLIENT_NB")
+    private Integer client_nb;
+
+    protected Command() {}
+
+    public Command(Integer table, String title, Integer dish_id, Integer menu_id, Time order_time, Integer table_nb, Integer client_nb) {
+        this.table = table;
+        this.title = title;
+        this.dish_id = dish_id;
+        this.menu_id = menu_id;
+        this.order_time = order_time;
+        this.table_nb = table_nb;
+        this.client_nb = client_nb;
+    }
+
+    @Override
+    public String toString() {
+        return "Command{" +
+                "id=" + id +
+                ", table=" + table +
+                ", title='" + title + '\'' +
+                ", dish_id=" + dish_id +
+                ", menu_id=" + menu_id +
+                ", order_time=" + order_time +
+                ", table_nb=" + table_nb +
+                ", client_nb=" + client_nb +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Command)) return false;
+
+        Command command = (Command) o;
+
+        if (client_nb != null ? !client_nb.equals(command.client_nb) : command.client_nb != null) return false;
+        if (dish_id != null ? !dish_id.equals(command.dish_id) : command.dish_id != null) return false;
+        if (!id.equals(command.id)) return false;
+        if (menu_id != null ? !menu_id.equals(command.menu_id) : command.menu_id != null) return false;
+        if (order_time != null ? !order_time.equals(command.order_time) : command.order_time != null) return false;
+        if (table != null ? !table.equals(command.table) : command.table != null) return false;
+        if (table_nb != null ? !table_nb.equals(command.table_nb) : command.table_nb != null) return false;
+        if (title != null ? !title.equals(command.title) : command.title != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + (table != null ? table.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (dish_id != null ? dish_id.hashCode() : 0);
+        result = 31 * result + (menu_id != null ? menu_id.hashCode() : 0);
+        result = 31 * result + (order_time != null ? order_time.hashCode() : 0);
+        result = 31 * result + (table_nb != null ? table_nb.hashCode() : 0);
+        result = 31 * result + (client_nb != null ? client_nb.hashCode() : 0);
+        return result;
+    }
 }

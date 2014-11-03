@@ -40,16 +40,38 @@ public class Activity implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Activity[id=%d, name='%s', type='%d', startTime='%s', endTime='%s']", id, name, type, start_time.toString(), end_time.toString());
+        return "Activity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                ", start_time=" + start_time +
+                ", end_time=" + end_time +
+                '}';
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || this.getClass() != obj.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Activity)) return false;
 
-        Activity activity = (Activity) obj;
+        Activity activity = (Activity) o;
 
-        return !(this.id != null ? !this.id.equals(activity.id) : activity.id != null);
+        if (end_time != null ? !end_time.equals(activity.end_time) : activity.end_time != null) return false;
+        if (!id.equals(activity.id)) return false;
+        if (name != null ? !name.equals(activity.name) : activity.name != null) return false;
+        if (start_time != null ? !start_time.equals(activity.start_time) : activity.start_time != null) return false;
+        if (type != null ? !type.equals(activity.type) : activity.type != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (start_time != null ? start_time.hashCode() : 0);
+        result = 31 * result + (end_time != null ? end_time.hashCode() : 0);
+        return result;
     }
 }
