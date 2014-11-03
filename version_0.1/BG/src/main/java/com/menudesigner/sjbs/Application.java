@@ -7,11 +7,14 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * Created by JIN Benli on 27/10/14.
  */
 @Configuration
+@EnableJpaRepositories
+//@Import(RepositoryRestMvcConfiguration.class)
 @EnableAutoConfiguration
 @ComponentScan
 public class Application {

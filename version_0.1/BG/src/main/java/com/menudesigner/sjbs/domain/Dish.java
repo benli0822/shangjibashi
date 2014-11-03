@@ -3,6 +3,8 @@ package com.menudesigner.sjbs.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 03/11/14.
@@ -44,6 +46,12 @@ public class Dish implements Serializable {
 
     @Column(name = "END_TIME")
     private Time end_time;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "jb_command_dish",
+            joinColumns = {@JoinColumn(name = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "COMMANDID")})
+    private Set<Command> commands = new HashSet<Command>();
 
     protected Dish() {
     }
