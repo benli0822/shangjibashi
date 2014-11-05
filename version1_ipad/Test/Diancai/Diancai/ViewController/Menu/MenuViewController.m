@@ -36,6 +36,12 @@
     [super viewDidLoad];
  
     [self initDishArray];
+    
+    //关闭ios7以上后退手势
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    
     _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 780, 600)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
@@ -52,11 +58,10 @@
     
     
 #pragma mark carousel 头设置
-    NSArray *title = @[@"甜点",@"正餐",@"饮料"];
-    
+        
     __weak typeof(_carousel) weakCarousel = _carousel;
     
-    _segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(175, 112, 780, 36) Items:title selectedBlock:^(NSInteger index) {
+    _segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(175, 112, 780, 36) Items:_sousMenuList selectedBlock:^(NSInteger index) {
         
         [weakCarousel scrollToItemAtIndex:index animated:NO];
     }];
@@ -81,11 +86,11 @@
  *  setup all the data(dishnames)
  */
 -(void) initDishArray{
-    //NSArray *allDishs = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
+    NSArray *allDishs = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
     
     NSLog(@"try to init dict");
     
-    _sousMenuList = @[@"甜点",@"正餐",@"饮料"];
+    _sousMenuList = @[@"全部",@"甜点",@"正餐",@"饮料"];
     
     
     
@@ -95,13 +100,15 @@
     
     
     
-    //先阶段设置死3个不同的菜单
+    //先阶段设置死4个不同的菜单
     NSArray *dessertArray = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg",@"white_chocolate_donut.jpg",nil];
     NSArray *mainPlatArray = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg",nil ];
     
     NSArray *drinkArray = [NSArray arrayWithObjects:@"starbucks_coffee.jpg",nil];
     
     
+    [_dishDictionary setValue:allDishs forKey:@"全部"];
+
     [_dishDictionary setValue:dessertArray forKey:@"甜点"];
     
     [_dishDictionary setValue:mainPlatArray forKey:@"正餐"];

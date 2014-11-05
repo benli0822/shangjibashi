@@ -82,6 +82,9 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="dishSearchBar" destination="VYw-nV-Txb" id="OvU-Ow-16X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hc-Zl-cFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

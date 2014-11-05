@@ -49,6 +49,8 @@
         
         [_contentCollectionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
         
+        
+               
     }
     
     return self;
@@ -78,6 +80,7 @@
 
 #pragma mark collection view DataSource
 
+//在这里加上search的方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.recipeImages.count;
 }
@@ -127,6 +130,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
-
-
+#pragma 在这里加搜索的方法
+// NSPredicate *predicat = [NSPredicate predicateWithFormat:@[]]
+//UISearchDisplatDelegate
 @end
