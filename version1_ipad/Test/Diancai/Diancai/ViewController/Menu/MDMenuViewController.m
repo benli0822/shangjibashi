@@ -11,20 +11,20 @@
 //为了实现转动切换标签效果我可能要用 https://github.com/nicklockwood/iCarousel
 
 
-#import "MenuViewController.h"
+#import "MDMenuViewController.h"
 #import "iCarousel.h"
 #import "XTSegmentControl.h"
-#import "DishView.h"
+#import "MDDishView.h"
 
 //
 
-@interface MenuViewController ()<iCarouselDataSource,iCarouselDelegate>
+@interface MDMenuViewController ()<iCarouselDataSource,iCarouselDelegate>
 @property (nonatomic , strong) XTSegmentControl *segmentControl;
 @property (nonatomic , strong) iCarousel *carousel;
 
 @end
 
-@implementation MenuViewController
+@implementation MDMenuViewController
 @synthesize  MenuDishCollectionViewController = _MenuDishCollectionViewController;
 
 @synthesize carousel = _carousel;
@@ -131,19 +131,19 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {    
    
-    DishView *listView = nil;
+    MDDishView *listView = nil;
     
     if (view == nil)
     {
         view = [[UIView alloc] initWithFrame:carousel.bounds];
-        listView = [[DishView alloc] initWithFrame:view.bounds];//修改此处的类型
+        listView = [[MDDishView alloc] initWithFrame:view.bounds];//修改此处的类型
         listView.tag = 1;
         //listView.delegate = self;
         [view addSubview:listView];
         
     }else{
         
-        listView = (DishView *)[view viewWithTag:1];
+        listView = (MDDishView *)[view viewWithTag:1];
     }
     
     [listView loadCollectionViewWithArray:[_dishDictionary objectForKey:[_sousMenuList objectAtIndex:index]]];

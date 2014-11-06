@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DishView :  UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface MDDishView :  UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 
 

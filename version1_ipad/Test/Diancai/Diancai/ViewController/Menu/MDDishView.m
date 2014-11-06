@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "DishView.h"
+#import "MDDishView.h"
 #import "DishCollectionViewCell.h"
-#import "DishPopoverControllerViewController.h"
+#import "MDDishPopoverControllerViewController.h"
 
 
 
-@implementation DishView
+@implementation MDDishView
 
 @synthesize recipeImages = _recipeImages;
 @synthesize contentCollectionView = _contentCollectionView;
@@ -120,7 +120,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         static NSString *identifier = @"Cell";
      DishCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     CGRect rect=CGRectMake(cell.bounds.origin.x+600, cell.bounds.origin.y+10, 50, 30);
-    DishPopoverControllerViewController *PopoverView =[[DishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
+    MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
     
 #pragma 这里还有问题!!
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DishPopoverControllerViewController : UIViewController
+@interface MDDishPopoverControllerViewController : UIViewController
 
 @end

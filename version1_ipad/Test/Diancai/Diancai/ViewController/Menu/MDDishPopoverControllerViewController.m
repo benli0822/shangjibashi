@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "DishPopoverControllerViewController.h"
+#import "MDDishPopoverControllerViewController.h"
 
-@interface DishPopoverControllerViewController ()
+@interface MDDishPopoverControllerViewController ()
 
 @end
 
-@implementation DishPopoverControllerViewController
+@implementation MDDishPopoverControllerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

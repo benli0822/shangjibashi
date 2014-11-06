@@ -10,7 +10,7 @@
 
 @class  MenuCollectionViewControl;
 
-@interface MenuViewController : UIViewController
+@interface MDMenuViewController : UIViewController
 @property(nonatomic,retain)  MenuCollectionViewControl *MenuDishCollectionViewController;
 @property (weak, nonatomic) IBOutlet UISearchBar *dishSearchBar;
 

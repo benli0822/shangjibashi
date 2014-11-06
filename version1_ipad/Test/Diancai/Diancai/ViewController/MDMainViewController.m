@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "MenuViewController.h"
+#import "MDMainViewController.h"
+#import "MDMenuViewController.h"
 
-@interface ViewController ()
+@interface MDMainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MDMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,7 +23,7 @@
 #pragma mark 进行点菜操作
 - (IBAction)selectOrder:(id)sender {
     
-    MenuViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    MDMenuViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
