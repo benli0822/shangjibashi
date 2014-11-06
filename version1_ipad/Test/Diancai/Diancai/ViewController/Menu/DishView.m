@@ -117,8 +117,7 @@
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    NSLog(@" select a view");
-    static NSString *identifier = @"Cell";
+        static NSString *identifier = @"Cell";
      DishCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     CGRect rect=CGRectMake(cell.bounds.origin.x+600, cell.bounds.origin.y+10, 50, 30);
     DishPopoverControllerViewController *PopoverView =[[DishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
