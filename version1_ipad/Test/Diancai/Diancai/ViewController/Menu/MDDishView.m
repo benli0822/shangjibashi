@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "DishView.h"
+#import "MDDishView.h"
 #import "DishCollectionViewCell.h"
-#import "DishPopoverControllerViewController.h"
+#import "MDDishPopoverControllerViewController.h"
 
 
 
-@implementation DishView
+@implementation MDDishView
 
 @synthesize recipeImages = _recipeImages;
 @synthesize contentCollectionView = _contentCollectionView;
@@ -49,6 +49,8 @@
         
         [_contentCollectionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
         
+        
+               
     }
     
     return self;
@@ -78,6 +80,7 @@
 
 #pragma mark collection view DataSource
 
+//在这里加上search的方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.recipeImages.count;
 }
@@ -114,11 +117,10 @@
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    NSLog(@" select a view");
-    static NSString *identifier = @"Cell";
+        static NSString *identifier = @"Cell";
      DishCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     CGRect rect=CGRectMake(cell.bounds.origin.x+600, cell.bounds.origin.y+10, 50, 30);
-    DishPopoverControllerViewController *PopoverView =[[DishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
+    MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
     
 #pragma 这里还有问题!!
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
@@ -127,6 +129,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
-
-
+#pragma 在这里加搜索的方法
+// NSPredicate *predicat = [NSPredicate predicateWithFormat:@[]]
+//UISearchDisplatDelegate
 @end

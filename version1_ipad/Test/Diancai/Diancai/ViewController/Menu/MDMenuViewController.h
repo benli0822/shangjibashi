@@ -10,8 +10,9 @@
 
 @class  MenuCollectionViewControl;
 
-@interface MenuViewController : UIViewController
+@interface MDMenuViewController : UIViewController
 @property(nonatomic,retain)  MenuCollectionViewControl *MenuDishCollectionViewController;
+@property (weak, nonatomic) IBOutlet UISearchBar *dishSearchBar;
 
 
 //NSDictionary 就像java 里面的 map. 这里一个字典key存放一个list菜单
