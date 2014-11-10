@@ -3,8 +3,6 @@ package com.menudesigner.sjbs.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by JIN Benli on 03/11/14.
@@ -17,7 +15,7 @@ public class Command implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private long id;
 
     @Column(name = "table")
     private Integer table;
@@ -34,9 +32,6 @@ public class Command implements Serializable {
 
     @Column(name = "client_no")
     private Integer client_no;
-
-    @ManyToMany(mappedBy = "commands")
-    private Set<Dish> dishes = new HashSet<Dish>();
 
     protected Command() {
     }

@@ -15,10 +15,10 @@ public class Menu implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     @Column(name = "name")
-    private Integer name;
+    private String name;
 
     @Column(name = "start_time")
     private Time start_time;
