@@ -17,11 +17,15 @@
 		3CCD8DC619E1CD7B00F43497 /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD8DC319E1CD7B00F43497 /* PSCollectionView.m */; };
 		3CCD8DC719E1CD7B00F43497 /* PSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD8DC519E1CD7B00F43497 /* PSCollectionViewCell.m */; };
 		3CCD8DCA19E1CDBC00F43497 /* MDDishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD8DC919E1CDBC00F43497 /* MDDishView.m */; };
-		3CCD8DD019E1D40400F43497 /* DishCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD8DCF19E1D40400F43497 /* DishCollectionViewCell.m */; };
 		3CD70F571A0AC56B00BDA022 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD70F561A0AC56B00BDA022 /* XTSegmentControl.m */; };
 		3CDCE54A1A01B3A10074923C /* MDDishPopoverControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDCE5481A01B3A10074923C /* MDDishPopoverControllerViewController.m */; };
 		3CDCE54B1A01B3A10074923C /* MDDishPopoverControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CDCE5491A01B3A10074923C /* MDDishPopoverControllerViewController.xib */; };
 		3CE25EF71A0B838E00DD249B /* MDActivicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EF61A0B838E00DD249B /* MDActivicy.m */; };
+		3CE25EFA1A0B848900DD249B /* MDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EF91A0B848900DD249B /* MDCommand.m */; };
+		3CE25EFD1A0B849E00DD249B /* MDDish.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EFC1A0B849E00DD249B /* MDDish.m */; };
+		3CE25F001A0B84BD00DD249B /* MDType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EFF1A0B84BD00DD249B /* MDType.m */; };
+		3CE25F061A0B860900DD249B /* DishCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */; };
+		3CE25F091A0BA56700DD249B /* MDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25F081A0BA56700DD249B /* MDMenu.m */; };
 		3CFE306219D53EF500210AD5 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE305219D53EF500210AD5 /* angry_birds_cake.jpg */; };
 		3CFE306319D53EF500210AD5 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE305319D53EF500210AD5 /* creme_brelee.jpg */; };
 		3CFE306419D53EF500210AD5 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE305419D53EF500210AD5 /* egg_benedict.jpg */; };
@@ -72,8 +76,6 @@
 		3CCD8DC519E1CD7B00F43497 /* PSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSCollectionViewCell.m; path = resource/PSCollectionView/PSCollectionViewCell.m; sourceTree = "<group>"; };
 		3CCD8DC819E1CDBC00F43497 /* MDDishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishView.h; path = ViewController/Menu/MDDishView.h; sourceTree = "<group>"; };
 		3CCD8DC919E1CDBC00F43497 /* MDDishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishView.m; path = ViewController/Menu/MDDishView.m; sourceTree = "<group>"; };
-		3CCD8DCE19E1D40400F43497 /* DishCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishCollectionViewCell.h; sourceTree = "<group>"; };
-		3CCD8DCF19E1D40400F43497 /* DishCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishCollectionViewCell.m; sourceTree = "<group>"; };
 		3CD70F551A0AC56B00BDA022 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XTSegmentControl.h; path = Libraries/XTSegmentControl/XTSegmentControl.h; sourceTree = "<group>"; };
 		3CD70F561A0AC56B00BDA022 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XTSegmentControl.m; path = Libraries/XTSegmentControl/XTSegmentControl.m; sourceTree = "<group>"; };
 		3CDCE5471A01B3A10074923C /* MDDishPopoverControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishPopoverControllerViewController.h; path = ViewController/Menu/MDDishPopoverControllerViewController.h; sourceTree = "<group>"; };
@@ -81,6 +83,16 @@
 		3CDCE5491A01B3A10074923C /* MDDishPopoverControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDDishPopoverControllerViewController.xib; path = ViewController/Menu/MDDishPopoverControllerViewController.xib; sourceTree = "<group>"; };
 		3CE25EF51A0B838E00DD249B /* MDActivicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDActivicy.h; path = Data/Model/MDActivicy.h; sourceTree = "<group>"; };
 		3CE25EF61A0B838E00DD249B /* MDActivicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDActivicy.m; path = Data/Model/MDActivicy.m; sourceTree = "<group>"; };
+		3CE25EF81A0B848900DD249B /* MDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDCommand.h; path = Data/Model/MDCommand.h; sourceTree = "<group>"; };
+		3CE25EF91A0B848900DD249B /* MDCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDCommand.m; path = Data/Model/MDCommand.m; sourceTree = "<group>"; };
+		3CE25EFB1A0B849E00DD249B /* MDDish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDish.h; path = Data/Model/MDDish.h; sourceTree = "<group>"; };
+		3CE25EFC1A0B849E00DD249B /* MDDish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDish.m; path = Data/Model/MDDish.m; sourceTree = "<group>"; };
+		3CE25EFE1A0B84BD00DD249B /* MDType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDType.h; path = Data/Model/MDType.h; sourceTree = "<group>"; };
+		3CE25EFF1A0B84BD00DD249B /* MDType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDType.m; path = Data/Model/MDType.m; sourceTree = "<group>"; };
+		3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DishCollectionViewCell.m; path = ViewController/Menu/DishCollectionViewCell.m; sourceTree = "<group>"; };
+		3CE25F051A0B860900DD249B /* DishCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DishCollectionViewCell.h; path = ViewController/Menu/DishCollectionViewCell.h; sourceTree = "<group>"; };
+		3CE25F071A0BA56700DD249B /* MDMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenu.h; path = Data/Model/MDMenu.h; sourceTree = "<group>"; };
+		3CE25F081A0BA56700DD249B /* MDMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenu.m; path = Data/Model/MDMenu.m; sourceTree = "<group>"; };
 		3CFE305219D53EF500210AD5 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = angry_birds_cake.jpg; path = resource/image/angry_birds_cake.jpg; sourceTree = "<group>"; };
 		3CFE305319D53EF500210AD5 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = creme_brelee.jpg; path = resource/image/creme_brelee.jpg; sourceTree = "<group>"; };
 		3CFE305419D53EF500210AD5 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = egg_benedict.jpg; path = resource/image/egg_benedict.jpg; sourceTree = "<group>"; };
@@ -149,8 +161,8 @@
 		3C1E6EEA19D21B6F007ADBB0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3CCD8DCE19E1D40400F43497 /* DishCollectionViewCell.h */,
-				3CCD8DCF19E1D40400F43497 /* DishCollectionViewCell.m */,
+				3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */,
+				3CE25F051A0B860900DD249B /* DishCollectionViewCell.h */,
 				3C4E480C19D31A85002BCDEC /* DishCollectionViewCell.xib */,
 			);
 			name = Cell;
@@ -243,6 +255,14 @@
 			children = (
 				3CE25EF51A0B838E00DD249B /* MDActivicy.h */,
 				3CE25EF61A0B838E00DD249B /* MDActivicy.m */,
+				3CE25EF81A0B848900DD249B /* MDCommand.h */,
+				3CE25EF91A0B848900DD249B /* MDCommand.m */,
+				3CE25EFB1A0B849E00DD249B /* MDDish.h */,
+				3CE25EFC1A0B849E00DD249B /* MDDish.m */,
+				3CE25EFE1A0B84BD00DD249B /* MDType.h */,
+				3CE25EFF1A0B84BD00DD249B /* MDType.m */,
+				3CE25F071A0BA56700DD249B /* MDMenu.h */,
+				3CE25F081A0BA56700DD249B /* MDMenu.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -441,17 +461,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CE25EF71A0B838E00DD249B /* MDActivicy.m in Sources */,
+				3CE25F001A0B84BD00DD249B /* MDType.m in Sources */,
 				3CD70F571A0AC56B00BDA022 /* XTSegmentControl.m in Sources */,
 				3CFE307C19D553CB00210AD5 /* MDMainViewController.m in Sources */,
 				3CDCE54A1A01B3A10074923C /* MDDishPopoverControllerViewController.m in Sources */,
 				3CCD8DCA19E1CDBC00F43497 /* MDDishView.m in Sources */,
-				3CCD8DD019E1D40400F43497 /* DishCollectionViewCell.m in Sources */,
 				3CCD8DC619E1CD7B00F43497 /* PSCollectionView.m in Sources */,
 				3CFE307819D5537700210AD5 /* AppDelegate.m in Sources */,
+				3CE25F061A0B860900DD249B /* DishCollectionViewCell.m in Sources */,
+				3CE25F091A0BA56700DD249B /* MDMenu.m in Sources */,
 				3CC8531219D0596900668F13 /* main.m in Sources */,
 				3CFE307419D53F6300210AD5 /* iCarousel.m in Sources */,
+				3CE25EFD1A0B849E00DD249B /* MDDish.m in Sources */,
 				3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */,
 				3CCD8DC719E1CD7B00F43497 /* PSCollectionViewCell.m in Sources */,
+				3CE25EFA1A0B848900DD249B /* MDCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
