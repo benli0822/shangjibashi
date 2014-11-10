@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLocale* curentLocale = [NSLocale currentLocale];
+    NSString *localId = [curentLocale localeIdentifier];
+    NSLog(@"%@",localId);
     // Do any additional setup after loading the view, typically from a nib.
 }
 

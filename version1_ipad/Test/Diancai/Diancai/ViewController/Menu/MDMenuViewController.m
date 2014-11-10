@@ -42,7 +42,7 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 780, 600)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 840, 590)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
     _carousel.delegate = self;

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */; };
-		3C4E480E19D31A85002BCDEC /* DishCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4E480C19D31A85002BCDEC /* DishCollectionViewCell.xib */; };
 		3CC8531219D0596900668F13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8531119D0596900668F13 /* main.m */; };
 		3CC8531B19D0596900668F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531919D0596900668F13 /* Main.storyboard */; };
 		3CC8531D19D0596900668F13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531C19D0596900668F13 /* Images.xcassets */; };
@@ -18,8 +17,9 @@
 		3CCD8DC719E1CD7B00F43497 /* PSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD8DC519E1CD7B00F43497 /* PSCollectionViewCell.m */; };
 		3CCD8DCA19E1CDBC00F43497 /* MDDishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD8DC919E1CDBC00F43497 /* MDDishView.m */; };
 		3CD70F571A0AC56B00BDA022 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD70F561A0AC56B00BDA022 /* XTSegmentControl.m */; };
+		3CD820941A1174D40024823C /* DishCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD820961A1174D40024823C /* DishCollectionViewCell.xib */; };
+		3CD8209B1A11778C0024823C /* MDDishPopoverControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD8209D1A11778C0024823C /* MDDishPopoverControllerViewController.xib */; };
 		3CDCE54A1A01B3A10074923C /* MDDishPopoverControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDCE5481A01B3A10074923C /* MDDishPopoverControllerViewController.m */; };
-		3CDCE54B1A01B3A10074923C /* MDDishPopoverControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CDCE5491A01B3A10074923C /* MDDishPopoverControllerViewController.xib */; };
 		3CE25EF71A0B838E00DD249B /* MDActivicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EF61A0B838E00DD249B /* MDActivicy.m */; };
 		3CE25EFA1A0B848900DD249B /* MDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EF91A0B848900DD249B /* MDCommand.m */; };
 		3CE25EFD1A0B849E00DD249B /* MDDish.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE25EFC1A0B849E00DD249B /* MDDish.m */; };
@@ -58,9 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C156A021A115C8000ABF5D1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		3C156A031A115C8000ABF5D1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3C1E6EE719D21B40007ADBB0 /* MDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuViewController.h; path = ViewController/Menu/MDMenuViewController.h; sourceTree = "<group>"; };
 		3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuViewController.m; path = ViewController/Menu/MDMenuViewController.m; sourceTree = "<group>"; };
-		3C4E480C19D31A85002BCDEC /* DishCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DishCollectionViewCell.xib; path = ViewController/Menu/Cell/DishCollectionViewCell.xib; sourceTree = "<group>"; };
 		3CC8530C19D0596800668F13 /* Diancai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diancai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC8531019D0596900668F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC8531119D0596900668F13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,9 +79,16 @@
 		3CCD8DC919E1CDBC00F43497 /* MDDishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishView.m; path = ViewController/Menu/MDDishView.m; sourceTree = "<group>"; };
 		3CD70F551A0AC56B00BDA022 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XTSegmentControl.h; path = Libraries/XTSegmentControl/XTSegmentControl.h; sourceTree = "<group>"; };
 		3CD70F561A0AC56B00BDA022 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XTSegmentControl.m; path = Libraries/XTSegmentControl/XTSegmentControl.m; sourceTree = "<group>"; };
+		3CD820921A11628C0024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		3CD820931A11628C0024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3CD820951A1174D40024823C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DishCollectionViewCell.xib; sourceTree = "<group>"; };
+		3CD820981A1174DE0024823C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DishCollectionViewCell.strings; sourceTree = "<group>"; };
+		3CD8209A1A1174DF0024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DishCollectionViewCell.strings"; sourceTree = "<group>"; };
+		3CD8209C1A11778C0024823C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MDDishPopoverControllerViewController.xib; sourceTree = "<group>"; };
+		3CD8209F1A11778E0024823C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MDDishPopoverControllerViewController.strings; sourceTree = "<group>"; };
+		3CD820A11A11778F0024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MDDishPopoverControllerViewController.strings"; sourceTree = "<group>"; };
 		3CDCE5471A01B3A10074923C /* MDDishPopoverControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishPopoverControllerViewController.h; path = ViewController/Menu/MDDishPopoverControllerViewController.h; sourceTree = "<group>"; };
 		3CDCE5481A01B3A10074923C /* MDDishPopoverControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishPopoverControllerViewController.m; path = ViewController/Menu/MDDishPopoverControllerViewController.m; sourceTree = "<group>"; };
-		3CDCE5491A01B3A10074923C /* MDDishPopoverControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDDishPopoverControllerViewController.xib; path = ViewController/Menu/MDDishPopoverControllerViewController.xib; sourceTree = "<group>"; };
 		3CE25EF51A0B838E00DD249B /* MDActivicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDActivicy.h; path = Data/Model/MDActivicy.h; sourceTree = "<group>"; };
 		3CE25EF61A0B838E00DD249B /* MDActivicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDActivicy.m; path = Data/Model/MDActivicy.m; sourceTree = "<group>"; };
 		3CE25EF81A0B848900DD249B /* MDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDCommand.h; path = Data/Model/MDCommand.h; sourceTree = "<group>"; };
@@ -145,7 +153,7 @@
 				3CCD8DC919E1CDBC00F43497 /* MDDishView.m */,
 				3CDCE5471A01B3A10074923C /* MDDishPopoverControllerViewController.h */,
 				3CDCE5481A01B3A10074923C /* MDDishPopoverControllerViewController.m */,
-				3CDCE5491A01B3A10074923C /* MDDishPopoverControllerViewController.xib */,
+				3CD8209D1A11778C0024823C /* MDDishPopoverControllerViewController.xib */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -163,7 +171,7 @@
 			children = (
 				3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */,
 				3CE25F051A0B860900DD249B /* DishCollectionViewCell.h */,
-				3C4E480C19D31A85002BCDEC /* DishCollectionViewCell.xib */,
+				3CD820961A1174D40024823C /* DishCollectionViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -405,6 +413,8 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				"zh-Hans",
 			);
 			mainGroup = 3CC8530319D0596800668F13;
 			productRefGroup = 3CC8530D19D0596800668F13 /* Products */;
@@ -431,13 +441,13 @@
 				3CFE306A19D53EF500210AD5 /* instant_noodle_with_egg.jpg in Resources */,
 				3CFE306619D53EF500210AD5 /* green_tea.jpg in Resources */,
 				3CC8531D19D0596900668F13 /* Images.xcassets in Resources */,
-				3CDCE54B1A01B3A10074923C /* MDDishPopoverControllerViewController.xib in Resources */,
+				3CD8209B1A11778C0024823C /* MDDishPopoverControllerViewController.xib in Resources */,
 				3CFE307019D53EF500210AD5 /* vegetable_curry.jpg in Resources */,
 				3CFE306B19D53EF500210AD5 /* japanese_noodle_with_pork.jpg in Resources */,
 				3CFE306D19D53EF500210AD5 /* noodle_with_bbq_pork.jpg in Resources */,
 				3CFE306F19D53EF500210AD5 /* thai_shrimp_cake.jpg in Resources */,
 				3CFE306519D53EF500210AD5 /* full_breakfast.jpg in Resources */,
-				3C4E480E19D31A85002BCDEC /* DishCollectionViewCell.xib in Resources */,
+				3CD820941A1174D40024823C /* DishCollectionViewCell.xib in Resources */,
 				3CFE306819D53EF500210AD5 /* ham_and_egg_sandwich.jpg in Resources */,
 				3CFE306C19D53EF500210AD5 /* mushroom_risotto.jpg in Resources */,
 				3CFE306219D53EF500210AD5 /* angry_birds_cake.jpg in Resources */,
@@ -502,6 +512,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3CC8531A19D0596900668F13 /* Base */,
+				3C156A021A115C8000ABF5D1 /* fr */,
+				3CD820921A11628C0024823C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -510,8 +522,32 @@
 			isa = PBXVariantGroup;
 			children = (
 				3CC8531F19D0596900668F13 /* Base */,
+				3C156A031A115C8000ABF5D1 /* fr */,
+				3CD820931A11628C0024823C /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		3CD820961A1174D40024823C /* DishCollectionViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CD820951A1174D40024823C /* Base */,
+				3CD820981A1174DE0024823C /* fr */,
+				3CD8209A1A1174DF0024823C /* zh-Hans */,
+			);
+			name = DishCollectionViewCell.xib;
+			path = ViewController/Menu/Cell;
+			sourceTree = "<group>";
+		};
+		3CD8209D1A11778C0024823C /* MDDishPopoverControllerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CD8209C1A11778C0024823C /* Base */,
+				3CD8209F1A11778E0024823C /* fr */,
+				3CD820A11A11778F0024823C /* zh-Hans */,
+			);
+			name = MDDishPopoverControllerViewController.xib;
+			path = ViewController/Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

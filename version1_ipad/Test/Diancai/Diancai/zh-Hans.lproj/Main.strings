@@ -1,0 +1,12 @@
+
+/* Class = "IBUILabel"; text = "选择喜欢的菜直接点击进行点菜"; ObjectID = "2Aw-zK-COa"; */
+"2Aw-zK-COa.text" = "这是中文点菜";
+
+/* Class = "IBUIButton"; normalTitle = "列表显示"; ObjectID = "Gcu-Vq-heG"; */
+"Gcu-Vq-heG.normalTitle" = "列表显示";
+
+/* Class = "IBUIButton"; normalTitle = "图片显示"; ObjectID = "SFR-uZ-W7Q"; */
+"SFR-uZ-W7Q.normalTitle" = "图片显示";
+
+/* Class = "IBUIButton"; normalTitle = "点菜"; ObjectID = "xX4-oF-q7U"; */
+"xX4-oF-q7U.normalTitle" = "点菜";
