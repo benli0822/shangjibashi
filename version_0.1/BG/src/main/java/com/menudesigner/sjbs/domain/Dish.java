@@ -11,7 +11,7 @@ import java.util.List;
  * Created by JIN Benli on 03/11/14.
  */
 @Entity
-@Table(name = "jb_dish")
+@Table(name = "md_dish")
 public class Dish implements Serializable {
 
     private static final long serialVersionUID = 1L;

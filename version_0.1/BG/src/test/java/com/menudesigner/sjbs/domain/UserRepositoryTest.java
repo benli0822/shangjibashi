@@ -1,8 +1,7 @@
 package com.menudesigner.sjbs.domain;
 
 import com.menudesigner.sjbs.Application;
-import com.menudesigner.sjbs.domain.User;
-import com.menudesigner.sjbs.service.UserRepository;
+import com.menudesigner.sjbs.service.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

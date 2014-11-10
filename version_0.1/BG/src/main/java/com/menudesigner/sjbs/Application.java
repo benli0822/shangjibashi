@@ -1,20 +1,22 @@
 package com.menudesigner.sjbs;
 
 import com.menudesigner.sjbs.domain.User;
-import com.menudesigner.sjbs.service.UserRepository;
+import com.menudesigner.sjbs.service.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 
 /**
  * Created by JIN Benli on 27/10/14.
  */
 @Configuration
 @EnableJpaRepositories
-//@Import(RepositoryRestMvcConfiguration.class)
+@Import(RepositoryRestMvcConfiguration.class)
 @EnableAutoConfiguration
 @ComponentScan
 public class Application {
