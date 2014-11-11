@@ -104,10 +104,17 @@
     //recipeImageView.image = [UIImage imageNamed:[self.recipeImages objectAtIndex:indexPath.row]];
     //cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
+    
+    //设置显示菜名 除去末尾.jpg
     if ([[_recipeImages objectAtIndex:indexPath.row] length] > 0) {
         cell.platNameLabel.text =[[_recipeImages objectAtIndex:indexPath.row] substringToIndex:[[_recipeImages objectAtIndex:indexPath.row] length] -4 ];
+        
+        
+        //设置图片
         [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
-
+        
+        //设置价格
+        cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[cell.platNameLabel.text length]];
     }
     else{
         cell.platNameLabel.text = @"no name";

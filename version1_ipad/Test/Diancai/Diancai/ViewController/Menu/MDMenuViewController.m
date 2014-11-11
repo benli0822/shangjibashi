@@ -15,6 +15,7 @@
 #import "iCarousel.h"
 #import "XTSegmentControl.h"
 #import "MDDishView.h"
+#import "MDFirstMenuTableController.h"
 
 //
 
@@ -25,12 +26,13 @@
 @end
 
 @implementation MDMenuViewController
-@synthesize  MenuDishCollectionViewController = _MenuDishCollectionViewController;
+
 
 @synthesize carousel = _carousel;
 @synthesize segmentControl = _segmentControl;
 @synthesize dishDictionary = _dishDictionary;
-
+@synthesize firstMenuTableViewController = _firstMenuTableViewController;
+@synthesize firstMenuTableController = _firstMenuTableController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +44,7 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 840, 590)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 840, 620)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
     _carousel.delegate = self;
@@ -70,8 +72,16 @@
 
 
 
+#pragma mark first menu table setting
     
+    [self.firstMenuTableViewController registerNib:[UINib nibWithNibName:@"MDFirstMenuTableCell"
+                                               bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"Cell"];
     
+    _firstMenuTableController = [[MDFirstMenuTableController alloc] init];
+    _firstMenuTableController.data = [NSMutableArray arrayWithObjects:@"Chef propose", @"Entrée",@"Plat",@"Promotion",@"Boission",@"Dessert",@"Favoir",nil];
+    [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
+    [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
     
     //[_ColletionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
     
@@ -90,7 +100,7 @@
     
     
     
-    _sousMenuList = @[@"全部",@"甜点",@"正餐",@"饮料"];
+    _sousMenuList = @[@"tout",@"chef_propose",@"régional",@"chaude"];
     
     
     
@@ -107,14 +117,14 @@
     NSArray *drinkArray = [NSArray arrayWithObjects:@"starbucks_coffee.jpg",nil];
     
     
-    [_dishDictionary setValue:allDishs forKey:@"全部"];
+    [_dishDictionary setValue:allDishs forKey:@"tout"];
 
-    [_dishDictionary setValue:dessertArray forKey:@"甜点"];
+    [_dishDictionary setValue:dessertArray forKey:@"chef_propose"];
     
-    [_dishDictionary setValue:mainPlatArray forKey:@"正餐"];
+    [_dishDictionary setValue:mainPlatArray forKey:@"régional"];
     
     
-    [_dishDictionary setValue:drinkArray forKey:@"饮料"];
+    [_dishDictionary setValue:drinkArray forKey:@"chaude"];
     
     
 }
@@ -136,7 +146,7 @@
     if (view == nil)
     {
         view = [[UIView alloc] initWithFrame:carousel.bounds];
-        listView = [[MDDishView alloc] initWithFrame:view.bounds];//修改此处的类型
+        listView = [[MDDishView alloc] initWithFrame:view.bounds];
         listView.tag = 1;
         //listView.delegate = self;
         [view addSubview:listView];

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class  MenuCollectionViewControl;
+
+@class MDFirstMenuTableController;
 
 @interface MDMenuViewController : UIViewController
-@property(nonatomic,retain)  MenuCollectionViewControl *MenuDishCollectionViewController;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *dishSearchBar;
+@property (weak, nonatomic) IBOutlet UITableView *firstMenuTableViewController;
 
 
 //NSDictionary 就像java 里面的 map. 这里一个字典key存放一个list菜单
@@ -20,6 +22,9 @@
 
 //NSArray 存放次级菜单的string list
 @property(nonatomic, strong) NSArray *sousMenuList;
+
+//first menu table controller
+@property(nonatomic, strong) MDFirstMenuTableController *firstMenuTableController;
 
 
 @end

@@ -84,11 +84,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="dishSearchBar" destination="VYw-nV-Txb" id="OvU-Ow-16X"/>
+                        <outlet property="firstMenuTableViewController" destination="CZu-oE-le4" id="fZX-uz-Z0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hc-Zl-cFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2321" y="235"/>
+            <point key="canvasLocation" x="2363" y="227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zpc-US-IRW">
