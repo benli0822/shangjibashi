@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.preferredContentSize = CGSizeMake(400.0, 400.0);
+    self.preferredContentSize = CGSizeMake(400.0, 300.0);
     
     
 }

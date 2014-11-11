@@ -85,8 +85,8 @@
 		3CD820981A1174DE0024823C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DishCollectionViewCell.strings; sourceTree = "<group>"; };
 		3CD8209A1A1174DF0024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DishCollectionViewCell.strings"; sourceTree = "<group>"; };
 		3CD8209C1A11778C0024823C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MDDishPopoverControllerViewController.xib; sourceTree = "<group>"; };
-		3CD8209F1A11778E0024823C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MDDishPopoverControllerViewController.strings; sourceTree = "<group>"; };
-		3CD820A11A11778F0024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MDDishPopoverControllerViewController.strings"; sourceTree = "<group>"; };
+		3CD820AB1A123F220024823C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MDDishPopoverControllerViewController.strings; sourceTree = "<group>"; };
+		3CD820AD1A123F250024823C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MDDishPopoverControllerViewController.strings"; sourceTree = "<group>"; };
 		3CDCE5471A01B3A10074923C /* MDDishPopoverControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishPopoverControllerViewController.h; path = ViewController/Menu/MDDishPopoverControllerViewController.h; sourceTree = "<group>"; };
 		3CDCE5481A01B3A10074923C /* MDDishPopoverControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishPopoverControllerViewController.m; path = ViewController/Menu/MDDishPopoverControllerViewController.m; sourceTree = "<group>"; };
 		3CE25EF51A0B838E00DD249B /* MDActivicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDActivicy.h; path = Data/Model/MDActivicy.h; sourceTree = "<group>"; };
@@ -543,8 +543,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3CD8209C1A11778C0024823C /* Base */,
-				3CD8209F1A11778E0024823C /* fr */,
-				3CD820A11A11778F0024823C /* zh-Hans */,
+				3CD820AB1A123F220024823C /* fr */,
+				3CD820AD1A123F250024823C /* zh-Hans */,
 			);
 			name = MDDishPopoverControllerViewController.xib;
 			path = ViewController/Menu;
