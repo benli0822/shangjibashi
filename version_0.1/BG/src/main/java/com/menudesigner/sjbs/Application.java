@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableAutoConfiguration
 @EnableJpaRepositories
-@Import(RepositoryRestMvcConfiguration.class)
+@Import({RepositoryRestMvcConfiguration.class})
 @ComponentScan
 public class Application extends WebMvcConfigurerAdapter {
 

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.springapp</groupId>
     <artifactId>BG</artifactId>
-    <packaging>war</packaging>
+    <!--<packaging>war</packaging>-->
     <version>1.0-SNAPSHOT</version>
     <name>BG</name>
 
@@ -15,7 +15,9 @@
         <java.version>1.7</java.version>
         <spring.version>4.1.0.RELEASE</spring.version>
         <start-class>com.menudesigner.sjbs.Application</start-class>
-        <tiles.version>3.0.4</tiles.version>
+        <tiles.version>2.2.2</tiles.version>
+        <thymeleaf.extras.version>2.0.0</thymeleaf.extras.version>
+        <main.basedir>${basedir}/../..</main.basedir>
     </properties>
 
     <!-- Inherit defaults from Spring Boot -->
@@ -43,11 +45,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -72,18 +73,21 @@
             <version>${tiles.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-tiles2</artifactId>
+            <version>${thymeleaf.extras.version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.1</version>
             <!--<scope>provided</scope>-->
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -99,53 +103,10 @@
     <build>
         <finalName>BG</finalName>
         <plugins>
-            <!--<plugin>-->
-            <!--<artifactId>maven-compiler-plugin</artifactId>-->
-            <!--<configuration>-->
-            <!--<source>1.6</source>-->
-            <!--<target>1.6</target>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!--<plugin>-->
-            <!--<artifactId>maven-surefire-plugin</artifactId>-->
-            <!--<configuration>-->
-            <!--<includes>-->
-            <!--<include>**/*Tests.java</include>-->
-            <!--</includes>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
-
         </plugins>
     </build>
-
-    <!-- Add Spring repositories -->
-    <!-- (you don't need this if you are using a .RELEASE version) -->
-    <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <url>http://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <url>http://repo.spring.io/snapshot</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <url>http://repo.spring.io/milestone</url>
-        </pluginRepository>
-    </pluginRepositories>
-
 </project>

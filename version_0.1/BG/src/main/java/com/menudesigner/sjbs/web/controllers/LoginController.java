@@ -20,7 +20,7 @@ public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 
-    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
     public String login(Locale locale, Model model) {
         logger.info("Welcome login! The client locale is {}.", locale);
 

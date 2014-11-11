@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-    <definition name="defaultTemplate" template="/WEB-INF/template/default/layouts/classic.jsp">
+    <definition name="defaultTemplate" template="/WEB-INF/layouts/classic.jsp">
         <put-attribute name="title" value=""/>
         <put-attribute name="keywords" value=""/>
         <put-attribute name="description" value=""/>

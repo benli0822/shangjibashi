@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
+        <a class="navbar-brand" href="../../../../resources/WEB-INF/templates/index.html/../../../../../resources/templates/index.html/../templates/index.html/../templates/index.html"><img src="img/logo.png"></a>
     </div>
     <ul class="nav navbar-nav pull-right hidden-xs">
         <li class="hidden-xs hidden-sm">
