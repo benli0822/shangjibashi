@@ -103,9 +103,17 @@
     //UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
     //recipeImageView.image = [UIImage imageNamed:[self.recipeImages objectAtIndex:indexPath.row]];
     //cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
-    cell.platNameLabel.text = [_recipeImages objectAtIndex:indexPath.row];
-    [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
-    return cell;
+    
+    if ([[_recipeImages objectAtIndex:indexPath.row] length] > 0) {
+        cell.platNameLabel.text =[[_recipeImages objectAtIndex:indexPath.row] substringToIndex:[[_recipeImages objectAtIndex:indexPath.row] length] -4 ];
+        [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
+
+    }
+    else{
+        cell.platNameLabel.text = @"no name";
+    }
+   
+       return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
