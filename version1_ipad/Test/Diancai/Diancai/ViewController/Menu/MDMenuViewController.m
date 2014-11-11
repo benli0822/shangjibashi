@@ -79,7 +79,7 @@
          forCellReuseIdentifier:@"Cell"];
     
     _firstMenuTableController = [[MDFirstMenuTableController alloc] init];
-    _firstMenuTableController.data = [NSMutableArray arrayWithObjects:@"Chef propose", @"Entrée",@"Plat",@"Promotion",@"Boission",@"Dessert",@"Favoir",nil];
+    _firstMenuTableController.data = [NSMutableArray arrayWithObjects:@"Choix de chef", @"Entrée",@"Plat",@"Dessert",@"Menu enfant",@"Boissons",@"Favoir",nil];
     [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
     [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
     
@@ -100,7 +100,7 @@
     
     
     
-    _sousMenuList = @[@"tout",@"chef_propose",@"régional",@"chaude"];
+    _sousMenuList = @[@"tout",@"Hamburgers",@"Poissons",@"Viande"];
     
     
     
@@ -119,12 +119,12 @@
     
     [_dishDictionary setValue:allDishs forKey:@"tout"];
 
-    [_dishDictionary setValue:dessertArray forKey:@"chef_propose"];
+    [_dishDictionary setValue:dessertArray forKey:@"Hamburgers"];
     
-    [_dishDictionary setValue:mainPlatArray forKey:@"régional"];
+    [_dishDictionary setValue:mainPlatArray forKey:@"Poissons"];
     
     
-    [_dishDictionary setValue:drinkArray forKey:@"chaude"];
+    [_dishDictionary setValue:drinkArray forKey:@"Viande"];
     
     
 }
