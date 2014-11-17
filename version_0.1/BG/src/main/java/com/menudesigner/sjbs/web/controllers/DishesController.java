@@ -15,14 +15,13 @@ import java.util.Locale;
  * Created by JIN Benli on 24/09/14.
  */
 @Controller
-@RequestMapping(value = "/dishes")
-        public class DishesController {
+public class DishesController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/dish", method = RequestMethod.GET)
     public String index(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -31,15 +30,15 @@ import java.util.Locale;
 
         String formattedDate = dateFormat.format(date);
 
-        model.addAttribute("serverTime", formattedDate );
+        model.addAttribute("serverTime", formattedDate);
 
-        return "dishes";
+        return "dish";
     }
 
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(params = {"action=addNewDish"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/addDish", method = RequestMethod.GET)
     public String addNewDish(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -48,8 +47,8 @@ import java.util.Locale;
 
         String formattedDate = dateFormat.format(date);
 
-        model.addAttribute("serverTime", formattedDate );
+        model.addAttribute("serverTime", formattedDate);
 
-        return "dishes?action=addNewDish";
+        return "addDish";
     }
 }

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div layout:fragment="menu">
+    <div class="sidebar" id="sidebar">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="icon-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="icon-pencil"></i>
+                </button>
+
+                <button class="btn btn-warning">
+                    <i class="icon-group"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="icon-cogs"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                <span class="btn btn-success"></span>
+
+                <span class="btn btn-info"></span>
+
+                <span class="btn btn-warning"></span>
+
+                <span class="btn btn-danger"></span>
+            </div>
+        </div>
+        <!-- #sidebar-shortcuts -->
+
+        <ul class="nav nav-list">
+            <li class="active">
+                <a href="/">
+                    <i class="icon-dashboard"></i>
+                    <span class="menu-text" th:text="#{label.index}"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-list"></i>
+                    <span class="menu-text" th:text="#{label.dishes}"></span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="addDish" th:text="#{label.adddish}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dish" th:text="#{label.listdish}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-list"></i>
+                    <span class="menu-text" th:text="#{label.menu}"></span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="tables.html" th:text="#{label.addnewmenu}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="jqgrid.html" th:text="#{label.listmenu}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-list"></i>
+                    <span class="menu-text" th:text="#{label.activites}"></span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="form-elements.html" th:text="#{label.addnewactivity}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="form-wizard.html" th:text="#{label.listactivity}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="widgets.html">
+                    <i class="icon-list-alt"></i>
+                    <span class="menu-text" th:text="#{label.info}"></span>
+                </a>
+            </li>
+        </ul>
+        <!-- /.nav-list -->
+
+        <div class="sidebar-collapse" id="sidebar-collapse">
+            <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+               data-icon2="icon-double-angle-right"></i>
+        </div>
+
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'collapsed')
+            } catch (e) {
+            }
+        </script>
+    </div>
+    <span>
+    <a href="?lang=en">en</a>
+    |
+    <a href="?lang=cn">cn</a>
+    |
+    <a href="?lang=fr">fr</a>
+</span>
+</div>
+<!-- end sidebar -->
+</body>
+</html>

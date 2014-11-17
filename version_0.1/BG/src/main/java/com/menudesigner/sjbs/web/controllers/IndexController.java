@@ -6,7 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.thymeleaf.TemplateEngine;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -17,7 +21,7 @@ import java.util.Locale;
  */
 
 @Controller
-public class IndexController {
+public class IndexController implements BaseController{
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     /**
@@ -35,5 +39,10 @@ public class IndexController {
         model.addAttribute("serverTime", formattedDate );
 
         return "index";
+    }
+
+    @Override
+    public void process(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext, TemplateEngine templateEngine) {
+
     }
 }
