@@ -10,7 +10,7 @@
 
 @interface MDDish : NSObject
 
-@property(readonly,nonatomic) NSUInteger id;
+@property(readonly,nonatomic) NSUInteger id_dish;
 @property(readonly,nonatomic) NSString *name;
 @property(readonly,nonatomic) NSUInteger type;
 @property(readonly,nonatomic) BOOL is_typed;
@@ -23,5 +23,8 @@
 
 
 
+@property(readonly,nonatomic) NSMutableArray *dishActivities;
 
+//第一个init方法, 以后可以继续加init方法
+-(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_time:(NSDate*)start_time end_time:(NSDate *)end_time;
 @end
