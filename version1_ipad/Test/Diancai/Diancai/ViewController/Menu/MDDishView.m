@@ -132,17 +132,9 @@
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     [_contentCollectionView deselectItemAtIndexPath:indexPath animated:NO];
-    
-   // CGRect anchorRect = [collectionView layoutAttributesForItemAtIndexPath:indexPath].frame;
-    
-    
-      //  static NSString *identifier = @"Cell";
-   //  DishCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    //CGRect rect=CGRectMake(cell.bounds.origin.x+330, cell.bounds.origin.y+300, 60, 90);
    CGRect rect = CGRectMake(_contentCollectionView.frame.size.width/2, _contentCollectionView.frame.size.height/2, 1, 1);
     
     MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"MDDishPopoverControllerViewController" bundle:nil];
-    
     
 #pragma 这里还有问题!!
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */; };
+		3C731B951A2F743700356747 /* MDListCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C731B931A2F743700356747 /* MDListCommandViewController.m */; };
+		3C731B961A2F743700356747 /* MDListCommandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C731B941A2F743700356747 /* MDListCommandViewController.xib */; };
+		3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C731B981A2F747A00356747 /* MDListCommandCell.m */; };
+		3C731B9B1A2F747A00356747 /* MDListCommandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C731B991A2F747A00356747 /* MDListCommandCell.xib */; };
 		3CC8531219D0596900668F13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8531119D0596900668F13 /* main.m */; };
 		3CC8531B19D0596900668F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531919D0596900668F13 /* Main.storyboard */; };
 		3CC8531D19D0596900668F13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531C19D0596900668F13 /* Images.xcassets */; };
@@ -65,6 +69,12 @@
 		3C156A031A115C8000ABF5D1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3C1E6EE719D21B40007ADBB0 /* MDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuViewController.h; path = ViewController/Menu/MDMenuViewController.h; sourceTree = "<group>"; };
 		3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuViewController.m; path = ViewController/Menu/MDMenuViewController.m; sourceTree = "<group>"; };
+		3C731B921A2F743700356747 /* MDListCommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDListCommandViewController.h; path = ViewController/Menu/ListCommand/MDListCommandViewController.h; sourceTree = "<group>"; };
+		3C731B931A2F743700356747 /* MDListCommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDListCommandViewController.m; path = ViewController/Menu/ListCommand/MDListCommandViewController.m; sourceTree = "<group>"; };
+		3C731B941A2F743700356747 /* MDListCommandViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDListCommandViewController.xib; path = ViewController/Menu/ListCommand/MDListCommandViewController.xib; sourceTree = "<group>"; };
+		3C731B971A2F747A00356747 /* MDListCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDListCommandCell.h; path = ViewController/Menu/ListCommand/Cell/MDListCommandCell.h; sourceTree = "<group>"; };
+		3C731B981A2F747A00356747 /* MDListCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDListCommandCell.m; path = ViewController/Menu/ListCommand/Cell/MDListCommandCell.m; sourceTree = "<group>"; };
+		3C731B991A2F747A00356747 /* MDListCommandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDListCommandCell.xib; path = ViewController/Menu/ListCommand/Cell/MDListCommandCell.xib; sourceTree = "<group>"; };
 		3CC8530C19D0596800668F13 /* Diancai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diancai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC8531019D0596900668F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC8531119D0596900668F13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -166,6 +176,7 @@
 				3CD8209D1A11778C0024823C /* MDDishPopoverControllerViewController.xib */,
 				3CD820B61A1295170024823C /* MDFirstMenuTableController.h */,
 				3CD820B71A1295170024823C /* MDFirstMenuTableController.m */,
+				3C731B901A2F711A00356747 /* ListCommande */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -187,6 +198,27 @@
 				3CD820AE1A1292C90024823C /* MDFirstMenuTableCell.h */,
 				3CD820AF1A1292C90024823C /* MDFirstMenuTableCell.m */,
 				3CD820BB1A12A0480024823C /* MDFirstMenuTableCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		3C731B901A2F711A00356747 /* ListCommande */ = {
+			isa = PBXGroup;
+			children = (
+				3C731B921A2F743700356747 /* MDListCommandViewController.h */,
+				3C731B931A2F743700356747 /* MDListCommandViewController.m */,
+				3C731B941A2F743700356747 /* MDListCommandViewController.xib */,
+				3C731B911A2F714C00356747 /* Cell */,
+			);
+			name = ListCommande;
+			sourceTree = "<group>";
+		};
+		3C731B911A2F714C00356747 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3C731B971A2F747A00356747 /* MDListCommandCell.h */,
+				3C731B981A2F747A00356747 /* MDListCommandCell.m */,
+				3C731B991A2F747A00356747 /* MDListCommandCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -449,6 +481,7 @@
 			files = (
 				3CFE306E19D53EF500210AD5 /* starbucks_coffee.jpg in Resources */,
 				3CFE306919D53EF500210AD5 /* hamburger.jpg in Resources */,
+				3C731B9B1A2F747A00356747 /* MDListCommandCell.xib in Resources */,
 				3CFE306419D53EF500210AD5 /* egg_benedict.jpg in Resources */,
 				3CC8531B19D0596900668F13 /* Main.storyboard in Resources */,
 				3CC8532019D0596900668F13 /* LaunchScreen.xib in Resources */,
@@ -468,6 +501,7 @@
 				3CFE306C19D53EF500210AD5 /* mushroom_risotto.jpg in Resources */,
 				3CFE306219D53EF500210AD5 /* angry_birds_cake.jpg in Resources */,
 				3CFE306719D53EF500210AD5 /* ham_and_cheese_panini.jpg in Resources */,
+				3C731B961A2F743700356747 /* MDListCommandViewController.xib in Resources */,
 				3CFE306319D53EF500210AD5 /* creme_brelee.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +522,7 @@
 			files = (
 				3CE25EF71A0B838E00DD249B /* MDActivicy.m in Sources */,
 				3CE25F001A0B84BD00DD249B /* MDType.m in Sources */,
+				3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */,
 				3CD70F571A0AC56B00BDA022 /* XTSegmentControl.m in Sources */,
 				3CFE307C19D553CB00210AD5 /* MDMainViewController.m in Sources */,
 				3CDCE54A1A01B3A10074923C /* MDDishPopoverControllerViewController.m in Sources */,
@@ -501,6 +536,7 @@
 				3CFE307419D53F6300210AD5 /* iCarousel.m in Sources */,
 				3CE25EFD1A0B849E00DD249B /* MDDish.m in Sources */,
 				3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */,
+				3C731B951A2F743700356747 /* MDListCommandViewController.m in Sources */,
 				3CCD8DC719E1CD7B00F43497 /* PSCollectionViewCell.m in Sources */,
 				3CE25EFA1A0B848900DD249B /* MDCommand.m in Sources */,
 				3CD820B11A1292C90024823C /* MDFirstMenuTableCell.m in Sources */,

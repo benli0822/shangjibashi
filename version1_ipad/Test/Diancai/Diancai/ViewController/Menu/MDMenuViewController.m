@@ -16,6 +16,7 @@
 #import "XTSegmentControl.h"
 #import "MDDishView.h"
 #import "MDFirstMenuTableController.h"
+#import "MDListCommandViewController.h"
 
 //
 
@@ -201,5 +202,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark 显示菜单
+- (IBAction)showCommand:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    
+    CGRect rect = CGRectMake(button.frame.origin.x - 390.0,button.frame.origin.y + 10.0, 500, 660);
+    MDListCommandViewController *PopoverView = [[MDListCommandViewController alloc]initWithNibName:@"MDListCommandViewController" bundle:nil];
+    
+#pragma 这里还有问题!!
+    UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
+    [popOver presentPopoverFromRect:rect inView:self.view permittedArrowDirections:0 animated:YES];
+}
+
 
 @end

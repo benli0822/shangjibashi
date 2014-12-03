@@ -1,0 +1,17 @@
+//
+//  MDListCommandViewController.h
+//  Diancai
+//
+//  Created by james on 03/12/14.
+//  Copyright (c) 2014 Xiaojun. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MDListCommandViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *listCommandTable;
+@property (weak, nonatomic) IBOutlet UILabel *waitingTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *topAlertLabel;
+
+@end

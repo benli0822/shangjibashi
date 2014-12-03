@@ -26,5 +26,7 @@
 //first menu table controller
 @property(nonatomic, strong) MDFirstMenuTableController *firstMenuTableController;
 
+//显示已点按钮
+@property (weak, nonatomic) IBOutlet UIButton *showCommandButton;
 
 @end
