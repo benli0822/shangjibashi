@@ -15,7 +15,7 @@
 
     <!-- fonts -->
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+    <link rel="stylesheet" href="http://fonts.goo gleapis.com/css?family=Open+Sans:400,300"/>
 
     <!-- ace styles -->
 
@@ -108,7 +108,8 @@
                                    th:text="#{add.name}"> </label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" th:placeholder="#{add.name}" th:field="*{dish.name}"
+                                <input type="text" id="form-field-1" th:placeholder="#{add.name}"
+                                       th:field="*{dish.name}"
                                        class="col-xs-10 col-sm-10"/>
                             </div>
                         </div>
@@ -125,18 +126,64 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="form-field-2"
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-select-type"
                                    th:text="#{add.type}"></label>
 
                             <div class="col-sm-9">
+                                <div>
+                                    <select class="width-80 chosen-select" id="form-field-select-type">
+                                        <option value="">Cold</option>
+                                        <option value="AL">Hot</option>
+                                        <option value="AK">Drink</option>
+                                        <option value="AZ">Dessert</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-2"
+                                   th:text="#{add.typeoptional}"></label>
+
+                            <div class="col-sm-9">
                                 <select multiple=""
-                                        class="tag-input-style col-xs-10 col-sm-8 chosen-select"
+                                        class="tag-input-style width-80 chosen-select"
                                         id="form-field-2" th:attr="data-placeholder=#{add.selectType}">
                                     <option value="">Cold</option>
                                     <option value="AL">Hot</option>
                                     <option value="AK">Drink</option>
                                     <option value="AZ">Dessert</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-sm-5 control-label no-padding-right" for="form-field-switch-operation"-->
+                                   <!--th:text="#{add.doNeedPersonalOps}"></label>-->
+
+                            <!--<div class="col-sm-5">-->
+                                <!--<label>-->
+                                    <!--<input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-1"-->
+                                           <!--id="form-field-switch-operation"/>-->
+                                    <!--<span class="lbl"></span>-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-personalOps"
+                                   th:text="#{add.personalOps}"></label>
+
+                            <div class="col-sm-9">
+                                <select multiple=""
+                                        class="tag-input-style width-80 chosen-select"
+                                        id="form-field-personalOps" th:attr="data-placeholder=#{add.selectType}">
+                                    <option value="">Cold</option>
+                                    <option value="AL">Hot</option>
+                                    <option value="AK">Drink</option>
+                                    <option value="AZ">Dessert</option>
+                                </select>
+                                <span title="" th:attr="data-content=#{add.personalOpsHelpContent},data-original-title=#{add.personalOpsHelpTitle}" data-placement="left" data-trigger="hover" data-rel="popover" class="help-button" >?</span>
                             </div>
                         </div>
 
@@ -377,6 +424,7 @@
             }).next().on(ace.click_event, function () {
                 $(this).prev().focus();
             });
+
             $('#timepicker2').timepicker({
                 minuteStep: 1,
                 showSeconds: true,
@@ -384,6 +432,9 @@
             }).next().on(ace.click_event, function () {
                 $(this).prev().focus();
             });
+
+            $('[data-rel=tooltip]').tooltip({container:'body'});
+            $('[data-rel=popover]').popover({container:'body'});
 
         });
         /*]]>*/
