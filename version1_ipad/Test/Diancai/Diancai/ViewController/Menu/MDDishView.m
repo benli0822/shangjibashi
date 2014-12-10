@@ -137,7 +137,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"MDDishPopoverControllerViewController" bundle:nil];
     
 #pragma 这里还有问题!!
+    
+    
+    [PopoverView setPopoverWithData:[_recipeImages objectAtIndex:indexPath.row]];
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
+     
+    
     [popOver presentPopoverFromRect:rect inView:_contentCollectionView permittedArrowDirections:0 animated:YES];
   
     //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
