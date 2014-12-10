@@ -15,6 +15,8 @@
 #import "iCarousel.h"
 #import "XTSegmentControl.h"
 #import "MDDishView.h"
+#import "MDFirstMenuTableController.h"
+#import "MDListCommandViewController.h"
 
 //
 
@@ -25,12 +27,13 @@
 @end
 
 @implementation MDMenuViewController
-@synthesize  MenuDishCollectionViewController = _MenuDishCollectionViewController;
+
 
 @synthesize carousel = _carousel;
 @synthesize segmentControl = _segmentControl;
 @synthesize dishDictionary = _dishDictionary;
-
+@synthesize firstMenuTableViewController = _firstMenuTableViewController;
+@synthesize firstMenuTableController = _firstMenuTableController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +45,7 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 780, 600)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 840, 620)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
     _carousel.delegate = self;
@@ -70,8 +73,16 @@
 
 
 
+#pragma mark first menu table setting
     
+    [self.firstMenuTableViewController registerNib:[UINib nibWithNibName:@"MDFirstMenuTableCell"
+                                               bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"Cell"];
     
+    _firstMenuTableController = [[MDFirstMenuTableController alloc] init];
+    _firstMenuTableController.data = [NSMutableArray arrayWithObjects:@"Choix de chef", @"Entrée",@"Plat",@"Dessert",@"Menu enfant",@"Boissons",@"Favoir",nil];
+    [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
+    [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
     
     //[_ColletionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
     
@@ -90,7 +101,7 @@
     
     
     
-    _sousMenuList = @[@"全部",@"甜点",@"正餐",@"饮料"];
+    _sousMenuList = @[@"tout",@"Hamburgers",@"Poissons",@"Viande"];
     
     
     
@@ -107,14 +118,14 @@
     NSArray *drinkArray = [NSArray arrayWithObjects:@"starbucks_coffee.jpg",nil];
     
     
-    [_dishDictionary setValue:allDishs forKey:@"全部"];
+    [_dishDictionary setValue:allDishs forKey:@"tout"];
 
-    [_dishDictionary setValue:dessertArray forKey:@"甜点"];
+    [_dishDictionary setValue:dessertArray forKey:@"Hamburgers"];
     
-    [_dishDictionary setValue:mainPlatArray forKey:@"正餐"];
+    [_dishDictionary setValue:mainPlatArray forKey:@"Poissons"];
     
     
-    [_dishDictionary setValue:drinkArray forKey:@"饮料"];
+    [_dishDictionary setValue:drinkArray forKey:@"Viande"];
     
     
 }
@@ -136,7 +147,7 @@
     if (view == nil)
     {
         view = [[UIView alloc] initWithFrame:carousel.bounds];
-        listView = [[MDDishView alloc] initWithFrame:view.bounds];//修改此处的类型
+        listView = [[MDDishView alloc] initWithFrame:view.bounds];
         listView.tag = 1;
         //listView.delegate = self;
         [view addSubview:listView];
@@ -191,5 +202,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark 显示菜单
+- (IBAction)showCommand:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    
+    CGRect rect = CGRectMake(button.frame.origin.x - 390.0,button.frame.origin.y + 10.0, 500, 660);
+    MDListCommandViewController *PopoverView = [[MDListCommandViewController alloc]initWithNibName:@"MDListCommandViewController" bundle:nil];
+    
+#pragma 这里还有问题!!
+    UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
+    [popOver presentPopoverFromRect:rect inView:self.view permittedArrowDirections:0 animated:YES];
+}
+
 
 @end

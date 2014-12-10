@@ -1,31 +1,28 @@
 //
-//  DishPopoverControllerViewController.m
+//  MDListCommandViewController.m
 //  Diancai
 //
-//  Created by james on 30/10/14.
+//  Created by james on 03/12/14.
 //  Copyright (c) 2014 Xiaojun. All rights reserved.
 //
 
-#import "MDDishPopoverControllerViewController.h"
+#import "MDListCommandViewController.h"
 
-@interface MDDishPopoverControllerViewController ()
+@interface MDListCommandViewController ()
 
 @end
 
-@implementation MDDishPopoverControllerViewController
+@implementation MDListCommandViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.preferredContentSize = CGSizeMake(400.0, 560.0);
+    
+    
     // Do any additional setup after loading the view from its nib.
-    
-    self.preferredContentSize = CGSizeMake(400.0, 300.0);
-    
-    
 }
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

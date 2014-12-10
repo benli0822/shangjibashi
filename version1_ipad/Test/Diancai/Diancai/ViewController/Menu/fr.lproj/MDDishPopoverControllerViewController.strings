@@ -1,0 +1,24 @@
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "C5P-gC-yq8"; */
+"C5P-gC-yq8.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "份数 :"; ObjectID = "g8e-eS-cHm"; */
+"g8e-eS-cHm.text" = "qua :";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "gLT-82-cGD"; */
+"gLT-82-cGD.text" = "Label";
+
+/* Class = "IBUILabel"; text = "菜名 : "; ObjectID = "mPG-hl-ul5"; */
+"mPG-hl-ul5.text" = "nom : ";
+
+/* Class = "IBUISegmentedControl"; qNi-Hm-gT0.segmentTitles[0] = "Bleu"; ObjectID = "qNi-Hm-gT0"; */
+"qNi-Hm-gT0.segmentTitles[0]" = "Bleu";
+
+/* Class = "IBUISegmentedControl"; qNi-Hm-gT0.segmentTitles[1] = "A Point"; ObjectID = "qNi-Hm-gT0"; */
+"qNi-Hm-gT0.segmentTitles[1]" = "A Point";
+
+/* Class = "IBUISegmentedControl"; qNi-Hm-gT0.segmentTitles[2] = "Bien cuit"; ObjectID = "qNi-Hm-gT0"; */
+"qNi-Hm-gT0.segmentTitles[2]" = "Bien cuit";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "vmS-Fp-We0"; */
+"vmS-Fp-We0.text" = "Label";

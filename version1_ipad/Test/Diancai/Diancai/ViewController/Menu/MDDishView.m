@@ -103,28 +103,42 @@
     //UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
     //recipeImageView.image = [UIImage imageNamed:[self.recipeImages objectAtIndex:indexPath.row]];
     //cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
-    cell.platNameLabel.text = [_recipeImages objectAtIndex:indexPath.row];
-    [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
-    return cell;
+    
+    
+    //设置显示菜名 除去末尾.jpg
+    if ([[_recipeImages objectAtIndex:indexPath.row] length] > 0) {
+        cell.platNameLabel.text =[[_recipeImages objectAtIndex:indexPath.row] substringToIndex:[[_recipeImages objectAtIndex:indexPath.row] length] -4 ];
+        
+        
+        //设置图片
+        [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
+        
+        //设置价格
+        cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[cell.platNameLabel.text length]];
+    }
+    else{
+        cell.platNameLabel.text = @"no name";
+    }
+   
+       return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(240, 220);
+    return CGSizeMake(240, 200);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    [_contentCollectionView deselectItemAtIndexPath:indexPath animated:NO];
+   CGRect rect = CGRectMake(_contentCollectionView.frame.size.width/2, _contentCollectionView.frame.size.height/2, 1, 1);
     
-        static NSString *identifier = @"Cell";
-     DishCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    CGRect rect=CGRectMake(cell.bounds.origin.x+600, cell.bounds.origin.y+10, 50, 30);
-    MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"DishPopoverControllerViewController" bundle:nil];
+    MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"MDDishPopoverControllerViewController" bundle:nil];
     
 #pragma 这里还有问题!!
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
-    [popOver presentPopoverFromRect:rect inView:cell.contentView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [popOver presentPopoverFromRect:rect inView:_contentCollectionView permittedArrowDirections:0 animated:YES];
   
     //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
