@@ -1,9 +1,12 @@
 package com.menudesigner.sjbs.web.controllers;
 
+import com.menudesigner.sjbs.domain.Dish;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,14 +35,14 @@ public class DishesController {
 
         model.addAttribute("serverTime", formattedDate);
 
-        return "dish";
+        return "views/dish";
     }
 
     /**
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(value = "/addDish", method = RequestMethod.GET)
-    public String addNewDish(Locale locale, Model model) {
+    public String addNewDish(final Dish dish, Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
@@ -49,6 +52,17 @@ public class DishesController {
 
         model.addAttribute("serverTime", formattedDate);
 
-        return "addDish";
+        return "views/addDish";
+    }
+
+
+    @RequestMapping(value = "/postDish", method = RequestMethod.POST)
+    public String postNewDish(final Dish dish, Locale locale, final BindingResult bindingResult, final ModelMap model) {
+        logger.info("[BlogController: post], posting an article");
+        if (bindingResult.hasErrors()) {
+            logger.error("[DishesController: postNewDish]", bindingResult.getAllErrors());
+            return "view/post";
+        }
+        return null;
     }
 }

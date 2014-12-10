@@ -38,7 +38,7 @@ public class IndexController implements BaseController{
 
         model.addAttribute("serverTime", formattedDate );
 
-        return "index";
+        return "views/index";
     }
 
     @Override

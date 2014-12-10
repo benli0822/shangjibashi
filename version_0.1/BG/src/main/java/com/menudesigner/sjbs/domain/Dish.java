@@ -3,6 +3,7 @@ package com.menudesigner.sjbs.domain;
 import com.menudesigner.sjbs.domain.association.ActivityWithDish;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.List;
@@ -30,6 +31,7 @@ public class Dish implements Serializable {
     private String img_path;
 
     @Column(name = "description")
+    @Size(max = 300)
     private String description;
 
     @Column(name = "disabled")
