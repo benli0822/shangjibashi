@@ -8,6 +8,7 @@
 
 #import "MDMainViewController.h"
 #import "MDMenuViewController.h"
+#import "SQLiteManager.h"
 
 @interface MDMainViewController ()
 
@@ -20,7 +21,17 @@
     NSLocale* curentLocale = [NSLocale currentLocale];
     NSString *localId = [curentLocale localeIdentifier];
     NSLog(@"%@",localId);
+    
+//    NSString *plicastConfigPath = [[NSBundle mainBundle] pathForResource:@"MDAppConfiguration" ofType:@"plist"];
+//    NSDictionary *DBConfigDictionary = [[NSDictionary alloc] initWithContentsOfFile:plicastConfigPath][@"DBConfiguration"] ;
+//    NSLog(@"Dictionary value%@",DBConfigDictionary[@"DBName"]);
+    
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [[SQLiteManager shared] getTestReadDataFromDB];
+    
 }
 
 #pragma mark 进行点菜操作
