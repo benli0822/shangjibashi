@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet NSString *imageName;
 
 
-
+//设置popvoer数据
 -(void) setPopoverWithData:(NSString *)imageName;
+
+#pragma mark 进行点菜操作
+- (IBAction)selectOrder:(id)sender;
+
 @end

@@ -17,6 +17,7 @@
 #import "MDDishView.h"
 #import "MDFirstMenuTableController.h"
 #import "MDListCommandViewController.h"
+#import "MDCommand.h"
 
 //
 
@@ -89,7 +90,12 @@
     //[_ColletionView setDelegate:self.MenuDishCollectionViewController];
     //[_ColletionView setDataSource:self.MenuDishCollectionViewController];
    
-
+        
+    
+#pragma mark command list table setting
+    
+    
+    
 }
 
 #pragma mark dish data 设置
@@ -212,10 +218,12 @@
     CGRect rect = CGRectMake(button.frame.origin.x - 390.0,button.frame.origin.y + 10.0, 500, 660);
     MDListCommandViewController *PopoverView = [[MDListCommandViewController alloc]initWithNibName:@"MDListCommandViewController" bundle:nil];
     
-#pragma 这里还有问题!!
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
     [popOver presentPopoverFromRect:rect inView:self.view permittedArrowDirections:0 animated:YES];
 }
+
+
+
 
 
 @end
