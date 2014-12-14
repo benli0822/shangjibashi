@@ -31,4 +31,6 @@
 -(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_time:(NSDate*)start_time end_time:(NSDate *)end_time;
 
 
+-(void) setName:(NSString*)name;
+
 @end

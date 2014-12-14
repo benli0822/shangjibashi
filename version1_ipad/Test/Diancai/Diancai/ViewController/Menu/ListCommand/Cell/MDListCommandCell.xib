@@ -40,7 +40,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="dishNameLabel" destination="H2p-sc-9uM" id="EKr-F7-fEG"/>
+                <outlet property="dishNameLabel" destination="014-Qq-eCt" id="JQ4-0z-KM8"/>
                 <outlet property="dishPriceLabel" destination="kdt-8e-dox" id="xD5-RO-Kt1"/>
                 <outlet property="dishQuantityLabel" destination="o2w-97-ELR" id="q0F-4g-kQ9"/>
                 <outlet property="dishStausLabel" destination="p2y-hJ-TqO" id="T4J-IC-CR3"/>

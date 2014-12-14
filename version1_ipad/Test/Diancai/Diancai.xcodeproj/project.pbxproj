@@ -43,6 +43,7 @@
 		3CF8A4B81A38795B003FDD2A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF8A4B71A38795B003FDD2A /* libsqlite3.dylib */; };
 		3CF8A4BB1A389441003FDD2A /* MDDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8A4BA1A389441003FDD2A /* MDDB.sqlite */; };
 		3CF8A4D01A38979F003FDD2A /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8A4CF1A38979F003FDD2A /* SQLiteManager.m */; };
+		3CF8A4D31A38CAAE003FDD2A /* MDUserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8A4D21A38CAAE003FDD2A /* MDUserCommand.m */; };
 		3CFE306219D53EF500210AD5 /* angry_birds_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE305219D53EF500210AD5 /* angry_birds_cake.jpg */; };
 		3CFE306319D53EF500210AD5 /* creme_brelee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE305319D53EF500210AD5 /* creme_brelee.jpg */; };
 		3CFE306419D53EF500210AD5 /* egg_benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE305419D53EF500210AD5 /* egg_benedict.jpg */; };
@@ -149,6 +150,8 @@
 		3CF8A4BA1A389441003FDD2A /* MDDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MDDB.sqlite; sourceTree = "<group>"; };
 		3CF8A4CE1A38979F003FDD2A /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteManager.h; path = Data/SQLiteManager.h; sourceTree = "<group>"; };
 		3CF8A4CF1A38979F003FDD2A /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLiteManager.m; path = Data/SQLiteManager.m; sourceTree = "<group>"; };
+		3CF8A4D11A38CAAE003FDD2A /* MDUserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDUserCommand.h; path = Data/MDUserCommand.h; sourceTree = "<group>"; };
+		3CF8A4D21A38CAAE003FDD2A /* MDUserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDUserCommand.m; path = Data/MDUserCommand.m; sourceTree = "<group>"; };
 		3CFE305219D53EF500210AD5 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = angry_birds_cake.jpg; path = resource/image/angry_birds_cake.jpg; sourceTree = "<group>"; };
 		3CFE305319D53EF500210AD5 /* creme_brelee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = creme_brelee.jpg; path = resource/image/creme_brelee.jpg; sourceTree = "<group>"; };
 		3CFE305419D53EF500210AD5 /* egg_benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = egg_benedict.jpg; path = resource/image/egg_benedict.jpg; sourceTree = "<group>"; };
@@ -320,8 +323,8 @@
 		3CC8533B19D059C300668F13 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3CFE307A19D553CB00210AD5 /* MDMainViewController.m */,
 				3CFE307B19D553CB00210AD5 /* MDMainViewController.h */,
+				3CFE307A19D553CB00210AD5 /* MDMainViewController.m */,
 				3C1E6EB919D1C207007ADBB0 /* Menu */,
 			);
 			name = ViewController;
@@ -374,6 +377,8 @@
 				3CD70F531A0AC37900BDA022 /* Model */,
 				3CF8A4CE1A38979F003FDD2A /* SQLiteManager.h */,
 				3CF8A4CF1A38979F003FDD2A /* SQLiteManager.m */,
+				3CF8A4D11A38CAAE003FDD2A /* MDUserCommand.h */,
+				3CF8A4D21A38CAAE003FDD2A /* MDUserCommand.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				3C731B951A2F743700356747 /* MDListCommandViewController.m in Sources */,
 				3CCD8DC719E1CD7B00F43497 /* PSCollectionViewCell.m in Sources */,
 				3CE25EFA1A0B848900DD249B /* MDCommand.m in Sources */,
+				3CF8A4D31A38CAAE003FDD2A /* MDUserCommand.m in Sources */,
 				3CD820B11A1292C90024823C /* MDFirstMenuTableCell.m in Sources */,
 				3CF8A4D01A38979F003FDD2A /* SQLiteManager.m in Sources */,
 			);

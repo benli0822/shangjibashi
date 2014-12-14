@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MDListCommandCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIView *dishNameLabel;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *dishNameLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *dishStausLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dishQuantityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dishPriceLabel;

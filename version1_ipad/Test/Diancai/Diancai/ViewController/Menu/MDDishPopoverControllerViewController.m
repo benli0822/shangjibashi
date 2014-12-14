@@ -7,6 +7,8 @@
 //
 
 #import "MDDishPopoverControllerViewController.h"
+#import "MDDish.h"
+#import "MDUserCommand.h"
 
 @interface MDDishPopoverControllerViewController ()
 
@@ -17,8 +19,7 @@
 
 -(void) setPopoverWithData:(NSString *)imageName {
     
-    
-    NSLog(@"%@", imageName);
+
     _imageName = imageName;
     
 }
@@ -53,6 +54,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark 进行点菜操作
+- (IBAction)selectOrder:(id)sender{
+    MDDish *dish = [[MDDish alloc] init];
+    [dish setName:_dishNameLabel.text];
+    
+    [[MDUserCommand shared] addDish:dish ];
+
 }
 
 /*
