@@ -204,7 +204,8 @@
 																		<i class="icon-calendar bigger-110"></i>
 																	</span>
                                     <input type="text" id="id-date-range-picker-1" name="date-range-picker"
-                                           class="form-control" th:placeholder="#{add.dateplaceholder}"/>
+                                           class="form-control" th:placeholder="#{add.dateplaceholder}"
+                                           disabled="disabled"/>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +269,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker1"/>
+                                    <input type="text" class="form-control" id="timepicker1" disabled="disabled"/>
                                 </div>
 
                                 <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
@@ -312,7 +313,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker2"/>
+                                    <input type="text" class="form-control" id="timepicker2" disabled="disabled"/>
                                 </div>
                             </div>
                         </div>
@@ -447,7 +448,18 @@
                 //$('#form-field-tags').autosize({append: "\n"});
             }
 
+            $('#form-field-switch-date').change(function () {
+                $("#id-date-range-picker-1").attr('disabled', !$(this).is(':checked'));
+            });
+
+
+            $('#form-field-switch-time').change(function () {
+                $("#timepicker1").attr('disabled', !$(this).is(':checked'));
+                $("#timepicker2").attr('disabled', !$(this).is(':checked'));
+            });
+
         });
+
         /*]]>*/
     </script>
 </div>
