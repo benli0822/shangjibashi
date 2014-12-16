@@ -13,10 +13,6 @@
     <link rel="stylesheet" th:href="@{/css/daterangepicker.css}"/>
     <link rel="stylesheet" th:href="@{/css/colorpicker.css}"/>
 
-    <!-- fonts -->
-
-    <link rel="stylesheet" href="http://fonts.goo gleapis.com/css?family=Open+Sans:400,300"/>
-
     <!-- ace styles -->
 
     <link rel="stylesheet" th:href="@{/css/ace.min.css}"/>
@@ -101,7 +97,7 @@
             <div class="row">
                 <!-- PAGE CONTENT BEGINS -->
 
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                     <form class="form-horizontal" role="form" method="post" th:action="@{/postDish}">
                         <div class="form-group">
                             <label class="col-sm-2 control-label no-padding-right" for="form-field-1"
@@ -131,7 +127,7 @@
 
                             <div class="col-sm-9">
                                 <div>
-                                    <select class="width-80 chosen-select" id="form-field-select-type">
+                                    <select class="col-xs-10 col-sm-6 chosen-select" id="form-field-select-type">
                                         <option value="">Cold</option>
                                         <option value="AL">Hot</option>
                                         <option value="AK">Drink</option>
@@ -147,7 +143,7 @@
 
                             <div class="col-sm-9">
                                 <select multiple=""
-                                        class="tag-input-style width-80 chosen-select"
+                                        class="tag-input-style col-xs-10 col-sm-6 chosen-select"
                                         id="form-field-2" th:attr="data-placeholder=#{add.selectType}">
                                     <option value="">Cold</option>
                                     <option value="AL">Hot</option>
@@ -158,32 +154,30 @@
                         </div>
 
                         <!--<div class="form-group">-->
-                            <!--<label class="col-sm-5 control-label no-padding-right" for="form-field-switch-operation"-->
-                                   <!--th:text="#{add.doNeedPersonalOps}"></label>-->
+                        <!--<label class="col-sm-5 control-label no-padding-right" for="form-field-switch-operation"-->
+                        <!--th:text="#{add.doNeedPersonalOps}"></label>-->
 
-                            <!--<div class="col-sm-5">-->
-                                <!--<label>-->
-                                    <!--<input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-1"-->
-                                           <!--id="form-field-switch-operation"/>-->
-                                    <!--<span class="lbl"></span>-->
-                                <!--</label>-->
-                            <!--</div>-->
+                        <!--<div class="col-sm-5">-->
+                        <!--<label>-->
+                        <!--<input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-1"-->
+                        <!--id="form-field-switch-operation"/>-->
+                        <!--<span class="lbl"></span>-->
+                        <!--</label>-->
+                        <!--</div>-->
                         <!--</div>-->
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="form-field-personalOps"
+                            <!-- for="form-field-personalOps" -->
+                            <label class="col-sm-2 control-label no-padding-right"
                                    th:text="#{add.personalOps}"></label>
 
                             <div class="col-sm-9">
-                                <select multiple=""
-                                        class="tag-input-style width-80 chosen-select"
-                                        id="form-field-personalOps" th:attr="data-placeholder=#{add.selectType}">
-                                    <option value="">Cold</option>
-                                    <option value="AL">Hot</option>
-                                    <option value="AK">Drink</option>
-                                    <option value="AZ">Dessert</option>
-                                </select>
-                                <span title="" th:attr="data-content=#{add.personalOpsHelpContent},data-original-title=#{add.personalOpsHelpTitle}" data-placement="left" data-trigger="hover" data-rel="popover" class="help-button" >?</span>
+                                <input type="text" name="tags" id="form-field-tags" value="Tag Input Control"
+                                       placeholder="Enter tags ..."/>
+                                <span class="help-button" data-rel="popover"
+                                      th:attr="data-content=#{add.personalOpsHelpContent}" data-trigger="hover"
+                                      data-placement="left"
+                                      th:title="#{add.personalOpsHelpTitle}">?</span>
                             </div>
                         </div>
 
@@ -210,7 +204,8 @@
 																		<i class="icon-calendar bigger-110"></i>
 																	</span>
                                     <input type="text" id="id-date-range-picker-1" name="date-range-picker"
-                                           class="form-control" th:placeholder="#{add.dateplaceholder}"/>
+                                           class="form-control" th:placeholder="#{add.dateplaceholder}"
+                                           disabled="disabled"/>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +228,7 @@
                                    th:text="#{add.date}"></label>
                             <!--<div class="space-4"></div>-->
                             <div class="col-sm-8">
-                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-4">
+                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
                                     <span class="input-group-addon">
 																<i class="icon-time bigger-110"></i>
 															</span>
@@ -274,10 +269,10 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker1"/>
+                                    <input type="text" class="form-control" id="timepicker1" disabled="disabled"/>
                                 </div>
 
-                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-4">
+                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
                                     <span class="input-group-addon">
 																<i class="icon-time bigger-110"></i>
 															</span>
@@ -318,7 +313,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker2"/>
+                                    <input type="text" class="form-control" id="timepicker2" disabled="disabled"/>
                                 </div>
                             </div>
                         </div>
@@ -339,7 +334,7 @@
                     </form>
 
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                     <h2>
                         <span th:text="#{add.upload}"></span>
                     </h2>
@@ -433,10 +428,38 @@
                 $(this).prev().focus();
             });
 
-            $('[data-rel=tooltip]').tooltip({container:'body'});
-            $('[data-rel=popover]').popover({container:'body'});
+            $('[data-rel=tooltip]').tooltip({container: 'body'});
+            $('[data-rel=popover]').popover({container: 'body'});
+
+            //we could just set the data-provide="tag" of the element inside HTML, but IE8 fails!
+            var tag_input = $('#form-field-tags');
+            if (!( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()))) {
+                tag_input.tag(
+                        {
+                            placeholder: tag_input.attr('placeholder'),
+                            //enable typeahead by specifying the source array
+                            source: ace.variable_US_STATES,//defined in ace.js >> ace.enable_search_ahead
+                        }
+                );
+            }
+            else {
+                //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+                tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' + tag_input.val() + '</textarea>').remove();
+                //$('#form-field-tags').autosize({append: "\n"});
+            }
+
+            $('#form-field-switch-date').change(function () {
+                $("#id-date-range-picker-1").attr('disabled', !$(this).is(':checked'));
+            });
+
+
+            $('#form-field-switch-time').change(function () {
+                $("#timepicker1").attr('disabled', !$(this).is(':checked'));
+                $("#timepicker2").attr('disabled', !$(this).is(':checked'));
+            });
 
         });
+
         /*]]>*/
     </script>
 </div>
