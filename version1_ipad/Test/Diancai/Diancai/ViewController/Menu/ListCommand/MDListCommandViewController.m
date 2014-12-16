@@ -7,6 +7,8 @@
 //
 
 #import "MDListCommandViewController.h"
+#import "MDListCommandController.h"
+#import "MDUserCommand.h"
 
 @interface MDListCommandViewController ()
 
@@ -19,9 +21,23 @@
     
     self.preferredContentSize = CGSizeMake(400.0, 560.0);
     
+    self.listCommandController = [[MDListCommandController alloc] init];
     
-    // Do any additional setup after loading the view from its nib.
+    self.listCommandController.userCommand = [MDUserCommand shared];
+    
+    
+    [self.listCommandTable registerNib:[UINib nibWithNibName:@"MDListCommandCell"
+                                                                  bundle:[NSBundle mainBundle]]
+                            forCellReuseIdentifier:@"Cell"];
+
+    
+    [_listCommandTable setDataSource:_listCommandController];
+    [_listCommandTable setDelegate:_listCommandController];
+    
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

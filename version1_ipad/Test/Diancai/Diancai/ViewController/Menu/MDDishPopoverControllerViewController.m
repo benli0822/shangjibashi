@@ -7,6 +7,8 @@
 //
 
 #import "MDDishPopoverControllerViewController.h"
+#import "MDDish.h"
+#import "MDUserCommand.h"
 
 @interface MDDishPopoverControllerViewController ()
 
@@ -14,11 +16,34 @@
 
 @implementation MDDishPopoverControllerViewController
 
+
+-(void) setPopoverWithData:(NSString *)imageName {
+    
+
+    _imageName = imageName;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.preferredContentSize = CGSizeMake(400.0, 300.0);
+    
+    
+    //设置名字
+    _dishNameLabel.text = [_imageName substringToIndex:[_imageName length] -4 ];
+    
+    //设置价格
+    _dishPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[_imageName length]];
+    
+    //设置数量 初始化为1
+    _dishQuantityLabel.text = [NSString stringWithFormat:@"%s","1"];
+    
+    //设置图片
+    _imageView.image = [UIImage imageNamed:_imageName];
+
+    
     
     
 }
@@ -29,6 +54,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark 进行点菜操作
+- (IBAction)selectOrder:(id)sender{
+    MDDish *dish = [[MDDish alloc] init];
+    [dish setName:_dishNameLabel.text];
+    
+    [[MDUserCommand shared] addDish:dish ];
+
 }
 
 /*

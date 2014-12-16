@@ -10,6 +10,8 @@
 
 
 @class MDFirstMenuTableController;
+@class MDCommand;
+@class MDDish;
 
 @interface MDMenuViewController : UIViewController
 
@@ -28,5 +30,11 @@
 
 //显示已点按钮
 @property (weak, nonatomic) IBOutlet UIButton *showCommandButton;
+
+//用户订单
+@property (nonatomic, strong) MDCommand* userCommand;
+
+
+
 
 @end

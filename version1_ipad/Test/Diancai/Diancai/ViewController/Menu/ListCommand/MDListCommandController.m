@@ -8,17 +8,21 @@
 
 #import "MDListCommandController.h"
 #import "MDListCommandCell.h"
+#import "MDUserCommand.h"
+#import "MDDish.h"
 
 @implementation MDListCommandController
 
 #pragma mark 返回行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 5;
+    return 1;
 }
 
 #pragma mark - tableView的代理方法
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
     
     static NSString* CellIdentifier = @"Cell";
     
@@ -32,6 +36,15 @@
     //设置数据
     //FCDoubleBet* doubleBet = _data[indexPath.row];
     //cell.firstMenuLabel.text = _data[indexPath.row];
+    //cell.dishNameLabel.text = _data[indexPath.row];
+    
+    MDDish *dish = [_userCommand.dish_list objectAtIndex:indexPath.row];
+    
+    
+    NSLog(@"user command tableview :%@", dish.name );
+
+    
+    cell.dishNameLabel.text = dish.name;
     
     return cell;
 }

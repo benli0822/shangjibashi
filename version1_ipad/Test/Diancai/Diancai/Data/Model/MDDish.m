@@ -21,6 +21,12 @@
 @synthesize end_time = _end_time;
 
 
+-(id) init{
+    self = [super init];
+    
+    return self;
+}
+
 
 -(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_time:(NSDate*)start_time end_time:(NSDate *)end_time{
     
@@ -42,6 +48,10 @@
     
     
     return self;
+}
+
+-(void) setName:(NSString*)name{
+    _name = name;
 }
 
 
