@@ -37,6 +37,9 @@
     
 }
 
+- (IBAction)ConfirmeCommand:(id)sender {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+}
 
 
 - (void)didReceiveMemoryWarning {

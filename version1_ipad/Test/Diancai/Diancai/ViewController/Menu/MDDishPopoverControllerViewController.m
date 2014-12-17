@@ -63,6 +63,9 @@
     [dish setName:_dishNameLabel.text];
     
     [[MDUserCommand shared] addDish:dish ];
+    
+    //dismiss the view controller
+    [self dismissViewControllerAnimated:TRUE completion:nil];
 
 }
 

@@ -16,7 +16,7 @@
 #pragma mark 返回行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 1;
+    return [_userCommand.dish_list count];
 }
 
 #pragma mark - tableView的代理方法
