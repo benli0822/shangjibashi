@@ -37,7 +37,7 @@ public class DishServiceImpl implements DishService{
      * @return
      */
     @Override
-    public Boolean addDish(Dish dish) {
+    public boolean addDish(Dish dish) {
         logger.debug("Try adding dish: " + dish.toString());
         if(dishRepository.findDishByName(dish.getName()).size() == 0) {
             dishRepository.save(dish);
@@ -58,7 +58,7 @@ public class DishServiceImpl implements DishService{
      * @return
      */
     @Override
-    public Boolean removeDish(String dishName) {
+    public boolean removeDish(String dishName) {
         logger.debug("Try removing dish: " + dishName);
         if(dishRepository.findDishByName(dishName).size() == 0) {
             logger.error("Dish " + dishName + " not found!");

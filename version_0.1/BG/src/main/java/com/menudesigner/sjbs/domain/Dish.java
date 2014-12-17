@@ -5,6 +5,7 @@ import com.menudesigner.sjbs.domain.association.ActivityWithDish;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -30,6 +31,9 @@ public class Dish implements Serializable {
     @Column(name = "img_path")
     private String img_path;
 
+    @Column(name = "price")
+    private int price;
+
     @Column(name = "description")
     @Size(max = 300)
     private String description;
@@ -45,20 +49,46 @@ public class Dish implements Serializable {
     @Column(name = "end_time")
     private Time end_time;
 
+    @Column(name = "start_date")
+    private Date start_date;
+
+    @Column(name = "end_date")
+    private Date end_date;
+
     @OneToMany(mappedBy = "dish")
     private List<ActivityWithDish> activities;
 
-    protected Dish() {
+    public Dish() {
     }
 
-    public Dish(String name, Boolean is_typed, String img_path, String description, Boolean disabled, Time start_time, Time end_time) {
+    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, List<ActivityWithDish> activities) {
         this.name = name;
         this.is_typed = is_typed;
         this.img_path = img_path;
+        this.price = price;
         this.description = description;
         this.disabled = disabled;
         this.start_time = start_time;
         this.end_time = end_time;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.activities = activities;
+    }
+
+    public Date getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
+    }
+
+    public Date getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(Date end_date) {
+        this.end_date = end_date;
     }
 
     public static long getSerialVersionUID() {
@@ -135,5 +165,29 @@ public class Dish implements Serializable {
 
     public List<ActivityWithDish> getActivities() {
         return activities;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "activities=" + activities +
+                ", end_time=" + end_time +
+                ", start_time=" + start_time +
+                ", disabled=" + disabled +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", img_path='" + img_path + '\'' +
+                ", is_typed=" + is_typed +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
