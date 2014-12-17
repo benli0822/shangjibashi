@@ -51,7 +51,7 @@ public class DishTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-        logger.info("[DishTest] addDishTest", newDish);
+        logger.info("[DishTest] addSimpleDishTest", newDish);
 
         Dish theDish = dishRepository.save(newDish);
 
