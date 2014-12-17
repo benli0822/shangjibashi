@@ -61,6 +61,18 @@ public class Dish implements Serializable {
         this.end_time = end_time;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setActivities(List<ActivityWithDish> activities) {
+        this.activities = activities;
+    }
+
     public String getName() {
         return name;
     }

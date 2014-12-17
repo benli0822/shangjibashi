@@ -1,12 +1,16 @@
 package com.menudesigner.sjbs.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by JIN Benli on 17/12/14.
  */
 @Entity
-public class Type {
+@Table(name = "md_types")
+public class Type implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
