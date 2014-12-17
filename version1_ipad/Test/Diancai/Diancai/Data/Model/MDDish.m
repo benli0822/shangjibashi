@@ -54,5 +54,9 @@
     _name = name;
 }
 
+-(void) setPrice:(NSUInteger)price{
+    _price = price;
+}
+
 
 @end

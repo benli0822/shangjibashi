@@ -61,6 +61,7 @@
 - (IBAction)selectOrder:(id)sender{
     MDDish *dish = [[MDDish alloc] init];
     [dish setName:_dishNameLabel.text];
+    [dish setPrice:[_dishPriceLabel.text integerValue]];
     
     [[MDUserCommand shared] addDish:dish ];
     

@@ -45,6 +45,8 @@
 
     
     cell.dishNameLabel.text = dish.name;
+    cell.dishQuantityLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dish_dictionary objectForKey:dish.name] integerValue]];
+    cell.dishPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dish_dictionary objectForKey:dish.name] integerValue] * dish.price];
     
     return cell;
 }
