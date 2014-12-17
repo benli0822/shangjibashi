@@ -1,4 +1,4 @@
-//
+//  User command not syn with DB
 //  MDUserCommand.h
 //  Diancai
 //
@@ -34,13 +34,29 @@
 @property(readonly,nonatomic) BOOL disabled;
 
 
+/**
+ *  list dishs, activities, menus
+ */
 @property (nonatomic,strong) NSMutableArray *dish_list;
 @property (nonatomic,strong) NSMutableArray *activity_list;
 @property (nonatomic,strong) NSMutableArray *menu_list;
 
+/**
+ *  dictionary for dishs, activities, menus
+ *  each dictionary means each dishies, activies, menus and their quantities
+ *  [key : humbergers , value : 2]
+ */
+@property (nonatomic,strong) NSMutableDictionary *dish_dictionary;
+@property (nonatomic,strong) NSMutableDictionary *activity_dictionary;
+@property (nonatomic,strong) NSMutableDictionary *menu_dictionary;
+
+
+
 -(void) addDish:(MDDish *)object;
 -(void) addMenu:(MDMenu *)object;
 -(void) addActivity:(MDActivicy *)object;
+
+
 
 
 + (MDUserCommand*)shared;

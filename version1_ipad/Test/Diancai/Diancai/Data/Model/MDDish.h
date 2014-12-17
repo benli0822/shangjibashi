@@ -13,6 +13,7 @@
 @property(readonly,nonatomic) NSUInteger id_dish;
 @property(readonly,nonatomic) NSString *name;
 @property(readonly,nonatomic) NSUInteger type;
+@property(readonly,nonatomic) NSUInteger price;
 @property(readonly,nonatomic) BOOL is_typed;
 @property(readonly,nonatomic) NSUInteger type_id;
 @property(readonly,nonatomic) NSString *img_path;
@@ -32,5 +33,6 @@
 
 
 -(void) setName:(NSString*)name;
+-(void) setPrice:(NSUInteger)price;
 
 @end
