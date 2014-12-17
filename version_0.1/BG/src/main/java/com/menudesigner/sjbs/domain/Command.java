@@ -3,13 +3,14 @@ package com.menudesigner.sjbs.domain;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Time;
 
 /**
  * Created by JIN Benli on 03/11/14.
  */
 @Entity
-@Table(name = "md_commands")
+@Table(name = "md_command")
 public class Command implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,15 +19,15 @@ public class Command implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "table")
-    private Integer table;
-
     @Column(name = "title")
     private String title;
 
     @Column(name = "msg_extra")
     @Size(max = 150)
     private String msg_extra;
+
+    @Column(name = "order_date")
+    private Date order_date;
 
     //TODO to verify if the sql.time is the right import
     @Column(name = "order_time")
@@ -42,13 +43,29 @@ public class Command implements Serializable {
     public Command() {
     }
 
-    public Command(Integer table, String title, String msg_extra, Time order_time, Integer table_no, Integer client_no) {
-        this.table = table;
+    public Command(String title, String msg_extra, Date order_date, Time order_time, Integer table_no, Integer client_no) {
         this.title = title;
         this.msg_extra = msg_extra;
+        this.order_date = order_date;
         this.order_time = order_time;
         this.table_no = table_no;
         this.client_no = client_no;
+    }
+
+    public Date getOrder_date() {
+        return order_date;
+    }
+
+    public void setOrder_date(Date order_date) {
+        this.order_date = order_date;
+    }
+
+    public String getMsg_extra() {
+        return msg_extra;
+    }
+
+    public void setMsg_extra(String msg_extra) {
+        this.msg_extra = msg_extra;
     }
 
     public static long getSerialVersionUID() {
@@ -61,14 +78,6 @@ public class Command implements Serializable {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Integer getTable() {
-        return table;
-    }
-
-    public void setTable(Integer table) {
-        this.table = table;
     }
 
     public String getTitle() {
@@ -107,8 +116,9 @@ public class Command implements Serializable {
     public String toString() {
         return "Command{" +
                 "id=" + id +
-                ", table=" + table +
                 ", title='" + title + '\'' +
+                ", msg_extra='" + msg_extra + '\'' +
+                ", order_date=" + order_date +
                 ", order_time=" + order_time +
                 ", table_no=" + table_no +
                 ", client_no=" + client_no +
