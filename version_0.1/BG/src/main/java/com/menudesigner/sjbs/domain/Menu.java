@@ -3,6 +3,7 @@ package com.menudesigner.sjbs.domain;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Time;
 
 /**
@@ -32,15 +33,15 @@ public class Menu implements Serializable {
     private Time end_time;
 
     @Column(name = "start_date")
-    private Time start_date;
+    private Date start_date;
 
     @Column(name = "end_date")
-    private Time end_date;
+    private Date end_date;
 
     public Menu() {
     }
 
-    public Menu(String name, String description, Time start_time, Time end_time, Time start_date, Time end_date) {
+    public Menu(String name, String description, Time start_time, Time end_time, Date start_date, Date end_date) {
         this.name = name;
         this.description = description;
         this.start_time = start_time;
@@ -93,19 +94,19 @@ public class Menu implements Serializable {
         this.end_time = end_time;
     }
 
-    public Time getStart_date() {
+    public Date getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Time start_date) {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
-    public Time getEnd_date() {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(Time end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 
