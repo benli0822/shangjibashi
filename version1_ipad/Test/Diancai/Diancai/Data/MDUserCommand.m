@@ -36,7 +36,6 @@
     //if this is the first time we add a dish, then we will create a dictionary else we will update the quantities of this dish
     
     if(![_dish_dictionary objectForKey:object.name]){
-        NSLog(@"problem ? ");
         [_dish_dictionary setObject:[NSNumber numberWithInt:1] forKey:object.name];
         if(!_dish_list){
             _dish_list = [[NSMutableArray alloc] init];
