@@ -60,6 +60,11 @@ public class Dish implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")})
     private Set<Activity> activities = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_command_dish",
+            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
+    private Set<Command> commands = new HashSet<>();
 
     public Dish() {
     }

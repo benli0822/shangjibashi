@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 03/11/14.
@@ -29,7 +31,6 @@ public class Command implements Serializable {
     @Column(name = "order_date")
     private Date order_date;
 
-    //TODO to verify if the sql.time is the right import
     @Column(name = "order_time")
     private Time order_time;
 
@@ -39,6 +40,11 @@ public class Command implements Serializable {
     @Column(name = "client_no")
     private Integer client_no;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_command_dish",
+            joinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
+    private Set<Dish> dishes = new HashSet<>();
 
     public Command() {
     }
