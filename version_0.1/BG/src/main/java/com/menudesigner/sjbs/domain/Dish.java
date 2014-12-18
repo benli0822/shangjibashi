@@ -1,13 +1,12 @@
 package com.menudesigner.sjbs.domain;
 
-import com.menudesigner.sjbs.domain.association.ActivityWithDish;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 03/11/14.
@@ -55,13 +54,17 @@ public class Dish implements Serializable {
     @Column(name = "end_date")
     private Date end_date;
 
-    @OneToMany(mappedBy = "dish")
-    private List<ActivityWithDish> activities;
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_activity_dish",
+            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")})
+    private Set<Activity> activities = new HashSet<>();
+
 
     public Dish() {
     }
 
-    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, List<ActivityWithDish> activities) {
+    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities) {
         this.name = name;
         this.is_typed = is_typed;
         this.img_path = img_path;
@@ -72,7 +75,7 @@ public class Dish implements Serializable {
         this.end_time = end_time;
         this.start_date = start_date;
         this.end_date = end_date;
-        this.activities = activities;
+        this.activities = new HashSet<>();
     }
 
     public Date getStart_date() {
@@ -97,10 +100,6 @@ public class Dish implements Serializable {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public void setActivities(List<ActivityWithDish> activities) {
-        this.activities = activities;
     }
 
     public String getName() {
@@ -163,8 +162,12 @@ public class Dish implements Serializable {
         return id;
     }
 
-    public List<ActivityWithDish> getActivities() {
+    public Set<Activity> getActivities() {
         return activities;
+    }
+
+    public void setActivities(Set<Activity> activities) {
+        this.activities = activities;
     }
 
     public int getPrice() {
@@ -175,19 +178,29 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
+    public void addActivity(Activity activity) {
+        this.activities.add(activity);
+    }
+
+    public void removeActivity(Activity activity) {
+        this.activities.remove(activity);
+    }
+
     @Override
     public String toString() {
         return "Dish{" +
-                "activities=" + activities +
-                ", end_time=" + end_time +
-                ", start_time=" + start_time +
-                ", disabled=" + disabled +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", img_path='" + img_path + '\'' +
-                ", is_typed=" + is_typed +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", id=" + id +
+                ", is_typed=" + is_typed +
+                ", img_path='" + img_path + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", disabled=" + disabled +
+                ", start_time=" + start_time +
+                ", end_time=" + end_time +
+                ", start_date=" + start_date +
+                ", end_date=" + end_date +
+                ", activities=" + activities +
                 '}';
     }
 }
