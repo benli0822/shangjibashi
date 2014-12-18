@@ -1,6 +1,7 @@
-package com.menudesigner.sjbs.domain;
+package com.menudesigner.sjbs.service;
 
 import com.menudesigner.sjbs.Application;
+import com.menudesigner.sjbs.domain.User;
 import com.menudesigner.sjbs.service.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

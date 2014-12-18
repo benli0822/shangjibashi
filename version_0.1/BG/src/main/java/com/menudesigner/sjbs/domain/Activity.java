@@ -1,13 +1,12 @@
 package com.menudesigner.sjbs.domain;
 
-import com.menudesigner.sjbs.domain.association.ActivityWithDish;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 31/10/14.
@@ -43,20 +42,23 @@ public class Activity implements Serializable {
     @Size(max = 300)
     private String description;
 
-    @OneToMany(mappedBy = "activity")
-    private List<ActivityWithDish> dishes;
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_activity_dish",
+            joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
+    private Set<Dish> dishes = new HashSet<>();
 
     public Activity() {
     }
 
-    public Activity(String name, Time start_time, Time end_time, Date start_date, Date end_date, String description, List<ActivityWithDish> dishes) {
+    public Activity(String name, Time start_time, Time end_time, Date start_date, Date end_date, String description, Set<Dish> dishes) {
         this.name = name;
         this.start_time = start_time;
         this.end_time = end_time;
         this.start_date = start_date;
         this.end_date = end_date;
         this.description = description;
-        this.dishes = dishes;
+        this.dishes = new HashSet<>();
     }
 
     public String getDescription() {
@@ -119,12 +121,20 @@ public class Activity implements Serializable {
         this.end_date = end_date;
     }
 
-    public List<ActivityWithDish> getDishes() {
+    public Set<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(List<ActivityWithDish> dishes) {
+    public void setDishes(Set<Dish> dishes) {
         this.dishes = dishes;
+    }
+
+    public void addDish(Dish dish) {
+        this.dishes.add(dish);
+    }
+
+    public void removeDish(Dish dish) {
+        this.dishes.remove(dish);
     }
 
     @Override
@@ -140,4 +150,5 @@ public class Activity implements Serializable {
                 ", dishes=" + dishes +
                 '}';
     }
+
 }

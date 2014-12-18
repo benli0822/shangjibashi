@@ -1,4 +1,4 @@
-package com.menudesigner.sjbs.domain;
+package com.menudesigner.sjbs;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;

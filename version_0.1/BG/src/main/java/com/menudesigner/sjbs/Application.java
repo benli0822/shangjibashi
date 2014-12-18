@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -28,7 +29,7 @@ import java.util.Locale;
 public class Application extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
     }
 
     private static Log logger = LogFactory.getLog(Application.class);
