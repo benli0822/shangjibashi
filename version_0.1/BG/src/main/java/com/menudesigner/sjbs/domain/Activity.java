@@ -43,6 +43,12 @@ public class Activity implements Serializable {
     private String description;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_command_activity",
+            joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
+    private Set<Command> commands = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(name = "md_activity_dish",
             joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
@@ -51,14 +57,15 @@ public class Activity implements Serializable {
     public Activity() {
     }
 
-    public Activity(String name, Time start_time, Time end_time, Date start_date, Date end_date, String description, Set<Dish> dishes) {
+    public Activity(String name, Time start_time, Time end_time, Date start_date, Date end_date, String description, Set<Command> commands, Set<Dish> dishes) {
         this.name = name;
         this.start_time = start_time;
         this.end_time = end_time;
         this.start_date = start_date;
         this.end_date = end_date;
         this.description = description;
-        this.dishes = new HashSet<>();
+        this.commands = commands;
+        this.dishes = dishes;
     }
 
     public String getDescription() {
@@ -137,6 +144,22 @@ public class Activity implements Serializable {
         this.dishes.remove(dish);
     }
 
+    public Set<Command> getCommands() {
+        return commands;
+    }
+
+    public void setCommands(Set<Command> commands) {
+        this.commands = commands;
+    }
+
+    public void addCommand(Command command) {
+        this.commands.add(command);
+    }
+
+    public void removeCommand(Command command) {
+        this.commands.remove(command);
+    }
+
     @Override
     public String toString() {
         return "Activity{" +
@@ -147,6 +170,7 @@ public class Activity implements Serializable {
                 ", start_date=" + start_date +
                 ", end_date=" + end_date +
                 ", description='" + description + '\'' +
+                ", commands=" + commands +
                 ", dishes=" + dishes +
                 '}';
     }

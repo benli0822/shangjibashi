@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 08/11/14.
@@ -38,16 +40,23 @@ public class Menu implements Serializable {
     @Column(name = "end_date")
     private Date end_date;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_command_menu",
+            joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
+    private Set<Command> commands = new HashSet<>();
+
     public Menu() {
     }
 
-    public Menu(String name, String description, Time start_time, Time end_time, Date start_date, Date end_date) {
+    public Menu(String name, String description, Time start_time, Time end_time, Date start_date, Date end_date, Set<Command> commands) {
         this.name = name;
         this.description = description;
         this.start_time = start_time;
         this.end_time = end_time;
         this.start_date = start_date;
         this.end_date = end_date;
+        this.commands = commands;
     }
 
     public static long getSerialVersionUID() {
@@ -108,6 +117,22 @@ public class Menu implements Serializable {
 
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
+    }
+
+    public Set<Command> getCommands() {
+        return commands;
+    }
+
+    public void setCommands(Set<Command> commands) {
+        this.commands = commands;
+    }
+
+    public void addCommand(Command command) {
+        this.commands.add(command);
+    }
+
+    public void removeCommand(Command command) {
+        this.commands.remove(command);
     }
 
     @Override

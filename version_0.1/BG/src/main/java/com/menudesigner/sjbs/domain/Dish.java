@@ -69,7 +69,7 @@ public class Dish implements Serializable {
     public Dish() {
     }
 
-    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities) {
+    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands) {
         this.name = name;
         this.is_typed = is_typed;
         this.img_path = img_path;
@@ -80,7 +80,8 @@ public class Dish implements Serializable {
         this.end_time = end_time;
         this.start_date = start_date;
         this.end_date = end_date;
-        this.activities = new HashSet<>();
+        this.activities = activities;
+        this.commands = commands;
     }
 
     public Date getStart_date() {
@@ -189,6 +190,22 @@ public class Dish implements Serializable {
 
     public void removeActivity(Activity activity) {
         this.activities.remove(activity);
+    }
+
+    public Set<Command> getCommands() {
+        return commands;
+    }
+
+    public void setCommands(Set<Command> commands) {
+        this.commands = commands;
+    }
+
+    public void addCommand(Command command) {
+        this.commands.add(command);
+    }
+
+    public void removeCommand(Command command) {
+        this.commands.remove(command);
     }
 
     @Override
