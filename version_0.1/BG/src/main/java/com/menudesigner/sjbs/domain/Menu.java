@@ -46,10 +46,16 @@ public class Menu implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
     private Set<Command> commands = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_menu_dish",
+            joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
+    private Set<Dish> dishes = new HashSet<>();
+
     public Menu() {
     }
 
-    public Menu(String name, String description, Time start_time, Time end_time, Date start_date, Date end_date, Set<Command> commands) {
+    public Menu(String name, String description, Time start_time, Time end_time, Date start_date, Date end_date, Set<Command> commands, Set<Dish> dishes) {
         this.name = name;
         this.description = description;
         this.start_time = start_time;
@@ -57,6 +63,7 @@ public class Menu implements Serializable {
         this.start_date = start_date;
         this.end_date = end_date;
         this.commands = commands;
+        this.dishes = dishes;
     }
 
     public static long getSerialVersionUID() {
@@ -135,8 +142,24 @@ public class Menu implements Serializable {
         this.commands.remove(command);
     }
 
+    public Set<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(Set<Dish> dishes) {
+        this.dishes = dishes;
+    }
+
+    public void addDish(Dish dish) {
+        this.dishes.add(dish);
+    }
+
+    public void removeDish(Dish dish) {
+        this.dishes.remove(dish);
+    }
+
     @Override
-    public String toString() {
+    public String  toString() {
         return "Menu{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -145,6 +168,8 @@ public class Menu implements Serializable {
                 ", end_time=" + end_time +
                 ", start_date=" + start_date +
                 ", end_date=" + end_date +
+                ", commands=" + commands +
+                ", dishes=" + dishes +
                 '}';
     }
 }

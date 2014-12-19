@@ -66,10 +66,16 @@ public class Dish implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
     private Set<Command> commands = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_menu_dish",
+            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")})
+    private Set<Menu> menus = new HashSet<>();
+
     public Dish() {
     }
 
-    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands) {
+    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands, Set<Menu> menus) {
         this.name = name;
         this.is_typed = is_typed;
         this.img_path = img_path;
@@ -82,6 +88,7 @@ public class Dish implements Serializable {
         this.end_date = end_date;
         this.activities = activities;
         this.commands = commands;
+        this.menus = menus;
     }
 
     public Date getStart_date() {
@@ -208,6 +215,22 @@ public class Dish implements Serializable {
         this.commands.remove(command);
     }
 
+    public Set<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Set<Menu> menus) {
+        this.menus = menus;
+    }
+
+    public void addMenu(Menu menu) {
+        this.menus.add(menu);
+    }
+
+    public void removeMenu(Menu menu) {
+        this.menus.remove(menu);
+    }
+
     @Override
     public String toString() {
         return "Dish{" +
@@ -223,6 +246,8 @@ public class Dish implements Serializable {
                 ", start_date=" + start_date +
                 ", end_date=" + end_date +
                 ", activities=" + activities +
+                ", commands=" + commands +
+                ", menus=" + menus +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.menudesigner.sjbs.domain;
 
 import com.menudesigner.sjbs.Application;
+import com.menudesigner.sjbs.service.repository.DishRepository;
 import com.menudesigner.sjbs.service.repository.MenuRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,9 @@ public class MenuTest {
 
     @Autowired
     private MenuRepository menuRepository;
+
+    @Autowired
+    private DishRepository dishRepository;
 
     @Test
     public void addSimpleMenuTest() {
@@ -71,6 +75,43 @@ public class MenuTest {
 
         assertThat(theMenu, notNullValue());
         assertThat(theRes, nullValue());
+
+    }
+
+    @Test
+    public void addMenuWithDishTest() {
+        Menu menu = new Menu();
+
+        menu.setName("test");
+        menu.setDescription("test");
+        menu.setStart_date(new Date(2014, 10, 10));
+        menu.setEnd_date(new Date(2014, 11 , 10));
+        menu.setStart_time(new Time(20, 19, 20));
+        menu.setEnd_time(new Time(20, 20, 20));
+
+        Dish newDish = new Dish();
+        newDish.setName("coca");
+        newDish.setIs_typed(false);
+        newDish.setImg_path("abc");
+        newDish.setPrice(5);
+        newDish.setDescription("abc");
+        newDish.setDisabled(false);
+        newDish.setStart_time(new Time(10,10,10));
+        newDish.setEnd_time(new Time(10,11,10));
+        newDish.setStart_date(new Date(2014,10,12));
+        newDish.setEnd_date(new Date(2014,11,12));
+
+        menu.addDish(newDish);
+        newDish.addMenu(menu);
+
+        Menu res1 = menuRepository.save(menu);
+        Dish res2 = dishRepository.save(newDish);
+
+        assertThat(res1, notNullValue());
+        assertThat(res2, notNullValue());
+
+        assertThat(res1.getDishes().contains(res2), is(Boolean.TRUE));
+        assertThat(res2.getMenus().contains(res1), is(Boolean.TRUE));
 
     }
 }
