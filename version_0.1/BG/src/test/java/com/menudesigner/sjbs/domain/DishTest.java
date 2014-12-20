@@ -2,6 +2,7 @@ package com.menudesigner.sjbs.domain;
 
 import com.menudesigner.sjbs.Application;
 import com.menudesigner.sjbs.service.repository.DishRepository;
+import com.menudesigner.sjbs.service.repository.OptionRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -35,6 +36,9 @@ public class DishTest {
 
     @Autowired
     private DishRepository dishRepository;
+
+    @Autowired
+    private OptionRepository optionRepository;
 
     @Test
     public void addSimpleDishTest() {
@@ -85,5 +89,33 @@ public class DishTest {
         assertThat(res2, nullValue());
     }
 
+    @Test
+    public void addDishWithOptionTest() {
+        Dish newDish = new Dish();
+        newDish.setName("coca");
+        newDish.setIs_typed(false);
+        newDish.setImg_path("abc");
+        newDish.setPrice(5);
+        newDish.setDescription("abc");
+        newDish.setDisabled(false);
+        newDish.setStart_time(new Time(19,10,10));
+        newDish.setEnd_time(new Time(19,11,10));
+        newDish.setStart_date(new Date(2014,9,10));
+        newDish.setEnd_date(new Date(2014,10,10));
 
+        Option option = new Option();
+        option.setName("test");
+
+        option.addDish(newDish);
+        newDish.addOption(option);
+
+        Dish res1 = dishRepository.save(newDish);
+        Option res2 = optionRepository.save(option);
+
+        assertThat(res1, notNullValue());
+        assertThat(res2, notNullValue());
+
+        assertThat(res1.getOptions().contains(res2), is(Boolean.TRUE));
+        assertThat(res2.getDishes().contains(res1), is(Boolean.TRUE));
+    }
 }

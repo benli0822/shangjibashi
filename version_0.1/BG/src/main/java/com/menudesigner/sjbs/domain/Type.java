@@ -2,6 +2,8 @@ package com.menudesigner.sjbs.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 17/12/14.
@@ -34,16 +36,23 @@ public class Type implements Serializable {
     @Column(name = "is_for_customize")
     private boolean is_for_customize;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_dish_type",
+            joinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
+    private Set<Dish> dishes = new HashSet<>();
+
     public Type() {
     }
 
-    public Type(boolean is_firstmenu, boolean is_secondmenu, long firstmenu_id, String name, String description, boolean is_for_customize) {
+    public Type(boolean is_firstmenu, boolean is_secondmenu, long firstmenu_id, String name, String description, boolean is_for_customize, Set<Dish> dishes) {
         this.is_firstmenu = is_firstmenu;
         this.is_secondmenu = is_secondmenu;
         this.firstmenu_id = firstmenu_id;
         this.name = name;
         this.description = description;
         this.is_for_customize = is_for_customize;
+        this.dishes = dishes;
     }
 
     public long getId() {
@@ -102,6 +111,26 @@ public class Type implements Serializable {
         this.is_for_customize = is_for_customize;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Set<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(Set<Dish> dishes) {
+        this.dishes = dishes;
+    }
+
+    public void addDish(Dish dish) {
+        this.dishes.add(dish);
+    }
+
+    public void removeDish(Dish dish) {
+        this.dishes.remove(dish);
+    }
+
     @Override
     public String toString() {
         return "Type{" +
@@ -112,6 +141,7 @@ public class Type implements Serializable {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", is_for_customize=" + is_for_customize +
+                ", dishes=" + dishes +
                 '}';
     }
 }

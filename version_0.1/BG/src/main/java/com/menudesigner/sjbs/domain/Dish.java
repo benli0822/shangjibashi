@@ -72,10 +72,23 @@ public class Dish implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")})
     private Set<Menu> menus = new HashSet<>();
 
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_dish_type",
+            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")})
+    private Set<Type> types = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(name = "md_dish_option",
+            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")})
+    private Set<Option> options = new HashSet<>();
+
     public Dish() {
     }
 
-    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands, Set<Menu> menus) {
+    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands, Set<Menu> menus, Set<Type> types, Set<Option> options) {
         this.name = name;
         this.is_typed = is_typed;
         this.img_path = img_path;
@@ -89,6 +102,8 @@ public class Dish implements Serializable {
         this.activities = activities;
         this.commands = commands;
         this.menus = menus;
+        this.types = types;
+        this.options = options;
     }
 
     public Date getStart_date() {
@@ -231,6 +246,38 @@ public class Dish implements Serializable {
         this.menus.remove(menu);
     }
 
+    public Set<Type> getTypes() {
+        return types;
+    }
+
+    public void setTypes(Set<Type> types) {
+        this.types = types;
+    }
+
+    public Set<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(Set<Option> options) {
+        this.options = options;
+    }
+
+    public void addType(Type type) {
+        this.types.add(type);
+    }
+
+    public void removeType(Type type) {
+        this.types.remove(type);
+    }
+
+    public void addOption(Option option) {
+        this.options.add(option);
+    }
+
+    public void removeOption(Option option) {
+        this.options.remove(option);
+    }
+
     @Override
     public String toString() {
         return "Dish{" +
@@ -248,6 +295,8 @@ public class Dish implements Serializable {
                 ", activities=" + activities +
                 ", commands=" + commands +
                 ", menus=" + menus +
+                ", types=" + types +
+                ", options=" + options +
                 '}';
     }
 }
