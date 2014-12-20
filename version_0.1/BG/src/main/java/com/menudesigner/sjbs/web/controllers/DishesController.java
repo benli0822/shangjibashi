@@ -56,12 +56,12 @@ public class DishesController {
     }
 
 
-    @RequestMapping(value = "/postDish", method = RequestMethod.POST)
-    public String postNewDish(final Dish dish, Locale locale, final BindingResult bindingResult, final ModelMap model) {
-        logger.info("[BlogController: post], posting an article");
+    @RequestMapping(value = "/addDish", method = RequestMethod.POST)
+    public String addNewDish(final Dish dish, Locale locale, final BindingResult bindingResult, final ModelMap model) {
+        logger.info("[DishesController: addNewDish], posting a new Dish");
         if (bindingResult.hasErrors()) {
             logger.error("[DishesController: postNewDish]", bindingResult.getAllErrors());
-            return "view/post";
+            return "view/addDish";
         }
         return null;
     }
