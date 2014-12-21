@@ -98,14 +98,13 @@
                 <!-- PAGE CONTENT BEGINS -->
 
                 <div class="col-xs-12 col-sm-6">
-                    <form class="form-horizontal" role="form" method="post" th:action="@{/postDish}">
+                    <form class="form-horizontal" role="form" method="post" th:action="@{/addDish}">
                         <div class="form-group">
                             <label class="col-sm-2 control-label no-padding-right" for="form-field-1"
                                    th:text="#{add.name}"> </label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" th:placeholder="#{add.name}"
-                                       th:field="*{dish.name}"
+                                <input type="text" id="form-field-1" th:field="*{dish.name}"
                                        class="col-xs-10 col-sm-10"/>
                             </div>
                         </div>
@@ -116,8 +115,8 @@
 
                             <div class="col-sm-9">
                                 <textarea maxlength="150" id="form-field-description"
-                                          class="col-xs-10 col-sm-10 limited" th:field="*{dish.description}"
-                                          th:placeholder="#{add.description}"></textarea>
+                                          class="col-xs-10 col-sm-10 limited" th:field="*{dish.description}">
+                                </textarea>
                             </div>
                         </div>
 
@@ -187,7 +186,7 @@
 
                             <div class="col-sm-5">
                                 <label>
-                                    <input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-1"
+                                    <input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-date"
                                            id="form-field-switch-date"/>
                                     <span class="lbl"></span>
                                 </label>
@@ -216,7 +215,7 @@
 
                             <div class="col-sm-5">
                                 <label>
-                                    <input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-1"
+                                    <input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-time"
                                            id="form-field-switch-time"/>
                                     <span class="lbl"></span>
                                 </label>
@@ -269,7 +268,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker1" disabled="disabled"/>
+                                    <input type="text" class="form-control" id="timepicker1" name="timepicker1"
+                                           disabled="disabled"/>
                                 </div>
 
                                 <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
@@ -313,7 +313,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker2" disabled="disabled"/>
+                                    <input type="text" class="form-control" id="timepicker2" name="timepicker2"
+                                           disabled="disabled"/>
                                 </div>
                             </div>
                         </div>

@@ -52,6 +52,18 @@ public class DishServiceImpl implements DishService {
         }
     }
 
+    @Override
+    public long addDish(String name, String description, float price, boolean disabled) {
+        logger.debug("Try adding dish");
+        Dish newDish = new Dish();
+        newDish.setName(name);
+        newDish.setDescription(description);
+        newDish.setPrice(price);
+        newDish.setDisabled(false);
+
+        return this.addDish(newDish);
+    }
+
     /**
      * Removing a dish with the given name
      * 1. Return true if found and delete the record

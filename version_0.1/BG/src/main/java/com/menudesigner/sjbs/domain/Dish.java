@@ -31,7 +31,7 @@ public class Dish implements Serializable {
     private String img_path;
 
     @Column(name = "price")
-    private int price;
+    private float price;
 
     @Column(name = "description")
     @Size(max = 300)
@@ -88,7 +88,7 @@ public class Dish implements Serializable {
     public Dish() {
     }
 
-    public Dish(String name, Boolean is_typed, String img_path, int price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands, Set<Menu> menus, Set<Type> types, Set<Option> options) {
+    public Dish(String name, Boolean is_typed, String img_path, float price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands, Set<Menu> menus, Set<Type> types, Set<Option> options) {
         this.name = name;
         this.is_typed = is_typed;
         this.img_path = img_path;
@@ -198,11 +198,11 @@ public class Dish implements Serializable {
         this.activities = activities;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

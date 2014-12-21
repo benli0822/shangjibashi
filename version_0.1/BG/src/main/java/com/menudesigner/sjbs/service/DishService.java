@@ -7,6 +7,7 @@ import com.menudesigner.sjbs.domain.Dish;
  */
 public interface DishService {
     long addDish(Dish dish);
+    long addDish(String name, String description, float price, boolean disabled);
 
     boolean removeDish(String dishName);
 

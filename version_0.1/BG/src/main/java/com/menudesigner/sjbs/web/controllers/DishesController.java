@@ -1,8 +1,11 @@
 package com.menudesigner.sjbs.web.controllers;
 
 import com.menudesigner.sjbs.domain.Dish;
+import com.menudesigner.sjbs.service.repository.OptionRepository;
+import com.menudesigner.sjbs.service.repository.TypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,6 +23,12 @@ import java.util.Locale;
 @Controller
 public class DishesController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+
+    @Autowired
+    private TypeRepository typeRepository;
+
+    @Autowired
+    private OptionRepository optionRepository;
 
     /**
      * Simply selects the home view to render by returning its name.
