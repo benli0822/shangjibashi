@@ -36,16 +36,22 @@ public class Type implements Serializable {
     @Column(name = "is_for_customize")
     private boolean is_for_customize;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "md_dish_type",
             joinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
     private Set<Dish> dishes = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "md_conflict_dish_type",
+            joinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "conflict_id", referencedColumnName = "id")})
+    private Set<Type> conflictTypes = new HashSet<>();
+
     public Type() {
     }
 
-    public Type(boolean is_firstmenu, boolean is_secondmenu, long firstmenu_id, String name, String description, boolean is_for_customize, Set<Dish> dishes) {
+    public Type(boolean is_firstmenu, boolean is_secondmenu, long firstmenu_id, String name, String description, boolean is_for_customize, Set<Dish> dishes, Set<Type> conflictTypes) {
         this.is_firstmenu = is_firstmenu;
         this.is_secondmenu = is_secondmenu;
         this.firstmenu_id = firstmenu_id;
@@ -53,6 +59,7 @@ public class Type implements Serializable {
         this.description = description;
         this.is_for_customize = is_for_customize;
         this.dishes = dishes;
+        this.conflictTypes = conflictTypes;
     }
 
     public long getId() {
@@ -129,6 +136,22 @@ public class Type implements Serializable {
 
     public void removeDish(Dish dish) {
         this.dishes.remove(dish);
+    }
+
+    public Set<Type> getConflictTypes() {
+        return conflictTypes;
+    }
+
+    public void setConflictTypes(Set<Type> conflictTypes) {
+        this.conflictTypes = conflictTypes;
+    }
+
+    public void addConflictType(Type type) {
+        this.conflictTypes.add(type);
+    }
+
+    public void removeConflictType(Type type) {
+        this.conflictTypes.remove(type);
     }
 
     @Override

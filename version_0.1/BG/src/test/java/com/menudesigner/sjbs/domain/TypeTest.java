@@ -107,4 +107,35 @@ public class TypeTest {
         assertThat(res1.getTypes().contains(res2), is(Boolean.TRUE));
         assertThat(res2.getDishes().contains(res1), is(Boolean.TRUE));
     }
+
+    @Test
+    public void addConflictTypeTest() {
+        Type type1 = new Type();
+
+        type1.setIs_firstmenu(true);
+        type1.setIs_secondmenu(false);
+        type1.setName("cold");
+        type1.setDescription("cold");
+        type1.setIs_for_customize(false);
+
+        Type type2 = new Type();
+
+        type2.setIs_firstmenu(true);
+        type2.setIs_secondmenu(false);
+        type2.setName("hot");
+        type2.setDescription("hot");
+        type2.setIs_for_customize(false);
+
+        type1.addConflictType(type2);
+        type2.addConflictType(type1);
+
+        Type res1 = typeRepository.save(type1);
+        Type res2 = typeRepository.save(type2);
+
+        assertThat(res1, notNullValue());
+        assertThat(res2, notNullValue());
+
+        assertThat(res1.getConflictTypes().contains(res2), is(Boolean.TRUE));
+        assertThat(res2.getConflictTypes().contains(res1), is(Boolean.TRUE));
+    }
 }
