@@ -40,30 +40,28 @@ public class Menu implements Serializable {
     @Column(name = "end_date")
     private Date end_date;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_command_menu",
-            joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
-    private Set<Command> commands = new HashSet<>();
+    @OneToMany(mappedBy="menu", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<CommandMenu> commands = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_menu_dish",
-            joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-    private Set<Dish> dishes = new HashSet<>();
+    @OneToMany(mappedBy="menu", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<MenuDish> dishes = new HashSet<>();
 
     public Menu() {
     }
 
-    public Menu(String name, String description, Time start_time, Time end_time, Date start_date, Date end_date, Set<Command> commands, Set<Dish> dishes) {
-        this.name = name;
-        this.description = description;
-        this.start_time = start_time;
-        this.end_time = end_time;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.commands = commands;
-        this.dishes = dishes;
+    /**
+     * Add an association between dish and menu
+     * @param dish
+     * @param quantity
+     */
+    public void addDish(Dish dish, int quantity) {
+        MenuDish association = new MenuDish();
+        association.setMenu(this);
+        association.setDish(dish);
+        association.setQuantity(quantity);
+
+        this.dishes.add(association);
+        dish.getMenus().add(association);
     }
 
     public static long getSerialVersionUID() {
@@ -126,38 +124,20 @@ public class Menu implements Serializable {
         this.end_date = end_date;
     }
 
-    public Set<Command> getCommands() {
+    public Set<CommandMenu> getCommands() {
         return commands;
     }
 
-    public void setCommands(Set<Command> commands) {
+    public void setCommands(Set<CommandMenu> commands) {
         this.commands = commands;
     }
 
-    public void addCommand(Command command) {
-        this.commands.add(command);
-        command.addMenu(this);
-    }
-
-    public void removeCommand(Command command) {
-        this.commands.remove(command);
-    }
-
-    public Set<Dish> getDishes() {
+    public Set<MenuDish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes) {
+    public void setDishes(Set<MenuDish> dishes) {
         this.dishes = dishes;
-    }
-
-    public void addDish(Dish dish) {
-        this.dishes.add(dish);
-        dish.addMenu(this);
-    }
-
-    public void removeDish(Dish dish) {
-        this.dishes.remove(dish);
     }
 
     @Override

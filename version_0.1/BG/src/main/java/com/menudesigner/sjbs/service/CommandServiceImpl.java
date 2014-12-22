@@ -80,7 +80,7 @@ public class CommandServiceImpl implements CommandService {
         //TODO how to handle quantity problem?
 
         if(!theDish.getCommands().contains(theCommand) && !theCommand.getDishes().contains(theDish)) {
-            theDish.addCommand(theCommand);
+//            theDish.addCommand(theCommand);
 //            theCommand.addDish(theDish);
 //            Dish res1 = dishRepository.save(theDish);
 //            Command res2 = commandRepository.save(theCommand);

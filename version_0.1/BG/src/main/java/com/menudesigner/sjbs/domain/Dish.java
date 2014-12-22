@@ -54,23 +54,14 @@ public class Dish implements Serializable {
     @Column(name = "end_date")
     private Date end_date;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_activity_dish",
-            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")})
-    private Set<Activity> activities = new HashSet<>();
+    @OneToMany(mappedBy="dish", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<ActivityDish> activities = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_command_dish",
-            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
-    private Set<Command> commands = new HashSet<>();
+    @OneToMany(mappedBy="dish", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<CommandDish> commands = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_menu_dish",
-            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")})
-    private Set<Menu> menus = new HashSet<>();
+    @OneToMany(mappedBy="dish", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<MenuDish> menus = new HashSet<>();
 
 
     @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
@@ -86,24 +77,6 @@ public class Dish implements Serializable {
     private Set<Option> options = new HashSet<>();
 
     public Dish() {
-    }
-
-    public Dish(String name, Boolean is_typed, String img_path, float price, String description, Boolean disabled, Time start_time, Time end_time, Date start_date, Date end_date, Set<Activity> activities, Set<Command> commands, Set<Menu> menus, Set<Type> types, Set<Option> options) {
-        this.name = name;
-        this.is_typed = is_typed;
-        this.img_path = img_path;
-        this.price = price;
-        this.description = description;
-        this.disabled = disabled;
-        this.start_time = start_time;
-        this.end_time = end_time;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.activities = activities;
-        this.commands = commands;
-        this.menus = menus;
-        this.types = types;
-        this.options = options;
     }
 
     public Date getStart_date() {
@@ -190,11 +163,11 @@ public class Dish implements Serializable {
         return id;
     }
 
-    public Set<Activity> getActivities() {
+    public Set<ActivityDish> getActivities() {
         return activities;
     }
 
-    public void setActivities(Set<Activity> activities) {
+    public void setActivities(Set<ActivityDish> activities) {
         this.activities = activities;
     }
 
@@ -206,7 +179,7 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
-    public void addActivity(Activity activity) {
+    public void addActivity(ActivityDish activity) {
         this.activities.add(activity);
     }
 
@@ -214,31 +187,40 @@ public class Dish implements Serializable {
         this.activities.remove(activity);
     }
 
-    public Set<Command> getCommands() {
+//    public Set<Command> getCommands() {
+//        return commands;
+//    }
+//
+//    public void setCommands(Set<Command> commands) {
+//        this.commands = commands;
+//    }
+//
+//    public void addCommand(Command command) {
+//        this.commands.add(command);
+//    }
+//
+//    public void removeCommand(Command command) {
+//        this.commands.remove(command);
+//    }
+
+
+    public Set<CommandDish> getCommands() {
         return commands;
     }
 
-    public void setCommands(Set<Command> commands) {
+    public void setCommands(Set<CommandDish> commands) {
         this.commands = commands;
     }
 
-    public void addCommand(Command command) {
-        this.commands.add(command);
-    }
-
-    public void removeCommand(Command command) {
-        this.commands.remove(command);
-    }
-
-    public Set<Menu> getMenus() {
+    public Set<MenuDish> getMenus() {
         return menus;
     }
 
-    public void setMenus(Set<Menu> menus) {
+    public void setMenus(Set<MenuDish> menus) {
         this.menus = menus;
     }
 
-    public void addMenu(Menu menu) {
+    public void addMenu(MenuDish menu) {
         this.menus.add(menu);
     }
 
