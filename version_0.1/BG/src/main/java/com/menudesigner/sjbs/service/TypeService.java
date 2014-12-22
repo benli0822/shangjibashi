@@ -34,4 +34,11 @@ public interface TypeService {
      */
     boolean addTypeToDish(Dish dish, long type_id);
 
+    /**
+     * Add a conflict type to type
+     * @param type_id
+     * @param conflict_type_id
+     * @return
+     */
+    boolean addConflictToType(long type_id, long conflict_type_id);
 }
