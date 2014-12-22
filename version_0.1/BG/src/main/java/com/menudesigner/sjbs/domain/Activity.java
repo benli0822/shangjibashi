@@ -42,38 +42,28 @@ public class Activity implements Serializable {
     @Size(max = 300)
     private String description;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_command_activity",
-            joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")})
-    private Set<Command> commands = new HashSet<>();
+    @OneToMany(mappedBy="activity", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<CommandActivity> commands = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_activity_dish",
-            joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-    private Set<Dish> dishes = new HashSet<>();
+    @OneToMany(mappedBy="activity", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<ActivityDish> dishes = new HashSet<>();
 
     public Activity() {
     }
 
-    public Activity(String name, Time start_time, Time end_time, Date start_date, Date end_date, String description, Set<Command> commands, Set<Dish> dishes) {
-        this.name = name;
-        this.start_time = start_time;
-        this.end_time = end_time;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.description = description;
-        this.commands = commands;
-        this.dishes = dishes;
-    }
+    /**
+     * Add an association between dish and activity
+     * @param dish
+     * @param quantity
+     */
+    public void addDish(Dish dish, int quantity) {
+        ActivityDish association = new ActivityDish();
+        association.setActivity(this);
+        association.setDish(dish);
+        association.setQuantity(quantity);
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        this.dishes.add(association);
+        dish.getActivities().add(association);
     }
 
     public static long getSerialVersionUID() {
@@ -128,36 +118,28 @@ public class Activity implements Serializable {
         this.end_date = end_date;
     }
 
-    public Set<Dish> getDishes() {
-        return dishes;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDishes(Set<Dish> dishes) {
-        this.dishes = dishes;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void addDish(Dish dish) {
-        this.dishes.add(dish);
-    }
-
-    public void removeDish(Dish dish) {
-        this.dishes.remove(dish);
-    }
-
-    public Set<Command> getCommands() {
+    public Set<CommandActivity> getCommands() {
         return commands;
     }
 
-    public void setCommands(Set<Command> commands) {
+    public void setCommands(Set<CommandActivity> commands) {
         this.commands = commands;
     }
 
-    public void addCommand(Command command) {
-        this.commands.add(command);
+    public Set<ActivityDish> getDishes() {
+        return dishes;
     }
 
-    public void removeCommand(Command command) {
-        this.commands.remove(command);
+    public void setDishes(Set<ActivityDish> dishes) {
+        this.dishes = dishes;
     }
 
     @Override

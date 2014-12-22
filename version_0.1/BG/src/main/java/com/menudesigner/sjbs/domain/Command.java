@@ -40,54 +40,62 @@ public class Command implements Serializable {
     @Column(name = "client_no")
     private Integer client_no;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_command_activity",
-            joinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")})
-    private Set<Activity> activities = new HashSet<>();
+    @OneToMany(mappedBy="command", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<CommandActivity> activities = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_command_dish",
-            joinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-    private Set<Dish> dishes = new HashSet<>();
+    @OneToMany(mappedBy="command", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<CommandDish> dishes = new HashSet<>();
 
     //TODO really should consider the quantity problem, perhaps we go with JDBCTemplate
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "md_command_menu",
-            joinColumns = {@JoinColumn(name = "command_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")})
-    private Set<Menu> menus = new HashSet<>();
+    @OneToMany(mappedBy="command", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<CommandMenu> menus = new HashSet<>();
 
     public Command() {
     }
 
-    public Command(String title, String msg_extra, Date order_date, Time order_time, Integer table_no, Integer client_no, Set<Activity> activities, Set<Dish> dishes, Set<Menu> menus) {
-        this.title = title;
-        this.msg_extra = msg_extra;
-        this.order_date = order_date;
-        this.order_time = order_time;
-        this.table_no = table_no;
-        this.client_no = client_no;
-        this.activities = activities;
-        this.dishes = dishes;
-        this.menus = menus;
+    /**
+     * Add an association between dish and command
+     * @param dish
+     * @param quantity
+     */
+    public void addDish(Dish dish, int quantity) {
+        CommandDish association = new CommandDish();
+        association.setCommand(this);
+        association.setDish(dish);
+        association.setQuantity(quantity);
+
+        this.dishes.add(association);
+        dish.getCommands().add(association);
     }
 
-    public Date getOrder_date() {
-        return order_date;
+    /**
+     * Add an association between dish and activity
+     * @param activity
+     * @param quantity
+     */
+    public void addActivity(Activity activity, int quantity) {
+        CommandActivity association = new CommandActivity();
+        association.setCommand(this);
+        association.setActivity(activity);
+        association.setQuantity(quantity);
+
+        this.activities.add(association);
+        activity.getCommands().add(association);
     }
 
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
-    }
+    /**
+     * Add an association between dish and activity
+     * @param menu
+     * @param quantity
+     */
+    public void addMenu(Menu menu, int quantity) {
+        CommandMenu association = new CommandMenu();
+        association.setCommand(this);
+        association.setMenu(menu);
+        association.setQuantity(quantity);
 
-    public String getMsg_extra() {
-        return msg_extra;
-    }
-
-    public void setMsg_extra(String msg_extra) {
-        this.msg_extra = msg_extra;
+        this.menus.add(association);
+        menu.getCommands().add(association);
     }
 
     public static long getSerialVersionUID() {
@@ -108,6 +116,22 @@ public class Command implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getMsg_extra() {
+        return msg_extra;
+    }
+
+    public void setMsg_extra(String msg_extra) {
+        this.msg_extra = msg_extra;
+    }
+
+    public Date getOrder_date() {
+        return order_date;
+    }
+
+    public void setOrder_date(Date order_date) {
+        this.order_date = order_date;
     }
 
     public Time getOrder_time() {
@@ -134,52 +158,28 @@ public class Command implements Serializable {
         this.client_no = client_no;
     }
 
-    public Set<Activity> getActivities() {
+    public Set<CommandActivity> getActivities() {
         return activities;
     }
 
-    public void setActivities(Set<Activity> activities) {
+    public void setActivities(Set<CommandActivity> activities) {
         this.activities = activities;
     }
 
-    public Set<Dish> getDishes() {
+    public Set<CommandDish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes) {
+    public void setDishes(Set<CommandDish> dishes) {
         this.dishes = dishes;
     }
 
-    public Set<Menu> getMenus() {
+    public Set<CommandMenu> getMenus() {
         return menus;
     }
 
-    public void setMenus(Set<Menu> menus) {
+    public void setMenus(Set<CommandMenu> menus) {
         this.menus = menus;
-    }
-
-    public void addActivity(Activity activity) {
-        this.activities.add(activity);
-    }
-
-    public void removeActivity(Activity activity) {
-        this.activities.remove(activity);
-    }
-
-    public void addDish(Dish dish) {
-        this.dishes.add(dish);
-    }
-
-    public void removeDish(Dish dish) {
-        this.dishes.remove(dish);
-    }
-
-    public void addMenu(Menu menu) {
-        this.menus.add(menu);
-    }
-
-    public void removeMenu(Menu menu) {
-        this.menus.remove(menu);
     }
 
     @Override

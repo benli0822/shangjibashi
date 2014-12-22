@@ -2,6 +2,7 @@ package com.menudesigner.sjbs.domain;
 
 import com.menudesigner.sjbs.Application;
 import com.menudesigner.sjbs.service.repository.DishRepository;
+import com.menudesigner.sjbs.service.repository.MenuDishRepository;
 import com.menudesigner.sjbs.service.repository.MenuRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -37,6 +39,9 @@ public class MenuTest {
 
     @Autowired
     private DishRepository dishRepository;
+
+    @Autowired
+    private MenuDishRepository menuDishRepository;
 
     @Test
     public void addSimpleMenuTest() {
@@ -101,17 +106,22 @@ public class MenuTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-        menu.addDish(newDish);
-        newDish.addMenu(menu);
+        menu.addDish(newDish, 2);
+//        newDish.addMenu(menu);
 
         Menu res1 = menuRepository.save(menu);
         Dish res2 = dishRepository.save(newDish);
 
+        List<MenuDish> menuDishs = menuDishRepository.findMenuDishByMenuAndDish(res1, res2);
+
         assertThat(res1, notNullValue());
         assertThat(res2, notNullValue());
 
-        assertThat(res1.getDishes().contains(res2), is(Boolean.TRUE));
-        assertThat(res2.getMenus().contains(res1), is(Boolean.TRUE));
+        assertThat(menuDishs.size(), is(1));
+        assertThat(menuDishs.get(0).getQuantity(), is(2));
+
+        assertThat(res1.getDishes().contains(menuDishs.get(0)), is(Boolean.TRUE));
+        assertThat(res2.getMenus().contains(menuDishs.get(0)), is(Boolean.TRUE));
 
     }
 }

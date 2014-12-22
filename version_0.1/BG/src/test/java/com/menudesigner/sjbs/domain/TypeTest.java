@@ -95,7 +95,7 @@ public class TypeTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-        newDish.addType(type);
+//        newDish.addType(type);
         type.addDish(newDish);
 
         Dish res1 = dishRepository.save(newDish);
@@ -127,6 +127,8 @@ public class TypeTest {
         type2.setIs_for_customize(false);
 
         type1.addConflictType(type2);
+        // a conflict with b, and b conflict with a, 2 record
+        // TODO need verify
         type2.addConflictType(type1);
 
         Type res1 = typeRepository.save(type1);

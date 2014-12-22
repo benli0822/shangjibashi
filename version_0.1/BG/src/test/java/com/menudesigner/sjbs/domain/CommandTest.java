@@ -1,10 +1,7 @@
 package com.menudesigner.sjbs.domain;
 
 import com.menudesigner.sjbs.Application;
-import com.menudesigner.sjbs.service.repository.ActivityRepository;
-import com.menudesigner.sjbs.service.repository.CommandRepository;
-import com.menudesigner.sjbs.service.repository.DishRepository;
-import com.menudesigner.sjbs.service.repository.MenuRepository;
+import com.menudesigner.sjbs.service.repository.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -45,6 +43,15 @@ public class CommandTest {
 
     @Autowired
     private MenuRepository menuRepository;
+
+    @Autowired
+    private CommandDishRepository commandDishRepository;
+
+    @Autowired
+    private CommandActivityRepository commandActivityRepository;
+
+    @Autowired
+    private CommandMenuRepository commandMenuRepository;
 
     @Test
     public void addSimpleCommandTest() {
@@ -108,16 +115,22 @@ public class CommandTest {
         activity.setStart_time(new Time(19, 20, 55));
         activity.setEnd_time(new Time(19, 21, 55));
 
-        command.addActivity(activity);
-        activity.addCommand(command);
+        command.addActivity(activity, 2);
+//        activity.addCommand(command);
 
         Command res1 = commandRepository.save(command);
         Activity res2 = activityRepository.save(activity);
 
+        List<CommandActivity> commandActivities = commandActivityRepository.findCommandActivityByCommandAndActivity(res1, res2);
+
         assertThat(res1, notNullValue());
         assertThat(res2, notNullValue());
-        assertThat(res1.getActivities().contains(res2), is(Boolean.TRUE));
-        assertThat(res2.getCommands().contains(res1), is(Boolean.TRUE));
+
+        assertThat(commandActivities.size(), is(1));
+        assertThat(commandActivities.get(0).getQuantity(), is(2));
+
+        assertThat(res1.getActivities().contains(commandActivities.get(0)), is(Boolean.TRUE));
+        assertThat(res2.getCommands().contains(commandActivities.get(0)), is(Boolean.TRUE));
     }
 
     @Test
@@ -143,16 +156,23 @@ public class CommandTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-        command.addDish(newDish);
-        newDish.addCommand(command);
+        command.addDish(newDish, 2);
+//        newDish.addCommand(command);
 
         Command res1 = commandRepository.save(command);
         Dish res2 = dishRepository.save(newDish);
 
+        List<CommandDish> commandDishes = commandDishRepository.findCommandDishByCommandAndDish(res1, res2);
+
         assertThat(res1, notNullValue());
         assertThat(res2, notNullValue());
-        assertThat(res1.getDishes().contains(res2), is(Boolean.TRUE));
-        assertThat(res2.getCommands().contains(res1), is(Boolean.TRUE));
+
+        assertThat(commandDishes.size(), is(1));
+        assertThat(commandDishes.get(0).getQuantity(), is(2));
+
+        assertThat(res1.getDishes().contains(commandDishes.get(0)), is(Boolean.TRUE));
+        assertThat(res2.getCommands().contains(commandDishes.get(0)), is(Boolean.TRUE));
+
     }
 
     @Test
@@ -175,15 +195,21 @@ public class CommandTest {
         menu.setStart_time(new Time(20, 19, 20));
         menu.setEnd_time(new Time(20, 20, 20));
 
-        menu.addCommand(command);
-        command.addMenu(menu);
+//        menu.addCommand(command);
+        command.addMenu(menu, 2);
 
         Menu res1 = menuRepository.save(menu);
         Command res2 = commandRepository.save(command);
 
+        List<CommandMenu> commandMenus = commandMenuRepository.findCommandMenuByCommandAndMenu(res2, res1);
+
         assertThat(res1, notNullValue());
         assertThat(res2, notNullValue());
-        assertThat(res1.getCommands().contains(res2), is(Boolean.TRUE));
-        assertThat(res2.getMenus().contains(res1), is(Boolean.TRUE));
+
+        assertThat(commandMenus.size(), is(1));
+        assertThat(commandMenus.get(0).getQuantity(), is(2));
+
+        assertThat(res1.getCommands().contains(commandMenus.get(0)), is(Boolean.TRUE));
+        assertThat(res2.getMenus().contains(commandMenus.get(0)), is(Boolean.TRUE));
     }
 }

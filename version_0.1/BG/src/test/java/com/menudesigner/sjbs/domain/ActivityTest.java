@@ -1,6 +1,7 @@
 package com.menudesigner.sjbs.domain;
 
 import com.menudesigner.sjbs.Application;
+import com.menudesigner.sjbs.service.repository.ActivityDishRepository;
 import com.menudesigner.sjbs.service.repository.ActivityRepository;
 import com.menudesigner.sjbs.service.repository.DishRepository;
 import org.junit.Test;
@@ -16,6 +17,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import javax.transaction.Transactional;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -38,6 +40,9 @@ public class ActivityTest {
 
     @Autowired
     private DishRepository dishRepository;
+
+    @Autowired
+    private ActivityDishRepository activityDishRepository;
 
     @Test
     public void addSimpleActivityTest() {
@@ -103,13 +108,22 @@ public class ActivityTest {
         newDish.setEnd_date(new Date(2014,11,12));
 
 
-        activity.addDish(newDish);
-        newDish.addActivity(activity);
+        activity.addDish(newDish, 2);
+//        newDish.addActivity(activity);
 
         Activity theRes1 = activityRepository.save(activity);
         Dish theRes2 = dishRepository.save(newDish);
 
-        assertThat(theRes1.getDishes().contains(theRes2), is(Boolean.TRUE));
-        assertThat(theRes2.getActivities().contains(theRes1), is(Boolean.TRUE));
+        List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(theRes1, theRes2);
+
+
+        assertThat(theRes1, notNullValue());
+        assertThat(theRes2, notNullValue());
+
+        assertThat(activityDishs.size(), is(1));
+        assertThat(activityDishs.get(0).getQuantity(), is(2));
+
+        assertThat(theRes1.getDishes().contains(activityDishs.get(0)), is(Boolean.TRUE));
+        assertThat(theRes2.getActivities().contains(activityDishs.get(0)), is(Boolean.TRUE));
     }
 }
