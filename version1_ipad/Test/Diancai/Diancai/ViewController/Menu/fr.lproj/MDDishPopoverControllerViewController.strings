@@ -3,7 +3,7 @@
 "C5P-gC-yq8.normalTitle" = "Button";
 
 /* Class = "IBUILabel"; text = "份数 :"; ObjectID = "g8e-eS-cHm"; */
-"g8e-eS-cHm.text" = "qua :";
+"g8e-eS-cHm.text" = "nombre :";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "gLT-82-cGD"; */
 "gLT-82-cGD.text" = "Label";
