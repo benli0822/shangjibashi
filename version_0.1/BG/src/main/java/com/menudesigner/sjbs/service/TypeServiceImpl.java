@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component("typeService")
 @Transactional
 public class TypeServiceImpl implements TypeService {
-    private static final Logger logger = LoggerFactory.getLogger(DishServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(TypeServiceImpl.class);
 
     private final TypeRepository typeRepository;
 
