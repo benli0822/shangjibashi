@@ -64,6 +64,7 @@ public class Option implements Serializable {
 
     public void addDish(Dish dish) {
         this.dishes.add(dish);
+        dish.addOption(this);
     }
 
     public void removeDish(Dish dish) {

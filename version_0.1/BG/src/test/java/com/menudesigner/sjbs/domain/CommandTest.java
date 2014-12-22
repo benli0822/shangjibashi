@@ -144,7 +144,7 @@ public class CommandTest {
         newDish.setEnd_date(new Date(2014,11,12));
 
         command.addDish(newDish);
-        newDish.addCommand(command);
+//        newDish.addCommand(command);
 
         Command res1 = commandRepository.save(command);
         Dish res2 = dishRepository.save(newDish);

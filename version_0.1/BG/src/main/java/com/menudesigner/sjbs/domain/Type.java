@@ -132,6 +132,7 @@ public class Type implements Serializable {
 
     public void addDish(Dish dish) {
         this.dishes.add(dish);
+        dish.addType(this);
     }
 
     public void removeDish(Dish dish) {

@@ -1,5 +1,8 @@
 package com.menudesigner.sjbs;
 
+import com.menudesigner.sjbs.service.CommandService;
+import com.menudesigner.sjbs.service.repository.CommandRepository;
+import com.menudesigner.sjbs.service.repository.DishRepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
@@ -30,6 +33,9 @@ public class Application extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) throws Exception {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+        DishRepository dishRepository = context.getBean(DishRepository.class);
+        CommandRepository commandRepository = context.getBean(CommandRepository.class);
+        CommandService commandService = context.getBean(CommandService.class);
     }
 
     private static Log logger = LogFactory.getLog(Application.class);

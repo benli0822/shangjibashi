@@ -107,7 +107,7 @@ public class DishTest {
         option.setName("test");
 
         option.addDish(newDish);
-        newDish.addOption(option);
+//        newDish.addOption(option);
 
         Dish res1 = dishRepository.save(newDish);
         Option res2 = optionRepository.save(option);

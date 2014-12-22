@@ -168,6 +168,7 @@ public class Command implements Serializable {
 
     public void addDish(Dish dish) {
         this.dishes.add(dish);
+        dish.addCommand(this);
     }
 
     public void removeDish(Dish dish) {

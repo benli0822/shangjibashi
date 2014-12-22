@@ -138,6 +138,7 @@ public class Activity implements Serializable {
 
     public void addDish(Dish dish) {
         this.dishes.add(dish);
+        dish.addActivity(this);
     }
 
     public void removeDish(Dish dish) {
@@ -154,6 +155,7 @@ public class Activity implements Serializable {
 
     public void addCommand(Command command) {
         this.commands.add(command);
+        command.addActivity(this);
     }
 
     public void removeCommand(Command command) {

@@ -104,7 +104,7 @@ public class ActivityTest {
 
 
         activity.addDish(newDish);
-        newDish.addActivity(activity);
+//        newDish.addActivity(activity);
 
         Activity theRes1 = activityRepository.save(activity);
         Dish theRes2 = dishRepository.save(newDish);

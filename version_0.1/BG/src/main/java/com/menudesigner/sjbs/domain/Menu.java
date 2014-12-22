@@ -136,6 +136,7 @@ public class Menu implements Serializable {
 
     public void addCommand(Command command) {
         this.commands.add(command);
+        command.addMenu(this);
     }
 
     public void removeCommand(Command command) {
@@ -152,6 +153,7 @@ public class Menu implements Serializable {
 
     public void addDish(Dish dish) {
         this.dishes.add(dish);
+        dish.addMenu(this);
     }
 
     public void removeDish(Dish dish) {

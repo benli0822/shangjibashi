@@ -102,7 +102,7 @@ public class MenuTest {
         newDish.setEnd_date(new Date(2014,11,12));
 
         menu.addDish(newDish);
-        newDish.addMenu(menu);
+//        newDish.addMenu(menu);
 
         Menu res1 = menuRepository.save(menu);
         Dish res2 = dishRepository.save(newDish);

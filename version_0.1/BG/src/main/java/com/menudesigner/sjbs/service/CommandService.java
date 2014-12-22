@@ -25,6 +25,30 @@ public interface CommandService {
     long addCommand(String title, String msg_extra, int table_no, int client_no);
 
     /**
+     * Add an existed dish to command
+     * @param dish_id
+     * @param command_id
+     * @return
+     */
+    boolean addDishToCommand(long dish_id, long command_id, int quantity);
+
+    /**
+     * Add an existed activity to command
+     * @param activity_id
+     * @param command_id
+     * @return
+     */
+    boolean addActivityToCommand(long activity_id, long command_id, int quantity);
+
+    /**
+     * Add an existed menu to command
+     * @param menu_id
+     * @param command_id
+     * @return
+     */
+    boolean addMenuToCommand(long menu_id, long command_id, int quantity);
+
+    /**
      * Remove command by reservation title
      * @param title
      * @return
