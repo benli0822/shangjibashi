@@ -1,15 +1,10 @@
 package com.menudesigner.sjbs.service;
 
-import com.menudesigner.sjbs.domain.Command;
-import com.menudesigner.sjbs.domain.Dish;
-import com.menudesigner.sjbs.service.repository.ActivityRepository;
-import com.menudesigner.sjbs.service.repository.CommandRepository;
-import com.menudesigner.sjbs.service.repository.DishRepository;
-import com.menudesigner.sjbs.service.repository.MenuRepository;
+import com.menudesigner.sjbs.domain.*;
+import com.menudesigner.sjbs.service.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
@@ -25,19 +20,23 @@ import java.util.List;
 public class CommandServiceImpl implements CommandService {
     private static final Logger logger = LoggerFactory.getLogger(CommandServiceImpl.class);
 
-    private final JdbcTemplate jdbcTemplate;
     private final CommandRepository commandRepository;
     private final DishRepository dishRepository;
     private final ActivityRepository activityRepository;
     private final MenuRepository menuRepository;
+    private final CommandDishRepository commandDishRepository;
+    private final CommandActivityRepository commandActivityRepository;
+    private final CommandMenuRepository commandMenuRepository;
 
     @Autowired
-    public CommandServiceImpl(JdbcTemplate jdbcTemplate, CommandRepository commandRepository, DishRepository dishRepository, ActivityRepository activityRepository, MenuRepository menuRepository) {
-        this.jdbcTemplate = jdbcTemplate;
+    public CommandServiceImpl(CommandRepository commandRepository, DishRepository dishRepository, ActivityRepository activityRepository, MenuRepository menuRepository, CommandDishRepository commandDishRepository, CommandActivityRepository commandActivityRepository, CommandMenuRepository commandMenuRepository) {
         this.commandRepository = commandRepository;
         this.dishRepository = dishRepository;
         this.activityRepository = activityRepository;
         this.menuRepository = menuRepository;
+        this.commandDishRepository = commandDishRepository;
+        this.commandActivityRepository = commandActivityRepository;
+        this.commandMenuRepository = commandMenuRepository;
     }
 
     @Override
@@ -77,31 +76,75 @@ public class CommandServiceImpl implements CommandService {
         Command theCommand = commandRepository.findOne(command_id);
 
         logger.debug("Dish " + theDish.toString() + " Command " + theCommand.toString() + " with quantity: " + quantity);
-        //TODO how to handle quantity problem?
 
-        if(!theDish.getCommands().contains(theCommand) && !theCommand.getDishes().contains(theDish)) {
-//            theDish.addCommand(theCommand);
-//            theCommand.addDish(theDish);
-//            Dish res1 = dishRepository.save(theDish);
-//            Command res2 = commandRepository.save(theCommand);
+        // first check the association
+        List<CommandDish> associations = commandDishRepository.findCommandDishByCommandAndDish(theCommand, theDish);
 
-//            String SQL = "UPDATE jb_menu_design.md_command_dish SET quantity = ? WHERE command_id = ? AND dish_id = ?";
-//            jdbcTemplate.update(SQL, quantity, theCommand.getId(), theDish.getId());
+        if(associations.size() == 0) {
+            // if neither command nor dish has been added to each other, the add the association
+            theCommand.addDish(theDish, quantity);
+
+            return true;
+        } else if(associations.size() == 1) {
+            associations.get(0).setQuantity(quantity);
+
             return true;
         } else {
-            logger.error("neither dish " + theDish.toString() + "nor command " + theCommand.toString() + "has already associated with each other!");
+            logger.error("neither dish " + theDish.toString() + "nor command " + theCommand.toString() + "has already associated with each other more than one time!");
             return false;
         }
     }
 
     @Override
     public boolean addActivityToCommand(long activity_id, long command_id, int quantity) {
-        return false;
+        logger.debug("Try adding activity to command");
+        Activity theActivity = activityRepository.findOne(activity_id);
+        Command theCommand = commandRepository.findOne(command_id);
+
+        logger.debug("Activity " + theActivity.toString() + " Command " + theCommand.toString() + " with quantity: " + quantity);
+
+        // first check the association
+        List<CommandActivity> associations = commandActivityRepository.findCommandActivityByCommandAndActivity(theCommand, theActivity);
+
+        if(associations.size() == 0) {
+            // if neither command nor activity has been added to each other, the add the association
+            theCommand.addActivity(theActivity, quantity);
+
+            return true;
+        } else if(associations.size() == 1) {
+            associations.get(0).setQuantity(quantity);
+
+            return true;
+        } else {
+            logger.error("neither activity " + theActivity.toString() + "nor command " + theCommand.toString() + "has already associated with each other more than one time!");
+            return false;
+        }
     }
 
     @Override
     public boolean addMenuToCommand(long menu_id, long command_id, int quantity) {
-        return false;
+        logger.debug("Try adding menu to command");
+        Menu theMenu = menuRepository.findOne(menu_id);
+        Command theCommand = commandRepository.findOne(command_id);
+
+        logger.debug("Menu " + theMenu.toString() + " Command " + theCommand.toString() + " with quantity: " + quantity);
+
+        // first check the association
+        List<CommandMenu> associations = commandMenuRepository.findCommandMenuByCommandAndMenu(theCommand, theMenu);
+
+        if(associations.size() == 0) {
+            // if neither command nor activity has been added to each other, the add the association
+            theCommand.addMenu(theMenu, quantity);
+
+            return true;
+        } else if(associations.size() == 1) {
+            associations.get(0).setQuantity(quantity);
+
+            return true;
+        } else {
+            logger.error("neither menu " + theMenu.toString() + "nor command " + theCommand.toString() + "has already associated with each other more than one time!");
+            return false;
+        }
     }
 
     @Override
