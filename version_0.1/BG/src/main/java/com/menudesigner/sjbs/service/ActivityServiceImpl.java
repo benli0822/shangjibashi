@@ -65,12 +65,7 @@ public class ActivityServiceImpl implements ActivityService {
     public long addActivity(String name, String description, Date start_date, Date end_date, Time start_time, Time end_time) {
         logger.debug("Try adding activity");
 
-        Activity activity = new Activity();
-
-        activity.setName(name);
-        activity.setDescription(description);
-
-        long activity_id = this.addActivity(activity);
+        long activity_id = this.addActivity(name, description);
 
         this.setPeriodToActivity(activity_id, start_date, end_date, start_time, end_time);
 

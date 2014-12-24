@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Iterator;
 import java.util.List;
 
@@ -59,9 +61,35 @@ public class DishServiceImpl implements DishService {
         newDish.setName(name);
         newDish.setDescription(description);
         newDish.setPrice(price);
-        newDish.setDisabled(false);
+        newDish.setDisabled(disabled);
 
         return this.addDish(newDish);
+    }
+
+    @Override
+    public long addDish(String name, String description, float price, boolean disabled, Date start_date, Date end_date, Time start_time, Time end_time) {
+        logger.debug("Try adding dish");
+
+        long dish_id = this.addDish(name, description, price, disabled);
+
+        this.setPeriodToDish(dish_id, start_date, end_date, start_time, end_time);
+
+        return dish_id;
+    }
+
+    @Override
+    public void setPeriodToDish(long dish_id, Date start_date, Date end_date, Time start_time, Time end_time) {
+        Dish dish = dishRepository.findOne(dish_id);
+        dish.setStart_date(start_date);
+        dish.setEnd_date(end_date);
+        dish.setStart_time(start_time);
+        dish.setEnd_time(end_time);
+        dishRepository.save(dish);
+    }
+
+    @Override
+    public void setImagePath(String imagePath) {
+        // TODO set the image path to dish
     }
 
     /**
