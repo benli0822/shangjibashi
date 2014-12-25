@@ -1,6 +1,5 @@
 package com.menudesigner.sjbs.service;
 
-import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Type;
 
 /**
@@ -28,11 +27,11 @@ public interface TypeService {
 
     /**
      * Add a type to dish
-     * @param dish
+     * @param dish_id
      * @param type_id
      * @return
      */
-    boolean addTypeToDish(Dish dish, long type_id);
+    boolean addTypeToDish(long dish_id, long type_id);
 
     /**
      * Add a conflict type to type
@@ -41,4 +40,6 @@ public interface TypeService {
      * @return
      */
     boolean addConflictToType(long type_id, long conflict_type_id);
+
+    // TODO Customize type operation
 }

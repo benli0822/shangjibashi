@@ -2,6 +2,7 @@ package com.menudesigner.sjbs.service;
 
 import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Type;
+import com.menudesigner.sjbs.service.repository.DishRepository;
 import com.menudesigner.sjbs.service.repository.TypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +19,12 @@ public class TypeServiceImpl implements TypeService {
     private static final Logger logger = LoggerFactory.getLogger(TypeServiceImpl.class);
 
     private final TypeRepository typeRepository;
+    private final DishRepository dishRepository;
 
     @Autowired
-    public TypeServiceImpl(TypeRepository typeRepository) {
+    public TypeServiceImpl(TypeRepository typeRepository, DishRepository dishRepository) {
         this.typeRepository = typeRepository;
+        this.dishRepository = dishRepository;
     }
 
     /**
@@ -76,19 +79,20 @@ public class TypeServiceImpl implements TypeService {
     /**
      * Only unique type association can exist between dish and type
      *
-     * @param dish
+     * @param dish_id
      * @param type_id
      * @return
      */
     @Override
-    public boolean addTypeToDish(Dish dish, long type_id) {
+    public boolean addTypeToDish(long dish_id, long type_id) {
+        Dish dish = dishRepository.findOne(dish_id);
         Type type = typeRepository.findOne(type_id);
-        if (dish.getTypes().contains(type) && type.getDishes().contains(dish)) {
+        if (dish.getTypes().contains(type) && type.getDishes().contains(dish_id)) {
             logger.info("Type " + type.toString() + " existed in dish " + dish.toString());
             return false;
         } else {
             logger.info("Type " + type.toString() + " added to dish " + dish.toString());
-            dish.addType(type);
+//            dish.addType(type);
             type.addDish(dish);
             return true;
         }
