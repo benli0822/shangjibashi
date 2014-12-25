@@ -3,7 +3,6 @@ package com.menudesigner.sjbs.service;
 import com.menudesigner.sjbs.Application;
 import com.menudesigner.sjbs.domain.Activity;
 import com.menudesigner.sjbs.domain.ActivityDish;
-import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.service.repository.ActivityDishRepository;
 import com.menudesigner.sjbs.service.repository.ActivityRepository;
 import com.menudesigner.sjbs.service.repository.DishRepository;
@@ -49,6 +48,9 @@ public class ActivityServiceTest {
     @Autowired
     private ActivityService activityService;
 
+    @Autowired
+    private DishService dishService;
+
     @Test
     public void addActivityWithoutPeriodTest() {
         long activity_id = activityService.addActivity("noel", "noel");
@@ -83,27 +85,28 @@ public class ActivityServiceTest {
     @Test
     public void addDishToActivityTest() {
 
-        // TODO need to covered by dish service
-        Dish newDish = new Dish();
-        newDish.setName("coca");
-        newDish.setIs_typed(false);
-        newDish.setImg_path("abc");
-        newDish.setPrice(5);
-        newDish.setDescription("abc");
-        newDish.setDisabled(false);
-        newDish.setStart_time(new Time(10, 10, 10));
-        newDish.setEnd_time(new Time(10, 11, 10));
-        newDish.setStart_date(new Date(2014, 10, 12));
-        newDish.setEnd_date(new Date(2014, 11, 12));
+//        Dish newDish = new Dish();
+//        newDish.setName("coca");
+//        newDish.setIs_typed(false);
+//        newDish.setImg_path("abc");
+//        newDish.setPrice(5);
+//        newDish.setDescription("abc");
+//        newDish.setDisabled(false);
+//        newDish.setStart_time(new Time(10, 10, 10));
+//        newDish.setEnd_time(new Time(10, 11, 10));
+//        newDish.setStart_date(new Date(2014, 10, 12));
+//        newDish.setEnd_date(new Date(2014, 11, 12));
+//
+//        Dish theDish = dishRepository.save(newDish);
 
-        Dish theDish = dishRepository.save(newDish);
+        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
         long activity_id = activityService.addActivity("noel", "noel");
 
-        boolean res = activityService.addDishToActivity(newDish.getId(), activity_id, 2);
+        boolean res = activityService.addDishToActivity(dish_id, activity_id, 2);
 
-        List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(activityRepository.findOne(activity_id), theDish);
+        List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(activityRepository.findOne(activity_id), dishRepository.findOne(dish_id));
 
-        assertThat(theDish, notNullValue());
+        assertThat(dish_id, not(-1L));
         assertThat(activity_id, not(-1L));
         assertTrue(res);
         assertThat(activityDishs.size(), is(1));
