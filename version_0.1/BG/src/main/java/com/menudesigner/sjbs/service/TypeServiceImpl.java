@@ -87,13 +87,16 @@ public class TypeServiceImpl implements TypeService {
     public boolean addTypeToDish(long dish_id, long type_id) {
         Dish dish = dishRepository.findOne(dish_id);
         Type type = typeRepository.findOne(type_id);
-        if (dish.getTypes().contains(type) && type.getDishes().contains(dish_id)) {
+        if (dish.getTypes().contains(type) && type.getDishes().contains(dish)) {
             logger.info("Type " + type.toString() + " existed in dish " + dish.toString());
             return false;
         } else {
             logger.info("Type " + type.toString() + " added to dish " + dish.toString());
 //            dish.addType(type);
             type.addDish(dish);
+
+            // TODO should verify if here truly needed or not
+            typeRepository.save(type);
             return true;
         }
     }

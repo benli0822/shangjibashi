@@ -1,6 +1,7 @@
 package com.menudesigner.sjbs.service;
 
 import com.menudesigner.sjbs.Application;
+import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Type;
 import com.menudesigner.sjbs.service.repository.DishRepository;
 import com.menudesigner.sjbs.service.repository.TypeRepository;
@@ -15,6 +16,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
+import java.sql.Time;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -62,17 +65,49 @@ public class TypeServiceTest {
         assertThat(type.isIs_for_customize(), is(false));
     }
 
-//    @Test
-//    public void addDishToTypeTest() {
-//        logger.debug("Add dish to type test");
-//
-//        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
-//        long type_id = typeService.createType(true, false, -1L, "hot", "hot", false);
-//
-//        boolean res = typeService.addTypeToDish(dish_id, type_id);
-//
-//
-//
-//        Type type = typeRepository.findOne(type_id);
-//    }
+    @Test
+    public void addDishToTypeTest() {
+        logger.debug("Add dish to type test");
+
+        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
+        long type_id = typeService.createType(true, false, -1L, "hot", "hot", false);
+
+        boolean res = typeService.addTypeToDish(dish_id, type_id);
+
+        Type type = typeRepository.findOne(type_id);
+        Dish dish = dishRepository.findOne(dish_id);
+
+        assertThat(dish_id, notNullValue());
+        assertThat(type_id, notNullValue());
+
+        assertThat(res, is(Boolean.TRUE));
+
+        assertThat(type.getDishes().contains(dish), is(Boolean.TRUE));
+        assertThat(dish.getTypes().contains(type), is(Boolean.TRUE));
+    }
+
+    @Test
+    public void addConflictTypeTest() {
+        logger.debug("Testing conflict type");
+
+        long type_id1 = typeService.createType(true, false, -1L, "hot", "hot", false);
+        long type_id2 = typeService.createType(true, false, -1L, "cold", "cold", false);
+
+        boolean res = typeService.addConflictToType(type_id1, type_id2);
+
+        Type type1 = typeRepository.findOne(type_id1);
+        Type type2 = typeRepository.findOne(type_id2);
+
+        assertThat(type_id1, notNullValue());
+        assertThat(type_id2, notNullValue());
+
+        assertThat(type1, notNullValue());
+        assertThat(type2, notNullValue());
+
+        assertThat(res, is(Boolean.TRUE));
+
+        assertThat(type1.getConflictTypes().contains(type2), is(Boolean.TRUE));
+        assertThat(type2.getConflictTypes().contains(type1), is(Boolean.TRUE));
+        // TODO need to test with database
+    }
 }
