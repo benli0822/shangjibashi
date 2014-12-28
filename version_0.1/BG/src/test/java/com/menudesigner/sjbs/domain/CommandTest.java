@@ -115,11 +115,12 @@ public class CommandTest {
         activity.setStart_time(new Time(19, 20, 55));
         activity.setEnd_time(new Time(19, 21, 55));
 
-        command.addActivity(activity, 2);
 //        activity.addCommand(command);
 
         Command res1 = commandRepository.save(command);
         Activity res2 = activityRepository.save(activity);
+
+        command.addActivity(activity, 2);
 
         List<CommandActivity> commandActivities = commandActivityRepository.findCommandActivityByCommandAndActivity(res1, res2);
 
@@ -147,7 +148,6 @@ public class CommandTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setImg_path("abc");
         newDish.setPrice(5);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
@@ -156,11 +156,12 @@ public class CommandTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-        command.addDish(newDish, 2);
 //        newDish.addCommand(command);
 
         Command res1 = commandRepository.save(command);
         Dish res2 = dishRepository.save(newDish);
+
+        command.addDish(newDish, 2);
 
         List<CommandDish> commandDishes = commandDishRepository.findCommandDishByCommandAndDish(res1, res2);
 
@@ -196,10 +197,11 @@ public class CommandTest {
         menu.setEnd_time(new Time(20, 20, 20));
 
 //        menu.addCommand(command);
-        command.addMenu(menu, 2);
 
         Menu res1 = menuRepository.save(menu);
         Command res2 = commandRepository.save(command);
+
+        command.addMenu(menu, 2);
 
         List<CommandMenu> commandMenus = commandMenuRepository.findCommandMenuByCommandAndMenu(res2, res1);
 

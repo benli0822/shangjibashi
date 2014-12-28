@@ -98,7 +98,6 @@ public class ActivityTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setImg_path("abc");
         newDish.setPrice(5);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
@@ -107,12 +106,13 @@ public class ActivityTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-
-        activity.addDish(newDish, 2);
 //        newDish.addActivity(activity);
 
-        Activity theRes1 = activityRepository.save(activity);
         Dish theRes2 = dishRepository.save(newDish);
+        Activity theRes1 = activityRepository.save(activity);
+
+        activity.addDish(newDish, 2);
+
 
         List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(theRes1, theRes2);
 

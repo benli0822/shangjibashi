@@ -97,7 +97,6 @@ public class MenuTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setImg_path("abc");
         newDish.setPrice(5);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
@@ -106,11 +105,12 @@ public class MenuTest {
         newDish.setStart_date(new Date(2014,10,12));
         newDish.setEnd_date(new Date(2014,11,12));
 
-        menu.addDish(newDish, 2);
 //        newDish.addMenu(menu);
 
         Menu res1 = menuRepository.save(menu);
         Dish res2 = dishRepository.save(newDish);
+
+        menu.addDish(newDish, 2);
 
         List<MenuDish> menuDishs = menuDishRepository.findMenuDishByMenuAndDish(res1, res2);
 
