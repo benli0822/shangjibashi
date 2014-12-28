@@ -53,6 +53,7 @@ public interface DishService {
     // TODO should we consider multiple case
     void setImagePath(String imagePath);
 
+    // TODO also need to consider all its association
     /**
      * Remove a dish
      * @param dishName

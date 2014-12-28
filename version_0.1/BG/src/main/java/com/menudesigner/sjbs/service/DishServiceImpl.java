@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
@@ -18,6 +19,7 @@ import java.util.List;
  * <p/>
  * Created by JIN Benli on 10/11/14.
  */
+@Service
 @Component("dishService")
 @Transactional
 public class DishServiceImpl implements DishService {

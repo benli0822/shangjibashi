@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
@@ -15,6 +16,7 @@ import java.util.List;
 /**
  * Created by JIN Benli on 22/12/14.
  */
+@Service
 @Component("commandService")
 @Transactional
 public class CommandServiceImpl implements CommandService {
