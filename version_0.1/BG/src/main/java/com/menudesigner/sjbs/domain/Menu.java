@@ -46,6 +46,12 @@ public class Menu implements Serializable {
     @OneToMany(mappedBy="menu", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<MenuDish> dishes = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "md_file_menu",
+            joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")})
+    private Set<File> files = new HashSet<>();
+
     public Menu() {
     }
 
@@ -140,8 +146,24 @@ public class Menu implements Serializable {
         this.dishes = dishes;
     }
 
+    public Set<File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(Set<File> files) {
+        this.files = files;
+    }
+
+    public void addFile(File file) {
+        this.files.add(file);
+    }
+
+    public void removeFile(File file) {
+        this.files.remove(file);
+    }
+
     @Override
-    public String  toString() {
+    public String toString() {
         return "Menu{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -152,6 +174,7 @@ public class Menu implements Serializable {
                 ", end_date=" + end_date +
                 ", commands=" + commands +
                 ", dishes=" + dishes +
+                ", files=" + files +
                 '}';
     }
 }

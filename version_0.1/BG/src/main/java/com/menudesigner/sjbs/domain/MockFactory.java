@@ -119,7 +119,6 @@ public abstract class MockFactory<T> {
         protected void populate(int seed, Dish mock) {
             mock.setName("Dish " + seed);
             mock.setIs_typed(false);
-            mock.setImg_path("abcd");
             mock.setDescription("Description Dish " + seed);
             mock.setDisabled(false);
             mock.setStart_time(new Time(8, 18, 18));

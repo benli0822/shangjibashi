@@ -48,6 +48,12 @@ public class Activity implements Serializable {
     @OneToMany(mappedBy="activity", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<ActivityDish> dishes = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "md_file_activity",
+            joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")})
+    private Set<File> files = new HashSet<>();
+
     public Activity() {
     }
 
@@ -142,6 +148,22 @@ public class Activity implements Serializable {
         this.dishes = dishes;
     }
 
+    public Set<File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(Set<File> files) {
+        this.files = files;
+    }
+
+    public void addFile(File file) {
+        this.files.add(file);
+    }
+
+    public void removeFile(File file) {
+        this.files.remove(file);
+    }
+
     @Override
     public String toString() {
         return "Activity{" +
@@ -154,6 +176,7 @@ public class Activity implements Serializable {
                 ", description='" + description + '\'' +
                 ", commands=" + commands +
                 ", dishes=" + dishes +
+                ", files=" + files +
                 '}';
     }
 

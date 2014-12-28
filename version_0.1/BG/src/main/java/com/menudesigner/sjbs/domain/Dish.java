@@ -25,10 +25,7 @@ public class Dish implements Serializable {
     private String name;
 
     @Column(name = "is_typed")
-    private Boolean is_typed;
-
-    @Column(name = "img_path")
-    private String img_path;
+    private Boolean is_typed = false;
 
     @Column(name = "price")
     private float price;
@@ -38,7 +35,7 @@ public class Dish implements Serializable {
     private String description;
 
     @Column(name = "disabled")
-    private Boolean disabled;
+    private Boolean disabled = false;
 
     //TODO to verify if the sql.time is the right import
     @Column(name = "start_time")
@@ -54,23 +51,28 @@ public class Dish implements Serializable {
     @Column(name = "end_date")
     private Date end_date;
 
-    @OneToMany(mappedBy="dish", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<ActivityDish> activities = new HashSet<>();
 
-    @OneToMany(mappedBy="dish", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<CommandDish> commands = new HashSet<>();
 
-    @OneToMany(mappedBy="dish", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<MenuDish> menus = new HashSet<>();
 
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "md_dish_type",
             joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")})
     private Set<Type> types = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "md_file_dish",
+            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")})
+    private Set<File> files = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "md_dish_option",
             joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")})
@@ -117,14 +119,6 @@ public class Dish implements Serializable {
 
     public void setIs_typed(Boolean is_typed) {
         this.is_typed = is_typed;
-    }
-
-    public String getImg_path() {
-        return img_path;
-    }
-
-    public void setImg_path(String img_path) {
-        this.img_path = img_path;
     }
 
     public String getDescription() {
@@ -187,23 +181,6 @@ public class Dish implements Serializable {
         this.activities.remove(activity);
     }
 
-//    public Set<Command> getCommands() {
-//        return commands;
-//    }
-//
-//    public void setCommands(Set<Command> commands) {
-//        this.commands = commands;
-//    }
-//
-//    public void addCommand(Command command) {
-//        this.commands.add(command);
-//    }
-//
-//    public void removeCommand(Command command) {
-//        this.commands.remove(command);
-//    }
-
-
     public Set<CommandDish> getCommands() {
         return commands;
     }
@@ -260,13 +237,28 @@ public class Dish implements Serializable {
         this.options.remove(option);
     }
 
+    public Set<File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(Set<File> files) {
+        this.files = files;
+    }
+
+    public void addFile(File file) {
+        this.files.add(file);
+    }
+
+    public void removeFile(File file) {
+        this.files.remove(file);
+    }
+
     @Override
     public String toString() {
         return "Dish{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", is_typed=" + is_typed +
-                ", img_path='" + img_path + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", disabled=" + disabled +
@@ -278,6 +270,7 @@ public class Dish implements Serializable {
                 ", commands=" + commands +
                 ", menus=" + menus +
                 ", types=" + types +
+                ", files=" + files +
                 ", options=" + options +
                 '}';
     }
