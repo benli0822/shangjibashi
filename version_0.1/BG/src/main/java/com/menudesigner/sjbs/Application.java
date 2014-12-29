@@ -22,11 +22,6 @@ import java.util.Locale;
 /**
  * Created by JIN Benli on 27/10/14.
  */
-//@Configuration
-//@EnableAutoConfiguration
-//@EnableJpaRepositories
-//@Import({RepositoryRestMvcConfiguration.class})
-//@ComponentScan
 
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
