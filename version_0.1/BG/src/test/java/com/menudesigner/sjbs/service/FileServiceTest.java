@@ -15,8 +15,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.transaction.Transactional;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -52,8 +51,42 @@ public class FileServiceTest {
         assertThat(file.getType(), is("media"));
     }
 
+    @Test
+    public void removeSimpleFileTest() {
+        long file_id = fileService.saveFile("test", "test", 20L, "media");
 
+        File file = fileRepository.findOne(file_id);
 
+        boolean res = fileService.removeFile(file.getName());
+
+        File res1 = fileRepository.findOne(file_id);
+
+        assertThat(file_id, notNullValue());
+        assertThat(file, notNullValue());
+
+        assertThat(file.getName(), is("test"));
+        assertThat(file.getLocation(), is("test"));
+        assertThat(file.getSize(), is(20L));
+        assertThat(file.getType(), is("media"));
+
+        assertThat(res, is(Boolean.TRUE));
+        assertThat(res1, nullValue());
+    }
+
+    @Test
+    public void addFileToDishTest() {
+
+    }
+
+    @Test
+    public void addFileToMenuTest() {
+
+    }
+
+    @Test
+    public void addFileToActivityTest() {
+
+    }
 
 
 }
