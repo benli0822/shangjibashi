@@ -341,11 +341,13 @@
                     </h2>
 
                     <div id="dropzone">
-                        <form th:action="//dummy.html" class="dropzone">
+                        <form id="dropzone-form" class="dropzone"
+                              enctype="multipart/form-data">
                             <div class="fallback">
                                 <input name="file" type="file" multiple=""/>
                             </div>
                         </form>
+                        <br/>
                     </div>
                     <!-- PAGE CONTENT ENDS -->
                 </div>
@@ -389,8 +391,14 @@
 
             try {
                 $(".dropzone").dropzone({
+                    url: "upload",
+                    autoProcessQueue: true,
+                    uploadMultiple: true,
                     paramName: "file", // The name that will be used to transfer the file
-                    maxFilesize: 0.5, // MB
+                    maxFilesize: 200000, // MB
+
+                    parallelUploads: 100,
+                    maxFiles: 100,
 
                     addRemoveLinks: true,
                     dictDefaultMessage: '<span class="bigger-150 bolder"><i class="icon-caret-right red"></i> Drop files</span> to upload \
@@ -403,7 +411,7 @@
                     previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
                 });
             } catch (e) {
-                alert('Dropzone.js does not support older browsers!');
+                alert('Dropzone.js does not support older browsers!' + e);
             }
 
             $(".chosen-select").chosen();
