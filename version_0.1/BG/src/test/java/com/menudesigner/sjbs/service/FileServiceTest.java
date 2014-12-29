@@ -1,8 +1,14 @@
 package com.menudesigner.sjbs.service;
 
 import com.menudesigner.sjbs.Application;
+import com.menudesigner.sjbs.domain.Activity;
+import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.File;
+import com.menudesigner.sjbs.domain.Menu;
+import com.menudesigner.sjbs.service.repository.ActivityRepository;
+import com.menudesigner.sjbs.service.repository.DishRepository;
 import com.menudesigner.sjbs.service.repository.FileRepository;
+import com.menudesigner.sjbs.service.repository.MenuRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,6 +20,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
+import java.sql.Time;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -35,6 +43,24 @@ public class FileServiceTest {
 
     @Autowired
     private FileService fileService;
+
+    @Autowired
+    private DishService dishService;
+
+    @Autowired
+    private MenuService menuService;
+
+    @Autowired
+    private ActivityService activityService;
+
+    @Autowired
+    private DishRepository dishRepository;
+
+    @Autowired
+    private MenuRepository menuRepository;
+
+    @Autowired
+    private ActivityRepository activityRepository;
 
     @Test
     public void addSimpleFileTest() {
@@ -75,17 +101,74 @@ public class FileServiceTest {
 
     @Test
     public void addFileToDishTest() {
+        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
 
+        long file_id = fileService.saveFile("test", "test", 20L, "media");
+
+        boolean res = fileService.addFileToDish(dish_id, file_id);
+
+        Dish res1 = dishRepository.findOne(dish_id);
+
+        File res2 = fileRepository.findOne(file_id);
+
+        assertThat(dish_id, notNullValue());
+        assertThat(file_id, notNullValue());
+
+        assertThat(res, is(Boolean.TRUE));
+
+        assertThat(res1, notNullValue());
+        assertThat(res2, notNullValue());
+
+        assertThat(res1.getFiles().contains(res2), is(Boolean.TRUE));
+        assertThat(res2.getDishes().contains(res1), is(Boolean.TRUE));
     }
 
     @Test
     public void addFileToMenuTest() {
+        long menu_id = menuService.addMenu("noel", "noel");
 
+        long file_id = fileService.saveFile("test", "test", 20L, "media");
+
+        boolean res = fileService.addFileToMenu(menu_id, file_id);
+
+        Menu res1 = menuRepository.findOne(menu_id);
+
+        File res2 = fileRepository.findOne(file_id);
+
+        assertThat(menu_id, notNullValue());
+        assertThat(file_id, notNullValue());
+
+        assertThat(res, is(Boolean.TRUE));
+
+        assertThat(res1, notNullValue());
+        assertThat(res2, notNullValue());
+
+        assertThat(res1.getFiles().contains(res2), is(Boolean.TRUE));
+        assertThat(res2.getMenus().contains(res1), is(Boolean.TRUE));
     }
 
     @Test
     public void addFileToActivityTest() {
+        long activity_id = activityService.addActivity("noel", "noel");
 
+        long file_id = fileService.saveFile("test", "test", 20L, "media");
+
+        boolean res = fileService.addFileToActivity(activity_id, file_id);
+
+        Activity res1 = activityRepository.findOne(activity_id);
+
+        File res2 = fileRepository.findOne(file_id);
+
+        assertThat(activity_id, notNullValue());
+        assertThat(file_id, notNullValue());
+
+        assertThat(res, is(Boolean.TRUE));
+
+        assertThat(res1, notNullValue());
+        assertThat(res2, notNullValue());
+
+        assertThat(res1.getFiles().contains(res2), is(Boolean.TRUE));
+        assertThat(res2.getActivities().contains(res1), is(Boolean.TRUE));
     }
 
 
