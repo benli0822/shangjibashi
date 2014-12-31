@@ -106,6 +106,7 @@
                             <div class="col-sm-9">
                                 <input type="text" name="dishName" id="form-field-1" th:field="*{name}"
                                        class="col-xs-10 col-sm-10"/>
+                                <br/>
                                 <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
                             </div>
                         </div>

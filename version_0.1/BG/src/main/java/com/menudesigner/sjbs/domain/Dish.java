@@ -24,7 +24,7 @@ public class Dish implements Serializable {
     private long id;
 
 //    @NotNull(message = "{dish.notNull.message}")
-    @NotBlank(message = "{dish.notNull.message}")
+    @NotBlank(message = "{dish.name.notBlank}")
 //    @Size(min=2, max=30, message = "{dish.notNull.message}")
     @Column(name = "name")
     private String name;
@@ -35,6 +35,7 @@ public class Dish implements Serializable {
     @Column(name = "price")
     private float price;
 
+    @NotBlank(message = "{dish.description.notBlank}")
     @Column(name = "description")
     @Size(max = 300)
     private String description;
