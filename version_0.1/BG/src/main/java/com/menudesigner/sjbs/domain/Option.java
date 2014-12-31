@@ -9,7 +9,7 @@ import java.util.Set;
  * Created by JIN Benli on 20/12/14.
  */
 @Entity
-@Table(name = "md_dish")
+@Table(name = "md_options")
 public class Option implements Serializable {
 
     private static final long serialVersionUID = 1L;

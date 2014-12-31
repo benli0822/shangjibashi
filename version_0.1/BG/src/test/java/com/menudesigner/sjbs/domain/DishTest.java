@@ -103,11 +103,11 @@ public class DishTest {
         Option option = new Option();
         option.setName("test");
 
-        option.addDish(newDish);
-//        newDish.addOption(option);
-
         Dish res1 = dishRepository.save(newDish);
         Option res2 = optionRepository.save(option);
+
+        option.addDish(newDish);
+//        newDish.addOption(option);
 
         assertThat(res1, notNullValue());
         assertThat(res2, notNullValue());
