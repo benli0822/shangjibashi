@@ -21,7 +21,7 @@ import java.util.Locale;
  * Created by JIN Benli on 24/09/14.
  */
 @Controller
-public class DishesController {
+public class DishesController  {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
@@ -74,4 +74,17 @@ public class DishesController {
         }
         return null;
     }
+
+    // TODO error handling, class should implements ErrorController
+//    private static final String PATH = "/error";
+//
+//    @RequestMapping(value = PATH)
+//    public void error(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+//        resp.sendRedirect("/404");
+//    }
+//
+//    @Override
+//    public String getErrorPath() {
+//        return PATH;
+//    }
 }
