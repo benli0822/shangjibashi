@@ -1,6 +1,7 @@
 package com.menudesigner.sjbs.web.controllers;
 
 import com.menudesigner.sjbs.domain.Dish;
+import com.menudesigner.sjbs.service.repository.DishRepository;
 import com.menudesigner.sjbs.service.repository.OptionRepository;
 import com.menudesigner.sjbs.service.repository.TypeRepository;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -22,13 +24,16 @@ import java.util.Locale;
  */
 @Controller
 public class DishesController  {
-    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private static final Logger logger = LoggerFactory.getLogger(DishesController.class);
 
     @Autowired
     private TypeRepository typeRepository;
 
     @Autowired
     private OptionRepository optionRepository;
+
+    @Autowired
+    private DishRepository dishRepository;
 
     /**
      * Simply selects the home view to render by returning its name.
@@ -51,7 +56,7 @@ public class DishesController  {
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(value = "/addDish", method = RequestMethod.GET)
-    public String addNewDish(final Dish dish, Locale locale, Model model) {
+    public String addNewDish(Dish dish, Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
@@ -65,14 +70,24 @@ public class DishesController  {
     }
 
 
+    /**
+     * ATTENTION: bindingResult must go after @Valid XXX XXX, otherwise can not work
+     * @param dish
+     * @param bindingResult
+     * @param locale
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/addDish", method = RequestMethod.POST)
-    public String addNewDish(final Dish dish, Locale locale, final BindingResult bindingResult, final ModelMap model) {
+    public String checkDishInfo(@Valid Dish dish, BindingResult bindingResult, Locale locale, ModelMap model) {
         logger.info("[DishesController: addNewDish], posting a new Dish");
         if (bindingResult.hasErrors()) {
             logger.error("[DishesController: postNewDish]", bindingResult.getAllErrors());
-            return "view/addDish";
+            return "views/addDish";
         }
-        return null;
+        logger.info(bindingResult + "");
+        logger.info(dish.toString());
+        return "views/addDish";
     }
 
     // TODO error handling, class should implements ErrorController

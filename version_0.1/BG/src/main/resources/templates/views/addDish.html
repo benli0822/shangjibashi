@@ -98,14 +98,16 @@
                 <!-- PAGE CONTENT BEGINS -->
 
                 <div class="col-xs-12 col-sm-6">
-                    <form class="form-horizontal" role="form" method="post" th:action="@{/addDish}">
+                    <form class="form-horizontal" action="#" role="form" method="post" th:action="@{/addDish}" th:object="${dish}">
                         <div class="form-group">
                             <label class="col-sm-2 control-label no-padding-right" for="form-field-1"
                                    th:text="#{add.name}"> </label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" th:field="*{dish.name}"
+                                <input type="text" name="dishName" id="form-field-1" th:field="*{name}"
                                        class="col-xs-10 col-sm-10"/>
+                                <br/>
+                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
                             </div>
                         </div>
 
@@ -115,7 +117,7 @@
 
                             <div class="col-sm-9">
                                 <textarea maxlength="150" id="form-field-description"
-                                          class="col-xs-10 col-sm-10 limited" th:field="*{dish.description}">
+                                          class="col-xs-10 col-sm-10 limited" th:field="*{description}">
                                 </textarea>
                             </div>
                         </div>
@@ -320,7 +322,8 @@
                         </div>
                         <div class="clearfix form-actions">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="button" onclick="submit();" class="btn btn-info" th:name="save">
+
+                                <button type="button" onclick="submit();" class="btn btn-info">
                                     <i class="icon-ok bigger-110"></i>
                                     <span th:text="#{add.submit}"></span>
                                 </button>

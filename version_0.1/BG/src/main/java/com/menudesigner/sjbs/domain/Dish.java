@@ -1,5 +1,7 @@
 package com.menudesigner.sjbs.domain;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -21,6 +23,9 @@ public class Dish implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+//    @NotNull(message = "{dish.notNull.message}")
+    @NotBlank(message = "{dish.name.notBlank}")
+//    @Size(min=2, max=30, message = "{dish.notNull.message}")
     @Column(name = "name")
     private String name;
 
@@ -30,6 +35,7 @@ public class Dish implements Serializable {
     @Column(name = "price")
     private float price;
 
+    @NotBlank(message = "{dish.description.notBlank}")
     @Column(name = "description")
     @Size(max = 300)
     private String description;
