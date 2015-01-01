@@ -117,46 +117,60 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="description"
+                        <div class="form-group"
+                             th:attr="class=${#fields.hasErrors('description') ? 'form-group has-error' : 'form-group'}">
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right
+                        " for="description"
                                    th:text="#{add.description}"></label>
 
-                            <div class="col-sm-9">
-                                <textarea maxlength="150" id="description" name="description"
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                <textarea maxlength="300" id="description" name="description"
                                           class="col-xs-10 col-sm-10 limited" th:field="*{description}">
                                 </textarea>
+
+                                    <div for="description" class="help-block"
+                                         th:if="${#fields.hasErrors('description')}"
+                                         th:errors="*{description}">Description Error
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="form-field-select-type"
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                                   for="form-field-select-type"
                                    th:text="#{add.type}"></label>
 
-                            <div class="col-sm-9">
-                                <div>
-                                    <select class="col-xs-10 col-sm-6 chosen-select" id="form-field-select-type">
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <div>
+                                        <select class="col-xs-10 col-sm-8 chosen-select" id="form-field-select-type">
+                                            <option value="">Cold</option>
+                                            <option value="AL">Hot</option>
+                                            <option value="AK">Drink</option>
+                                            <option value="AZ">Dessert</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right" for="form-field-2"
+                                   th:text="#{add.typeoptional}"></label>
+
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <select multiple=""
+                                            class="tag-input-style col-xs-10 col-sm-8 chosen-select"
+                                            id="form-field-2" th:attr="data-placeholder=#{add.selectType}">
                                         <option value="">Cold</option>
                                         <option value="AL">Hot</option>
                                         <option value="AK">Drink</option>
                                         <option value="AZ">Dessert</option>
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="form-field-2"
-                                   th:text="#{add.typeoptional}"></label>
-
-                            <div class="col-sm-9">
-                                <select multiple=""
-                                        class="tag-input-style col-xs-10 col-sm-6 chosen-select"
-                                        id="form-field-2" th:attr="data-placeholder=#{add.selectType}">
-                                    <option value="">Cold</option>
-                                    <option value="AL">Hot</option>
-                                    <option value="AK">Drink</option>
-                                    <option value="AZ">Dessert</option>
-                                </select>
                             </div>
                         </div>
 
@@ -175,170 +189,183 @@
 
                         <div class="form-group">
                             <!-- for="form-field-personalOps" -->
-                            <label class="col-sm-2 control-label no-padding-right"
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right"
                                    th:text="#{add.personalOps}"></label>
 
-                            <div class="col-sm-9">
-                                <input type="text" name="tags" id="form-field-tags" value="Tag Input Control"
-                                       placeholder="Enter tags ..."/>
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <input type="text" name="tags" id="form-field-tags" value="Tag Input Control"
+                                           placeholder="Enter tags ..."/>
                                 <span class="help-button" data-rel="popover"
                                       th:attr="data-content=#{add.personalOpsHelpContent}" data-trigger="hover"
-                                      data-placement="left"
+                                      data-placement="right"
                                       th:title="#{add.personalOpsHelpTitle}">?</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label no-padding-right" for="form-field-switch-date"
-                                   th:text="#{add.doNeedSetDate}"></label>
+                            <div class="col-xs-12 col-sm-12">
+                                <label class="col-xs-12 col-sm-8 control-label no-padding-right"
+                                       for="form-field-switch-date"
+                                       th:text="#{add.doNeedSetDate}"></label>
 
-                            <div class="col-sm-5">
-                                <label>
-                                    <input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-date"
-                                           id="form-field-switch-date"/>
-                                    <span class="lbl"></span>
-                                </label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="clearfix">
+                                        <label>
+                                            <input type="checkbox" class="ace ace-switch ace-switch-6"
+                                                   name="switch-field-date"
+                                                   id="form-field-switch-date"/>
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="id-date-range-picker-1"
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                                   for="id-date-range-picker-1"
                                    th:text="#{add.date}"></label>
                             <!--<div class="space-4"></div>-->
-                            <div class="col-sm-9">
-                                <div class="input-group col-xs-10 col-sm-10">
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <div class="input-group col-xs-10 col-sm-10">
                                 <span class="input-group-addon">
 																		<i class="icon-calendar bigger-110"></i>
 																	</span>
-                                    <input type="text" id="id-date-range-picker-1" name="date-range-picker"
-                                           class="form-control" th:placeholder="#{add.dateplaceholder}"
-                                           disabled="disabled"/>
+                                        <input type="text" id="id-date-range-picker-1" name="date-range-picker"
+                                               class="form-control" th:placeholder="#{add.dateplaceholder}"
+                                               disabled="disabled"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label no-padding-right" for="form-field-switch-time"
-                                   th:text="#{add.doNeedSetTime}"></label>
 
-                            <div class="col-sm-5">
-                                <label>
-                                    <input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-time"
-                                           id="form-field-switch-time"/>
-                                    <span class="lbl"></span>
-                                </label>
+
+                            <div class="col-xs-12 col-sm-12">
+                                <label class="col-xs-12 col-sm-8 control-label no-padding-right"
+                                       for="form-field-switch-time"
+                                       th:text="#{add.doNeedSetTime}"></label>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="clearfix">
+                                        <label>
+                                            <input type="checkbox" class="ace ace-switch ace-switch-6"
+                                                   name="switch-field-time"
+                                                   id="form-field-switch-time"/>
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="id-date-range-picker-1"
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                                   for="id-date-range-picker-1"
                                    th:text="#{add.date}"></label>
                             <!--<div class="space-4"></div>-->
-                            <div class="col-sm-8">
-                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
                                     <span class="input-group-addon">
 																<i class="icon-time bigger-110"></i>
 															</span>
 
-                                    <div class="bootstrap-timepicker-widget dropdown-menu">
-                                        <table>
-                                            <tbody>
-                                            <tr>
-                                                <td><a data-action="incrementHour" href="#"><i
-                                                        class="icon-chevron-up"></i></a></td>
-                                                <td class="separator">&nbsp;</td>
-                                                <td><a data-action="incrementMinute" href="#"><i
-                                                        class="icon-chevron-up"></i></a></td>
-                                                <td class="separator">&nbsp;</td>
-                                                <td><a data-action="incrementSecond" href="#"><i
-                                                        class="icon-chevron-up"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="text" maxlength="2" class="bootstrap-timepicker-hour"
-                                                           name="hour"/></td>
-                                                <td class="separator">:</td>
-                                                <td><input type="text" maxlength="2" class="bootstrap-timepicker-minute"
-                                                           name="minute"/></td>
-                                                <td class="separator">:</td>
-                                                <td><input type="text" maxlength="2" class="bootstrap-timepicker-second"
-                                                           name="second"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td><a data-action="decrementHour" href="#"><i
-                                                        class="icon-chevron-down"></i></a></td>
-                                                <td class="separator"></td>
-                                                <td><a data-action="decrementMinute" href="#"><i
-                                                        class="icon-chevron-down"></i></a></td>
-                                                <td class="separator">&nbsp;</td>
-                                                <td><a data-action="decrementSecond" href="#"><i
-                                                        class="icon-chevron-down"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="bootstrap-timepicker-widget dropdown-menu">
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td><a data-action="incrementHour" href="#"><i
+                                                            class="icon-chevron-up"></i></a></td>
+                                                    <td class="separator">&nbsp;</td>
+                                                    <td><a data-action="incrementMinute" href="#"><i
+                                                            class="icon-chevron-up"></i></a></td>
+                                                    <td class="separator">&nbsp;</td>
+                                                    <td><a data-action="incrementSecond" href="#"><i
+                                                            class="icon-chevron-up"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" maxlength="2"
+                                                               class="bootstrap-timepicker-hour"
+                                                               name="hour"/></td>
+                                                    <td class="separator">:</td>
+                                                    <td><input type="text" maxlength="2"
+                                                               class="bootstrap-timepicker-minute"
+                                                               name="minute"/></td>
+                                                    <td class="separator">:</td>
+                                                    <td><input type="text" maxlength="2"
+                                                               class="bootstrap-timepicker-second"
+                                                               name="second"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a data-action="decrementHour" href="#"><i
+                                                            class="icon-chevron-down"></i></a></td>
+                                                    <td class="separator"></td>
+                                                    <td><a data-action="decrementMinute" href="#"><i
+                                                            class="icon-chevron-down"></i></a></td>
+                                                    <td class="separator">&nbsp;</td>
+                                                    <td><a data-action="decrementSecond" href="#"><i
+                                                            class="icon-chevron-down"></i></a></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <input type="text" class="form-control" id="timepicker1" name="timepicker1"
+                                               disabled="disabled"/>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker1" name="timepicker1"
-                                           disabled="disabled"/>
-                                </div>
 
-                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
+                                    <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
                                     <span class="input-group-addon">
 																<i class="icon-time bigger-110"></i>
 															</span>
 
-                                    <div class="bootstrap-timepicker-widget dropdown-menu">
-                                        <table>
-                                            <tbody>
-                                            <tr>
-                                                <td><a data-action="incrementHour" href="#"><i
-                                                        class="icon-chevron-up"></i></a></td>
-                                                <td class="separator">&nbsp;</td>
-                                                <td><a data-action="incrementMinute" href="#"><i
-                                                        class="icon-chevron-up"></i></a></td>
-                                                <td class="separator">&nbsp;</td>
-                                                <td><a data-action="incrementSecond" href="#"><i
-                                                        class="icon-chevron-up"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="text" maxlength="2" class="bootstrap-timepicker-hour"
-                                                           name="hour"/></td>
-                                                <td class="separator">:</td>
-                                                <td><input type="text" maxlength="2" class="bootstrap-timepicker-minute"
-                                                           name="minute"/></td>
-                                                <td class="separator">:</td>
-                                                <td><input type="text" maxlength="2" class="bootstrap-timepicker-second"
-                                                           name="second"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td><a data-action="decrementHour" href="#"><i
-                                                        class="icon-chevron-down"></i></a></td>
-                                                <td class="separator"></td>
-                                                <td><a data-action="decrementMinute" href="#"><i
-                                                        class="icon-chevron-down"></i></a></td>
-                                                <td class="separator">&nbsp;</td>
-                                                <td><a data-action="decrementSecond" href="#"><i
-                                                        class="icon-chevron-down"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="bootstrap-timepicker-widget dropdown-menu">
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <td><a data-action="incrementHour" href="#"><i
+                                                            class="icon-chevron-up"></i></a></td>
+                                                    <td class="separator">&nbsp;</td>
+                                                    <td><a data-action="incrementMinute" href="#"><i
+                                                            class="icon-chevron-up"></i></a></td>
+                                                    <td class="separator">&nbsp;</td>
+                                                    <td><a data-action="incrementSecond" href="#"><i
+                                                            class="icon-chevron-up"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="text" maxlength="2"
+                                                               class="bootstrap-timepicker-hour"
+                                                               name="hour"/></td>
+                                                    <td class="separator">:</td>
+                                                    <td><input type="text" maxlength="2"
+                                                               class="bootstrap-timepicker-minute"
+                                                               name="minute"/></td>
+                                                    <td class="separator">:</td>
+                                                    <td><input type="text" maxlength="2"
+                                                               class="bootstrap-timepicker-second"
+                                                               name="second"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a data-action="decrementHour" href="#"><i
+                                                            class="icon-chevron-down"></i></a></td>
+                                                    <td class="separator"></td>
+                                                    <td><a data-action="decrementMinute" href="#"><i
+                                                            class="icon-chevron-down"></i></a></td>
+                                                    <td class="separator">&nbsp;</td>
+                                                    <td><a data-action="decrementSecond" href="#"><i
+                                                            class="icon-chevron-down"></i></a></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <input type="text" class="form-control" id="timepicker2" name="timepicker2"
+                                               disabled="disabled"/>
                                     </div>
-                                    <input type="text" class="form-control" id="timepicker2" name="timepicker2"
-                                           disabled="disabled"/>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="clearfix form-actions">
-                            <div class="col-md-offset-3 col-md-9">
-
-                                <button type="button" onclick="submit();" class="btn btn-info">
-                                    <i class="icon-ok bigger-110"></i>
-                                    <span th:text="#{add.submit}"></span>
-                                </button>
-
-                                &nbsp; &nbsp; &nbsp;
-                                <button type="reset" class="btn">
-                                    <i class="icon-undo bigger-110"></i>
-                                    <span th:text="#{add.return}"></span>
-                                </button>
                             </div>
                         </div>
                     </form>
@@ -361,6 +388,21 @@
                     <!-- PAGE CONTENT ENDS -->
                 </div>
                 <!-- /.col -->
+            </div>
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-5 col-md-10">
+
+                    <button type="button" onclick="submit();" class="btn btn-info">
+                        <i class="icon-ok bigger-110"></i>
+                        <span th:text="#{add.submit}"></span>
+                    </button>
+
+                    &nbsp; &nbsp; &nbsp;
+                    <button type="reset" class="btn">
+                        <i class="icon-undo bigger-110"></i>
+                        <span th:text="#{add.return}"></span>
+                    </button>
+                </div>
             </div>
             <!-- /.row -->
         </div>
