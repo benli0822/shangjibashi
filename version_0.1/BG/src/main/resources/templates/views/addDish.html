@@ -98,13 +98,14 @@
                 <!-- PAGE CONTENT BEGINS -->
 
                 <div class="col-xs-12 col-sm-6">
-                    <form class="form-horizontal" action="#" role="form" method="post" th:action="@{/addDish}" th:object="${dish}">
+                    <form class="form-horizontal" id="validation-form" action="#" role="form" method="post"
+                          th:action="@{/addDish}" th:object="${dish}">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1"
+                            <label class="col-sm-2 control-label no-padding-right" for="name"
                                    th:text="#{add.name}"> </label>
 
                             <div class="col-sm-9">
-                                <input type="text" name="dishName" id="form-field-1" th:field="*{name}"
+                                <input type="text" name="name" id="name" th:field="*{name}"
                                        class="col-xs-10 col-sm-10"/>
                                 <br/>
                                 <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
@@ -112,11 +113,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="form-field-description"
+                            <label class="col-sm-2 control-label no-padding-right" for="description"
                                    th:text="#{add.description}"></label>
 
                             <div class="col-sm-9">
-                                <textarea maxlength="150" id="form-field-description"
+                                <textarea maxlength="150" id="description" name="description"
                                           class="col-xs-10 col-sm-10 limited" th:field="*{description}">
                                 </textarea>
                             </div>
@@ -385,95 +386,7 @@
     <script th:src="@{/js/jquery.inputlimiter.1.3.1.min.js}"></script>
     <script th:src="@{/js/jquery.maskedinput.min.js}"></script>
     <script th:src="@{/js/bootstrap-tag.min.js}"></script>
-
-    <script type="text/javascript" th:inline="javascript">
-        /*<![CDATA[*/
-        Dropzone.autoDiscover = false;
-
-        jQuery(function ($) {
-
-            try {
-                $(".dropzone").dropzone({
-                    url: "upload",
-                    autoProcessQueue: true,
-                    uploadMultiple: true,
-                    paramName: "file", // The name that will be used to transfer the file
-                    maxFilesize: 200000, // MB
-
-                    parallelUploads: 100,
-                    maxFiles: 100,
-
-                    addRemoveLinks: true,
-                    dictDefaultMessage: '<span class="bigger-150 bolder"><i class="icon-caret-right red"></i> Drop files</span> to upload \
-                            <span class="smaller-80 grey">(or click)</span> <br /> \
-                            <i class="upload-icon icon-cloud-upload blue icon-3x"></i>'
-                    ,
-                    dictResponseError: 'Error while uploading file!',
-
-                    //change the previewTemplate to use Bootstrap progress bars
-                    previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-small progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
-                });
-            } catch (e) {
-                alert('Dropzone.js does not support older browsers!' + e);
-            }
-
-            $(".chosen-select").chosen();
-            $('.date-picker').datepicker({autoclose: true}).next().on(ace.click_event, function () {
-                $(this).prev().focus();
-            });
-            $('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function () {
-                $(this).next().focus();
-            });
-            $('#timepicker1').timepicker({
-                minuteStep: 1,
-                showSeconds: true,
-                showMeridian: false
-            }).next().on(ace.click_event, function () {
-                $(this).prev().focus();
-            });
-
-            $('#timepicker2').timepicker({
-                minuteStep: 1,
-                showSeconds: true,
-                showMeridian: false
-            }).next().on(ace.click_event, function () {
-                $(this).prev().focus();
-            });
-
-            $('[data-rel=tooltip]').tooltip({container: 'body'});
-            $('[data-rel=popover]').popover({container: 'body'});
-
-            //we could just set the data-provide="tag" of the element inside HTML, but IE8 fails!
-            var tag_input = $('#form-field-tags');
-            if (!( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()))) {
-                tag_input.tag(
-                        {
-                            placeholder: tag_input.attr('placeholder'),
-                            //enable typeahead by specifying the source array
-                            source: ace.variable_US_STATES,//defined in ace.js >> ace.enable_search_ahead
-                        }
-                );
-            }
-            else {
-                //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
-                tag_input.after('<textarea id="' + tag_input.attr('id') + '" name="' + tag_input.attr('name') + '" rows="3">' + tag_input.val() + '</textarea>').remove();
-                //$('#form-field-tags').autosize({append: "\n"});
-            }
-
-            $('#form-field-switch-date').change(function () {
-                $("#id-date-range-picker-1").attr('disabled', !$(this).is(':checked'));
-            });
-
-
-            $('#form-field-switch-time').change(function () {
-                $("#timepicker1").attr('disabled', !$(this).is(':checked'));
-                $("#timepicker2").attr('disabled', !$(this).is(':checked'));
-            });
-
-        });
-
-        /*]]>*/
-    </script>
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/custom/adddish.js}"></script>
 </div>
 </body>
 </html>
