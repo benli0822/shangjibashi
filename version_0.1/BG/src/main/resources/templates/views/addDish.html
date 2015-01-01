@@ -100,15 +100,20 @@
                 <div class="col-xs-12 col-sm-6">
                     <form class="form-horizontal" id="validation-form" action="#" role="form" method="post"
                           th:action="@{/addDish}" th:object="${dish}">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label no-padding-right" for="name"
+                        <div class="form-group"
+                             th:attr="class=${#fields.hasErrors('name') ? 'form-group has-error' : 'form-group'}">
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right" for="name"
                                    th:text="#{add.name}"> </label>
 
-                            <div class="col-sm-9">
-                                <input type="text" name="name" id="name" th:field="*{name}"
-                                       class="col-xs-10 col-sm-10"/>
-                                <br/>
-                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <input type="text" name="name" id="name" th:field="*{name}"
+                                           class="col-xs-10 col-sm-10"/>
+                                </div>
+
+                                <div for="name" class="help-block" th:if="${#fields.hasErrors('name')}"
+                                     th:errors="*{name}">Name Error
+                                </div>
                             </div>
                         </div>
 
