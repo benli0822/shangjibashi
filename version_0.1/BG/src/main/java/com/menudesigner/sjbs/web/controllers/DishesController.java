@@ -23,7 +23,7 @@ import java.util.Locale;
  * Created by JIN Benli on 24/09/14.
  */
 @Controller
-public class DishesController  {
+public class DishesController {
     private static final Logger logger = LoggerFactory.getLogger(DishesController.class);
 
     @Autowired
@@ -39,7 +39,7 @@ public class DishesController  {
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(value = "/dish", method = RequestMethod.GET)
-    public String index(Locale locale, Model model) {
+    public String dish(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
@@ -66,12 +66,19 @@ public class DishesController  {
 
         model.addAttribute("serverTime", formattedDate);
 
+        // put all existing types into page
+        model.addAttribute("types", typeRepository.findAll());
+
+        // put all existing options into page
+        model.addAttribute("options", optionRepository.findAll());
+
         return "views/addDish";
     }
 
 
     /**
      * ATTENTION: bindingResult must go after @Valid XXX XXX, otherwise can not work
+     *
      * @param dish
      * @param bindingResult
      * @param locale
