@@ -84,6 +84,14 @@ jQuery(function ($) {
         $("#timepicker2").attr('disabled', !$(this).is(':checked'));
     });
 
+    $('#submit-btn').click(function () {
+        $('#validation-form').submit();
+    });
+
+    $('#reset-btn').click(function () {
+        $('#validation-form')[0].reset();
+    })
+
 });
 
 /*]]>*/

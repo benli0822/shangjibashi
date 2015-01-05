@@ -128,11 +128,11 @@
                                 <textarea maxlength="300" id="description" name="description"
                                           class="col-xs-10 col-sm-10 limited" th:field="*{description}">
                                 </textarea>
+                                </div>
 
-                                    <div for="description" class="help-block"
-                                         th:if="${#fields.hasErrors('description')}"
-                                         th:errors="*{description}">Description Error
-                                    </div>
+                                <div for="description" class="help-block"
+                                     th:if="${#fields.hasErrors('description')}"
+                                     th:errors="*{description}">Description Error
                                 </div>
                             </div>
                         </div>
@@ -392,13 +392,13 @@
             <div class="clearfix form-actions">
                 <div class="col-md-offset-5 col-md-10">
 
-                    <button type="button" onclick="submit();" class="btn btn-info">
+                    <button type="button" class="btn btn-info" id="submit-btn">
                         <i class="icon-ok bigger-110"></i>
                         <span th:text="#{add.submit}"></span>
                     </button>
 
                     &nbsp; &nbsp; &nbsp;
-                    <button type="reset" class="btn">
+                    <button type="reset" class="btn" id="reset-btn">
                         <i class="icon-undo bigger-110"></i>
                         <span th:text="#{add.reset}"></span>
                     </button>
