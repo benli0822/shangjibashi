@@ -146,7 +146,8 @@
                                 <div class="clearfix">
                                     <div>
                                         <select class="col-xs-10 col-sm-8 chosen-select" id="form-field-select-type">
-                                            <option value="">Cold</option>
+                                            <option value=""></option>
+                                            <option value="COLD">Cold</option>
                                             <option value="AL">Hot</option>
                                             <option value="AK">Drink</option>
                                             <option value="AZ">Dessert</option>
@@ -164,7 +165,7 @@
                                 <div class="clearfix">
                                     <select multiple=""
                                             class="tag-input-style col-xs-10 col-sm-8 chosen-select"
-                                            id="form-field-2" th:attr="data-placeholder=#{add.selectType}">
+                                            id="form-field-2">
                                         <option value="">Cold</option>
                                         <option value="AL">Hot</option>
                                         <option value="AK">Drink</option>
@@ -433,7 +434,16 @@
     <script th:src="@{/js/jquery.inputlimiter.1.3.1.min.js}"></script>
     <script th:src="@{/js/jquery.maskedinput.min.js}"></script>
     <script th:src="@{/js/bootstrap-tag.min.js}"></script>
-    <script type="text/javascript" th:inline="javascript" th:src="@{/js/custom/adddish.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom/adddish.js}"></script>
+    <script th:inline="javascript">
+        // using Thymeleaf script inlinging with javascript
+        $(".chosen-select").chosen({
+            /*<![CDATA[*/
+            placeholder_text_single: /*[[#{add.selectType}]]*/ 'Please select a option',
+            placeholder_text_multiple: /*[[#{add.selectTypes}]]*/ 'Please select a option'
+            /*]]>*/
+        });
+    </script>
 </div>
 </body>
 </html>

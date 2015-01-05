@@ -1,7 +1,6 @@
 /**
  * Created by benli on 01/01/15.
  */
-/*<![CDATA[*/
 Dropzone.autoDiscover = false;
 
 jQuery(function ($) {
@@ -31,7 +30,6 @@ jQuery(function ($) {
         alert('Dropzone.js does not support older browsers!' + e);
     }
 
-    $(".chosen-select").chosen();
     $('.date-picker').datepicker({autoclose: true}).next().on(ace.click_event, function () {
         $(this).prev().focus();
     });
@@ -64,7 +62,7 @@ jQuery(function ($) {
             {
                 placeholder: tag_input.attr('placeholder'),
                 //enable typeahead by specifying the source array
-                source: ace.variable_US_STATES,//defined in ace.js >> ace.enable_search_ahead
+                source: ace.variable_US_STATES //defined in ace.js >> ace.enable_search_ahead
             }
         );
     }
@@ -93,5 +91,3 @@ jQuery(function ($) {
     })
 
 });
-
-/*]]>*/
