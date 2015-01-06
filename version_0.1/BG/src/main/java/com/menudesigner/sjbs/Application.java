@@ -34,6 +34,7 @@ public class Application extends WebMvcConfigurerAdapter {
         DishRepository dishRepository = context.getBean(DishRepository.class);
         CommandRepository commandRepository = context.getBean(CommandRepository.class);
         CommandService commandService = context.getBean(CommandService.class);
+
     }
 
     private static Log logger = LogFactory.getLog(Application.class);
