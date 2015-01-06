@@ -139,6 +139,14 @@
     }
     
     
+    //[self LogAllDishesOfDB:data];
+    [db close];
+
+    return data;
+    
+}
+
+-(void)LogAllDishesOfDB:(NSMutableArray*) data{
     for (MDFirstMenu * fm in data) {
         NSLog(@" ------------------------------------");
         
@@ -158,15 +166,9 @@
             
         }
         
-        
     }
-    
-    [db close];
 
-    return data;
-    
 }
-
 -(MDSecondMenu*) readAllOptionForFirstMenu:(NSUInteger)menu_id db:(FMDatabase*)db{
     NSUInteger type_id = -1;
 //needs to know the langage
