@@ -80,5 +80,9 @@
 
 }
 
+-(void) readAllDataFromDB{
+    
+}
+
 
 @end

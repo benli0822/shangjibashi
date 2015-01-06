@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jb_menu_design`.`md_menu` ;
 
 CREATE TABLE IF NOT EXISTS `jb_menu_design`.`md_menu` (
-  `id` BIGINT(10) NOT NULL,
+  `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `description` VARCHAR(300) NULL,
   `start_time` TIME NULL,

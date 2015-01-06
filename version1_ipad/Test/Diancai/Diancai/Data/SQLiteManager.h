@@ -22,4 +22,7 @@
 
 -(void) getTestReadDataFromDB;
 
+-(void) readAllDataFromDB;
+
+
 @end
