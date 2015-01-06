@@ -10,13 +10,24 @@
 
 @implementation MDSecondMenu
 
+@synthesize description = _description;
+@synthesize name = _name;
+@synthesize type_id = _type_id;
+
 
 -(id) init{
     self = [super init];
     _dish_list = [[NSMutableArray alloc] init];
     return self;
 }
-
+-(id)initWithKey:(NSUInteger)type_id name:(NSString*)name description:(NSString *)description{
+    self = [super init];
+    _dish_list = [[NSMutableArray alloc] init];
+    _type_id = type_id;
+    _name = name;
+    _description = description;
+    return self;
+}
 
 
 /**
@@ -28,4 +39,10 @@
     [_dish_list addObject:object];
     
 }
+-(void) addObjectWithArray:(NSMutableArray*) array{
+    [_dish_list addObjectsFromArray:array];
+}
+
+
+
 @end

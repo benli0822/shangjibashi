@@ -80,7 +80,7 @@
     db.logsErrors = YES;
     FMResultSet *fResult = [db executeQuery:@"select * from md_dish", [NSNumber numberWithInt:1]];
     while ([fResult next]){
-    NSLog(@"DB Data %@", [fResult stringForColumn:@"name"]);
+    //NSLog(@"DB Data %@", [fResult stringForColumn:@"name"]);
     }
     return @"opened";
 
@@ -109,11 +109,72 @@
         NSString *description = [fFirstMenuResult stringForColumn:@"description"];
         MDFirstMenu *newFirstMenu = [[MDFirstMenu alloc] initWithKey:type_id name:name description:description];
         
+        //get the option all dishes for second menu, 对于"所有"这个选项,我们要在dish_type 用一级菜单的type_id 这个表拿到所有的dish
+       
+        NSUInteger all_type_id = -1;
+        //needs to know the langage
+        NSString *all_name = @"All";
+        NSString *all_description = @"null";
+        MDSecondMenu *newSecondMenu = [[MDSecondMenu alloc] initWithKey:all_type_id name:all_name description:all_description];
+        
+        NSLog(@"type id %lu", (unsigned long)type_id);
+        //get all the dishs in this first menu
+        FMResultSet *fDishesMenuResult = [db executeQuery:@"SELECT * FROM md_dish left join md_dish_type where md_dish.id = md_dish_type.dish_id and md_dish_type.type_id = (?)" , [NSNumber numberWithInteger: type_id]];
+        while ([fDishesMenuResult next]) {
+            NSUInteger id_dish = [fDishesMenuResult intForColumn:@"id"];
+            NSString *name = [fDishesMenuResult stringForColumn:@"name"];
+            NSUInteger price = [fDishesMenuResult intForColumn:@"price"];
+            NSString *description = [fDishesMenuResult stringForColumn:@"description"];
+            
+            //need to change the get now method
+            NSDate *start_date = [NSDate date];
+            NSDate *end_date = [NSDate date];
+            NSDate *start_time = [NSDate date];
+            NSDate *end_time = [NSDate date];
+            
+            MDDish* newDish = [[MDDish alloc] initWithKey:id_dish name:name is_typed:TRUE description:description disabled:false start_date:start_date end_date:end_date start_time:start_time end_time:end_time price:price];
+            
+            
+            NSLog(@"add a dish with name : %@ , price : %ld",name,(unsigned long)price);
+            [newSecondMenu addSecondeMenu_listObject:newDish];
+        }
+        [newFirstMenu addSecondeMenu_listObject:newSecondMenu];
+        //end get option all
+        
         //get the all the second menu associed with the first menu
-         FMResultSet *fSecondMenuResult = [db executeQuery:@"select * from md_types where is_secondmenu = (?) and firstmenu_id = (?)" , [NSNumber numberWithInt:1], type_id];
+        FMResultSet *fSecondMenuResult = [db executeQuery:@"select * from md_types where is_secondmenu = (?) and firstmenu_id = (?)" , [NSNumber numberWithInt:1], [NSNumber numberWithInteger: type_id]];
         
         while ([fSecondMenuResult next]) {
             //get this secondMenu basic information
+            NSUInteger type_id = [fSecondMenuResult intForColumn:@"id"];
+            NSString *name = [fSecondMenuResult stringForColumn:@"name"];
+            NSString *description = [fSecondMenuResult stringForColumn:@"description"];
+            MDSecondMenu *newSecondMenu = [[MDSecondMenu alloc] initWithKey:type_id name:name description:description];
+            
+            
+            //get all the dishs in this first menu
+            FMResultSet *fDishesMenuResult = [db executeQuery:@"SELECT * FROM md_dish left join md_dish_type where md_dish.id = md_dish_type.dish_id and md_dish_type.type_id = (?)" , [NSNumber numberWithInteger: type_id]];
+            while ([fDishesMenuResult next]) {
+                NSUInteger id_dish = [fDishesMenuResult intForColumn:@"id"];
+                NSString *name = [fDishesMenuResult stringForColumn:@"name"];
+                NSUInteger price = [fDishesMenuResult intForColumn:@"price"];
+                NSString *description = [fDishesMenuResult stringForColumn:@"description"];
+                
+                //need to change the get now method
+                NSDate *start_date = [NSDate date];
+                NSDate *end_date = [NSDate date];
+                NSDate *start_time = [NSDate date];
+                NSDate *end_time = [NSDate date];
+                
+                MDDish* newDish = [[MDDish alloc] initWithKey:id_dish name:name is_typed:TRUE description:description disabled:false start_date:start_date end_date:end_date start_time:start_time end_time:end_time price:price];
+                
+                
+                NSLog(@"add a dish with name : %@ , price : %ld",name,(unsigned long)price);
+                [newSecondMenu addSecondeMenu_listObject:newDish];
+            }
+            
+            [newFirstMenu addSecondeMenu_listObject:newSecondMenu];
+
             
         }
         
@@ -128,6 +189,48 @@
     
 }
 
+-(MDSecondMenu*) readAllOptionForFirstMenu:(NSUInteger)menu_id db:(FMDatabase*)db{
+    NSUInteger type_id = -1;
+//needs to know the langage
+    NSString *name = @"All";
+    NSString *description = @"null";
+    MDSecondMenu *newSecondMenu = [[MDSecondMenu alloc] initWithKey:type_id name:name description:description];
+   
+    //add all the dishs with type id
+    [newSecondMenu addObjectWithArray:[self readAllDishsWithTypeID:menu_id db:db]];
+    
+    return newSecondMenu;
+    
+}
+
+-(NSMutableArray*) readAllDishsWithTypeID:(NSUInteger) type_id db:(FMDatabase*)db{
+    
+    NSMutableArray* dishList = [[NSMutableArray alloc] init];
+    
+    //get all the dishs in this first menu
+    FMResultSet *fDishesMenuResult = [db executeQuery:@"SELECT * FROM md_dish left join md_dish_type where md_dish.id = md_dish_type.dish_id and md_dish_type.type_id = (?)" , [NSNumber numberWithInteger: type_id]];
+    while ([fDishesMenuResult next]) {
+        NSUInteger id_dish = [fDishesMenuResult intForColumn:@"id"];
+        NSString *name = [fDishesMenuResult stringForColumn:@"name"];
+        NSUInteger price = [fDishesMenuResult intForColumn:@"price"];
+        NSString *description = [fDishesMenuResult stringForColumn:@"description"];
+        
+        //need to change the get now method
+        NSDate *start_date = [NSDate date];
+        NSDate *end_date = [NSDate date];
+        NSDate *start_time = [NSDate date];
+        NSDate *end_time = [NSDate date];
+        
+        MDDish* newDish = [[MDDish alloc] initWithKey:id_dish name:name is_typed:TRUE description:description disabled:false start_date:start_date end_date:end_date start_time:start_time end_time:end_time price:price];
+        
+        
+        NSLog(@"add a dish with name : %@ , price : %ld",name,(unsigned long)price);
+        [dishList addObject:newDish];
+    }
+    
+    return dishList;
+
+}
 
 -(void) readAllFirstMenuData{
     

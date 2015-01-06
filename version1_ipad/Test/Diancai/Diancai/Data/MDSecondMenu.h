@@ -29,5 +29,10 @@
  *  @param object MDDish
  */
 -(void) addSecondeMenu_listObject:(MDDish *)object;
+-(void) addObjectWithArray:(NSMutableArray*) array;
+
+-(id)initWithKey:(NSUInteger)type_id name:(NSString*)name description:(NSString *)description;
+
+
 
 @end
