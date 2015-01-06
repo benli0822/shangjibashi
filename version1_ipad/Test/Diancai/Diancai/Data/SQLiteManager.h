@@ -22,7 +22,7 @@
 
 -(NSString*) getTestReadDataFromDB;
 
--(void) readAllDataFromDB;
+-(NSMutableArray *) readAllDataFromDB;
 
 
 @end

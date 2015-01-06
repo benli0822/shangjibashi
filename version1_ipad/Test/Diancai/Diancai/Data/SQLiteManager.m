@@ -10,6 +10,9 @@
 #import  <sqlite3.h>
 #import "FMDatabase.h"
 #import "FMResultSet.h"
+#import "MDFirstMenu.h"
+#import "MDSecondMenu.h"
+#import "MDDish.h"
 
 
 
@@ -83,9 +86,55 @@
 
 }
 
--(void) readAllDataFromDB{
+#pragma marks read data from DB
+-(NSMutableArray *) readAllDataFromDB{
+    
+    NSMutableArray* data = [[NSMutableArray alloc] init];
+    
+    //get DB
+    FMDatabase *db = [[FMDatabase alloc] initWithPath:_databasePath];
+    
+    //open DB
+    if([db open]  == NO)
+        NSLog(@"Error of open the database");
+    db.logsErrors = YES;
+    
+    //get all firstmenu
+    FMResultSet *fFirstMenuResult = [db executeQuery:@"select * from md_types where is_firstmenu = (?)" , [NSNumber numberWithInt:1]];
+    
+    while ([fFirstMenuResult next]) {
+        //get this firstmenu basic information
+        NSUInteger type_id = [fFirstMenuResult intForColumn:@"id"];
+        NSString *name = [fFirstMenuResult stringForColumn:@"name"];
+        NSString *description = [fFirstMenuResult stringForColumn:@"description"];
+        MDFirstMenu *newFirstMenu = [[MDFirstMenu alloc] initWithKey:type_id name:name description:description];
+        
+        //get the all the second menu associed with the first menu
+         FMResultSet *fSecondMenuResult = [db executeQuery:@"select * from md_types where is_secondmenu = (?) and firstmenu_id = (?)" , [NSNumber numberWithInt:1], type_id];
+        
+        while ([fSecondMenuResult next]) {
+            //get this secondMenu basic information
+            
+        }
+        
+        
+        //add the first menu to list
+        [data addObject:newFirstMenu];
+        
+        
+    }
+    
+    return data;
     
 }
 
+
+-(void) readAllFirstMenuData{
+    
+}
+
+-(void) readAllSecondMenuDate{
+    
+}
 
 @end

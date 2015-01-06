@@ -26,16 +26,14 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
 -(void)testDBOpen{
     XCTAssertEqualObjects([[SQLiteManager shared] getTestReadDataFromDB], @"opened");
-  
 }
 
+-(void)testDBReadFirstMenu{
+    XCTAssertEqual([[[SQLiteManager shared] readAllDataFromDB] count] > 2, true );
+    
+}
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{

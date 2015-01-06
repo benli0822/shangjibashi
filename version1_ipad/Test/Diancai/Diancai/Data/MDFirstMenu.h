@@ -15,7 +15,6 @@
 
 
 @property(readonly,nonatomic) NSUInteger type_id;
-
 @property(readonly,nonatomic) NSString *name;
 @property(readonly,nonatomic) NSString *description;
 
@@ -29,5 +28,7 @@
  *  @param object MDsecondMenu
  */
 -(void) addSecondeMenu_listObject:(MDSecondMenu *)object;
+
+-(id)initWithKey:(NSUInteger)type_id name:(NSString*)name description:(NSString *)description;
 
 @end

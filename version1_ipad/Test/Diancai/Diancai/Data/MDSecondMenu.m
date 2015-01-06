@@ -10,4 +10,22 @@
 
 @implementation MDSecondMenu
 
+
+-(id) init{
+    self = [super init];
+    _dish_list = [[NSMutableArray alloc] init];
+    return self;
+}
+
+
+
+/**
+ *  add a seconde menu to firstmenu
+ *
+ *  @param object MDsecondMenu
+ */
+-(void) addSecondeMenu_listObject:(MDDish *)object{
+    [_dish_list addObject:object];
+    
+}
 @end
