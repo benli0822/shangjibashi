@@ -13,6 +13,9 @@
 		3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C731B981A2F747A00356747 /* MDListCommandCell.m */; };
 		3C731B9B1A2F747A00356747 /* MDListCommandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C731B991A2F747A00356747 /* MDListCommandCell.xib */; };
 		3C731B9E1A2F85C700356747 /* MDListCommandController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C731B9D1A2F85C700356747 /* MDListCommandController.m */; };
+		3C9452021A5C196F006FD841 /* MDFirstMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9452011A5C196F006FD841 /* MDFirstMenu.m */; };
+		3C9452051A5C198D006FD841 /* MDSecondMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9452041A5C198D006FD841 /* MDSecondMenu.m */; };
+		3C9452071A5C1C92006FD841 /* DBMenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9452061A5C1C92006FD841 /* DBMenuTest.m */; };
 		3CC8531219D0596900668F13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8531119D0596900668F13 /* main.m */; };
 		3CC8531B19D0596900668F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531919D0596900668F13 /* Main.storyboard */; };
 		3CC8531D19D0596900668F13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8531C19D0596900668F13 /* Images.xcassets */; };
@@ -88,6 +91,11 @@
 		3C731B991A2F747A00356747 /* MDListCommandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDListCommandCell.xib; path = ViewController/Menu/ListCommand/Cell/MDListCommandCell.xib; sourceTree = "<group>"; };
 		3C731B9C1A2F85C700356747 /* MDListCommandController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDListCommandController.h; path = ViewController/Menu/ListCommand/MDListCommandController.h; sourceTree = "<group>"; };
 		3C731B9D1A2F85C700356747 /* MDListCommandController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDListCommandController.m; path = ViewController/Menu/ListCommand/MDListCommandController.m; sourceTree = "<group>"; };
+		3C9452001A5C196F006FD841 /* MDFirstMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDFirstMenu.h; path = Data/MDFirstMenu.h; sourceTree = "<group>"; };
+		3C9452011A5C196F006FD841 /* MDFirstMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDFirstMenu.m; path = Data/MDFirstMenu.m; sourceTree = "<group>"; };
+		3C9452031A5C198D006FD841 /* MDSecondMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSecondMenu.h; path = Data/MDSecondMenu.h; sourceTree = "<group>"; };
+		3C9452041A5C198D006FD841 /* MDSecondMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDSecondMenu.m; path = Data/MDSecondMenu.m; sourceTree = "<group>"; };
+		3C9452061A5C1C92006FD841 /* DBMenuTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMenuTest.m; sourceTree = "<group>"; };
 		3CC8530C19D0596800668F13 /* Diancai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diancai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC8531019D0596900668F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC8531119D0596900668F13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,12 +221,12 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
-		3C1E6EC619D21A82007ADBB0 /* resource */ = {
+		3C1E6EC619D21A82007ADBB0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				3CFE305119D53E7500210AD5 /* image */,
 			);
-			name = resource;
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		3C1E6EEA19D21B6F007ADBB0 /* Cell */ = {
@@ -283,7 +291,7 @@
 				3CD70F541A0AC53300BDA022 /* Libraries */,
 				3CFE307D19D5565300210AD5 /* Helper */,
 				3CFE307919D5538500210AD5 /* AppDelegate */,
-				3C1E6EC619D21A82007ADBB0 /* resource */,
+				3C1E6EC619D21A82007ADBB0 /* Resource */,
 				3CC8533B19D059C300668F13 /* ViewController */,
 				3CC8531919D0596900668F13 /* Main.storyboard */,
 				3CC8531C19D0596900668F13 /* Images.xcassets */,
@@ -306,6 +314,7 @@
 		3CC8532819D0596900668F13 /* DiancaiTests */ = {
 			isa = PBXGroup;
 			children = (
+				3C9452061A5C1C92006FD841 /* DBMenuTest.m */,
 				3CC8532B19D0596900668F13 /* DiancaiTests.m */,
 				3CC8532919D0596900668F13 /* Supporting Files */,
 			);
@@ -379,6 +388,10 @@
 				3CF8A4CF1A38979F003FDD2A /* SQLiteManager.m */,
 				3CF8A4D11A38CAAE003FDD2A /* MDUserCommand.h */,
 				3CF8A4D21A38CAAE003FDD2A /* MDUserCommand.m */,
+				3C9452001A5C196F006FD841 /* MDFirstMenu.h */,
+				3C9452011A5C196F006FD841 /* MDFirstMenu.m */,
+				3C9452031A5C198D006FD841 /* MDSecondMenu.h */,
+				3C9452041A5C198D006FD841 /* MDSecondMenu.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -610,6 +623,7 @@
 				3CC8531219D0596900668F13 /* main.m in Sources */,
 				3CD820B81A1295170024823C /* MDFirstMenuTableController.m in Sources */,
 				3CFE307419D53F6300210AD5 /* iCarousel.m in Sources */,
+				3C9452021A5C196F006FD841 /* MDFirstMenu.m in Sources */,
 				3CE25EFD1A0B849E00DD249B /* MDDish.m in Sources */,
 				3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */,
 				3C731B951A2F743700356747 /* MDListCommandViewController.m in Sources */,
@@ -618,6 +632,7 @@
 				3CF8A4D31A38CAAE003FDD2A /* MDUserCommand.m in Sources */,
 				3CD820B11A1292C90024823C /* MDFirstMenuTableCell.m in Sources */,
 				3CF8A4D01A38979F003FDD2A /* SQLiteManager.m in Sources */,
+				3C9452051A5C198D006FD841 /* MDSecondMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9452071A5C1C92006FD841 /* DBMenuTest.m in Sources */,
 				3CC8532C19D0596900668F13 /* DiancaiTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

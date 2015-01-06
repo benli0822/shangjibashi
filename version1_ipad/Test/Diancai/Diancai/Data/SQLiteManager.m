@@ -63,20 +63,23 @@
     return _sharedObject;
 }
 
--(void) getTestReadDataFromDB{
+-(NSString*) getTestReadDataFromDB{
     FMDatabase *db = [[FMDatabase alloc] initWithPath:_databasePath];
     
     
   
     
-    if([db open]  == NO)
+    if([db open]  == NO){
         NSLog(@"Error of open the database");
+        return [NSString stringWithFormat:@"@Error of open the database"];
+    }
+    
     db.logsErrors = YES;
     FMResultSet *fResult = [db executeQuery:@"select * from md_dish", [NSNumber numberWithInt:1]];
     while ([fResult next]){
     NSLog(@"DB Data %@", [fResult stringForColumn:@"name"]);
     }
-    
+    return @"opened";
 
 }
 

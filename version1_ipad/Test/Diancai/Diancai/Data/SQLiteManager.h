@@ -20,7 +20,7 @@
 
 
 
--(void) getTestReadDataFromDB;
+-(NSString*) getTestReadDataFromDB;
 
 -(void) readAllDataFromDB;
 

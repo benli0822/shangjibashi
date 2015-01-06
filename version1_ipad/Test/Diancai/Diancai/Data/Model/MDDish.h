@@ -19,6 +19,8 @@
 @property(readonly,nonatomic) NSString *img_path;
 @property(readonly,nonatomic) NSString *description;
 @property(readonly,nonatomic) BOOL disabled;
+@property(readonly,nonatomic) NSDate *start_date;
+@property(readonly,nonatomic) NSDate *end_date;
 @property(readonly,nonatomic) NSDate *start_time;
 @property(readonly,nonatomic) NSDate *end_time;
 
@@ -29,7 +31,7 @@
 //第一个init方法, 以后可以继续加init方法
 -(id) init;
 
--(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_time:(NSDate*)start_time end_time:(NSDate *)end_time;
+-(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_date:(NSDate*)start_date end_date:(NSDate*)end_date start_time:(NSDate*)start_time end_time:(NSDate *)end_time;
 
 
 -(void) setName:(NSString*)name;

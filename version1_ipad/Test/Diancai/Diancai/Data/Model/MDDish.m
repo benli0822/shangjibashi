@@ -28,7 +28,7 @@
 }
 
 
--(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_time:(NSDate*)start_time end_time:(NSDate *)end_time{
+-(id)initWithKey:(NSUInteger)id_dish name:(NSString*)name type:(NSUInteger)type is_typed:(BOOL)is_typed img_path:(NSString*)img_path description:(NSString*)description disabled:(BOOL)disabled start_date:(NSDate*)start_date end_date:(NSDate*)end_date start_time:(NSDate*)start_time end_time:(NSDate *)end_time{
     
     
     self = [super init];
@@ -41,6 +41,8 @@
         _img_path = img_path;
         _description = description;
         _disabled = disabled;
+        _start_date = start_date;
+        _end_date = end_date;
         _start_time = start_time;
         _end_time = end_time;
     }
