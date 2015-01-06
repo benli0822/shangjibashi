@@ -48,6 +48,7 @@
         NSNumber *num = [_dish_dictionary objectForKey:object.name];
         NSNumber *newNum = [NSNumber numberWithInt:[num intValue] + 1];
         [_dish_dictionary setObject:newNum forKey:object.name];
+        
     }
     
     
@@ -65,8 +66,6 @@
         _activity_list = [[NSMutableArray alloc] init];
     }
     [_activity_list addObject:object];
-    
-    
 }
 
 
