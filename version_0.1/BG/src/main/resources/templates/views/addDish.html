@@ -136,19 +136,20 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                                   for="form-field-select-type"
+                                   th:text="#{add.type}"></label>
+
+                            <div class="col-xs-12 col-sm-9">
                                 <div class="clearfix">
                                     <div>
                                         <select class="col-xs-10 col-sm-8 chosen-select" id="form-field-select-type">
                                             <option value=""></option>
-                                            <option th:each="type : ${types}" th:value="${type}" th:text="#{${'seedstarter.type.' + type}}">Option Name</option>
+                                            <option th:each="type : ${types}" th:value="${type}"
+                                                    th:text="#{${'seedstarter.type.' + type}}">Option Name
+                                            </option>
                                             <!--<option value="COLD">Cold</option>-->
-
-                                            <div class="form-group">
-                                                <label class="col-xs-12 col-sm-3 control-label no-padding-right"
-                                                       for="form-field-select-type"
-                                                       th:text="#{add.type}"></label>
-
-                                                <div class="col-xs-12 col-sm-9">
                                             <!--<option value="AL">Hot</option>-->
                                             <!--<option value="AK">Drink</option>-->
                                             <!--<option value="AZ">Dessert</option>-->
