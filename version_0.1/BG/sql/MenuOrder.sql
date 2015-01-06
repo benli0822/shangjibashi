@@ -24,9 +24,9 @@ USE `jb_menu_design` ;
 DROP TABLE IF EXISTS `jb_menu_design`.`md_dish` ;
 
 CREATE TABLE IF NOT EXISTS `jb_menu_design`.`md_dish` (
-  `id` BIGINT(10) NOT NULL AUTO_INCREMENT COMMENT '菜的ID',
-  `name` VARCHAR(45) NOT NULL COMMENT '菜名',
-  `is_typed` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '这个菜是否已经被归类',
+  `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `is_typed` TINYINT(1) NOT NULL DEFAULT 0,
   `price` FLOAT NULL,
   `description` VARCHAR(300) NOT NULL,
   `disabled` TINYINT(1) NOT NULL DEFAULT 0,
@@ -45,10 +45,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jb_menu_design`.`md_user` ;
 
 CREATE TABLE IF NOT EXISTS `jb_menu_design`.`md_user` (
-  `id` BIGINT(10) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `name` VARCHAR(45) NULL COMMENT '用户名',
-  `passwd` VARCHAR(45) NULL COMMENT '用户密码',
-  `type` VARCHAR(45) NULL DEFAULT 0 COMMENT '用户类型 0 Admin',
+  `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `passwd` VARCHAR(45) NULL,
+  `type` VARCHAR(45) NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS `jb_menu_design`.`md_menu` ;
 
 CREATE TABLE IF NOT EXISTS `jb_menu_design`.`md_menu` (
   `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL COMMENT '套餐名称',
+  `name` VARCHAR(45) NULL,
   `description` VARCHAR(300) NULL,
   `start_time` TIME NULL,
   `end_time` TIME NULL,
@@ -79,8 +79,8 @@ DROP TABLE IF EXISTS `jb_menu_design`.`md_menu_dish` ;
 
 CREATE TABLE IF NOT EXISTS `jb_menu_design`.`md_menu_dish` (
   `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
-  `dish_id` BIGINT(10) NOT NULL COMMENT 'Dish’s  ID\n',
-  `menu_id` BIGINT(10) NOT NULL COMMENT 'Menu’s ID',
+  `dish_id` BIGINT(10) NOT NULL,
+  `menu_id` BIGINT(10) NOT NULL,
   `quantity` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -226,10 +226,10 @@ CREATE TABLE IF NOT EXISTS `jb_menu_design`.`md_types` (
   `id` BIGINT(10) NOT NULL AUTO_INCREMENT,
   `is_firstmenu` TINYINT(1) NULL,
   `is_secondmenu` TINYINT(1) NULL,
-  `firstmenu_id` BIGINT(10) NOT NULL COMMENT 'if is the seconde menu then use this to find first menu',
-  `name` VARCHAR(45) NULL COMMENT 'type or menu name',
+  `firstmenu_id` BIGINT(10) NOT NULL,
+  `name` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `is_for_customize` TINYINT(1) NULL COMMENT 'whether is to show in dish detail page',
+  `is_for_customize` TINYINT(1) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
