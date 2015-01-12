@@ -196,8 +196,14 @@
 
                             <div class="col-xs-12 col-sm-9">
                                 <div class="clearfix">
-                                    <input type="text" name="tags" id="form-field-tags" value="Tag Input Control"
-                                           placeholder="Enter tags ..."/>
+                                    <select multiple=""
+                                            class="tag-input-style col-xs-10 col-sm-8 chosen-select"
+                                            id="optionSelector">
+                                        <option th:each="option : ${options}"
+                                                th:value="${option.name}"
+                                                th:text="${option.name}">Default
+                                        </option>
+                                    </select>
                                 <span class="help-button" data-rel="popover"
                                       th:attr="data-content=#{add.personalOpsHelpContent}" data-trigger="hover"
                                       data-placement="right"
@@ -438,18 +444,32 @@
     <script type="text/javascript" th:src="@{/js/custom/adddish.js}"></script>
     <script th:inline="javascript">
         // on page reload do the same thing
-        window.onload = function() {
+        window.onload = function () {
+            //TODO soft reload issue
             secondTypeController();
         };
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             // using Thymeleaf script inline with javascript
-            $(".chosen-select").chosen({
+            $("#typeSelector1").chosen({
                 /*<![CDATA[*/
                 placeholder_text_single: /*[[#{add.selectType}]]*/ 'Please select a option',
                 placeholder_text_multiple: /*[[#{add.selectTypes}]]*/ 'Please select a option'
                 /*]]>*/
             });
+
+            $("#typeSelector2").chosen({
+                /*<![CDATA[*/
+                placeholder_text_single: /*[[#{add.selectType}]]*/ 'Please select a option',
+                placeholder_text_multiple: /*[[#{add.selectTypes}]]*/ 'Please select a option'
+                /*]]>*/
+            });
+
+            $("#optionSelector").chosen({
+                /*<![CDATA[*/
+                placeholder_text_multiple: /*[[#{add.selectOptions}]]*/ 'Please select a option'
+                /*]]>*/
+            })
 
             // on change status call the controller to update second type's content
             $("#typeSelector1").chosen().on('change', function () {
@@ -461,7 +481,7 @@
          * Controller for the second type's content
          */
         function secondTypeController() {
-            $('option:selected').each(function () {
+            $('#typeSelector1 option:selected').each(function () {
                 var theId = $(this).attr("data-id");
 
                 // select all second menu item with the first menu id
