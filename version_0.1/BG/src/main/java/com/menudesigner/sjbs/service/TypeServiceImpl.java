@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by JIN Benli on 21/12/14.
  */
@@ -89,6 +91,10 @@ public class TypeServiceImpl implements TypeService {
     public boolean addTypeToDish(long dish_id, long type_id) {
         Dish dish = dishRepository.findOne(dish_id);
         Type type = typeRepository.findOne(type_id);
+
+        //TODO all should be added with all type for test use
+        List<Type> allData = typeRepository.findTypeByName("all_data");
+
         logger.info(dish.toString());
         logger.info(type.toString());
         assert dish != null;
@@ -100,6 +106,10 @@ public class TypeServiceImpl implements TypeService {
             logger.info("Type " + type.toString() + " added to dish " + dish.toString());
 //            dish.addType(type);
             type.addDish(dish);
+
+            for(Type t : allData) {
+                t.addDish(dish);
+            }
 
             // TODO should verify if here truly needed or not
 //            typeRepository.save(type);

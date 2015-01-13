@@ -22,10 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by JIN Benli on 24/09/14.
@@ -114,33 +111,41 @@ public class DishesController {
 //        logger.info(bindingResult + "");
 //        logger.info(dish.toString());
 
-        List<Type> type1List = null;
-        List<Type> type2List = null;
-        List<Option> optionList = null;
+        List<Type> type1List;
+        List<Type> type2List = new ArrayList<>();
+        List<Option> optionList = new ArrayList<>();
         Type type1 = null;
-        Type type2 = null;
-        Option option = null;
         // get the keyword from http request
         Map<String, String[]> parameterMap = request.getParameterMap();
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
-            if(entry.getKey().equals("typeSelector")) {
+            if (entry.getKey().equals("typeSelector")) {
                 String type1_key = entry.getValue()[0];
                 type1List = typeRepository.findTypeByName(type1_key);
                 type1 = type1List.get(0);
                 logger.info(type1.toString());
 
             }
-            if(entry.getKey().equals("typeSelector2")) {
-                String type2_key = entry.getValue()[0];
-                type2List = typeRepository.findTypeByName(type2_key);
-                type2 = type2List.get(0);
-                logger.info(type2.toString());
+            if (entry.getKey().equals("typeSelector2")) {
+                String[] type2_key = entry.getValue();
+                for(String s : type2_key) {
+                    logger.info("Found key " + s);
+                    List<Type> tempList = typeRepository.findTypeByName(s);
+                    for (Type t : tempList) {
+                        if (!type2List.contains(t)) {
+                            type2List.add(t);
+                        }
+                    }
+                }
             }
-            if(entry.getKey().equals("optionSelector")) {
+            if (entry.getKey().equals("optionSelector")) {
                 String option_key = entry.getValue()[0];
-                optionList = optionRepository.findOptionByName(option_key);
-                option = optionList.get(0);
-                logger.info(option.toString());
+                List<Option> tempList = optionRepository.findOptionByName(option_key);
+
+                for (Option o : tempList) {
+                    if (!optionList.contains(o)) {
+                        optionList.add(o);
+                    }
+                }
             }
 //            System.out.println(entry.getKey() + " = " + Arrays.toString(entry.getValue()));
         }
@@ -150,20 +155,27 @@ public class DishesController {
 
         logger.info(dishRepository.findAll().toString());
 
-        if(type1 != null) {
+        if (type1 != null) {
             boolean res = typeService.addTypeToDish(id, type1.getId());
             assert res;
             dishRepository.findOne(id).setIs_typed(true);
         }
-        if(type2 != null) {
-            boolean res = typeService.addTypeToDish(id, type2.getId());
-            assert res;
-            dishRepository.findOne(id).setIs_typed(true);
+
+        logger.info(type2List.toString());
+        assert type2List.size() != 0;
+        if (type2List.size() != 0) {
+            for (Type t : type2List) {
+                boolean res = typeService.addTypeToDish(id, t.getId());
+                assert res;
+                dishRepository.findOne(id).setIs_typed(true);
+            }
         }
 
-        if(option != null) {
-            boolean res = optionService.addOptionToDish(id, option.getId());
-            assert res;
+        if (optionList.size() != 0) {
+            for (Option o : optionList) {
+                boolean res = optionService.addOptionToDish(id, o.getId());
+                assert res;
+            }
         }
 
         return "views/addDish";
