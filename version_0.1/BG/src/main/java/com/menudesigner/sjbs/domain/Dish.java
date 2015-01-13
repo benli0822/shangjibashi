@@ -3,6 +3,7 @@ package com.menudesigner.sjbs.domain;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Date;
@@ -32,8 +33,9 @@ public class Dish implements Serializable {
     @Column(name = "is_typed")
     private Boolean is_typed = false;
 
+    @NotNull(message = "{dish.price.notBlank}")
     @Column(name = "price")
-    private float price;
+    private Float price;
 
     @NotBlank(message = "{dish.description.notBlank}")
     @Column(name = "description")
@@ -45,17 +47,17 @@ public class Dish implements Serializable {
 
     //TODO to verify if the sql.time is the right import
     @Column(name = "start_time")
-    private Time start_time;
+    private Time start_time = new Time(new java.util.Date().getTime());
 
     //TODO to verify if the sql.time is the right import
     @Column(name = "end_time")
-    private Time end_time;
+    private Time end_time = new Time(new java.util.Date().getTime());
 
     @Column(name = "start_date")
-    private Date start_date;
+    private Date start_date = new Date(new java.util.Date().getDate());
 
     @Column(name = "end_date")
-    private Date end_date;
+    private Date end_date = new Date(new java.util.Date().getDate());
 
     @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<ActivityDish> activities = new HashSet<>();
@@ -66,10 +68,8 @@ public class Dish implements Serializable {
     @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<MenuDish> menus = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "md_dish_type",
-            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")})
+    //TODO manytomany annotation should also be donned with mappedBy
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<Type> types = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -171,11 +171,11 @@ public class Dish implements Serializable {
         this.activities = activities;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -272,12 +272,6 @@ public class Dish implements Serializable {
                 ", end_time=" + end_time +
                 ", start_date=" + start_date +
                 ", end_date=" + end_date +
-                ", activities=" + activities +
-                ", commands=" + commands +
-                ", menus=" + menus +
-                ", types=" + types +
-                ", files=" + files +
-                ", options=" + options +
                 '}';
     }
 }

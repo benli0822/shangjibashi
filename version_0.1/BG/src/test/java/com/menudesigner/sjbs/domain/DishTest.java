@@ -46,7 +46,7 @@ public class DishTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setPrice(5);
+        newDish.setPrice(5f);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
         newDish.setStart_time(new Time(10,10,10));
@@ -70,7 +70,7 @@ public class DishTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setPrice(5);
+        newDish.setPrice(5f);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
         newDish.setStart_time(new Time(19,10,10));
@@ -92,7 +92,7 @@ public class DishTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setPrice(5);
+        newDish.setPrice(5f);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
         newDish.setStart_time(new Time(19,10,10));

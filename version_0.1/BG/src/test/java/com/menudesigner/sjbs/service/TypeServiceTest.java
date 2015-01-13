@@ -50,7 +50,7 @@ public class TypeServiceTest {
     public void createTypeTest() {
         logger.debug("Create Type Test");
 
-        long type_id = typeService.createType(true, false, -1L, "hot", "hot", false);
+        long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
 
         Type type = typeRepository.findOne(type_id);
 
@@ -60,8 +60,8 @@ public class TypeServiceTest {
         assertThat(type.isIs_firstmenu(), is(Boolean.TRUE));
         assertThat(type.isIs_secondmenu(), is(Boolean.FALSE));
         assertThat(type.getFirstmenu_id(), is(-1L));
-        assertThat(type.getName(), is("hot"));
-        assertThat(type.getDescription(), is("hot"));
+        assertThat(type.getName(), is("hottest"));
+        assertThat(type.getDescription(), is("hottest"));
         assertThat(type.isIs_for_customize(), is(false));
     }
 
@@ -70,15 +70,15 @@ public class TypeServiceTest {
         logger.debug("Add dish to type test");
 
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
-        long type_id = typeService.createType(true, false, -1L, "hot", "hot", false);
+        long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
 
         boolean res = typeService.addTypeToDish(dish_id, type_id);
 
         Type type = typeRepository.findOne(type_id);
         Dish dish = dishRepository.findOne(dish_id);
 
-        assertThat(dish_id, notNullValue());
-        assertThat(type_id, notNullValue());
+        assertThat(dish_id > 0L, is(true));
+        assertThat(type_id > 0L, is(true));
 
         assertThat(res, is(Boolean.TRUE));
 
@@ -90,8 +90,8 @@ public class TypeServiceTest {
     public void addConflictTypeTest() {
         logger.debug("Testing conflict type");
 
-        long type_id1 = typeService.createType(true, false, -1L, "hot", "hot", false);
-        long type_id2 = typeService.createType(true, false, -1L, "cold", "cold", false);
+        long type_id1 = typeService.createType(true, false, -1L, "hottest", "hottest", false);
+        long type_id2 = typeService.createType(true, false, -1L, "coldtest", "coldtest", false);
 
         boolean res = typeService.addConflictToType(type_id1, type_id2);
 

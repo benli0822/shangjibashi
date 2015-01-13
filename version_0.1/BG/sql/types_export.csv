@@ -1,0 +1,6 @@
+id,is_firstmenu,is_secondmenu,firstmenu_id,name,description,is_for_customize
+1,1,0,-1,hot,"Hot dish",0
+2,1,0,-1,cold,"Cold dish",0
+3,0,1,1,soup,Soup,0
+4,0,1,2,drink,Drink,0
+5,0,1,2,alcool,Alcool,0

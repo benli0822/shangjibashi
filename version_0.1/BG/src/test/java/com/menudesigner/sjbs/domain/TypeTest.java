@@ -86,7 +86,7 @@ public class TypeTest {
         Dish newDish = new Dish();
         newDish.setName("coca");
         newDish.setIs_typed(false);
-        newDish.setPrice(5);
+        newDish.setPrice(5f);
         newDish.setDescription("abc");
         newDish.setDisabled(false);
         newDish.setStart_time(new Time(10,10,10));

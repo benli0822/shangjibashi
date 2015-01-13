@@ -118,6 +118,23 @@
                         </div>
 
                         <div class="form-group"
+                             th:attr="class=${#fields.hasErrors('price') ? 'form-group has-error' : 'form-group'}">
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right" for="price"
+                                   th:text="#{add.price}"> </label>
+
+                            <div class="col-xs-12 col-sm-9">
+                                <div class="clearfix">
+                                    <input type="text" name="price" id="price" th:field="*{price}"
+                                           class="col-xs-10 col-sm-10"/>
+                                </div>
+
+                                <div for="name" class="help-block" th:if="${#fields.hasErrors('price')}"
+                                     th:errors="*{price}">Name Error
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group"
                              th:attr="class=${#fields.hasErrors('description') ? 'form-group has-error' : 'form-group'}">
                             <label class="col-xs-12 col-sm-3 control-label no-padding-right
                         " for="description"
@@ -144,7 +161,7 @@
                             <div class="col-xs-12 col-sm-9">
                                 <div class="clearfix">
                                     <div>
-                                        <select id="typeSelector1" class="col-xs-10 col-sm-8 chosen-select">
+                                        <select id="typeSelector1" name="typeSelector" class="col-xs-10 col-sm-8 chosen-select">
                                             <option value=""></option>
                                             <option th:each="type : ${types}" th:if="${type.is_firstmenu}"
                                                     th:value="${type.name}" th:attr="data-id='' + ${type.id}"
@@ -164,7 +181,7 @@
                                 <div class="clearfix">
                                     <select multiple=""
                                             class="tag-input-style col-xs-10 col-sm-8 chosen-select"
-                                            id="typeSelector2">
+                                            id="typeSelector2" name="typeSelector2">
                                         <option th:each="type : ${types}"
                                                 th:if="${type.is_secondmenu}"
                                                 th:attr="data-id='' + ${type.firstmenu_id}"
@@ -198,7 +215,7 @@
                                 <div class="clearfix">
                                     <select multiple=""
                                             class="tag-input-style col-xs-10 col-sm-8 chosen-select"
-                                            id="optionSelector">
+                                            id="optionSelector" name="optionSelector">
                                         <option th:each="option : ${options}"
                                                 th:value="${option.name}"
                                                 th:text="${option.name}">Default

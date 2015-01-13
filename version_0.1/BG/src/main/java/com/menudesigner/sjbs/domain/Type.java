@@ -132,6 +132,7 @@ public class Type implements Serializable {
 
     public void addDish(Dish dish) {
         this.dishes.add(dish);
+        //TODO notice that here add into dish will give duplicate res in mysql
         dish.addType(this);
     }
 
@@ -165,7 +166,7 @@ public class Type implements Serializable {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", is_for_customize=" + is_for_customize +
-                ", dishes=" + dishes +
+                ", conflictTypes=" + conflictTypes +
                 '}';
     }
 }
