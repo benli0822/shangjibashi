@@ -72,16 +72,10 @@ public class Dish implements Serializable {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<Type> types = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "md_file_dish",
-            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<File> files = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "md_dish_option",
-            joinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<Option> options = new HashSet<>();
 
     public Dish() {

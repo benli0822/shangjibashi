@@ -46,10 +46,7 @@ public class Menu implements Serializable {
     @OneToMany(mappedBy="menu", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<MenuDish> dishes = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "md_file_menu",
-            joinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "menus")
     private Set<File> files = new HashSet<>();
 
     public Menu() {

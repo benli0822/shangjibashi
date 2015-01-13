@@ -48,10 +48,7 @@ public class Activity implements Serializable {
     @OneToMany(mappedBy="activity", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<ActivityDish> dishes = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "md_file_activity",
-            joinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "activities")
     private Set<File> files = new HashSet<>();
 
     public Activity() {
