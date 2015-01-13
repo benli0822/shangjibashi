@@ -10,10 +10,12 @@
 #import  "MDFirstMenuTableCell.h"
 
 @implementation MDFirstMenuTableController
+
+
 #pragma mark 返回行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 5;
+    return [_data count];
 }
 
 #pragma mark - tableView的代理方法

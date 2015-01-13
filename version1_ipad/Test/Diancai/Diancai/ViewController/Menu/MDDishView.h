@@ -15,6 +15,8 @@
 - (id)initWithFrame:(CGRect)frame ;
 - (void)loadCollectionViewWithArray:(NSArray *)array;
 
+
+
 @property (nonatomic, strong) NSMutableArray *recipeImages;
 
 @property (nonatomic , strong) UICollectionView *contentCollectionView;

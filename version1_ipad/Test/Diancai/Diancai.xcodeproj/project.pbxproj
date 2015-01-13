@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */; };
+		3C35516F1A655552008B5EF2 /* MDMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C35516E1A655552008B5EF2 /* MDMenuHelper.m */; };
 		3C731B951A2F743700356747 /* MDListCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C731B931A2F743700356747 /* MDListCommandViewController.m */; };
 		3C731B961A2F743700356747 /* MDListCommandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C731B941A2F743700356747 /* MDListCommandViewController.xib */; };
 		3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C731B981A2F747A00356747 /* MDListCommandCell.m */; };
@@ -83,6 +84,8 @@
 		3C156A031A115C8000ABF5D1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3C1E6EE719D21B40007ADBB0 /* MDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuViewController.h; path = ViewController/Menu/MDMenuViewController.h; sourceTree = "<group>"; };
 		3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuViewController.m; path = ViewController/Menu/MDMenuViewController.m; sourceTree = "<group>"; };
+		3C35516D1A655552008B5EF2 /* MDMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuHelper.h; path = Helper/MDMenuHelper.h; sourceTree = "<group>"; };
+		3C35516E1A655552008B5EF2 /* MDMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuHelper.m; path = Helper/MDMenuHelper.m; sourceTree = "<group>"; };
 		3C731B921A2F743700356747 /* MDListCommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDListCommandViewController.h; path = ViewController/Menu/ListCommand/MDListCommandViewController.h; sourceTree = "<group>"; };
 		3C731B931A2F743700356747 /* MDListCommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDListCommandViewController.m; path = ViewController/Menu/ListCommand/MDListCommandViewController.m; sourceTree = "<group>"; };
 		3C731B941A2F743700356747 /* MDListCommandViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDListCommandViewController.xib; path = ViewController/Menu/ListCommand/MDListCommandViewController.xib; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 		3CFE307D19D5565300210AD5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3C35516D1A655552008B5EF2 /* MDMenuHelper.h */,
+				3C35516E1A655552008B5EF2 /* MDMenuHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				3CE25F061A0B860900DD249B /* DishCollectionViewCell.m in Sources */,
 				3CF8A4B41A3878DF003FDD2A /* FMDatabasePool.m in Sources */,
 				3CE25F091A0BA56700DD249B /* MDMenu.m in Sources */,
+				3C35516F1A655552008B5EF2 /* MDMenuHelper.m in Sources */,
 				3CC8531219D0596900668F13 /* main.m in Sources */,
 				3CD820B81A1295170024823C /* MDFirstMenuTableController.m in Sources */,
 				3CFE307419D53F6300210AD5 /* iCarousel.m in Sources */,

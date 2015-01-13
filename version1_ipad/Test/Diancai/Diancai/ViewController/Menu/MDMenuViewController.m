@@ -18,6 +18,8 @@
 #import "MDFirstMenuTableController.h"
 #import "MDListCommandViewController.h"
 #import "MDCommand.h"
+#import "SQLiteManager.h"
+#import "MDMenuHelper.h"
 
 //
 
@@ -72,7 +74,10 @@
     
     [self.view addSubview:_segmentControl];
 
-
+#pragma mark read data section
+    _firstMenuList = [[NSMutableArray alloc] initWithArray:[[SQLiteManager shared] readAllDataFromDB]];
+    [[MDMenuHelper shared] setFirstMenu_list:_firstMenuList];
+    
 
 #pragma mark first menu table setting
     
@@ -81,9 +86,19 @@
          forCellReuseIdentifier:@"Cell"];
     
     _firstMenuTableController = [[MDFirstMenuTableController alloc] init];
-    _firstMenuTableController.data = [NSMutableArray arrayWithObjects:@"Choix de chef", @"Entrée",@"Plat",@"Dessert",@"Menu enfant",@"Boissons",@"Favoir",nil];
+    
+    
+    _firstMenuTableController.data = [[MDMenuHelper shared] getAllFirstMenuNames];
+    
+    
+    
     [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
     [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
+    
+    
+    
+    
+    
     
     //[_ColletionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
     
@@ -103,6 +118,8 @@
  *  setup all the data(dishnames)
  */
 -(void) initDishArray{
+    
+    
     NSArray *allDishs = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
     
     

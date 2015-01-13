@@ -87,6 +87,11 @@
 }
 
 #pragma marks read data from DB
+/**
+ *  get the list of MDFirstMenu with all datas(dishs)
+ *
+ *  @return NSMutableArray , in this list we have all first menu
+ */
 -(NSMutableArray *) readAllDataFromDB{
     
     NSMutableArray* data = [[NSMutableArray alloc] init];
@@ -139,7 +144,7 @@
     }
     
     
-    //[self LogAllDishesOfDB:data];
+    [self LogAllDishesOfDB:data];
     [db close];
 
     return data;

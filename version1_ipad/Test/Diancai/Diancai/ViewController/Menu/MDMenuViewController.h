@@ -12,6 +12,7 @@
 @class MDFirstMenuTableController;
 @class MDCommand;
 @class MDDish;
+@class MDFirstMenu;
 
 @interface MDMenuViewController : UIViewController
 
@@ -34,6 +35,8 @@
 //用户订单
 @property (nonatomic, strong) MDCommand* userCommand;
 
+//the data
+@property(nonatomic, strong) NSMutableArray *firstMenuList;
 
 
 
