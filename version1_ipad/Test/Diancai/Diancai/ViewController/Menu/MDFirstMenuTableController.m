@@ -8,6 +8,7 @@
 
 #import "MDFirstMenuTableController.h"
 #import  "MDFirstMenuTableCell.h"
+#import "MDMenuViewController.h"
 
 @implementation MDFirstMenuTableController
 
@@ -35,5 +36,11 @@
     cell.firstMenuLabel.text = _data[indexPath.row];
     
     return cell;
+}
+
+#pragma mark 点击cell的事件
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [_parentViewController refreshDataWithFirstMenuNumber:indexPath.row];
 }
 @end

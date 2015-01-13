@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class MDDish;
+
 @interface MDDishPopoverControllerViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *dishNameLabel;
 
@@ -18,9 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSString *imageName;
 
+@property (weak, nonatomic) MDDish *dish;
 
 //设置popvoer数据
--(void) setPopoverWithData:(NSString *)imageName;
+-(void) setPopoverWithData:(MDDish *)dish;
 
 #pragma mark 进行点菜操作
 - (IBAction)selectOrder:(id)sender;

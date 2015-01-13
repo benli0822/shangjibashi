@@ -9,20 +9,21 @@
 #import "MDDishView.h"
 #import "DishCollectionViewCell.h"
 #import "MDDishPopoverControllerViewController.h"
+#import "MDDish.h"
 
 
 
 @implementation MDDishView
 
-@synthesize recipeImages = _recipeImages;
+@synthesize dish_data = _dish_data;
 @synthesize contentCollectionView = _contentCollectionView;
 
 
-- (void)loadCollectionViewWithArray:(NSArray *)array{
+- (void)loadCollectionViewWithData:(NSArray *)array{
     
     [self.contentCollectionView setContentOffset:CGPointMake(0, 0)];
     
-    [_recipeImages removeAllObjects];
+    [_dish_data removeAllObjects];
     __weak typeof(self) weakSelf = self;
 
     [weakSelf reloadListViewDataSource:array];
@@ -30,7 +31,7 @@
 }
 - (void)reloadListViewDataSource:(NSArray *)array
 {
-    [_recipeImages addObjectsFromArray:array];
+    [_dish_data addObjectsFromArray:array];
     [self.contentCollectionView reloadData];
 }
 
@@ -43,7 +44,7 @@
     if (self = [super initWithFrame:frame]) {
         
         
-        _recipeImages = @[].mutableCopy;
+        _dish_data = @[].mutableCopy;
 
         [self addContentView];
         
@@ -83,8 +84,8 @@
 //在这里加上search的方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    NSLog(@" recipe count @%lu", (unsigned long)self.recipeImages.count);
-    return self.recipeImages.count;
+    NSLog(@" recipe count @%lu", (unsigned long)self.dish_data.count);
+    return self.dish_data.count;
 }
 
 
@@ -107,20 +108,20 @@
     //cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
     
-    //设置显示菜名 除去末尾.jpg
-    if ([[_recipeImages objectAtIndex:indexPath.row] length] > 0) {
-        cell.platNameLabel.text =[[_recipeImages objectAtIndex:indexPath.row] substringToIndex:[[_recipeImages objectAtIndex:indexPath.row] length] -4 ];
+   
         
+        MDDish* dish = [_dish_data objectAtIndex:indexPath.row];
+        
+        cell.platNameLabel.text =[dish name];
+//        cell.platNameLabel.text =[[_dish_data objectAtIndex:indexPath.row] substringToIndex:[[_dish_data objectAtIndex:indexPath.row] length] -4 ];
         
         //设置图片
-        [cell setImage:(NSString *)[_recipeImages objectAtIndex:indexPath.row]];
-        
+        //[cell setImage:(NSString *)[_dish_data objectAtIndex:indexPath.row]];
+        [cell setImage:[NSString stringWithFormat:@"%@.jpg",[dish name]]];
+
         //设置价格
-        cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[cell.platNameLabel.text length]];
-    }
-    else{
-        cell.platNameLabel.text = @"no name";
-    }
+        cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[dish price]];
+    
    
        return cell;
 }
@@ -141,7 +142,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 #pragma 这里还有问题!!
     
     
-    [PopoverView setPopoverWithData:[_recipeImages objectAtIndex:indexPath.row]];
+    [PopoverView setPopoverWithData:[_dish_data objectAtIndex:indexPath.row]];
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
      
     

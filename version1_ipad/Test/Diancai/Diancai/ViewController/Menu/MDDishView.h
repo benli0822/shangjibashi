@@ -13,11 +13,11 @@
 
 
 - (id)initWithFrame:(CGRect)frame ;
-- (void)loadCollectionViewWithArray:(NSArray *)array;
+- (void)loadCollectionViewWithData:(NSArray *)array;
 
 
 
-@property (nonatomic, strong) NSMutableArray *recipeImages;
+@property (nonatomic, strong) NSMutableArray *dish_data;
 
 @property (nonatomic , strong) UICollectionView *contentCollectionView;
 

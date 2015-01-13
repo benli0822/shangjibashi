@@ -17,10 +17,10 @@
 @implementation MDDishPopoverControllerViewController
 
 
--(void) setPopoverWithData:(NSString *)imageName {
+-(void) setPopoverWithData:(MDDish*)dish {
     
 
-    _imageName = imageName;
+    _dish = dish;
     
 }
 
@@ -32,16 +32,16 @@
     
     
     //设置名字
-    _dishNameLabel.text = [_imageName substringToIndex:[_imageName length] -4 ];
+    _dishNameLabel.text = [_dish name];
     
     //设置价格
-    _dishPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[_imageName length]];
+    _dishPriceLabel.text = [NSString stringWithFormat:@"@%lu",[_dish price]];
     
     //设置数量 初始化为1
     _dishQuantityLabel.text = [NSString stringWithFormat:@"%s","1"];
     
     //设置图片
-    _imageView.image = [UIImage imageNamed:_imageName];
+    _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]];
 
     
     
@@ -59,11 +59,11 @@
 
 #pragma mark 进行点菜操作
 - (IBAction)selectOrder:(id)sender{
-    MDDish *dish = [[MDDish alloc] init];
-    [dish setName:_dishNameLabel.text];
-    [dish setPrice:[_dishPriceLabel.text integerValue]];
+//    MDDish *dish = [[MDDish alloc] init];
+//    [dish setName:_dishNameLabel.text];
+//    [dish setPrice:[_dishPriceLabel.text integerValue]];
     
-    [[MDUserCommand shared] addDish:dish ];
+    [[MDUserCommand shared] addDish:_dish ];
     
     //dismiss the view controller
     [self dismissViewControllerAnimated:TRUE completion:nil];

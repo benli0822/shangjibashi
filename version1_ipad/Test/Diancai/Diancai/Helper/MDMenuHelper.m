@@ -8,6 +8,7 @@
 
 #import "MDMenuHelper.h"
 #import "MDFirstMenu.h"
+#import "MDSecondMenu.h"
 
 @implementation MDMenuHelper
 
@@ -44,9 +45,13 @@
 
 
 -(NSMutableArray *) getSecondeMenuNamesWithFirstMenu:(MDFirstMenu*) firstMenu{
+    
+    
     NSMutableArray *nameList = [[NSMutableArray alloc] init];
     
-    
+    for (MDSecondMenu* secondeMenu in [firstMenu secondeMenu_list]) {
+        [nameList addObject:secondeMenu.name];
+    }
     
     
     return nameList;
