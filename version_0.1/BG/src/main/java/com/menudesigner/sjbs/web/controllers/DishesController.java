@@ -115,7 +115,7 @@ public class DishesController {
         List<Option> optionList = null;
         Type type1 = null;
         Type type2 = null;
-        Option option;
+        Option option = null;
         // get the keyword from http request
         Map<String, String[]> parameterMap = request.getParameterMap();
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
@@ -155,6 +155,10 @@ public class DishesController {
             boolean res = typeService.addTypeToDish(id, type2.getId());
             assert res;
             dishRepository.findOne(id).setIs_typed(true);
+        }
+
+        if(option != null) {
+            boolean res =
         }
 
         return "views/addDish";
