@@ -4,6 +4,7 @@ import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Option;
 import com.menudesigner.sjbs.domain.Type;
 import com.menudesigner.sjbs.service.DishService;
+import com.menudesigner.sjbs.service.OptionService;
 import com.menudesigner.sjbs.service.TypeService;
 import com.menudesigner.sjbs.service.repository.DishRepository;
 import com.menudesigner.sjbs.service.repository.OptionRepository;
@@ -47,6 +48,9 @@ public class DishesController {
 
     @Autowired
     private TypeService typeService;
+
+    @Autowired
+    private OptionService optionService;
 
     /**
      * Simply selects the home view to render by returning its name.
@@ -158,7 +162,8 @@ public class DishesController {
         }
 
         if(option != null) {
-            boolean res =
+            boolean res = optionService.addOptionToDish(id, option.getId());
+            assert res;
         }
 
         return "views/addDish";
