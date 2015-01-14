@@ -15,10 +15,12 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dishPriceLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *dishQuantityLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *ValidButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSString *imageName;
+@property (weak, nonatomic) IBOutlet UILabel *dishQuantityLabel;
+
 
 @property (weak, nonatomic) MDDish *dish;
 

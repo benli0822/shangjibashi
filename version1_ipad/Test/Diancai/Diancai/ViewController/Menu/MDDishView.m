@@ -118,7 +118,8 @@
         //设置图片
         //[cell setImage:(NSString *)[_dish_data objectAtIndex:indexPath.row]];
         [cell setImage:[NSString stringWithFormat:@"%@.jpg",[dish name]]];
-
+    
+        
         //设置价格
         cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[dish price]];
     

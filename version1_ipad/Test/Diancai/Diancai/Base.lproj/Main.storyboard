@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2ah-45-CfH">
-                                <rect key="frame" x="404" y="177" width="95" height="30"/>
+                                <rect key="frame" x="414" y="211" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Download DB">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,8 +123,21 @@
                                     <action selector="DownloadButtonClick:" destination="amf-2I-APj" eventType="touchUpInside" id="ICD-0t-vz6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jfi-9T-EwQ">
+                                <rect key="frame" x="241" y="129" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="tqK-p0-XwB">
+                                <rect key="frame" x="413" y="123" width="393" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="8HY-gK-a5e">
-                                <rect key="frame" x="176" y="277" width="585" height="2"/>
+                                <rect key="frame" x="179" y="342" width="585" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                         </subviews>
@@ -135,6 +148,7 @@
                     <connections>
                         <outlet property="DownloadButton" destination="2ah-45-CfH" id="aaB-gE-Q5b"/>
                         <outlet property="progressIndicator" destination="8HY-gK-a5e" id="cMh-y1-7oU"/>
+                        <outlet property="urlTextField" destination="tqK-p0-XwB" id="HX2-cn-uNE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlc-r1-05c" userLabel="First Responder" sceneMemberID="firstResponder"/>

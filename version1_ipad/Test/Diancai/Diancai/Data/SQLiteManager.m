@@ -20,9 +20,11 @@
 
 -(void) initDatabase
 {
- 
+    NSString *plicastConfigPath = [[NSBundle mainBundle] pathForResource:@"MDAppConfiguration" ofType:@"plist"];
+    NSDictionary *DBConfigDictionary = [[NSDictionary alloc] initWithContentsOfFile:plicastConfigPath][@"DBConfiguration"] ;
+    //NSLog(@"Dictionary value%@",DBConfigDictionary[@"DBName"]);
     
-    _databaseName = @"MDDB.sqlite";
+    _databaseName = DBConfigDictionary[@"DBName"];
     
     //recipere le chemain
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -144,7 +146,7 @@
     }
     
     
-    [self LogAllDishesOfDB:data];
+    //[self LogAllDishesOfDB:data];
     [db close];
 
     return data;

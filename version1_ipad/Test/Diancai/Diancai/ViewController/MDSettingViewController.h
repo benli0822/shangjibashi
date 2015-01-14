@@ -11,5 +11,6 @@
 @interface MDSettingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *DownloadButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressIndicator;
+@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 
 @end
