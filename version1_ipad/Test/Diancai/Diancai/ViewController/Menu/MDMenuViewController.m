@@ -124,6 +124,9 @@
     
     [self setDishArrayWithFirstMenu:[_firstMenuList objectAtIndex:number] ];
     
+#pragma mark maybe add last view object也许这里记住上次的选择
+    
+    
     [_carousel reloadData];
     [_segmentControl reloadSegsWithItems:_sousMenuList];
     
