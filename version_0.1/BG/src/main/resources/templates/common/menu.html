@@ -56,7 +56,7 @@
             </li>
 
             <li id="nav-dish">
-                <a href="#" class="dropdown-toggle">
+                <a href="" class="dropdown-toggle">
                     <i class="icon-food"></i>
                     <span class="menu-text" th:text="#{label.dishes}"></span>
 
@@ -65,15 +65,21 @@
 
                 <ul class="submenu">
                     <li id="nav-adddish">
-                        <a href="addDish">
+                        <a href="/dish/add">
                             <i class="icon-double-angle-right"></i>
                             <span th:text="#{label.adddish}"></span>
                         </a>
                     </li>
                     <li id="nav-listdish">
-                        <a href="dish">
+                        <a href="/dish">
                             <i class="icon-double-angle-right"></i>
                             <span th:text="#{label.listdish}"></span>
+                        </a>
+                    </li>
+                    <li id="nav-propertydish">
+                        <a href="/dish/property">
+                            <i class="icon-double-angle-right"></i>
+                            <span th:text="#{label.property}"></span>
                         </a>
                     </li>
                 </ul>

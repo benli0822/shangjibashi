@@ -59,17 +59,24 @@ public class DishesController {
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
+        model.addAttribute("dishList", dishRepository.findAll());
+
         String formattedDate = dateFormat.format(date);
 
         model.addAttribute("serverTime", formattedDate);
 
-        return "views/dish";
+        return "views/dish/dish";
+    }
+
+    @RequestMapping(value = "/dish/property", method = RequestMethod.GET)
+    public String property(Locale locale, Model model) {
+        return "views/dish/property";
     }
 
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/addDish", method = RequestMethod.GET)
+    @RequestMapping(value = "/dish/add", method = RequestMethod.GET)
     public String addNewDish(Dish dish, Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -88,7 +95,7 @@ public class DishesController {
 
         logger.info(model.toString());
 
-        return "views/addDish";
+        return "views/dish/add";
     }
 
 
@@ -101,12 +108,12 @@ public class DishesController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/addDish", method = RequestMethod.POST)
+    @RequestMapping(value = "/dish/add", method = RequestMethod.POST)
     public String checkDishInfo(@Valid Dish dish, BindingResult bindingResult, Locale locale, ModelMap model, HttpServletRequest request) {
         logger.info("[DishesController: addNewDish], posting a new Dish");
         if (bindingResult.hasErrors()) {
             logger.error("[DishesController: postNewDish]", bindingResult.getAllErrors());
-            return "views/addDish";
+            return "views/dish/add";
         }
 //        logger.info(bindingResult + "");
 //        logger.info(dish.toString());
@@ -178,7 +185,7 @@ public class DishesController {
             }
         }
 
-        return "views/addDish";
+        return "views/dish/add";
     }
 
 
