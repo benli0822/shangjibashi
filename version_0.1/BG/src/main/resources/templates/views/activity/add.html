@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="template">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title th:text="#{label.property}"></title>
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" th:href="@{/css/ace.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ace-rtl.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ace-skins.min.css}"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" th:href="@{/css/ace-ie.min.css}"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script th:src="@{/js/ace-extra.min.js}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script th:href="@{/js/html5shiv.js}"></script>
+    <script th:href="@{/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div layout:fragment="script">
+    <!-- page specific plugin scripts -->
+
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            $("#nav-activity").attr("class", "active open");
+            $("#nav-activityadd").attr("class", "active");
+        });
+    </script>
+</div>
+
+</body>
+</html>
+

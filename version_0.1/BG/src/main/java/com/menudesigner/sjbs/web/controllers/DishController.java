@@ -28,8 +28,8 @@ import java.util.*;
  * Created by JIN Benli on 24/09/14.
  */
 @Controller
-public class DishesController {
-    private static final Logger logger = LoggerFactory.getLogger(DishesController.class);
+public class DishController {
+    private static final Logger logger = LoggerFactory.getLogger(DishController.class);
 
     @Autowired
     private TypeRepository typeRepository;
@@ -65,7 +65,7 @@ public class DishesController {
 
         model.addAttribute("serverTime", formattedDate);
 
-        return "views/dish/dish";
+        return "views/dish/list";
     }
 
     @RequestMapping(value = "/dish/property", method = RequestMethod.GET)

@@ -85,7 +85,7 @@
                 </ul>
             </li>
 
-            <li>
+            <li id="nav-menu">
                 <a href="#" class="dropdown-toggle">
                     <i class="icon-glass"></i>
                     <span class="menu-text" th:text="#{label.menu}"></span>
@@ -94,21 +94,21 @@
                 </a>
 
                 <ul class="submenu">
-                    <li>
-                        <a href="tables.html" th:text="#{label.addnewmenu}">
+                    <li id="nav-menuadd">
+                        <a href="/menu/add" th:text="#{label.addnewmenu}">
                             <i class="icon-double-angle-right"></i>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="jqgrid.html" th:text="#{label.listmenu}">
+                    <li id="nav-menulist">
+                        <a href="/menu" th:text="#{label.listmenu}">
                             <i class="icon-double-angle-right"></i>
                         </a>
                     </li>
                 </ul>
             </li>
 
-            <li>
+            <li id="nav-activity">
                 <a href="#" class="dropdown-toggle">
                     <i class="icon-bullhorn"></i>
                     <span class="menu-text" th:text="#{label.activites}"></span>
@@ -117,14 +117,14 @@
                 </a>
 
                 <ul class="submenu">
-                    <li>
-                        <a href="form-elements.html" th:text="#{label.addnewactivity}">
+                    <li id="nav-activityadd">
+                        <a href="/activity/add" th:text="#{label.addnewactivity}">
                             <i class="icon-double-angle-right"></i>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="form-wizard.html" th:text="#{label.listactivity}">
+                    <li id="nav-activitylist">
+                        <a href="/activity" th:text="#{label.listactivity}">
                             <i class="icon-double-angle-right"></i>
                         </a>
                     </li>
