@@ -132,6 +132,30 @@
                 </ul>
             </li>
 
+            <li id="nav-system">
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-laptop"></i>
+                    <span class="menu-text" th:text="#{label.system}"></span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li id="nav-systemgeneral">
+                        <a href="/property/general" th:text="#{label.general}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                    <li id="nav-systemconfig">
+                        <a href="/property/config" th:text="#{label.config}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
             <li>
                 <a href="widgets.html">
                     <i class="icon-list-alt"></i>
