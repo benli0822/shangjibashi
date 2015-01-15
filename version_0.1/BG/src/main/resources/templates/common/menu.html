@@ -48,32 +48,38 @@
         <!-- #sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            <li class="active">
+            <li id="nav-index">
                 <a href="/">
                     <i class="icon-dashboard"></i>
                     <span class="menu-text" th:text="#{label.index}"></span>
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="dropdown-toggle">
-                    <i class="icon-list"></i>
+            <li id="nav-dish">
+                <a href="" class="dropdown-toggle">
+                    <i class="icon-food"></i>
                     <span class="menu-text" th:text="#{label.dishes}"></span>
 
                     <b class="arrow icon-angle-down"></b>
                 </a>
 
                 <ul class="submenu">
-                    <li>
-                        <a href="addDish">
-                            <i class="icon-plus"></i>
-                            <span th:text="#{label.adddish}"></span>
+                    <li id="nav-adddish">
+                        <a href="/dish/add">
                             <i class="icon-double-angle-right"></i>
+                            <span th:text="#{label.adddish}"></span>
                         </a>
                     </li>
-                    <li>
-                        <a href="dish" th:text="#{label.listdish}">
+                    <li id="nav-listdish">
+                        <a href="/dish">
                             <i class="icon-double-angle-right"></i>
+                            <span th:text="#{label.listdish}"></span>
+                        </a>
+                    </li>
+                    <li id="nav-propertydish">
+                        <a href="/dish/property">
+                            <i class="icon-double-angle-right"></i>
+                            <span th:text="#{label.property}"></span>
                         </a>
                     </li>
                 </ul>
@@ -81,7 +87,7 @@
 
             <li>
                 <a href="#" class="dropdown-toggle">
-                    <i class="icon-list"></i>
+                    <i class="icon-glass"></i>
                     <span class="menu-text" th:text="#{label.menu}"></span>
 
                     <b class="arrow icon-angle-down"></b>
@@ -104,7 +110,7 @@
 
             <li>
                 <a href="#" class="dropdown-toggle">
-                    <i class="icon-list"></i>
+                    <i class="icon-bullhorn"></i>
                     <span class="menu-text" th:text="#{label.activites}"></span>
 
                     <b class="arrow icon-angle-down"></b>

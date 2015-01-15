@@ -260,5 +260,18 @@
         </div>
     </div>
 </div>
+
+<div layout:fragment="script">
+    <!-- page specific plugin scripts -->
+
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            $("#nav-dish").attr("class", "active open");
+            $("#nav-listdish").attr("class", "active");
+        })
+    </script>
+</div>
+
 </body>
 </html>
+
