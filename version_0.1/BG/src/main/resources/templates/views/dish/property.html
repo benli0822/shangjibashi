@@ -5,7 +5,7 @@
       layout:decorator="template">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title></title>
+    <title th:text="#{label.property}"></title>
 
     <!-- ace styles -->
 
@@ -97,7 +97,17 @@
                             <div id="type" class="tab-pane in active">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <h3 class="header smaller lighter blue">Types</h3>
+                                        <h3 class="header smaller lighter blue">
+                                            <span class="span7"> Types</span>
+                                            <span class="span5">
+                                                <label class="pull-right inline">
+                                                    <button class="btn btn-sm btn-success">
+                                                        <i class="icon-edit"></i>
+                                                        Add
+                                                    </button>
+                                                </label>
+                                            </span>
+                                        </h3>
 
                                         <div class="table-header">
                                             Results for "All types"
