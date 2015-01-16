@@ -32,6 +32,21 @@
 </head>
 <body>
 
+<div layout:fragment="content">
+    <div class="main-content">
+
+        <div th:include="common/content/breadcrumbs :: header (label1=#{label.menu}, label2=#{label.addnewmenu})"></div>
+        <!--/.breadcrumbs-->
+
+        <div class="page-content">
+
+            <div th:include="common/content/pageheader :: header (label1=#{label.menu}, label2=#{label.listmenu})"></div>
+            <!-- /.page-header -->
+
+        </div>
+    </div>
+</div>
+
 <div layout:fragment="script">
     <!-- page specific plugin scripts -->
 

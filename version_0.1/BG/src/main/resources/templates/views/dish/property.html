@@ -33,45 +33,15 @@
 <body>
 <div layout:fragment="content">
     <div class="main-content">
-        <div class="breadcrumbs" id="breadcrumbs">
-            <script type="text/javascript">
-                try {
-                    ace.settings.check('breadcrumbs', 'fixed')
-                } catch (e) {
-                }
-            </script>
 
-            <ul class="breadcrumb">
-                <li>
-                    <i class="icon-home home-icon"></i>
-                    <a href="#" th:text="#{label.index}"></a>
-                </li>
-                <li class="active" th:text="#{label.property}"></li>
-            </ul>
-            <!-- .breadcrumb -->
+        <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=#{label.property})"></div>
+        <!--/.breadcrumbs-->
 
-            <div class="nav-search" id="nav-search">
-                <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input"
-                                           id="nav-search-input" autocomplete="off"/>
-									<i class="icon-search nav-search-icon"></i>
-								</span>
-                </form>
-            </div>
-            <!-- #nav-search -->
-        </div>
         <div class="page-content">
-            <div class="page-header">
-                <h1>
-                    <span th:text="#{label.property}"></span>
-                    <small>
-                        <i class="icon-double-angle-right"></i>
-                        <span th:text="#{dishes.title1}"></span>
-                    </small>
-                </h1>
-            </div>
+
+            <div th:include="common/content/pageheader :: header (label1=#{label.dishes}, label2=#{label.property})"></div>
             <!-- /.page-header -->
+
             <div class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
