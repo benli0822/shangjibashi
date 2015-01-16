@@ -79,63 +79,184 @@
         <div th:include="common/content/pageheader :: header (label1=#{label.menu}, label2=#{label.addnewmenu})"></div>
         <!-- /.page-header -->
 
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h4>Dishes</h4>
-
-                        <ul id="sortable1" class="droptrue sortable">
-                            <li class="ui-state-default">Dish1</li>
-                            <li class="ui-state-default">Dish2</li>
-                            <li class="ui-state-default">Dish3</li>
-                            <li class="ui-state-default">Dish4</li>
-                            <li class="ui-state-default">Dish5</li>
-                            <li class="ui-state-default">Dish1</li>
-                            <li class="ui-state-default">Dish2</li>
-                            <li class="ui-state-default">Dish3</li>
-                            <li class="ui-state-default">Dish4</li>
-                            <li class="ui-state-default">Dish5</li>
-                        </ul>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-header widget-header-blue widget-header-flat">
+                        <h4 class="lighter">Create a menu</h4>
                     </div>
 
-                    <div class="col-sm-8">
-                        <h4>Create your menu</h4>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div id="fuelux-wizard" class="row-fluid" data-target="#step-container">
+                                <ul class="wizard-steps">
+                                    <li data-target="#step1" class="active">
+                                        <span class="step">1</span>
+                                        <span class="title">Dishes</span>
+                                    </li>
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h5>First dish</h5>
-                                <ul id="sortable2" class="droptrue sortable menu">
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Main course</h5>
-                                <ul id="sortable4" class="droptrue sortable menu">
-                                </ul>
-                            </div>
-                        </div>
+                                    <li data-target="#step2">
+                                        <span class="step">2</span>
+                                        <span class="title">Quantities</span>
+                                    </li>
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h5>Dessert</h5>
-                                <ul id="sortable5" class="droptrue sortable menu">
+                                    <li data-target="#step3">
+                                        <span class="step">3</span>
+                                        <span class="title">Menu Info</span>
+                                    </li>
+
+                                    <li data-target="#step4">
+                                        <span class="step">4</span>
+                                        <span class="title">Finish</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="col-sm-6">
-                                <h5>Drinks</h5>
-                                <ul id="sortable6" class="droptrue sortable menu">
-                                </ul>
+
+                            <hr />
+                            <div class="step-content row-fluid position-relative" id="step-container">
+                                <div class="step-pane active" id="step1">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <!-- PAGE CONTENT BEGINS -->
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <h4>Dishes</h4>
+
+                                                    <ul id="sortable1" class="droptrue sortable">
+                                                        <li class="ui-state-default">Dish1</li>
+                                                        <li class="ui-state-default">Dish2</li>
+                                                        <li class="ui-state-default">Dish3</li>
+                                                        <li class="ui-state-default">Dish4</li>
+                                                        <li class="ui-state-default">Dish5</li>
+                                                        <li class="ui-state-default">Dish1</li>
+                                                        <li class="ui-state-default">Dish2</li>
+                                                        <li class="ui-state-default">Dish3</li>
+                                                        <li class="ui-state-default">Dish4</li>
+                                                        <li class="ui-state-default">Dish5</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-sm-8">
+                                                    <h4>Create your menu</h4>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <h5>First dish</h5>
+                                                            <ul id="sortable2" class="droptrue sortable menu">
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <h5>Main course</h5>
+                                                            <ul id="sortable4" class="droptrue sortable menu">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <h5>Dessert</h5>
+                                                            <ul id="sortable5" class="droptrue sortable menu">
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <h5>Drinks</h5>
+                                                            <ul id="sortable6" class="droptrue sortable menu">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- PAGE CONTENT ENDS -->
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+
+                                <div class="step-pane" id="step2">
+                                    <div class="row-fluid">
+                                        <div class="alert alert-success">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="icon-remove"></i>
+                                            </button>
+
+                                            <strong>
+                                                <i class="icon-ok"></i>
+                                                Well done!
+                                            </strong>
+
+                                            You successfully read this important alert message.
+                                            <br />
+                                        </div>
+
+                                        <div class="alert alert-danger">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="icon-remove"></i>
+                                            </button>
+
+                                            <strong>
+                                                <i class="icon-remove"></i>
+                                                Oh snap!
+                                            </strong>
+
+                                            Change a few things up and try submitting again.
+                                            <br />
+                                        </div>
+
+                                        <div class="alert alert-warning">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="icon-remove"></i>
+                                            </button>
+                                            <strong>Warning!</strong>
+
+                                            Best check yo self, you're not looking too good.
+                                            <br />
+                                        </div>
+
+                                        <div class="alert alert-info">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <i class="icon-remove"></i>
+                                            </button>
+                                            <strong>Heads up!</strong>
+
+                                            This alert needs your attention, but it's not super important.
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-pane" id="step3">
+                                    <div class="center">
+                                        <h3 class="blue lighter">This is step 3</h3>
+                                    </div>
+                                </div>
+
+                                <div class="step-pane" id="step4">
+                                    <div class="center">
+                                        <h3 class="green">Congrats!</h3>
+                                        Your product is ready to ship! Click finish to continue!
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+
+                            <hr />
+                            <div class="row-fluid wizard-actions">
+                                <button class="btn btn-prev">
+                                    <i class="icon-arrow-left"></i>
+                                    Prev
+                                </button>
+
+                                <button class="btn btn-success btn-next" data-last="Finish ">
+                                    Next
+                                    <i class="icon-arrow-right icon-on-right"></i>
+                                </button>
+                            </div>
+                        </div><!-- /widget-main -->
+                    </div><!-- /widget-body -->
                 </div>
-                <!-- PAGE CONTENT ENDS -->
             </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
+        </div><!-- PAGE CONTENT ENDS -->
     </div>
     <!-- /.page-content -->
 </div>
@@ -144,6 +265,10 @@
 <div layout:fragment="script">
     <!-- page specific plugin scripts -->
     <script th:src="@{/js/jquery-ui-1.10.3.custom.min.js}"></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/fuelux/fuelux.wizard.min.js}"></script>
+    <script th:src="@{/js/bootbox.min.js}"></script>
+    <script th:src="@{/js/additional-methods.min.js}"></script>
 
     <script th:inline="javascript">
         $(document).ready(function () {
@@ -154,6 +279,30 @@
                 connectWith: "ul"
             });
             $("#sortable1, #sortable2").disableSelection();
+
+            /*<![CDATA[*/
+            jQuery(function($) {
+
+                $('[data-rel=tooltip]').tooltip();
+
+                $('#fuelux-wizard').ace_wizard().on('change' , function(e, info){
+                    // wizard operation
+
+                }).on('finished', function(e) {
+                    bootbox.dialog({
+                        message: "Thank you! Your information was successfully saved!",
+                        buttons: {
+                            "success" : {
+                                "label" : "OK",
+                                "className" : "btn-sm btn-primary"
+                            }
+                        }
+                    });
+                }).on('stepclick', function(e){
+                    //return false;//prevent clicking on steps
+                });
+            });
+            /*]]>*/
         });
     </script>
 </div>
