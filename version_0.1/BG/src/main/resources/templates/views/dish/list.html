@@ -32,28 +32,29 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="main-content">
 
-        <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=#{label.listdish})"></div>
-        <!--/.breadcrumbs-->
+    <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=#{label.listdish})"></div>
+    <!--/.breadcrumbs-->
 
-        <div class="page-content">
+    <div class="page-content">
 
-            <div th:include="common/content/pageheader :: header (label1=#{label.dishes}, label2=#{label.listdish})"></div>
-            <!-- /.page-header -->
+        <div th:include="common/content/pageheader :: header (label1=#{label.dishes}, label2=#{label.listdish})"></div>
+        <!-- /.page-header -->
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
 
-                    <div class="row-fluid">
-                        <ul class="ace-thumbnails">
-                            <li>
-                                <a href="../../../static/images/gallery/image-1.jpg" th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                                   data-rel="colorbox">
-                                    <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg" th:src="@{/images/gallery/thumb-1.jpg}"/>
+                <div class="row-fluid">
+                    <ul class="ace-thumbnails">
+                        <li>
+                            <a href="../../../static/images/gallery/image-1.jpg"
+                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
+                               data-rel="colorbox">
+                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
+                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
 
-                                    <div class="tags">
+                                <div class="tags">
 													<span class="label-holder">
 														<span class="label label-info">breakfast</span>
 													</span>
@@ -69,35 +70,37 @@
 													<span class="label-holder">
 														<span class="label label-warning arrowed-in">diet</span>
 													</span>
-                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="tools">
+                                <a href="#">
+                                    <i class="icon-link"></i>
                                 </a>
 
-                                <div class="tools">
-                                    <a href="#">
-                                        <i class="icon-link"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-paper-clip"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-paper-clip"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-pencil"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-remove red"></i>
+                                </a>
+                            </div>
+                            <div class="center"><p>first palt</p></div>
+                        </li>
 
-                                    <a href="#">
-                                        <i class="icon-remove red"></i>
-                                    </a>
-                                </div>
-                                <div class="center"><p>first palt</p></div>
-                            </li>
+                        <li>
+                            <a href="../../../static/images/gallery/image-1.jpg"
+                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
+                               data-rel="colorbox">
+                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
+                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
 
-                            <li>
-                                <a href="../../../static/images/gallery/image-1.jpg" th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                                   data-rel="colorbox">
-                                    <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg" th:src="@{/images/gallery/thumb-1.jpg}"/>
-
-                                    <div class="tags">
+                                <div class="tags">
 													<span class="label-holder">
 														<span class="label label-info">breakfast</span>
 													</span>
@@ -113,35 +116,37 @@
 													<span class="label-holder">
 														<span class="label label-warning arrowed-in">diet</span>
 													</span>
-                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="tools">
+                                <a href="#">
+                                    <i class="icon-link"></i>
                                 </a>
 
-                                <div class="tools">
-                                    <a href="#">
-                                        <i class="icon-link"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-paper-clip"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-paper-clip"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-pencil"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-remove red"></i>
+                                </a>
+                            </div>
+                            <div class="center"><p>first palt</p></div>
+                        </li>
 
-                                    <a href="#">
-                                        <i class="icon-remove red"></i>
-                                    </a>
-                                </div>
-                                <div class="center"><p>first palt</p></div>
-                            </li>
+                        <li>
+                            <a href="../../../static/images/gallery/image-1.jpg"
+                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
+                               data-rel="colorbox">
+                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
+                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
 
-                            <li>
-                                <a href="../../../static/images/gallery/image-1.jpg" th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                                   data-rel="colorbox">
-                                    <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg" th:src="@{/images/gallery/thumb-1.jpg}"/>
-
-                                    <div class="tags">
+                                <div class="tags">
 													<span class="label-holder">
 														<span class="label label-info">breakfast</span>
 													</span>
@@ -157,35 +162,37 @@
 													<span class="label-holder">
 														<span class="label label-warning arrowed-in">diet</span>
 													</span>
-                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="tools">
+                                <a href="#">
+                                    <i class="icon-link"></i>
                                 </a>
 
-                                <div class="tools">
-                                    <a href="#">
-                                        <i class="icon-link"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-paper-clip"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-paper-clip"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-pencil"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-remove red"></i>
+                                </a>
+                            </div>
+                            <div class="center"><p>first palt</p></div>
+                        </li>
 
-                                    <a href="#">
-                                        <i class="icon-remove red"></i>
-                                    </a>
-                                </div>
-                                <div class="center"><p>first palt</p></div>
-                            </li>
+                        <li>
+                            <a href="../../../static/images/gallery/image-1.jpg"
+                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
+                               data-rel="colorbox">
+                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
+                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
 
-                            <li>
-                                <a href="../../../static/images/gallery/image-1.jpg" th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                                   data-rel="colorbox">
-                                    <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg" th:src="@{/images/gallery/thumb-1.jpg}"/>
-
-                                    <div class="tags">
+                                <div class="tags">
 													<span class="label-holder">
 														<span class="label label-info">breakfast</span>
 													</span>
@@ -201,30 +208,29 @@
 													<span class="label-holder">
 														<span class="label label-warning arrowed-in">diet</span>
 													</span>
-                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="tools">
+                                <a href="#">
+                                    <i class="icon-link"></i>
                                 </a>
 
-                                <div class="tools">
-                                    <a href="#">
-                                        <i class="icon-link"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-paper-clip"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-paper-clip"></i>
-                                    </a>
+                                <a href="#">
+                                    <i class="icon-pencil"></i>
+                                </a>
 
-                                    <a href="#">
-                                        <i class="icon-pencil"></i>
-                                    </a>
-
-                                    <a href="#">
-                                        <i class="icon-remove red"></i>
-                                    </a>
-                                </div>
-                                <div class="center"><p>first palt</p></div>
-                            </li>
-                        </ul>
-                    </div>
+                                <a href="#">
+                                    <i class="icon-remove red"></i>
+                                </a>
+                            </div>
+                            <div class="center"><p>first palt</p></div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

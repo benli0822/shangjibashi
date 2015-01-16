@@ -33,44 +33,43 @@
 <body>
 
 <div layout:fragment="content">
-    <div class="main-content">
 
-        <div th:include="common/content/breadcrumbs :: header (label1=#{label.statistic}, label2=#{label.command})"></div>
-        <!--/.breadcrumbs-->
+    <div th:include="common/content/breadcrumbs :: header (label1=#{label.statistic}, label2=#{label.command})"></div>
+    <!--/.breadcrumbs-->
 
-        <div class="page-content">
+    <div class="page-content">
 
-            <div th:include="common/content/pageheader :: header (label1=#{label.statistic}, label2=#{label.command})"></div>
-            <!-- /.page-header -->
+        <div th:include="common/content/pageheader :: header (label1=#{label.statistic}, label2=#{label.command})"></div>
+        <!-- /.page-header -->
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
 
-                    <div class="tabbable">
-                        <ul class="nav nav-tabs" id="myTab">
-                            <li class="active">
-                                <a data-toggle="tab" href="#abstract">
-                                    <i class="green icon-home bigger-110"></i>
-                                    Abstract
-                                </a>
-                            </li>
+                <div class="tabbable">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active">
+                            <a data-toggle="tab" href="#abstract">
+                                <i class="green icon-home bigger-110"></i>
+                                Abstract
+                            </a>
+                        </li>
 
-                            <li>
-                                <a data-toggle="tab" href="#history">
-                                    History
-                                    <span class="badge badge-danger">4</span>
-                                </a>
-                            </li>
+                        <li>
+                            <a data-toggle="tab" href="#history">
+                                History
+                                <span class="badge badge-danger">4</span>
+                            </a>
+                        </li>
 
-                        </ul>
+                    </ul>
 
-                        <div class="tab-content">
-                            <div id="abstract" class="tab-pane in active">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h3 class="header smaller lighter blue">
-                                            <span class="span7">Abstract</span>
+                    <div class="tab-content">
+                        <div id="abstract" class="tab-pane in active">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 class="header smaller lighter blue">
+                                        <span class="span7">Abstract</span>
                                             <span class="span5">
                                                 <label class="pull-right inline">
                                                     <button class="btn btn-sm btn-success">
@@ -79,138 +78,137 @@
                                                     </button>
                                                 </label>
                                             </span>
-                                        </h3>
+                                    </h3>
 
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="widget-box">
-                                                    <div class="widget-header widget-header-flat widget-header-small">
-                                                        <h5>
-                                                            <i class="icon-signal"></i>
-                                                            Traffic Sources
-                                                        </h5>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="widget-box">
+                                                <div class="widget-header widget-header-flat widget-header-small">
+                                                    <h5>
+                                                        <i class="icon-signal"></i>
+                                                        Traffic Sources
+                                                    </h5>
 
-                                                        <div class="widget-toolbar no-border">
-                                                            <button class="btn btn-minier btn-primary dropdown-toggle"
-                                                                    data-toggle="dropdown">
-                                                                This Week
-                                                                <i class="icon-angle-down icon-on-right bigger-110"></i>
-                                                            </button>
+                                                    <div class="widget-toolbar no-border">
+                                                        <button class="btn btn-minier btn-primary dropdown-toggle"
+                                                                data-toggle="dropdown">
+                                                            This Week
+                                                            <i class="icon-angle-down icon-on-right bigger-110"></i>
+                                                        </button>
 
-                                                            <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret">
-                                                                <li class="active">
-                                                                    <a href="#" class="blue">
-                                                                        <i class="icon-caret-right bigger-110">
-                                                                            &nbsp;</i>
-                                                                        This Week
-                                                                    </a>
-                                                                </li>
+                                                        <ul class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret">
+                                                            <li class="active">
+                                                                <a href="#" class="blue">
+                                                                    <i class="icon-caret-right bigger-110">
+                                                                        &nbsp;</i>
+                                                                    This Week
+                                                                </a>
+                                                            </li>
 
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="icon-caret-right bigger-110 invisible">
-                                                                            &nbsp;</i>
-                                                                        Last Week
-                                                                    </a>
-                                                                </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="icon-caret-right bigger-110 invisible">
+                                                                        &nbsp;</i>
+                                                                    Last Week
+                                                                </a>
+                                                            </li>
 
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="icon-caret-right bigger-110 invisible">
-                                                                            &nbsp;</i>
-                                                                        This Month
-                                                                    </a>
-                                                                </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="icon-caret-right bigger-110 invisible">
+                                                                        &nbsp;</i>
+                                                                    This Month
+                                                                </a>
+                                                            </li>
 
-                                                                <li>
-                                                                    <a href="#">
-                                                                        <i class="icon-caret-right bigger-110 invisible">
-                                                                            &nbsp;</i>
-                                                                        Last Month
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="icon-caret-right bigger-110 invisible">
+                                                                        &nbsp;</i>
+                                                                    Last Month
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
+                                                </div>
 
-                                                    <div class="widget-body">
-                                                        <div class="widget-main">
-                                                            <div id="piechart-placeholder"></div>
+                                                <div class="widget-body">
+                                                    <div class="widget-main">
+                                                        <div id="piechart-placeholder"></div>
 
-                                                            <div class="hr hr8 hr-double"></div>
+                                                        <div class="hr hr8 hr-double"></div>
 
-                                                            <div class="clearfix">
-                                                                <div class="grid3">
+                                                        <div class="clearfix">
+                                                            <div class="grid3">
 															<span class="grey">
 																<i class="icon-facebook-sign icon-2x blue"></i>
 																&nbsp; likes
 															</span>
-                                                                    <h4 class="bigger pull-right">1,255</h4>
-                                                                </div>
+                                                                <h4 class="bigger pull-right">1,255</h4>
+                                                            </div>
 
-                                                                <div class="grid3">
+                                                            <div class="grid3">
 															<span class="grey">
 																<i class="icon-twitter-sign icon-2x purple"></i>
 																&nbsp; tweets
 															</span>
-                                                                    <h4 class="bigger pull-right">941</h4>
-                                                                </div>
+                                                                <h4 class="bigger pull-right">941</h4>
+                                                            </div>
 
-                                                                <div class="grid3">
+                                                            <div class="grid3">
 															<span class="grey">
 																<i class="icon-pinterest-sign icon-2x red"></i>
 																&nbsp; pins
 															</span>
-                                                                    <h4 class="bigger pull-right">1,050</h4>
-                                                                </div>
+                                                                <h4 class="bigger pull-right">1,050</h4>
                                                             </div>
                                                         </div>
-                                                        <!-- /widget-main -->
                                                     </div>
-                                                    <!-- /widget-body -->
+                                                    <!-- /widget-main -->
                                                 </div>
-                                                <!-- /widget-box -->
+                                                <!-- /widget-body -->
                                             </div>
-                                            <!-- /span -->
+                                            <!-- /widget-box -->
                                         </div>
+                                        <!-- /span -->
+                                    </div>
 
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="widget-box transparent">
-                                                    <div class="widget-header widget-header-flat">
-                                                        <h4 class="lighter">
-                                                            <i class="icon-signal"></i>
-                                                            Sale Stats
-                                                        </h4>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="widget-box transparent">
+                                                <div class="widget-header widget-header-flat">
+                                                    <h4 class="lighter">
+                                                        <i class="icon-signal"></i>
+                                                        Sale Stats
+                                                    </h4>
 
-                                                        <div class="widget-toolbar">
-                                                            <a href="#" data-action="collapse">
-                                                                <i class="icon-chevron-up"></i>
-                                                            </a>
-                                                        </div>
+                                                    <div class="widget-toolbar">
+                                                        <a href="#" data-action="collapse">
+                                                            <i class="icon-chevron-up"></i>
+                                                        </a>
                                                     </div>
-
-                                                    <div class="widget-body">
-                                                        <div class="widget-main padding-4">
-                                                            <div id="sales-charts"></div>
-                                                        </div>
-                                                        <!-- /widget-main -->
-                                                    </div>
-                                                    <!-- /widget-body -->
                                                 </div>
-                                                <!-- /widget-box -->
+
+                                                <div class="widget-body">
+                                                    <div class="widget-main padding-4">
+                                                        <div id="sales-charts"></div>
+                                                    </div>
+                                                    <!-- /widget-main -->
+                                                </div>
+                                                <!-- /widget-body -->
                                             </div>
+                                            <!-- /widget-box -->
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- PAGE CONTENT ENDS -->
                             </div>
 
-                            <div id="history" class="tab-pane">
-                                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee
-                                    squid.</p>
-                            </div>
+                            <!-- PAGE CONTENT ENDS -->
+                        </div>
+
+                        <div id="history" class="tab-pane">
+                            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee
+                                squid.</p>
                         </div>
                     </div>
                 </div>

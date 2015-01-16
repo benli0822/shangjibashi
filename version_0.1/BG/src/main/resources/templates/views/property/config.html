@@ -33,17 +33,15 @@
 <body>
 
 <div layout:fragment="content">
-    <div class="main-content">
 
-        <div th:include="common/content/breadcrumbs :: header (label1=#{label.system}, label2=#{label.config})"></div>
-        <!--/.breadcrumbs-->
+    <div th:include="common/content/breadcrumbs :: header (label1=#{label.system}, label2=#{label.config})"></div>
+    <!--/.breadcrumbs-->
 
-        <div class="page-content">
+    <div class="page-content">
 
-            <div th:include="common/content/pageheader :: header (label1=#{label.system}, label2=#{label.config})"></div>
-            <!-- /.page-header -->
+        <div th:include="common/content/pageheader :: header (label1=#{label.system}, label2=#{label.config})"></div>
+        <!-- /.page-header -->
 
-        </div>
     </div>
 </div>
 
