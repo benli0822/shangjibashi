@@ -132,8 +132,33 @@
                 </ul>
             </li>
 
-            <li id="nav-system">
+            <li id="nav-statistic">
                 <a href="#" class="dropdown-toggle">
+                    <i class="icon-credit-card "></i>
+                    <span class="menu-text" th:text="#{label.statistic}"></span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li id="nav-statisticcommand">
+                        <a href="/statistic/command" th:text="#{label.command}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                    <li id="nav-statisticreservation">
+                        <a href="/statistic/reservation" th:text="#{label.reservation}">
+                            <i class="icon-double-angle-right"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li id="nav-system">
+                <a href="#" class="dropdown-toggle
+                ">
                     <i class="icon-laptop"></i>
                     <span class="menu-text" th:text="#{label.system}"></span>
 
