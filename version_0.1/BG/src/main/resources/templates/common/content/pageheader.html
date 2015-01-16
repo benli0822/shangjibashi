@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<div th:fragment="header (label1, label2)">
+    <div class="page-header">
+        <h1>
+            <span th:text="${label1}"></span>
+            <small>
+                <i class="icon-double-angle-right"></i>
+                <span th:text="${label2}"></span>
+            </small>
+        </h1>
+    </div>
+</div>
+
+</body>
+</html>

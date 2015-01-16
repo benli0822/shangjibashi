@@ -40,49 +40,11 @@
 <body>
 <div layout:fragment="content">
     <div class="main-content">
-        <div class="breadcrumbs" id="breadcrumbs">
-            <script type="text/javascript">
-                try {
-                    ace.settings.check('breadcrumbs', 'fixed')
-                } catch (e) {
-                }
-            </script>
-
-            <ul class="breadcrumb">
-                <li>
-                    <i class="icon-home home-icon"></i>
-                    <a href="#" th:text="#{label.index}"></a>
-                </li>
-
-                <li>
-                    <a href="#" th:text="#{label.adddish}"></a>
-                </li>
-                <li class="active" th:text="#{label.editdish}"></li>
-            </ul>
-            <!-- .breadcrumb -->
-
-            <div class="nav-search" id="nav-search">
-                <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input"
-                                           id="nav-search-input" autocomplete="off"/>
-									<i class="icon-search nav-search-icon"></i>
-								</span>
-                </form>
-            </div>
-            <!-- #nav-search -->
-        </div>
+        <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=#{label.adddish})"></div>
+        <!--/.breadcrumbs-->
 
         <div class="page-content">
-            <div class="page-header">
-                <h1>
-                    <span th:text="#{add.title}"></span>
-                    <small>
-                        <i class="icon-double-angle-right"></i>
-                        <span th:text="#{add.edit}"></span>
-                    </small>
-                </h1>
-            </div>
+            <div th:include="common/content/pageheader :: header (label1=#{add.title}, label2=#{add.edit})"></div>
             <!-- /.page-header -->
 
             <div class="alert alert-info">
@@ -162,7 +124,8 @@
                             <div class="col-xs-12 col-sm-9">
                                 <div class="clearfix">
                                     <div>
-                                        <select id="typeSelector1" name="typeSelector" class="col-xs-10 col-sm-8 chosen-select">
+                                        <select id="typeSelector1" name="typeSelector"
+                                                class="col-xs-10 col-sm-8 chosen-select">
                                             <option value=""></option>
                                             <option th:each="type : ${types}" th:if="${type.is_firstmenu}"
                                                     th:value="${type.name}" th:attr="data-id='' + ${type.id}"
