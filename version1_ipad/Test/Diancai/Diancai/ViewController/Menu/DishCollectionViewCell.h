@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *platNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *platPriceLabel;
 @property (nonatomic, strong) NSString* platName;
+@property (weak, nonatomic) IBOutlet UIView *GardienView;
 
 -(void)setImage:(NSString *)imagename;
 @end

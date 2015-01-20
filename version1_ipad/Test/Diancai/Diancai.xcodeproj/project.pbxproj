@@ -393,11 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				3C58D70E1A6E858E00847FF7 /* database.sqlite */,
-				3C8EFD571A66622A001F1B22 /* libz.dylib */,
-				3C8EFD551A666222001F1B22 /* CoreGraphics.framework */,
-				3C8EFD531A66621B001F1B22 /* MobileCoreServices.framework */,
-				3C8EFD511A666212001F1B22 /* SystemConfiguration.framework */,
-				3C8EFD4F1A666203001F1B22 /* CFNetwork.framework */,
 				3CC8530E19D0596800668F13 /* Diancai */,
 				3CC8532819D0596900668F13 /* DiancaiTests */,
 				3CC8530D19D0596800668F13 /* Products */,
@@ -501,6 +496,11 @@
 		3CD70F541A0AC53300BDA022 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3C8EFD571A66622A001F1B22 /* libz.dylib */,
+				3C8EFD551A666222001F1B22 /* CoreGraphics.framework */,
+				3C8EFD531A66621B001F1B22 /* MobileCoreServices.framework */,
+				3C8EFD511A666212001F1B22 /* SystemConfiguration.framework */,
+				3C8EFD4F1A666203001F1B22 /* CFNetwork.framework */,
 				3C5C72FF1A6E687A00B4CB86 /* UIKit+AFNetworking */,
 				3C5C72FE1A6E686500B4CB86 /* AFNetworking */,
 				3CF8A4B71A38795B003FDD2A /* libsqlite3.dylib */,

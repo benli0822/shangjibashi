@@ -59,7 +59,7 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(172, 112+36, 840, 620)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(186, 112+36, 765, 620)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
     _carousel.delegate = self;
@@ -78,7 +78,7 @@
     
     __weak typeof(_carousel) weakCarousel = _carousel;
     
-    _segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(175, 112, 780, 36) Items:_sousMenuList selectedBlock:^(NSInteger index) {
+    _segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(186, 102, 698, 46) Items:_sousMenuList selectedBlock:^(NSInteger index) {
         
         [weakCarousel scrollToItemAtIndex:index animated:NO];
     }];
@@ -116,7 +116,8 @@
     
 #pragma mark command list table setting
     
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:237.0/255.0 green:85.0/255.0 blue:56.0/255.0 alpha:1];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
 -(void) refreshDataWithFirstMenuNumber:(NSInteger)number{
