@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    _progressIndicator.progress = 0;
     _urlTextField.text = @"http://172.19.145.127:9090/api/sync/getDbFile/database.sqlite";
     
 }
@@ -55,12 +55,14 @@
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    NSString *fullPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[url lastPathComponent]];
+    NSString *fullPath = _databasePath;
     
     [operation setOutputStream:[NSOutputStream outputStreamToFileAtPath:fullPath append:NO]];
     
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-        NSLog(@"bytesRead: %lu, totalBytesRead: %lld, totalBytesExpectedToRead: %lld", (unsigned long)bytesRead, totalBytesRead, totalBytesExpectedToRead);
+//        NSLog(@"bytesRead: %lu, totalBytesRead: %lld, totalBytesExpectedToRead: %lld", (unsigned long)bytesRead, totalBytesRead, totalBytesExpectedToRead);
+        
+         _progressIndicator.progress = (float)totalBytesRead / totalBytesExpectedToRead;
     }];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -68,7 +70,7 @@
         NSLog(@"RES: %@", [[[operation response] allHeaderFields] description]);
         
         NSError *error;
-        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:&error];
+       // NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:&error];
         
         if (error) {
             NSLog(@"ERR: %@", [error description]);
@@ -85,10 +87,13 @@
         NSLog(@"ERR: %@", [error description]);
     }];
     
+    
+    
     [operation start];
-
     
 }
+
+
 /*
 #pragma mark - Navigation
 

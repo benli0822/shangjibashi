@@ -10,6 +10,7 @@
 		3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */; };
 		3C35516F1A655552008B5EF2 /* MDMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C35516E1A655552008B5EF2 /* MDMenuHelper.m */; };
 		3C3551721A658337008B5EF2 /* MDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3551711A658337008B5EF2 /* MDSettingViewController.m */; };
+		3C58D70F1A6E858E00847FF7 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3C58D70E1A6E858E00847FF7 /* database.sqlite */; };
 		3C5C73111A6E689000B4CB86 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5C73011A6E689000B4CB86 /* AFNetworkActivityIndicatorManager.m */; };
 		3C5C73121A6E689000B4CB86 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5C73031A6E689000B4CB86 /* UIActivityIndicatorView+AFNetworking.m */; };
 		3C5C73131A6E689000B4CB86 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5C73051A6E689000B4CB86 /* UIAlertView+AFNetworking.m */; };
@@ -110,6 +111,7 @@
 		3C35516E1A655552008B5EF2 /* MDMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuHelper.m; path = Helper/MDMenuHelper.m; sourceTree = "<group>"; };
 		3C3551701A658337008B5EF2 /* MDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSettingViewController.h; path = ViewController/MDSettingViewController.h; sourceTree = "<group>"; };
 		3C3551711A658337008B5EF2 /* MDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDSettingViewController.m; path = ViewController/MDSettingViewController.m; sourceTree = "<group>"; };
+		3C58D70E1A6E858E00847FF7 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		3C5C73001A6E689000B4CB86 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "Libraries/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		3C5C73011A6E689000B4CB86 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "Libraries/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		3C5C73021A6E689000B4CB86 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "Libraries/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		3CC8530319D0596800668F13 = {
 			isa = PBXGroup;
 			children = (
+				3C58D70E1A6E858E00847FF7 /* database.sqlite */,
 				3C8EFD571A66622A001F1B22 /* libz.dylib */,
 				3C8EFD551A666222001F1B22 /* CoreGraphics.framework */,
 				3C8EFD531A66621B001F1B22 /* MobileCoreServices.framework */,
@@ -710,6 +713,7 @@
 				3CFE306D19D53EF500210AD5 /* noodle_with_bbq_pork.jpg in Resources */,
 				3CFE306F19D53EF500210AD5 /* thai_shrimp_cake.jpg in Resources */,
 				3CFE306519D53EF500210AD5 /* full_breakfast.jpg in Resources */,
+				3C58D70F1A6E858E00847FF7 /* database.sqlite in Resources */,
 				3CD820941A1174D40024823C /* DishCollectionViewCell.xib in Resources */,
 				3CFE306819D53EF500210AD5 /* ham_and_egg_sandwich.jpg in Resources */,
 				3CFE306C19D53EF500210AD5 /* mushroom_risotto.jpg in Resources */,

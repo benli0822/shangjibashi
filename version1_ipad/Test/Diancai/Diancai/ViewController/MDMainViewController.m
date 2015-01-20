@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLocale* curentLocale = [NSLocale currentLocale];
-    NSString *localId = [curentLocale localeIdentifier];
+    //NSLocale* curentLocale = [NSLocale currentLocale];
+   // NSString *localId = [curentLocale localeIdentifier];
     //NSLog(@"%@",localId);
     
    
