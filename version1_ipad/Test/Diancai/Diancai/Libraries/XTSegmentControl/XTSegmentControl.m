@@ -318,6 +318,12 @@
     }
 }
 
+- (void)reloadSegsWithItems:(NSArray *)segs
+{
+    [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    _lineView = nil;
+    [self initItemsWithTitleArray:segs];
+}
 
 int ExceMinIndex(float f)
 {

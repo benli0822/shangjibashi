@@ -18,13 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLocale* curentLocale = [NSLocale currentLocale];
-    NSString *localId = [curentLocale localeIdentifier];
-    NSLog(@"%@",localId);
+    //NSLocale* curentLocale = [NSLocale currentLocale];
+   // NSString *localId = [curentLocale localeIdentifier];
+    //NSLog(@"%@",localId);
     
-//    NSString *plicastConfigPath = [[NSBundle mainBundle] pathForResource:@"MDAppConfiguration" ofType:@"plist"];
-//    NSDictionary *DBConfigDictionary = [[NSDictionary alloc] initWithContentsOfFile:plicastConfigPath][@"DBConfiguration"] ;
-//    NSLog(@"Dictionary value%@",DBConfigDictionary[@"DBName"]);
+   
     
     
     

@@ -18,6 +18,10 @@
 #import "MDFirstMenuTableController.h"
 #import "MDListCommandViewController.h"
 #import "MDCommand.h"
+#import "SQLiteManager.h"
+#import "MDMenuHelper.h"
+#import "MDFirstMenu.h"
+#import "MDSecondMenu.h"
 
 //
 
@@ -38,8 +42,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+#pragma mark read data section
+    _firstMenuList = [[NSMutableArray alloc] initWithArray:[[SQLiteManager shared] readAllDataFromDB]];
+    [[MDMenuHelper shared] setFirstMenu_list:_firstMenuList];
+
+    [self setDishArrayWithFirstMenu:[_firstMenuList objectAtIndex:2]];
+
+    
  
-    [self initDishArray];
+    //[self initDishArray];
     
     //关闭ios7以上后退手势
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -72,7 +85,7 @@
     
     [self.view addSubview:_segmentControl];
 
-
+    
 
 #pragma mark first menu table setting
     
@@ -81,9 +94,18 @@
          forCellReuseIdentifier:@"Cell"];
     
     _firstMenuTableController = [[MDFirstMenuTableController alloc] init];
-    _firstMenuTableController.data = [NSMutableArray arrayWithObjects:@"Choix de chef", @"Entrée",@"Plat",@"Dessert",@"Menu enfant",@"Boissons",@"Favoir",nil];
+    
+    
+    _firstMenuTableController.data = [[MDMenuHelper shared] getAllFirstMenuNames];
+    
+    
+    
     [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
     [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
+    [_firstMenuTableController setParentViewController:self];
+    
+    
+    
     
     //[_ColletionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
     
@@ -97,41 +119,60 @@
     
     
 }
-
+-(void) refreshDataWithFirstMenuNumber:(NSInteger)number{
+    NSLog(@"click at row : %@", [[_firstMenuList objectAtIndex:number] name]);
+    
+    [self setDishArrayWithFirstMenu:[_firstMenuList objectAtIndex:number] ];
+    
+#pragma mark maybe add last view object也许这里记住上次的选择
+    
+    
+    [_carousel reloadData];
+    [_segmentControl reloadSegsWithItems:_sousMenuList];
+    
+}
 #pragma mark dish data 设置
 /**
  *  setup all the data(dishnames)
  */
--(void) initDishArray{
-    NSArray *allDishs = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
+-(void) setDishArrayWithFirstMenu : (MDFirstMenu*)firstMenu{
     
+    //set dish data
+    _sousMenuList = [[MDMenuHelper shared] getSecondeMenuNamesWithFirstMenu:firstMenu];
     
-    
-    _sousMenuList = @[@"tout",@"Hamburgers",@"Poissons",@"Viande"];
-    
-    
+
     
     //初始化字典
-    _dishDictionary = [NSMutableDictionary dictionaryWithCapacity:10];
+    _dishDictionary = [NSMutableDictionary dictionaryWithCapacity: [[firstMenu secondeMenu_list] count] ];
     
     
     
     
-    //先阶段设置死4个不同的菜单
-    NSArray *dessertArray = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg",@"white_chocolate_donut.jpg",nil];
-    NSArray *mainPlatArray = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg",nil ];
-    
-    NSArray *drinkArray = [NSArray arrayWithObjects:@"starbucks_coffee.jpg",nil];
+    //先阶段设置死不同的菜单
     
     
-    [_dishDictionary setValue:allDishs forKey:@"tout"];
-
-    [_dishDictionary setValue:dessertArray forKey:@"Hamburgers"];
     
-    [_dishDictionary setValue:mainPlatArray forKey:@"Poissons"];
+    for (MDSecondMenu* secondMenu in [firstMenu secondeMenu_list]) {
+        [_dishDictionary setValue:secondMenu forKey:secondMenu.name];
+    }
     
-    
-    [_dishDictionary setValue:drinkArray forKey:@"Viande"];
+//     NSArray *allDishs = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg", @"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"starbucks_coffee.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg", @"white_chocolate_donut.jpg", nil];
+//    
+//    
+//    NSArray *dessertArray = [NSArray arrayWithObjects:@"angry_birds_cake.jpg", @"creme_brelee.jpg",@"white_chocolate_donut.jpg",nil];
+//    NSArray *mainPlatArray = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"full_breakfast.jpg", @"green_tea.jpg", @"ham_and_cheese_panini.jpg", @"ham_and_egg_sandwich.jpg", @"hamburger.jpg", @"instant_noodle_with_egg.jpg", @"japanese_noodle_with_pork.jpg", @"mushroom_risotto.jpg", @"noodle_with_bbq_pork.jpg", @"thai_shrimp_cake.jpg", @"vegetable_curry.jpg",nil ];
+//    
+//    NSArray *drinkArray = [NSArray arrayWithObjects:@"starbucks_coffee.jpg",nil];
+//    
+//    
+//    [_dishDictionary setValue:allDishs forKey:@"tout"];
+//
+//    [_dishDictionary setValue:dessertArray forKey:@"Hamburgers"];
+//    
+//    [_dishDictionary setValue:mainPlatArray forKey:@"Poissons"];
+//    
+//    
+//    [_dishDictionary setValue:drinkArray forKey:@"Viande"];
     
     
 }
@@ -163,7 +204,9 @@
         listView = (MDDishView *)[view viewWithTag:1];
     }
     
-    [listView loadCollectionViewWithArray:[_dishDictionary objectForKey:[_sousMenuList objectAtIndex:index]]];
+    MDSecondMenu* secondMenu =[_dishDictionary objectForKey:[_sousMenuList objectAtIndex:index]];
+    
+    [listView loadCollectionViewWithData:[secondMenu dish_list]];
 
     
     

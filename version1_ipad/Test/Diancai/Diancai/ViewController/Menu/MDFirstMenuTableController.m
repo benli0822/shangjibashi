@@ -8,12 +8,26 @@
 
 #import "MDFirstMenuTableController.h"
 #import  "MDFirstMenuTableCell.h"
+#import "MDMenuViewController.h"
 
 @implementation MDFirstMenuTableController
+
+- (CGFloat)tableView:(UITableView *)tableView
+estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
+
+
 #pragma mark 返回行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 5;
+    return [_data count];
 }
 
 #pragma mark - tableView的代理方法
@@ -33,5 +47,11 @@
     cell.firstMenuLabel.text = _data[indexPath.row];
     
     return cell;
+}
+
+#pragma mark 点击cell的事件
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [_parentViewController refreshDataWithFirstMenuNumber:indexPath.row];
 }
 @end
