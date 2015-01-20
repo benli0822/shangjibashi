@@ -5,7 +5,7 @@
 	<key>DBConfiguration</key>
 	<dict>
 		<key>DBName</key>
-		<string>MDDB.sqlite</string>
+		<string>database.sqlite</string>
 		<key>DBMD5</key>
 		<string></string>
 		<key>DBVersion</key>
