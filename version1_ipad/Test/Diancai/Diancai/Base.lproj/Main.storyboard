@@ -80,15 +80,15 @@
                     <navigationItem key="navigationItem" id="Kfp-r8-mgr">
                         <barButtonItem key="rightBarButtonItem" style="done" id="0fF-VC-3FG">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Gcu-Vq-heG">
-                                <rect key="frame" x="925" y="7" width="80" height="30"/>
+                                <rect key="frame" x="912" y="4" width="105" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="显示已点">
+                                        <fragment content="Commande">
                                             <attributes>
                                                 <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="20" name="STHeitiSC-Light"/>
-                                                <font key="NSOriginalFont" size="20" name="HelveticaNeue"/>
+                                                <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
