@@ -28,7 +28,7 @@ public class DBSyncController {
     @Autowired
     private SQLiteService sqLiteService;
 
-    @RequestMapping(value = "/getDbFile", method = RequestMethod.GET)
+    @RequestMapping(value = "/getDbFile/database.sqlite", method = RequestMethod.GET)
     public
     @ResponseBody
     FileSystemResource getDbFile(HttpServletRequest request,
