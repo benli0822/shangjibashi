@@ -36,4 +36,8 @@ typedef void(^XTSegmentControlBlock)(NSInteger index);
 
 - (void)endMoveIndex:(NSInteger)index;
 
+- (void)reloadSegsWithItems:(NSArray *)segs;
+
+
+
 @end

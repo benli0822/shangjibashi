@@ -17,31 +17,36 @@
 @implementation MDDishPopoverControllerViewController
 
 
--(void) setPopoverWithData:(NSString *)imageName {
+-(void) setPopoverWithData:(MDDish*)dish {
     
 
-    _imageName = imageName;
+    _dish = dish;
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [_dishQuantityTextField becomeFirstResponder];
+//    [_dishQuantityTextField resignFirstResponder];
     // Do any additional setup after loading the view from its nib.
     
     self.preferredContentSize = CGSizeMake(400.0, 300.0);
     
     
     //设置名字
-    _dishNameLabel.text = [_imageName substringToIndex:[_imageName length] -4 ];
+    _dishNameLabel.text = [_dish name];
     
     //设置价格
-    _dishPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[_imageName length]];
+    _dishPriceLabel.text = [NSString stringWithFormat:@"%lu",[_dish price]];
     
     //设置数量 初始化为1
-    _dishQuantityLabel.text = [NSString stringWithFormat:@"%s","1"];
+//    _dishQuantityTextField.text = [NSString stringWithFormat:@"%s","1"];
+//    [_dishQuantityTextField setDelegate:self];
+    //_dishQuantityTextField.keyboardType = UIKeyboardTypePhonePad;
+    _dishQuantityLabel.text=@"1";
     
     //设置图片
-    _imageView.image = [UIImage imageNamed:_imageName];
+    _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]];
 
     
     
@@ -59,16 +64,57 @@
 
 #pragma mark 进行点菜操作
 - (IBAction)selectOrder:(id)sender{
-    MDDish *dish = [[MDDish alloc] init];
-    [dish setName:_dishNameLabel.text];
-    [dish setPrice:[_dishPriceLabel.text integerValue]];
+//    MDDish *dish = [[MDDish alloc] init];
+//    [dish setName:_dishNameLabel.text];
+//    [dish setPrice:[_dishPriceLabel.text integerValue]];
     
-    [[MDUserCommand shared] addDish:dish ];
+    [[MDUserCommand shared] addDish:_dish ];
     
     //dismiss the view controller
     [self dismissViewControllerAnimated:TRUE completion:nil];
 
 }
+
+
+//#pragma mark textfield delegate
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//    // allow backspace
+//    if (!string.length)
+//    {
+//        return YES;
+//    }
+//    
+//    // Prevent invalid character input, if keyboard is numberpad
+//    if (textField.keyboardType == UIKeyboardTypeNumberPad)
+//    {
+//        if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
+//        {
+//            // BasicAlert(@"", @"This field accepts only numeric entries.");
+//            return NO;
+//        }
+//    }
+//    
+//    // verify max length has not been exceeded
+//    NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+//    
+//    if (updatedText.length > 2) // 4 was chosen for SSN verification
+//    {
+//        // suppress the max length message only when the user is typing
+//        // easy: pasted data has a length greater than 1; who copy/pastes one character?
+//        if (string.length > 1)
+//        {
+//            // BasicAlert(@"", @"This field accepts a maximum of 4 characters.");
+//        }
+//        
+//        return NO;
+//    }
+//    
+//    // only enable the OK/submit button if they have entered all numbers for the last four of their SSN (prevents early submissions/trips to authentication server)
+//    _ValidButton.enabled = (updatedText.length >1 );
+//    
+//    return YES;
+//}
 
 /*
 #pragma mark - Navigation
