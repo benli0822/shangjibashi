@@ -7,7 +7,7 @@ jQuery(function ($) {
 
     try {
         $(".dropzone").dropzone({
-            url: "upload",
+            url: "/upload",
             autoProcessQueue: true,
             uploadMultiple: true,
             paramName: "file", // The name that will be used to transfer the file
@@ -17,6 +17,17 @@ jQuery(function ($) {
             maxFiles: 100,
 
             addRemoveLinks: true,
+            removedfile: function(file) {
+                var name = file.name;
+                $.ajax({
+                    type: 'POST',
+                    url: '/delete',
+                    data: "id="+name,
+                    dataType: 'html'
+                });
+                var _ref;
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+            },
             dictDefaultMessage: '<span class="bigger-150 bolder"><i class="icon-caret-right red"></i> Drop files</span> to upload \
                             <span class="smaller-80 grey">(or click)</span> <br /> \
                             <i class="upload-icon icon-cloud-upload blue icon-3x"></i>'

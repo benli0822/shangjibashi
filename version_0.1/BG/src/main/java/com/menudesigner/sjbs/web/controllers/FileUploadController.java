@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -58,6 +59,24 @@ public class FileUploadController {
         }
 
         return uploadedFiles;
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public @ResponseBody boolean delete(@RequestParam("id")String filename) {
+        try {
+            java.io.File file = new java.io.File(getDestinationLocation() + "" +filename);
+
+            if(file.delete()){
+                logger.info(file.getName() + " is deleted!");
+                return true;
+            }else{
+                logger.info("Delete operation is failed.");
+                return false;
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
 
 
