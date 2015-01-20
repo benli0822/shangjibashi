@@ -7,28 +7,28 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="DishCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="187"/>
+            <rect key="frame" x="0.0" y="0.0" width="230" height="170"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="240" height="187"/>
+                <rect key="frame" x="0.0" y="0.0" width="230" height="170"/>
                 <subviews>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJj-tc-UAi">
-                        <rect key="frame" x="0.0" y="55" width="240" height="116"/>
+                        <rect key="frame" x="-1" y="38" width="232" height="138"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uy-AV-Je2">
-                                <rect key="frame" x="20" y="86" width="38" height="21"/>
+                                <rect key="frame" x="17" y="94" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-1z-zhs">
-                                <rect key="frame" x="39" y="86" width="10" height="21"/>
+                                <rect key="frame" x="43" y="94" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="抹茶鲍鱼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkS-rb-FnR">
-                                <rect key="frame" x="14" y="48" width="160" height="50"/>
+                                <rect key="frame" x="17" y="60" width="160" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                 <outlet property="platNameLabel" destination="DkS-rb-FnR" id="Whv-wJ-Mub"/>
                 <outlet property="platPriceLabel" destination="6uy-AV-Je2" id="PfM-Me-fib"/>
             </connections>
-            <point key="canvasLocation" x="286" y="233.5"/>
+            <point key="canvasLocation" x="286" y="233"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -306,8 +306,8 @@
 		3C1E6EEA19D21B6F007ADBB0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */,
 				3CE25F051A0B860900DD249B /* DishCollectionViewCell.h */,
+				3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */,
 				3CD820961A1174D40024823C /* DishCollectionViewCell.xib */,
 				3CD820AE1A1292C90024823C /* MDFirstMenuTableCell.h */,
 				3CD820AF1A1292C90024823C /* MDFirstMenuTableCell.m */,
