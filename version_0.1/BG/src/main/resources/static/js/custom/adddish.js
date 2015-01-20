@@ -16,15 +16,33 @@ jQuery(function ($) {
             parallelUploads: 100,
             maxFiles: 100,
 
+            success: function (file, response) {
+                console.log(response, file);
+
+                var items = [];
+                $.each(response, function (key, val) {
+                    items.push("<li id='" + val.name + "'><input class=\"hidden\" value=\"" + val.id + "\" name=\"image\"/></li>");
+                });
+                $("#imageResList").append(items);
+            },
+
             addRemoveLinks: true,
-            removedfile: function(file) {
+            removedfile: function (file) {
                 var name = file.name;
                 $.ajax({
                     type: 'POST',
                     url: '/delete',
-                    data: "id="+name,
+                    data: "id=" + name,
                     dataType: 'html'
                 });
+                console.log(file.name);
+
+                $("#imageResList").children().each(function() {
+                    if($(this).attr("id") === file.name) {
+                        $(this).remove();
+                    }
+                });
+
                 var _ref;
                 return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
             },

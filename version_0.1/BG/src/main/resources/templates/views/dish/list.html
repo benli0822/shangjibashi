@@ -48,11 +48,10 @@
                 <div class="row-fluid">
                     <ul class="ace-thumbnails">
                         <li th:each="dish : ${dishes}">
-                            <a href="../../../static/images/gallery/image-1.jpg"
-                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
+                            <a title="Photo Title"
                                data-rel="colorbox">
-                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
-                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
+
+                                <img th:each="file : ${dish.files}" alt="1	50x150" th:src="${file.location} + '' + ${file.name}"/>
 
                                 <div class="tags">
 													<span class="label-holder" th:each="tag : ${dish.types}">
