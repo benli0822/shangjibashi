@@ -14,12 +14,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView
 estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 64;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 64;
 }
 
 
@@ -45,6 +45,19 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //设置数据
     //FCDoubleBet* doubleBet = _data[indexPath.row];
     cell.firstMenuLabel.text = _data[indexPath.row];
+    
+    //设置背景色
+    //UIColor *backColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+    //cell.backgroundColor = backColor;
+    UIColor *foreColor = [UIColor colorWithRed:237.0/255.0 green:85.0/255.0 blue:56.0/255.0 alpha:1];
+    cell.firstMenuLabel.textColor = foreColor;
+    
+    //set selected
+    cell.firstMenuLabel.highlightedTextColor = [UIColor whiteColor];
+    UIView *mySelectedBgView = [[UIView alloc] initWithFrame:cell.frame];
+    mySelectedBgView.backgroundColor =[UIColor colorWithRed:237.0/255.0 green:85.0/255.0 blue:56.0/255.0 alpha:1];
+    cell.selectedBackgroundView = mySelectedBgView;
+    
     
     return cell;
 }

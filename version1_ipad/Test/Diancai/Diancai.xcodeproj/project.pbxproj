@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */; };
+		3C2317391A6EAF42002C823B /* MYUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2317381A6EAF42002C823B /* MYUtil.m */; };
 		3C35516F1A655552008B5EF2 /* MDMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C35516E1A655552008B5EF2 /* MDMenuHelper.m */; };
 		3C3551721A658337008B5EF2 /* MDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3551711A658337008B5EF2 /* MDSettingViewController.m */; };
 		3C58D70F1A6E858E00847FF7 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3C58D70E1A6E858E00847FF7 /* database.sqlite */; };
@@ -107,6 +108,8 @@
 		3C156A031A115C8000ABF5D1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3C1E6EE719D21B40007ADBB0 /* MDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuViewController.h; path = ViewController/Menu/MDMenuViewController.h; sourceTree = "<group>"; };
 		3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuViewController.m; path = ViewController/Menu/MDMenuViewController.m; sourceTree = "<group>"; };
+		3C2317371A6EAF42002C823B /* MYUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYUtil.h; path = Helper/MYUtil.h; sourceTree = "<group>"; };
+		3C2317381A6EAF42002C823B /* MYUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MYUtil.m; path = Helper/MYUtil.m; sourceTree = "<group>"; };
 		3C35516D1A655552008B5EF2 /* MDMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuHelper.h; path = Helper/MDMenuHelper.h; sourceTree = "<group>"; };
 		3C35516E1A655552008B5EF2 /* MDMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuHelper.m; path = Helper/MDMenuHelper.m; sourceTree = "<group>"; };
 		3C3551701A658337008B5EF2 /* MDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSettingViewController.h; path = ViewController/MDSettingViewController.h; sourceTree = "<group>"; };
@@ -306,8 +309,8 @@
 		3C1E6EEA19D21B6F007ADBB0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */,
 				3CE25F051A0B860900DD249B /* DishCollectionViewCell.h */,
+				3CE25F041A0B860900DD249B /* DishCollectionViewCell.m */,
 				3CD820961A1174D40024823C /* DishCollectionViewCell.xib */,
 				3CD820AE1A1292C90024823C /* MDFirstMenuTableCell.h */,
 				3CD820AF1A1292C90024823C /* MDFirstMenuTableCell.m */,
@@ -393,11 +396,6 @@
 			isa = PBXGroup;
 			children = (
 				3C58D70E1A6E858E00847FF7 /* database.sqlite */,
-				3C8EFD571A66622A001F1B22 /* libz.dylib */,
-				3C8EFD551A666222001F1B22 /* CoreGraphics.framework */,
-				3C8EFD531A66621B001F1B22 /* MobileCoreServices.framework */,
-				3C8EFD511A666212001F1B22 /* SystemConfiguration.framework */,
-				3C8EFD4F1A666203001F1B22 /* CFNetwork.framework */,
 				3CC8530E19D0596800668F13 /* Diancai */,
 				3CC8532819D0596900668F13 /* DiancaiTests */,
 				3CC8530D19D0596800668F13 /* Products */,
@@ -501,6 +499,11 @@
 		3CD70F541A0AC53300BDA022 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3C8EFD571A66622A001F1B22 /* libz.dylib */,
+				3C8EFD551A666222001F1B22 /* CoreGraphics.framework */,
+				3C8EFD531A66621B001F1B22 /* MobileCoreServices.framework */,
+				3C8EFD511A666212001F1B22 /* SystemConfiguration.framework */,
+				3C8EFD4F1A666203001F1B22 /* CFNetwork.framework */,
 				3C5C72FF1A6E687A00B4CB86 /* UIKit+AFNetworking */,
 				3C5C72FE1A6E686500B4CB86 /* AFNetworking */,
 				3CF8A4B71A38795B003FDD2A /* libsqlite3.dylib */,
@@ -600,6 +603,8 @@
 			children = (
 				3C35516D1A655552008B5EF2 /* MDMenuHelper.h */,
 				3C35516E1A655552008B5EF2 /* MDMenuHelper.m */,
+				3C2317371A6EAF42002C823B /* MYUtil.h */,
+				3C2317381A6EAF42002C823B /* MYUtil.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				TargetAttributes = {
 					3CC8530B19D0596800668F13 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 8R6CSB29D7;
 					};
 					3CC8532419D0596900668F13 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -743,6 +749,7 @@
 				3C5C73171A6E689000B4CB86 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3CE25EF71A0B838E00DD249B /* MDActivicy.m in Sources */,
 				3CE25F001A0B84BD00DD249B /* MDType.m in Sources */,
+				3C2317391A6EAF42002C823B /* MYUtil.m in Sources */,
 				3C5C73341A6E68A800B4CB86 /* AFURLSessionManager.m in Sources */,
 				3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */,
 				3C5C73131A6E689000B4CB86 /* UIAlertView+AFNetworking.m in Sources */,
@@ -948,6 +955,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Diancai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -958,6 +966,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Diancai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

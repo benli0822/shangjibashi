@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSString *imageName;
 @property (weak, nonatomic) IBOutlet UILabel *dishQuantityLabel;
 
+@property (strong, nonatomic) IBOutlet UIView *DetailView;
 
 @property (weak, nonatomic) MDDish *dish;
 

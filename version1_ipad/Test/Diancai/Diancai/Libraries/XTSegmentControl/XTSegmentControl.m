@@ -16,6 +16,8 @@
 
 #define XTSegmentControlAnimationTime (0.3)
 
+#define MDOrangeColor [UIColor colorWithRed:237.0/255.0 green:85.0/255.0 blue:56.0/255.0 alpha:1]
+
 @interface XTSegmentControlItem : UIView
 
 @property (nonatomic , strong) UILabel *titleLabel;
@@ -31,6 +33,7 @@
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(XTSegmentControlHspace, 0, CGRectGetWidth(self.bounds) - 2 * XTSegmentControlHspace, CGRectGetHeight(self.bounds))];
             label.font = [UIFont systemFontOfSize:XTSegmentControlItemFont];
             label.text = title;
+            label.textColor = MDOrangeColor;
             label.backgroundColor = [UIColor clearColor];
             label;
         });
@@ -180,7 +183,7 @@
     if (!_lineView) {
         CGRect rect = [_itemFrames[0] CGRectValue];
         _lineView = [[UIView alloc] initWithFrame:CGRectMake(XTSegmentControlHspace, CGRectGetHeight(rect) - XTSegmentControlLineHeight, CGRectGetWidth(rect) - 2 * XTSegmentControlHspace, XTSegmentControlLineHeight)];
-        _lineView.backgroundColor = [UIColor colorWithRed:0.776471 green:0.196078 blue:0.207843 alpha:1.0];
+        _lineView.backgroundColor = MDOrangeColor;
         [_contentView addSubview:_lineView];
     }
 }

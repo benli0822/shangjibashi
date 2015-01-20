@@ -9,8 +9,13 @@
 #import "MDDishPopoverControllerViewController.h"
 #import "MDDish.h"
 #import "MDUserCommand.h"
+#import "MYUtil.h"
 
-@interface MDDishPopoverControllerViewController ()
+#define MDPopupFrameSize CGSizeMake(470.0, 390.0)
+
+@interface MDDishPopoverControllerViewController (){
+    BOOL _setted;
+}
 
 @end
 
@@ -30,7 +35,7 @@
 //    [_dishQuantityTextField resignFirstResponder];
     // Do any additional setup after loading the view from its nib.
     
-    self.preferredContentSize = CGSizeMake(400.0, 300.0);
+    self.preferredContentSize =MDPopupFrameSize;
     
     
     //设置名字
@@ -45,10 +50,32 @@
     //_dishQuantityTextField.keyboardType = UIKeyboardTypePhonePad;
     _dishQuantityLabel.text=@"1";
     
-    //设置图片
-    _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]];
-
+    //设置背景图片
+    //_imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]];
+   
+//    UIImage *background = [MYUtil imageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]] scaledToSize:MDPopupFrameSize];
     
+    
+    
+    UIImage *background = [MYUtil imageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]]  targetSize:MDPopupFrameSize];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
+    
+    [self.view addSubview: imageView];
+    [self.view sendSubviewToBack:imageView];
+    
+    
+    
+    //add jian bian
+    
+    
+       
+//        CAGradientLayer *gradientLayer=[CAGradientLayer layer];
+//        [gradientLayer setFrame:[_DetailView bounds]];
+//        [gradientLayer setColors:@[(id)[UIColor clearColor].CGColor,(id)[UIColor whiteColor].CGColor]];
+//        [gradientLayer setLocations:@[[NSNumber numberWithFloat:0.00f], [NSNumber numberWithFloat:1.0f]]];
+//        [[_DetailView layer] insertSublayer:gradientLayer atIndex:0];
+//   
+
     
     
 }
