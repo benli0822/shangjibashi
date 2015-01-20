@@ -28,6 +28,7 @@ import java.util.*;
  * Created by JIN Benli on 24/09/14.
  */
 @Controller
+@RequestMapping(value = "/dish")
 public class DishController {
     private static final Logger logger = LoggerFactory.getLogger(DishController.class);
 
@@ -52,14 +53,14 @@ public class DishController {
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/dish", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String dish(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-        model.addAttribute("dishList", dishRepository.findAll());
+        model.addAttribute("dishes", dishRepository.findAll());
 
         String formattedDate = dateFormat.format(date);
 
@@ -68,7 +69,7 @@ public class DishController {
         return "views/dish/list";
     }
 
-    @RequestMapping(value = "/dish/property", method = RequestMethod.GET)
+    @RequestMapping(value = "/property", method = RequestMethod.GET)
     public String property(Locale locale, Model model) {
         return "views/dish/property";
     }
@@ -76,7 +77,7 @@ public class DishController {
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/dish/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addNewDish(Dish dish, Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -108,7 +109,7 @@ public class DishController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/dish/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String checkDishInfo(@Valid Dish dish, BindingResult bindingResult, Locale locale, ModelMap model, HttpServletRequest request) {
         logger.info("[DishesController: addNewDish], posting a new Dish");
         if (bindingResult.hasErrors()) {

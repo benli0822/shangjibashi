@@ -47,7 +47,7 @@
 
                 <div class="row-fluid">
                     <ul class="ace-thumbnails">
-                        <li>
+                        <li th:each="dish : ${dishes}">
                             <a href="../../../static/images/gallery/image-1.jpg"
                                th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
                                data-rel="colorbox">
@@ -55,24 +55,30 @@
                                      th:src="@{/images/gallery/thumb-1.jpg}"/>
 
                                 <div class="tags">
-													<span class="label-holder">
-														<span class="label label-info">breakfast</span>
+													<span class="label-holder" th:each="tag : ${dish.types}">
+
+                                                        <div th:switch="${tag.name}">
+                                                            <span class="label label-info" th:case="'plat'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-danger" th:case="'dessert'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-success" th:case="'drink'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-warning" th:case="'entree'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-warning arrowed-in"
+                                                                  th:case="'choix de chef'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="" th:case="'all_data'"></span>
+                                                            <span class="label label-purple arrowed-in" th:case="*"
+                                                                  th:text="${tag.description}"></span>
+                                                        </div>
 													</span>
 
-													<span class="label-holder">
-														<span class="label label-danger">fruits</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-success">toast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-warning arrowed-in">diet</span>
-													</span>
                                 </div>
                             </a>
 
+                            <!--//TODO dishes opeartions need to be done-->
                             <div class="tools">
                                 <a href="#">
                                     <i class="icon-link"></i>
@@ -90,146 +96,9 @@
                                     <i class="icon-remove red"></i>
                                 </a>
                             </div>
-                            <div class="center"><p>first palt</p></div>
+                            <div class="center"><p th:text="${dish.name}"></p></div>
                         </li>
 
-                        <li>
-                            <a href="../../../static/images/gallery/image-1.jpg"
-                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                               data-rel="colorbox">
-                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
-                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
-
-                                <div class="tags">
-													<span class="label-holder">
-														<span class="label label-info">breakfast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-danger">fruits</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-success">toast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-warning arrowed-in">diet</span>
-													</span>
-                                </div>
-                            </a>
-
-                            <div class="tools">
-                                <a href="#">
-                                    <i class="icon-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-paper-clip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-remove red"></i>
-                                </a>
-                            </div>
-                            <div class="center"><p>first palt</p></div>
-                        </li>
-
-                        <li>
-                            <a href="../../../static/images/gallery/image-1.jpg"
-                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                               data-rel="colorbox">
-                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
-                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
-
-                                <div class="tags">
-													<span class="label-holder">
-														<span class="label label-info">breakfast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-danger">fruits</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-success">toast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-warning arrowed-in">diet</span>
-													</span>
-                                </div>
-                            </a>
-
-                            <div class="tools">
-                                <a href="#">
-                                    <i class="icon-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-paper-clip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-remove red"></i>
-                                </a>
-                            </div>
-                            <div class="center"><p>first palt</p></div>
-                        </li>
-
-                        <li>
-                            <a href="../../../static/images/gallery/image-1.jpg"
-                               th:href="@{/images/gallery/image-1.jpg}" title="Photo Title"
-                               data-rel="colorbox">
-                                <img alt="1	50x150" src="../../../static/images/gallery/thumb-1.jpg"
-                                     th:src="@{/images/gallery/thumb-1.jpg}"/>
-
-                                <div class="tags">
-													<span class="label-holder">
-														<span class="label label-info">breakfast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-danger">fruits</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-success">toast</span>
-													</span>
-
-													<span class="label-holder">
-														<span class="label label-warning arrowed-in">diet</span>
-													</span>
-                                </div>
-                            </a>
-
-                            <div class="tools">
-                                <a href="#">
-                                    <i class="icon-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-paper-clip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="icon-remove red"></i>
-                                </a>
-                            </div>
-                            <div class="center"><p>first palt</p></div>
-                        </li>
                     </ul>
                 </div>
             </div>
