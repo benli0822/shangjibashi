@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C1E6EE919D21B40007ADBB0 /* MDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */; };
+		3C2317391A6EAF42002C823B /* MYUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2317381A6EAF42002C823B /* MYUtil.m */; };
 		3C35516F1A655552008B5EF2 /* MDMenuHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C35516E1A655552008B5EF2 /* MDMenuHelper.m */; };
 		3C3551721A658337008B5EF2 /* MDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3551711A658337008B5EF2 /* MDSettingViewController.m */; };
 		3C58D70F1A6E858E00847FF7 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3C58D70E1A6E858E00847FF7 /* database.sqlite */; };
@@ -107,6 +108,8 @@
 		3C156A031A115C8000ABF5D1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3C1E6EE719D21B40007ADBB0 /* MDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuViewController.h; path = ViewController/Menu/MDMenuViewController.h; sourceTree = "<group>"; };
 		3C1E6EE819D21B40007ADBB0 /* MDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuViewController.m; path = ViewController/Menu/MDMenuViewController.m; sourceTree = "<group>"; };
+		3C2317371A6EAF42002C823B /* MYUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MYUtil.h; path = Helper/MYUtil.h; sourceTree = "<group>"; };
+		3C2317381A6EAF42002C823B /* MYUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MYUtil.m; path = Helper/MYUtil.m; sourceTree = "<group>"; };
 		3C35516D1A655552008B5EF2 /* MDMenuHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMenuHelper.h; path = Helper/MDMenuHelper.h; sourceTree = "<group>"; };
 		3C35516E1A655552008B5EF2 /* MDMenuHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMenuHelper.m; path = Helper/MDMenuHelper.m; sourceTree = "<group>"; };
 		3C3551701A658337008B5EF2 /* MDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSettingViewController.h; path = ViewController/MDSettingViewController.h; sourceTree = "<group>"; };
@@ -600,6 +603,8 @@
 			children = (
 				3C35516D1A655552008B5EF2 /* MDMenuHelper.h */,
 				3C35516E1A655552008B5EF2 /* MDMenuHelper.m */,
+				3C2317371A6EAF42002C823B /* MYUtil.h */,
+				3C2317381A6EAF42002C823B /* MYUtil.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -744,6 +749,7 @@
 				3C5C73171A6E689000B4CB86 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3CE25EF71A0B838E00DD249B /* MDActivicy.m in Sources */,
 				3CE25F001A0B84BD00DD249B /* MDType.m in Sources */,
+				3C2317391A6EAF42002C823B /* MYUtil.m in Sources */,
 				3C5C73341A6E68A800B4CB86 /* AFURLSessionManager.m in Sources */,
 				3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */,
 				3C5C73131A6E689000B4CB86 /* UIAlertView+AFNetworking.m in Sources */,
