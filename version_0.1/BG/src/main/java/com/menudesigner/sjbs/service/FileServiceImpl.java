@@ -76,6 +76,8 @@ public class FileServiceImpl implements FileService {
 
         logger.debug("File " + theFile.toString() + " Dish " + theDish.toString());
 
+        assert theFile != null;
+        assert theDish != null;
         // first check the association
         if(!theFile.getDishes().contains(theDish)) {
             theFile.addDish(theDish);

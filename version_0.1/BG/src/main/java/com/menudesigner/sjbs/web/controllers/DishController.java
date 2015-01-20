@@ -1,12 +1,15 @@
 package com.menudesigner.sjbs.web.controllers;
 
 import com.menudesigner.sjbs.domain.Dish;
+import com.menudesigner.sjbs.domain.File;
 import com.menudesigner.sjbs.domain.Option;
 import com.menudesigner.sjbs.domain.Type;
 import com.menudesigner.sjbs.service.DishService;
+import com.menudesigner.sjbs.service.FileService;
 import com.menudesigner.sjbs.service.OptionService;
 import com.menudesigner.sjbs.service.TypeService;
 import com.menudesigner.sjbs.service.repository.DishRepository;
+import com.menudesigner.sjbs.service.repository.FileRepository;
 import com.menudesigner.sjbs.service.repository.OptionRepository;
 import com.menudesigner.sjbs.service.repository.TypeRepository;
 import org.slf4j.Logger;
@@ -28,6 +31,7 @@ import java.util.*;
  * Created by JIN Benli on 24/09/14.
  */
 @Controller
+@RequestMapping(value = "/dish")
 public class DishController {
     private static final Logger logger = LoggerFactory.getLogger(DishController.class);
 
@@ -49,17 +53,23 @@ public class DishController {
     @Autowired
     private OptionService optionService;
 
+    @Autowired
+    private FileService fileService;
+
+    @Autowired
+    private FileRepository fileRepository;
+
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/dish", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String dish(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-        model.addAttribute("dishList", dishRepository.findAll());
+        model.addAttribute("dishes", dishRepository.findAll());
 
         String formattedDate = dateFormat.format(date);
 
@@ -68,15 +78,18 @@ public class DishController {
         return "views/dish/list";
     }
 
-    @RequestMapping(value = "/dish/property", method = RequestMethod.GET)
+    @RequestMapping(value = "/property", method = RequestMethod.GET)
     public String property(Locale locale, Model model) {
+        logger.info("[DishController: property] Called");
+
+        model.addAttribute("types", typeRepository.findAll());
         return "views/dish/property";
     }
 
     /**
      * Simply selects the home view to render by returning its name.
      */
-    @RequestMapping(value = "/dish/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addNewDish(Dish dish, Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -108,7 +121,7 @@ public class DishController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/dish/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String checkDishInfo(@Valid Dish dish, BindingResult bindingResult, Locale locale, ModelMap model, HttpServletRequest request) {
         logger.info("[DishesController: addNewDish], posting a new Dish");
         if (bindingResult.hasErrors()) {
@@ -121,6 +134,7 @@ public class DishController {
         List<Type> type1List;
         List<Type> type2List = new ArrayList<>();
         List<Option> optionList = new ArrayList<>();
+        List<File> imageList = new ArrayList<>();
         Type type1 = null;
         // get the keyword from http request
         Map<String, String[]> parameterMap = request.getParameterMap();
@@ -134,7 +148,7 @@ public class DishController {
             }
             if (entry.getKey().equals("typeSelector2")) {
                 String[] type2_key = entry.getValue();
-                for(String s : type2_key) {
+                for (String s : type2_key) {
                     logger.info("Found key " + s);
                     List<Type> tempList = typeRepository.findTypeByName(s);
                     for (Type t : tempList) {
@@ -151,6 +165,17 @@ public class DishController {
                 for (Option o : tempList) {
                     if (!optionList.contains(o)) {
                         optionList.add(o);
+                    }
+                }
+            }
+            if (entry.getKey().equals("image")) {
+                String[] option_key = entry.getValue();
+
+                for (String s : option_key) {
+                    logger.info("Found key " + s);
+                    File file = fileRepository.findOne(Long.parseLong(s));
+                    if (!imageList.contains(file)) {
+                        imageList.add(file);
                     }
                 }
             }
@@ -181,6 +206,13 @@ public class DishController {
         if (optionList.size() != 0) {
             for (Option o : optionList) {
                 boolean res = optionService.addOptionToDish(id, o.getId());
+                assert res;
+            }
+        }
+
+        if (imageList.size() != 0) {
+            for (File f : imageList) {
+                boolean res = fileService.addFileToDish(id, f.getId());
                 assert res;
             }
         }

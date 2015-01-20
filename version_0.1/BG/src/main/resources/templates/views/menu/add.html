@@ -112,28 +112,24 @@
                                 </ul>
                             </div>
 
-                            <hr />
+                            <hr/>
                             <div class="step-content row-fluid position-relative" id="step-container">
                                 <div class="step-pane active" id="step1">
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <!-- PAGE CONTENT BEGINS -->
 
+                                            <h3 class="lighter block green">Drag and drop to the place you want to put
+                                                your dishes</h3>
+
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <h4>Dishes</h4>
 
-                                                    <ul id="sortable1" class="droptrue sortable">
-                                                        <li class="ui-state-default">Dish1</li>
-                                                        <li class="ui-state-default">Dish2</li>
-                                                        <li class="ui-state-default">Dish3</li>
-                                                        <li class="ui-state-default">Dish4</li>
-                                                        <li class="ui-state-default">Dish5</li>
-                                                        <li class="ui-state-default">Dish1</li>
-                                                        <li class="ui-state-default">Dish2</li>
-                                                        <li class="ui-state-default">Dish3</li>
-                                                        <li class="ui-state-default">Dish4</li>
-                                                        <li class="ui-state-default">Dish5</li>
+                                                    <ul id="sortable1" class="droptrue sortable"
+                                                        style="height:35em; overflow:auto;">
+                                                        <li class="ui-state-default" th:each="dish : ${dishes}"
+                                                            th:text="${dish.description}" th:id="${dish.id}"></li>
                                                     </ul>
                                                 </div>
 
@@ -175,72 +171,125 @@
                                 </div>
 
                                 <div class="step-pane" id="step2">
-                                    <div class="row-fluid">
-                                        <div class="alert alert-success">
-                                            <button type="button" class="close" data-dismiss="alert">
-                                                <i class="icon-remove"></i>
-                                            </button>
 
-                                            <strong>
-                                                <i class="icon-ok"></i>
-                                                Well done!
-                                            </strong>
+                                    <form class="form-horizontal" role="form">
+                                        <h3 class="lighter block green">Menu's information</h3>
 
-                                            You successfully read this important alert message.
-                                            <br />
+                                        <div class="form-group">
+                                            <label for="menuName"
+                                                   class="col-xs-12 col-sm-3 control-label no-padding-right">Menu
+                                                Name</label>
+
+                                            <div class="col-xs-12 col-sm-5">
+																		<span class="block input-icon input-icon-right">
+																			<input type="text" id="menuName"
+                                                                                   class="width-100"/>
+																		</span>
+                                            </div>
+                                            <div class="help-block col-xs-12 col-sm-reset inline">
+                                                Warning tip help!
+                                            </div>
                                         </div>
 
-                                        <div class="alert alert-danger">
-                                            <button type="button" class="close" data-dismiss="alert">
-                                                <i class="icon-remove"></i>
-                                            </button>
 
-                                            <strong>
-                                                <i class="icon-remove"></i>
-                                                Oh snap!
-                                            </strong>
+                                        <h3 class="lighter block green">Choose your dish's quantities</h3>
 
-                                            Change a few things up and try submitting again.
-                                            <br />
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="widget-box center">
+                                                    <div class="widget-header">
+                                                        <h4>First dish</h4>
+                                                    </div>
+
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <label for="dish1">Dish1</label>
+                                                            <span></span>
+                                                            <input type="text" class="input-mini dish" id="dish1"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-box center">
+                                                    <div class="widget-header">
+                                                        <h4>First dish</h4>
+                                                    </div>
+
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <label for="dish2">Dish2</label>
+                                                            <span></span>
+                                                            <input type="text" class="input-mini dish" id="dish2"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-6">
+                                                <div class="widget-box center">
+                                                    <div class="widget-header">
+                                                        <h4>First dish</h4>
+                                                    </div>
+
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <label for="dish1">Dish3</label>
+                                                            <span></span>
+                                                            <input type="text" class="input-mini dish" id="dish3"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-box center">
+                                                    <div class="widget-header">
+                                                        <h4>First dish</h4>
+                                                    </div>
+
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <label for="dish4">Dish1</label>
+                                                            <span></span>
+                                                            <input type="text" class="input-mini dish" id="dish4"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                    </form>
 
-                                        <div class="alert alert-warning">
-                                            <button type="button" class="close" data-dismiss="alert">
-                                                <i class="icon-remove"></i>
-                                            </button>
-                                            <strong>Warning!</strong>
 
-                                            Best check yo self, you're not looking too good.
-                                            <br />
-                                        </div>
-
-                                        <div class="alert alert-info">
-                                            <button type="button" class="close" data-dismiss="alert">
-                                                <i class="icon-remove"></i>
-                                            </button>
-                                            <strong>Heads up!</strong>
-
-                                            This alert needs your attention, but it's not super important.
-                                            <br />
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="step-pane" id="step3">
-                                    <div class="center">
-                                        <h3 class="blue lighter">This is step 3</h3>
-                                    </div>
+                                    <h3 class="blue lighter">Menu's receipt</h3>
+
+                                    <form class="form-horizontal" role="form">
+
+                                        <div class="form-group">
+                                            <label for="menuName"
+                                                   class="col-xs-12 col-sm-3 control-label no-padding-right">Menu
+                                                Name</label>
+
+                                            <div class="col-xs-12 col-sm-5">
+																		<span class="block input-icon input-icon-right">
+																			<input type="text" id="menuName"
+                                                                                   class="width-100"/>
+																		</span>
+                                            </div>
+                                            <!--<div class="help-block col-xs-12 col-sm-reset inline">-->
+                                                <!--Warning tip help!-->
+                                            <!--</div>-->
+                                        </div>
+                                    </form>
                                 </div>
 
                                 <div class="step-pane" id="step4">
                                     <div class="center">
                                         <h3 class="green">Congrats!</h3>
-                                        Your product is ready to ship! Click finish to continue!
+                                        Your menu has been added! Click finish to continue!
                                     </div>
                                 </div>
                             </div>
 
-                            <hr />
+                            <hr/>
                             <div class="row-fluid wizard-actions">
                                 <button class="btn btn-prev">
                                     <i class="icon-arrow-left"></i>
@@ -252,11 +301,14 @@
                                     <i class="icon-arrow-right icon-on-right"></i>
                                 </button>
                             </div>
-                        </div><!-- /widget-main -->
-                    </div><!-- /widget-body -->
+                        </div>
+                        <!-- /widget-main -->
+                    </div>
+                    <!-- /widget-body -->
                 </div>
             </div>
-        </div><!-- PAGE CONTENT ENDS -->
+        </div>
+        <!-- PAGE CONTENT ENDS -->
     </div>
     <!-- /.page-content -->
 </div>
@@ -269,6 +321,9 @@
     <script th:src="@{/js/fuelux/fuelux.wizard.min.js}"></script>
     <script th:src="@{/js/bootbox.min.js}"></script>
     <script th:src="@{/js/additional-methods.min.js}"></script>
+    <script th:src="@{/js/jquery-ui-1.10.3.full.min.js}"></script>
+    <script th:src="@{/js/jquery.ui.touch-punch.min.js}"></script>
+    <script th:src="@{/js/fuelux/fuelux.spinner.min.js}"></script>
 
     <script th:inline="javascript">
         $(document).ready(function () {
@@ -281,25 +336,38 @@
             $("#sortable1, #sortable2").disableSelection();
 
             /*<![CDATA[*/
-            jQuery(function($) {
+            jQuery(function ($) {
 
                 $('[data-rel=tooltip]').tooltip();
 
-                $('#fuelux-wizard').ace_wizard().on('change' , function(e, info){
+                $('#fuelux-wizard').ace_wizard().on('change', function (e, info) {
                     // wizard operation
 
-                }).on('finished', function(e) {
+                }).on('finished', function (e) {
                     bootbox.dialog({
                         message: "Thank you! Your information was successfully saved!",
                         buttons: {
-                            "success" : {
-                                "label" : "OK",
-                                "className" : "btn-sm btn-primary"
+                            "success": {
+                                "label": "OK",
+                                "className": "btn-sm btn-primary"
                             }
                         }
                     });
-                }).on('stepclick', function(e){
+                }).on('stepclick', function (e) {
                     //return false;//prevent clicking on steps
+                });
+
+                //spinner
+                $('.dish').ace_spinner({
+                    value: 0,
+                    min: -100,
+                    max: 100,
+                    step: 1,
+                    on_sides: true,
+                    icon_up: 'icon-plus smaller-75',
+                    icon_down: 'icon-minus smaller-75',
+                    btn_up_class: 'btn-success',
+                    btn_down_class: 'btn-danger'
                 });
             });
             /*]]>*/
