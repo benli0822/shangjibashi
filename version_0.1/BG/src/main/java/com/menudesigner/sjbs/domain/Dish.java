@@ -1,5 +1,6 @@
 package com.menudesigner.sjbs.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -59,22 +60,28 @@ public class Dish implements Serializable {
     @Column(name = "end_date")
     private Date end_date = new Date(new java.util.Date().getDate());
 
+    @JsonIgnore
     @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<ActivityDish> activities = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<CommandDish> commands = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<MenuDish> menus = new HashSet<>();
 
     //TODO manytomany annotation should also be donned with mappedBy
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<Type> types = new HashSet<>();
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<File> files = new HashSet<>();
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
     private Set<Option> options = new HashSet<>();
 

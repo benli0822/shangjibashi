@@ -82,7 +82,7 @@ public class DishController {
     public String property(Locale locale, Model model) {
         logger.info("[DishController: property] Called");
 
-        model.addAttribute("types", typeRepository.findAll());
+//        model.addAttribute("types", typeRepository.findAll());
         return "views/dish/property";
     }
 
