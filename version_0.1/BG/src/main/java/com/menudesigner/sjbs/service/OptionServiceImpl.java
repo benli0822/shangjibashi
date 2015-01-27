@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 13/01/15.
@@ -91,6 +92,29 @@ public class OptionServiceImpl implements OptionService {
         }
 
         logger.debug("Remove finish");
+        return true;
+    }
+
+    /**
+     * Remove a given dish from option
+     * @param dish
+     * @return
+     */
+    @Override
+    public boolean removeDishFromOption(Dish dish) {
+        assert dishRepository.exists(dish.getId());
+
+        List<Option> optionList = (List<Option>) optionRepository.findAll();
+
+        for(Option o : optionList) {
+            Set<Dish> dishSet = o.getDishes();
+            if(dishSet.contains(dish)) {
+                dishSet.remove(dish);
+                dish.getOptions().remove(o);
+                optionRepository.save(o);
+            }
+        }
+        dishRepository.save(dish);
         return true;
     }
 }

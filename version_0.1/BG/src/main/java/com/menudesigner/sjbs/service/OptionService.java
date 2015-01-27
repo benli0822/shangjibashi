@@ -1,5 +1,6 @@
 package com.menudesigner.sjbs.service;
 
+import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Option;
 
 /**
@@ -14,4 +15,6 @@ public interface OptionService {
     boolean addOptionToDish(long dish_id, long option_id);
 
     boolean removeOption(String name);
+
+    boolean removeDishFromOption(Dish dish);
 }
