@@ -21,6 +21,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -218,6 +220,13 @@ public class DishController {
         }
 
         return "views/dish/add";
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public @ResponseBody boolean removeDish(@RequestParam(value = "id", required = true)int id) {
+        Dish dish = dishRepository.findOne((long)id);
+        assert dish != null;
+        return dishService.removeDish(dish.getName());
     }
 
 

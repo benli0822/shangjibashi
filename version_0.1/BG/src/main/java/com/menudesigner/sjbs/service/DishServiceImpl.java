@@ -28,10 +28,31 @@ public class DishServiceImpl implements DishService {
 
     private final DishRepository dishRepository;
 
+    private final TypeService typeService;
+
+    private final OptionService optionService;
+
+    private final FileService fileService;
+
+    private final DishService dishService;
+
+    private final MenuService menuService;
+
+    private final ActivityService activityService;
+
     @Autowired
-    public DishServiceImpl(DishRepository dishRepository) {
+    public DishServiceImpl(DishRepository dishRepository, TypeService typeService, OptionService optionService, FileService fileService, DishService dishService, MenuService menuService, ActivityService activityService) {
         this.dishRepository = dishRepository;
+        this.typeService = typeService;
+        this.optionService = optionService;
+        this.fileService = fileService;
+        this.dishService = dishService;
+        this.menuService = menuService;
+        this.activityService = activityService;
     }
+
+    @Autowired
+
 
     /**
      * Adding a dish with checking its uniqueness
@@ -115,6 +136,21 @@ public class DishServiceImpl implements DishService {
             while (iterator.hasNext()) {
                 Dish dish = iterator.next();
                 logger.debug("Deleted dish " + dish.toString());
+                // when the dish has been found, first should check all its associations
+                // type association
+                boolean res1 = typeService.removeDishFromType(dish);
+                assert res1;
+                // menu association
+                boolean res2 = menuService.removeDishFromMenu(dish);
+                assert res2;
+                // activity association
+
+                // option association
+
+                // file association, caution here should determine if we really need to delete the file
+
+                // command ? should be considered, if this will crash all database
+
                 dishRepository.delete(dish);
             }
             logger.info("Dish removed!");

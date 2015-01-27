@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 21/12/14.
@@ -137,5 +138,25 @@ public class TypeServiceImpl implements TypeService {
             conflict_type.addConflictType(type);
             return true;
         }
+    }
+
+    /**
+     * Remove association with given dish
+     * @param dish
+     * @return
+     */
+    @Override
+    public boolean removeDishFromType(Dish dish) {
+        assert dishRepository.exists(dish.getId());
+
+        List<Type> typeList = (List<Type>) typeRepository.findAll();
+
+        for(Type t : typeList) {
+            Set<Dish> dishSet = t.getDishes();
+            if(dishSet.contains(dish)) {
+                dishSet.remove(dish);
+            }
+        }
+        return true;
     }
 }

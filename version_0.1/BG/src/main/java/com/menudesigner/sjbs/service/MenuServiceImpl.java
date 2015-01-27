@@ -16,6 +16,7 @@ import javax.transaction.Transactional;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by JIN Benli on 24/12/14.
@@ -129,6 +130,32 @@ public class MenuServiceImpl implements MenuService {
         }
 
         logger.debug("Remove finish");
+        return true;
+    }
+
+    /**
+     * Remove the given dish from menu
+     * @param dish
+     * @return
+     */
+    @Override
+    public boolean removeDishFromMenu(Dish dish) {
+        assert dishRepository.exists(dish.getId());
+
+        List<Menu> menuList = (List<Menu>) menuRepository.findAll();
+        List<MenuDish> menuDishList = (List<MenuDish>) menuDishRepository.findAll();
+
+        for(MenuDish md : menuDishList) {
+            if(md.getDish().equals(dish)) {
+                menuDishRepository.delete(md);
+
+                // check if the relation has been removed from menu entity
+                for(Menu m : menuList) {
+                    Set<MenuDish> menuSet = m.getDishes();
+                    assert !menuSet.contains(md);
+                }
+            }
+        }
         return true;
     }
 }

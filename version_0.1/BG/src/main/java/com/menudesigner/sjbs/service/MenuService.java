@@ -1,5 +1,6 @@
 package com.menudesigner.sjbs.service;
 
+import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Menu;
 
 import java.sql.Date;
@@ -64,4 +65,11 @@ public interface MenuService {
      * @return
      */
     boolean removeMenu(String name);
+
+    /**
+     * Remove the given dish from menu
+     * @param dish
+     * @return
+     */
+    boolean removeDishFromMenu(Dish dish);
 }

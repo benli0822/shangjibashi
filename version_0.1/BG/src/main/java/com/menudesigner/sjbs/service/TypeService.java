@@ -1,5 +1,6 @@
 package com.menudesigner.sjbs.service;
 
+import com.menudesigner.sjbs.domain.Dish;
 import com.menudesigner.sjbs.domain.Type;
 
 /**
@@ -40,6 +41,13 @@ public interface TypeService {
      * @return
      */
     boolean addConflictToType(long type_id, long conflict_type_id);
+
+    /**
+     * Remove the dish from existing types
+     * @param dish
+     * @return
+     */
+    boolean removeDishFromType(Dish dish);
 
     // TODO Customize type operation
 }

@@ -51,7 +51,8 @@
                             <a title="Photo Title"
                                data-rel="colorbox">
 
-                                <img th:each="file : ${dish.files}" alt="1	50x150" th:src="${file.location} + '' + ${file.name}"/>
+                                <img th:each="file : ${dish.files}" alt="1	50x150"
+                                     th:src="${file.location} + '' + ${file.name}"/>
 
                                 <div class="tags">
 													<span class="label-holder" th:each="tag : ${dish.types}">
@@ -91,7 +92,7 @@
                                     <i class="icon-pencil"></i>
                                 </a>
 
-                                <a href="#">
+                                <a href="#" th:id="${dish.id + '_remove'}">
                                     <i class="icon-remove red"></i>
                                 </a>
                             </div>
@@ -112,6 +113,24 @@
         $(document).ready(function () {
             $("#nav-dish").attr("class", "active open");
             $("#nav-listdish").attr("class", "active");
+
+            $("a").click(function () {
+                var id = $(this).attr("id").split("_");
+                console.log(id);
+                switch (id[1]) {
+                    case 'remove' :
+                        $.ajax({
+                            url: "/dish/remove",
+                            type:"post",
+                            data: {
+                                id: id[0]
+                            },
+                            success: function() {
+                                document.location.reload();
+                            }
+                        });
+                }
+            });
         })
     </script>
 </div>
