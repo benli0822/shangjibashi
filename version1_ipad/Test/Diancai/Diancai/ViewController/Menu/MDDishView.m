@@ -25,7 +25,7 @@
     
     [_dish_data removeAllObjects];
     __weak typeof(self) weakSelf = self;
-
+    
     [weakSelf reloadListViewDataSource:array];
     
 }
@@ -45,13 +45,13 @@
         
         
         _dish_data = @[].mutableCopy;
-
+        
         [self addContentView];
         
         [_contentCollectionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
         
         
-               
+        
     }
     
     return self;
@@ -64,7 +64,7 @@
     _contentCollectionView = ({
         
         
-         UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+        UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         collectionView.alwaysBounceVertical = YES;
@@ -76,7 +76,7 @@
         [self addSubview:collectionView];
         collectionView;
     });
-
+    
 }
 
 #pragma mark collection view DataSource
@@ -99,6 +99,12 @@
     return 10;
 }
 
+//定义上左下右边距
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(0,30,0,10);
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *identifier = @"Cell";
@@ -108,35 +114,45 @@
     //cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
     
     
-   
-        
-        MDDish* dish = [_dish_data objectAtIndex:indexPath.row];
-        
-        cell.platNameLabel.text =[dish name];
-//        cell.platNameLabel.text =[[_dish_data objectAtIndex:indexPath.row] substringToIndex:[[_dish_data objectAtIndex:indexPath.row] length] -4 ];
-        
-        //设置图片
-        //[cell setImage:(NSString *)[_dish_data objectAtIndex:indexPath.row]];
-        [cell setImage:[NSString stringWithFormat:@"%@.jpg",[dish name]]];
     
-        
-        //设置价格
-        cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[dish price]];
     
-   
-       return cell;
+    MDDish* dish = [_dish_data objectAtIndex:indexPath.row];
+    
+    cell.platNameLabel.text =[dish name];
+    //        cell.platNameLabel.text =[[_dish_data objectAtIndex:indexPath.row] substringToIndex:[[_dish_data objectAtIndex:indexPath.row] length] -4 ];
+    
+    //设置图片
+    //[cell setImage:(NSString *)[_dish_data objectAtIndex:indexPath.row]];
+    [cell setImage:[NSString stringWithFormat:@"%@.jpg",[dish name]]];
+    
+    
+    //设置价格
+    cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[dish price]];
+    
+    
+    //add shadow to layer
+//    cell.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
+//    cell.layer.shadowOffset = CGSizeMake(4,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+//    cell.layer.shadowOpacity = 0.1;//阴影透明度，默认0
+//    cell.layer.shadowRadius = 3;//阴影半径，默认3
+//    cell.layer.masksToBounds = NO;
+//    cell.layer.shouldRasterize = YES;
+//    cell.layer.borderWidth = 0.1f;
+
+    
+    return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(230, 170);
+    return CGSizeMake(225, 170);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     [_contentCollectionView deselectItemAtIndexPath:indexPath animated:NO];
-   CGRect rect = CGRectMake(_contentCollectionView.frame.size.width/2, _contentCollectionView.frame.size.height/2, 1, 1);
+    CGRect rect = CGRectMake(_contentCollectionView.frame.size.width/2, _contentCollectionView.frame.size.height/2, 1, 1);
     
     MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"MDDishPopoverControllerViewController" bundle:nil];
     
@@ -145,10 +161,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     [PopoverView setPopoverWithData:[_dish_data objectAtIndex:indexPath.row]];
     UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
-     
+    
     
     [popOver presentPopoverFromRect:rect inView:_contentCollectionView permittedArrowDirections:0 animated:YES];
-  
+    
     //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
