@@ -44,10 +44,7 @@
     //设置价格
     _dishPriceLabel.text = [NSString stringWithFormat:@"%lu",[_dish price]];
     
-    //设置数量 初始化为1
-//    _dishQuantityTextField.text = [NSString stringWithFormat:@"%s","1"];
-//    [_dishQuantityTextField setDelegate:self];
-    //_dishQuantityTextField.keyboardType = UIKeyboardTypePhonePad;
+
     _dishQuantityLabel.text=@"1";
     
     //设置背景图片
@@ -55,29 +52,18 @@
    
 //    UIImage *background = [MYUtil imageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]] scaledToSize:MDPopupFrameSize];
     
-    
-    
     UIImage *background = [MYUtil imageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]]  targetSize:MDPopupFrameSize];
     UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
     
     [self.view addSubview: imageView];
     [self.view sendSubviewToBack:imageView];
     
+    //设置stepper
     
-    
-    //add jian bian
-    
-    
-       
-//        CAGradientLayer *gradientLayer=[CAGradientLayer layer];
-//        [gradientLayer setFrame:[_DetailView bounds]];
-//        [gradientLayer setColors:@[(id)[UIColor clearColor].CGColor,(id)[UIColor whiteColor].CGColor]];
-//        [gradientLayer setLocations:@[[NSNumber numberWithFloat:0.00f], [NSNumber numberWithFloat:1.0f]]];
-//        [[_DetailView layer] insertSublayer:gradientLayer atIndex:0];
-//   
-
-    
-    
+    [_quantityStepper addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    _quantityStepper.maximumValue = 15;
+    _quantityStepper.minimumValue = 0;
+    _quantityStepper.stepValue=1.0;
 }
 
 - (void)awakeFromNib {
@@ -94,14 +80,20 @@
 //    MDDish *dish = [[MDDish alloc] init];
 //    [dish setName:_dishNameLabel.text];
 //    [dish setPrice:[_dishPriceLabel.text integerValue]];
-    
-    [[MDUserCommand shared] addDish:_dish ];
+    NSUInteger Quantity = [_dishQuantityLabel.text integerValue];
+
+    [[MDUserCommand shared] addDishWithQuantity:_dish quantity:Quantity ];
     
     //dismiss the view controller
     [self dismissViewControllerAnimated:TRUE completion:nil];
 
 }
 
+- (IBAction)valueChanged:(UIStepper *)sender {
+    double value = [sender value];
+    
+    [_dishQuantityLabel setText:[NSString stringWithFormat:@"%d", (int)value]];
+}
 
 //#pragma mark textfield delegate
 //- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

@@ -32,7 +32,7 @@
 @property(readonly,nonatomic) NSString *img_path;
 @property(readonly,nonatomic) NSString *description;
 @property(readonly,nonatomic) BOOL disabled;
-
+@property(readonly,nonatomic) float total_price;
 
 /**
  *  list dishs, activities, menus
@@ -52,7 +52,7 @@
 
 
 
--(void) addDish:(MDDish *)object;
+-(void) addDishWithQuantity:(MDDish *)object quantity:(NSUInteger)quantity;
 -(void) addMenu:(MDMenu *)object;
 -(void) addActivity:(MDActivicy *)object;
 

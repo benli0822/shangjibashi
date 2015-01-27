@@ -11,6 +11,7 @@
                 <outlet property="dishNameLabel" destination="vmS-Fp-We0" id="5Wb-IY-mu6"/>
                 <outlet property="dishPriceLabel" destination="gLT-82-cGD" id="vog-nm-nx3"/>
                 <outlet property="dishQuantityLabel" destination="9ki-dM-66Q" id="x6n-LV-Ku2"/>
+                <outlet property="quantityStepper" destination="Ut1-DD-LEt" id="ouq-p3-YuZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

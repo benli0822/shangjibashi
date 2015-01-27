@@ -31,6 +31,7 @@
                             forCellReuseIdentifier:@"Cell"];
 
     
+    _totalPriceLabel.text = [NSString stringWithFormat:@"%f", [MDUserCommand shared].total_price];
     [_listCommandTable setDataSource:_listCommandController];
     [_listCommandTable setDelegate:_listCommandController];
     
