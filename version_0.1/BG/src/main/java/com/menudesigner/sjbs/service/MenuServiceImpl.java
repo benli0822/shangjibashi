@@ -41,7 +41,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public long addMenu(Menu menu) {
         logger.debug("Try adding menu: " + menu.toString());
-        if(menuRepository.findMenuByName(menu.getName()).size() == 0) {
+        if (menuRepository.findMenuByName(menu.getName()).size() == 0) {
             Menu theMenu = menuRepository.save(menu);
             logger.info("Menu " + menu.toString() + " added!");
             return theMenu.getId();
@@ -97,12 +97,12 @@ public class MenuServiceImpl implements MenuService {
         // first check the association
         List<MenuDish> associations = menuDishRepository.findMenuDishByMenuAndDish(theMenu, theDish);
 
-        if(associations.size() == 0) {
+        if (associations.size() == 0) {
             // if neither activity nor dish has been added to each other, the add the association
             theMenu.addDish(theDish, quantity);
 
             return true;
-        } else if(associations.size() == 1) {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
@@ -119,12 +119,12 @@ public class MenuServiceImpl implements MenuService {
 
         List<Menu> menus = menuRepository.findMenuByName(name);
 
-        if(menus.size() == 0) {
+        if (menus.size() == 0) {
             logger.debug("Menu not found!");
             return false;
         }
 
-        for(Menu m : menus) {
+        for (Menu m : menus) {
             logger.debug("Removing menu " + m.toString());
             menuRepository.delete(m);
         }
@@ -135,6 +135,7 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * Remove the given dish from menu
+     *
      * @param dish
      * @return
      */
@@ -142,20 +143,18 @@ public class MenuServiceImpl implements MenuService {
     public boolean removeDishFromMenu(Dish dish) {
         assert dishRepository.exists(dish.getId());
 
-        List<Menu> menuList = (List<Menu>) menuRepository.findAll();
-        List<MenuDish> menuDishList = (List<MenuDish>) menuDishRepository.findAll();
+        Set<MenuDish> menuDishs = (Set<MenuDish>) dish.getMenus();
 
-        for(MenuDish md : menuDishList) {
-            if(md.getDish().equals(dish)) {
-                menuDishRepository.delete(md);
+        for(MenuDish md : menuDishs) {
+            Menu m = md.getMenu();
+            m.getDishes().remove(md);
+            dish.getMenus().remove(md);
 
-                // check if the relation has been removed from menu entity
-                for(Menu m : menuList) {
-                    Set<MenuDish> menuSet = m.getDishes();
-                    assert !menuSet.contains(md);
-                }
-            }
+            menuRepository.save(m);
+            dishRepository.save(dish);
+            menuDishRepository.delete(md);
         }
+
         return true;
     }
 }

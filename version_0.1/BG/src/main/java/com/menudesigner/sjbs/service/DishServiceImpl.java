@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -34,25 +33,19 @@ public class DishServiceImpl implements DishService {
 
     private final FileService fileService;
 
-    private final DishService dishService;
-
     private final MenuService menuService;
 
     private final ActivityService activityService;
 
     @Autowired
-    public DishServiceImpl(DishRepository dishRepository, TypeService typeService, OptionService optionService, FileService fileService, DishService dishService, MenuService menuService, ActivityService activityService) {
+    public DishServiceImpl(DishRepository dishRepository, TypeService typeService, OptionService optionService, FileService fileService, MenuService menuService, ActivityService activityService) {
         this.dishRepository = dishRepository;
         this.typeService = typeService;
         this.optionService = optionService;
         this.fileService = fileService;
-        this.dishService = dishService;
         this.menuService = menuService;
         this.activityService = activityService;
     }
-
-    @Autowired
-
 
     /**
      * Adding a dish with checking its uniqueness
@@ -132,17 +125,15 @@ public class DishServiceImpl implements DishService {
         } else {
             logger.debug("Deleting requested dish " + dishName);
             List<Dish> toDeleteDish = dishRepository.findDishByName(dishName);
-            Iterator<Dish> iterator = toDeleteDish.iterator();
-            while (iterator.hasNext()) {
-                Dish dish = iterator.next();
+            for (Dish dish : toDeleteDish) {
                 logger.debug("Deleted dish " + dish.toString());
                 // when the dish has been found, first should check all its associations
                 // type association
-                boolean res1 = typeService.removeDishFromType(dish);
-                assert res1;
+//                boolean res1 = typeService.removeDishFromType(dish);
+//                assert res1;
                 // menu association
-                boolean res2 = menuService.removeDishFromMenu(dish);
-                assert res2;
+//                boolean res2 = menuService.removeDishFromMenu(dish);
+//                assert res2;
                 // activity association
 
                 // option association

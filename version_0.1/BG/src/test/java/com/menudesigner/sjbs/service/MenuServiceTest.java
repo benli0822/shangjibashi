@@ -21,9 +21,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -97,5 +95,23 @@ public class MenuServiceTest {
         assertTrue(res);
         assertThat(menuDishs.size(), is(1));
         assertThat(menuDishs.get(0).getQuantity() == 2, is(Boolean.TRUE));
+    }
+
+    @Test
+    public void removeDishFromMenuTest() {
+        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
+        long menu_id = menuService.addMenu("noel", "noel");
+
+        boolean res = menuService.addDishToMenu(dish_id, menu_id, 2);
+
+        boolean res1 = menuService.removeDishFromMenu(dishRepository.findOne(dish_id));
+
+        List<MenuDish> menuDishs = menuDishRepository.findMenuDishByMenuAndDish(menuRepository.findOne(menu_id), dishRepository.findOne(dish_id));
+
+        assertThat(dish_id, not(-1L));
+        assertThat(menu_id, not(-1L));
+        assertTrue(res);
+        assertTrue(res1);
+        assertThat(menuDishs.size(), is(0));
     }
 }

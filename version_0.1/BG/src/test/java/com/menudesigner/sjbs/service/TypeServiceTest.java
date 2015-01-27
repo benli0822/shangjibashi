@@ -110,4 +110,29 @@ public class TypeServiceTest {
         assertThat(type2.getConflictTypes().contains(type1), is(Boolean.TRUE));
         // TODO need to test with database
     }
+
+    @Test
+    public void removeDishFromTypeTest() {
+        logger.debug("Add dish to type test");
+
+        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
+        long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
+
+        boolean res = typeService.addTypeToDish(dish_id, type_id);
+
+
+        Type type = typeRepository.findOne(type_id);
+        Dish dish = dishRepository.findOne(dish_id);
+
+        boolean res1 = typeService.removeDishFromType(dish);
+
+        assertThat(dish_id > 0L, is(true));
+        assertThat(type_id > 0L, is(true));
+
+        assertThat(res, is(Boolean.TRUE));
+        assertThat(res1, is(Boolean.TRUE));
+
+        assertThat(type.getDishes().contains(dish), is(Boolean.FALSE));
+        assertThat(dish.getTypes().contains(type), is(Boolean.FALSE));
+    }
 }

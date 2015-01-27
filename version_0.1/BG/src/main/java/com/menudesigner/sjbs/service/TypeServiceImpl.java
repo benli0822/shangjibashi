@@ -155,8 +155,11 @@ public class TypeServiceImpl implements TypeService {
             Set<Dish> dishSet = t.getDishes();
             if(dishSet.contains(dish)) {
                 dishSet.remove(dish);
+                dish.getTypes().remove(t);
+                typeRepository.save(t);
             }
         }
+        dishRepository.save(dish);
         return true;
     }
 }
