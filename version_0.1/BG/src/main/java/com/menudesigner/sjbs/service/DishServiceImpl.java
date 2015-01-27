@@ -138,7 +138,8 @@ public class DishServiceImpl implements DishService {
                 boolean res3 = activityService.removeDishFromActivity(dish);
                 assert res3;
                 // option association
-
+                boolean res4 = optionService.removeDishFromOption(dish);
+                assert res4;
                 // file association, caution here should determine if we really need to delete the file
 
                 // command ? should be considered, if this will crash all database
