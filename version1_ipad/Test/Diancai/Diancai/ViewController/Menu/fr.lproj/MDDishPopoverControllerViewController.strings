@@ -1,6 +1,6 @@
 
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "C5P-gC-yq8"; */
-"C5P-gC-yq8.normalTitle" = "Button";
+"C5P-gC-yq8.normalTitle" = "Commander";
 
 /* Class = "IBUILabel"; text = "份数 :"; ObjectID = "g8e-eS-cHm"; */
 "g8e-eS-cHm.text" = "nombre :";

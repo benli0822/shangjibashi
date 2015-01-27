@@ -29,29 +29,33 @@
     
 }
 
--(void) addDish:(MDDish *)object{
+-(void) addDishWithQuantity:(MDDish *)object quantity:(NSUInteger)quantity{
     
     
     //treat quantities
     //if this is the first time we add a dish, then we will create a dictionary else we will update the quantities of this dish
     
     if(![_dish_dictionary objectForKey:object.name]){
-        [_dish_dictionary setObject:[NSNumber numberWithInt:1] forKey:object.name];
+        
+        [_dish_dictionary setObject:[NSNumber numberWithInteger:quantity] forKey:object.name];
         if(!_dish_list){
             _dish_list = [[NSMutableArray alloc] init];
         }
         [_dish_list addObject:object];
-
+        
+       
+        
     }
     else{
         //update the quantities
         NSNumber *num = [_dish_dictionary objectForKey:object.name];
-        NSNumber *newNum = [NSNumber numberWithInt:[num intValue] + 1];
+        NSNumber *newNum = [NSNumber numberWithInteger:[num integerValue] + quantity ];
         [_dish_dictionary setObject:newNum forKey:object.name];
         
     }
     
-    
+    //calcule price
+    _total_price = _total_price + object.price * quantity;
 }
 -(void) addMenu:(MDMenu *)object{
     if ((!_menu_list)) {

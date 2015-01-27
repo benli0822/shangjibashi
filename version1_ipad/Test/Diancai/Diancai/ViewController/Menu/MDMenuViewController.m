@@ -54,31 +54,34 @@
  
     //[self initDishArray];
     
-    //关闭ios7以上后退手势
+    //DISABLE GESTURE
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(186, 112+46, 765, 620)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(195, 112+46, 800, 620)];
     _carousel.backgroundColor = [UIColor whiteColor];
     _carousel.dataSource = self;
     _carousel.delegate = self;
     _carousel.decelerationRate = 0.7;
+    
+
     _carousel.type = iCarouselTypeLinear;
     _carousel.pagingEnabled = YES;
-    //_carousel.edgeRecognition = YES;
+
+   // _carousel.edgeRecognition = YES;
     //solve overflowing problem
     _carousel.clipsToBounds = YES;
     
-    _carousel.bounceDistance = 0.4;
+    _carousel.bounceDistance = 0.5;
     [self.view addSubview:_carousel];
     
     
-#pragma mark carousel 头设置
+#pragma mark carousel header setting
     
     __weak typeof(_carousel) weakCarousel = _carousel;
     
-    _segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(186, 102, 698, 46) Items:_sousMenuList selectedBlock:^(NSInteger index) {
+    _segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(212, 102, 800, 46) Items:_sousMenuList selectedBlock:^(NSInteger index) {
         
         [weakCarousel scrollToItemAtIndex:index animated:NO];
     }];
@@ -125,14 +128,14 @@
     
     [self setDishArrayWithFirstMenu:[_firstMenuList objectAtIndex:number] ];
     
-#pragma mark maybe add last view object也许这里记住上次的选择
+#pragma mark maybe add last view object
     
     
     [_carousel reloadData];
     [_segmentControl reloadSegsWithItems:_sousMenuList];
     
 }
-#pragma mark dish data 设置
+#pragma mark dish data setting
 /**
  *  setup all the data(dishnames)
  */
@@ -254,7 +257,7 @@
 */
 
 
-#pragma mark 显示菜单
+#pragma mark display menu
 - (IBAction)showCommand:(id)sender {
     
     UIButton *button = (UIButton *)sender;
