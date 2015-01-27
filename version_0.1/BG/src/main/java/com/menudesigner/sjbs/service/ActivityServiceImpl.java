@@ -1,8 +1,6 @@
 package com.menudesigner.sjbs.service;
 
-import com.menudesigner.sjbs.domain.Activity;
-import com.menudesigner.sjbs.domain.ActivityDish;
-import com.menudesigner.sjbs.domain.Dish;
+import com.menudesigner.sjbs.domain.*;
 import com.menudesigner.sjbs.service.repository.ActivityDishRepository;
 import com.menudesigner.sjbs.service.repository.ActivityRepository;
 import com.menudesigner.sjbs.service.repository.DishRepository;
@@ -16,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -129,6 +128,25 @@ public class ActivityServiceImpl implements ActivityService {
         }
 
         logger.debug("Remove finish");
+        return true;
+    }
+
+    @Override
+    public boolean removeDishFromActivity(Dish dish) {
+        assert dishRepository.exists(dish.getId());
+
+        Set<ActivityDish> activityDishs = dish.getActivities();
+
+        for(ActivityDish ad : activityDishs) {
+            Activity a = ad.getActivity();
+            a.getDishes().remove(ad);
+            dish.getActivities().remove(ad);
+
+            activityRepository.save(a);
+            dishRepository.save(dish);
+            activityDishRepository.delete(ad);
+        }
+
         return true;
     }
 }

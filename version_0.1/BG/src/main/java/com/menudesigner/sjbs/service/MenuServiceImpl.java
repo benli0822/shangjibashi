@@ -143,7 +143,7 @@ public class MenuServiceImpl implements MenuService {
     public boolean removeDishFromMenu(Dish dish) {
         assert dishRepository.exists(dish.getId());
 
-        Set<MenuDish> menuDishs = (Set<MenuDish>) dish.getMenus();
+        Set<MenuDish> menuDishs = dish.getMenus();
 
         for(MenuDish md : menuDishs) {
             Menu m = md.getMenu();

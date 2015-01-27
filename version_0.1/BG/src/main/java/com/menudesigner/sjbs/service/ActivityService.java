@@ -1,6 +1,7 @@
 package com.menudesigner.sjbs.service;
 
 import com.menudesigner.sjbs.domain.Activity;
+import com.menudesigner.sjbs.domain.Dish;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -57,4 +58,11 @@ public interface ActivityService {
     //TODO need to verify menu and activity
 
     boolean removeActivity(String name);
+
+    /**
+     * Remove the given dish from activity
+     * @param dish
+     * @return
+     */
+    boolean removeDishFromActivity(Dish dish);
 }

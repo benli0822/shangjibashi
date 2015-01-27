@@ -129,11 +129,11 @@ public class DishServiceImpl implements DishService {
                 logger.debug("Deleted dish " + dish.toString());
                 // when the dish has been found, first should check all its associations
                 // type association
-//                boolean res1 = typeService.removeDishFromType(dish);
-//                assert res1;
+                boolean res1 = typeService.removeDishFromType(dish);
+                assert res1;
                 // menu association
-//                boolean res2 = menuService.removeDishFromMenu(dish);
-//                assert res2;
+                boolean res2 = menuService.removeDishFromMenu(dish);
+                assert res2;
                 // activity association
 
                 // option association

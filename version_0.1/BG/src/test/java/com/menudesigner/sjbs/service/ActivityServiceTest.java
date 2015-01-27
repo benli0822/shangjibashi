@@ -112,4 +112,21 @@ public class ActivityServiceTest {
         assertThat(activityDishs.size(), is(1));
         assertThat(activityDishs.get(0).getQuantity() == 2, is(Boolean.TRUE));
     }
+
+    @Test
+    public void removeDishFromActivityTest() {
+        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
+        long activity_id = activityService.addActivity("noel", "noel");
+
+        boolean res = activityService.addDishToActivity(dish_id, activity_id, 2);
+        boolean res1 = activityService.removeDishFromActivity(dishRepository.findOne(dish_id));
+
+        List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(activityRepository.findOne(activity_id), dishRepository.findOne(dish_id));
+
+        assertThat(dish_id, not(-1L));
+        assertThat(activity_id, not(-1L));
+        assertTrue(res);
+        assertTrue(res1);
+        assertThat(activityDishs.size(), is(0));
+    }
 }
