@@ -1,11 +1,14 @@
 package com.menudesigner.sjbs.rest;
 
 import com.menudesigner.sjbs.domain.*;
+import com.menudesigner.sjbs.rest.wrapper.CommandWrapper;
+import com.menudesigner.sjbs.service.CommandService;
 import com.menudesigner.sjbs.service.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +18,7 @@ import java.util.Locale;
 
 /**
  * iMenu Domain rest service
- *
+ * <p/>
  * Created by JIN Benli on 26/01/15.
  */
 @Controller
@@ -43,6 +46,9 @@ public class DomainRestController {
 
     @Autowired
     private MenuRepository menuRepository;
+
+    @Autowired
+    private CommandService commandService;
 
     @RequestMapping(value = "/getTypes", method = RequestMethod.GET)
     public
@@ -98,5 +104,34 @@ public class DomainRestController {
     List<Option> getOptions(Locale locale) {
         logger.info("[DomainRestController]: getOptions called");
         return (List<Option>) optionRepository.findAll();
+    }
+
+    @RequestMapping(value = "/postCommands", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    boolean postCommands(@RequestBody CommandWrapper commandWrapper) {
+
+        // use command service to create a simple no content command
+        final long command_id = commandService.addCommand(
+                commandWrapper.getTitle(),
+                commandWrapper.getMsg_extra(),
+                commandWrapper.getTable_no(),
+                commandWrapper.getClient_no()
+        );
+
+        // add dishes to command
+        commandWrapper.getDishs().stream().forEach(
+                d -> commandService.addDishToCommand(d.getDish_id(), command_id, d.getQuantity())
+        );
+        // add menus to command
+        commandWrapper.getMenus().stream().forEach(
+                m -> commandService.addMenuToCommand(m.getMenu_id(), command_id, m.getQuantity())
+        );
+        // add activities to command
+        commandWrapper.getActivities().stream().forEach(
+                a -> commandService.addActivityToCommand(a.getActivity_id(), command_id, a.getQuantity())
+        );
+
+        return true;
     }
 }
