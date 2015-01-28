@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JasonHelper : NSObject
+@interface JsonHelper : NSObject
 
 
 +(void)sendJsonDataWithDictionary : (NSDictionary*) data;

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Xiaojun. All rights reserved.
 //
 
-#import "JasonHelper.h"
+#import "JsonHelper.h"
 #import "AFHTTPSessionManager.h"
 
 
-@implementation JasonHelper
+@implementation JsonHelper
 
 
 
@@ -19,12 +19,9 @@
     
     
     
-    //test send json
+
     
-    NSDictionary *params = @ {@"content" :@"this is a article created by rest", @"title" :@"rest artcile",  @"username": @"lemattmatt" };
-    
-    
-    NSString *baseURL = @"http://127.0.0.1:8080/api/";
+    NSString *baseURL = @"http://192.168.1.26:8080/api/";
     NSString *path = @"article/restPostArticle";
     
     
@@ -34,7 +31,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [manager POST:path parameters:data success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"JSON: %@", responseObject);
         //here is place for code executed in success case

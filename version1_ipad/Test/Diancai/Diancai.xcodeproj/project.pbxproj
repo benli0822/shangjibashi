@@ -73,7 +73,7 @@
 		3CEC61E51A7919EB0047085C /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC61D81A7919EB0047085C /* JSONModel+networking.m */; };
 		3CEC61E61A7919EB0047085C /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC61DB1A7919EB0047085C /* JSONKeyMapper.m */; };
 		3CEC61E71A7919EB0047085C /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC61DD1A7919EB0047085C /* JSONValueTransformer.m */; };
-		3CEC61F21A79381E0047085C /* JasonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC61F11A79381E0047085C /* JasonHelper.m */; };
+		3CEC61F21A79381E0047085C /* JsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEC61F11A79381E0047085C /* JsonHelper.m */; };
 		3CF8A4951A3871A8003FDD2A /* MDAppConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CF8A4941A3871A8003FDD2A /* MDAppConfiguration.plist */; };
 		3CF8A4B21A3878DF003FDD2A /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8A4A81A3878DF003FDD2A /* FMDatabase.m */; };
 		3CF8A4B31A3878DF003FDD2A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF8A4AA1A3878DF003FDD2A /* FMDatabaseAdditions.m */; };
@@ -247,8 +247,8 @@
 		3CEC61DB1A7919EB0047085C /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
 		3CEC61DC1A7919EB0047085C /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
 		3CEC61DD1A7919EB0047085C /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
-		3CEC61F01A79381E0047085C /* JasonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JasonHelper.h; path = Helper/JasonHelper.h; sourceTree = "<group>"; };
-		3CEC61F11A79381E0047085C /* JasonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JasonHelper.m; path = Helper/JasonHelper.m; sourceTree = "<group>"; };
+		3CEC61F01A79381E0047085C /* JsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonHelper.h; path = Helper/JsonHelper.h; sourceTree = "<group>"; };
+		3CEC61F11A79381E0047085C /* JsonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonHelper.m; path = Helper/JsonHelper.m; sourceTree = "<group>"; };
 		3CF8A4941A3871A8003FDD2A /* MDAppConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MDAppConfiguration.plist; sourceTree = "<group>"; };
 		3CF8A4A71A3878DF003FDD2A /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = Diancai/Libraries/fmdb/FMDatabase.h; sourceTree = SOURCE_ROOT; };
 		3CF8A4A81A3878DF003FDD2A /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = Diancai/Libraries/fmdb/FMDatabase.m; sourceTree = SOURCE_ROOT; };
@@ -701,8 +701,8 @@
 				3C35516E1A655552008B5EF2 /* MDMenuHelper.m */,
 				3C2317371A6EAF42002C823B /* MYUtil.h */,
 				3C2317381A6EAF42002C823B /* MYUtil.m */,
-				3CEC61F01A79381E0047085C /* JasonHelper.h */,
-				3CEC61F11A79381E0047085C /* JasonHelper.m */,
+				3CEC61F01A79381E0047085C /* JsonHelper.h */,
+				3CEC61F11A79381E0047085C /* JsonHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -855,7 +855,7 @@
 				3C731B9A1A2F747A00356747 /* MDListCommandCell.m in Sources */,
 				3C5C73131A6E689000B4CB86 /* UIAlertView+AFNetworking.m in Sources */,
 				3C5C73151A6E689000B4CB86 /* UIImageView+AFNetworking.m in Sources */,
-				3CEC61F21A79381E0047085C /* JasonHelper.m in Sources */,
+				3CEC61F21A79381E0047085C /* JsonHelper.m in Sources */,
 				3CD70F571A0AC56B00BDA022 /* XTSegmentControl.m in Sources */,
 				3C5C73301A6E68A800B4CB86 /* AFSecurityPolicy.m in Sources */,
 				3CFE307C19D553CB00210AD5 /* MDMainViewController.m in Sources */,

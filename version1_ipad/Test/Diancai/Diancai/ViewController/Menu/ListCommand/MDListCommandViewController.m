@@ -11,6 +11,7 @@
 #import "MDUserCommand.h"
 #import "AFHTTPSessionManager.h"
 #import "MDDish.h"
+#import "JsonHelper.h"
 
 @interface MDListCommandViewController ()
 
@@ -40,14 +41,38 @@
     
 }
 
+
+- (NSData *)toJSONData:(id)theData{
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:theData
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    if ([jsonData length] > 0 && error == nil){
+        return jsonData;
+    }else{
+        return nil;
+    }
+}
+
+
 - (IBAction)ConfirmeCommand:(id)sender {
     
     
     
     
-    NSLog(@"%@",[[MDUserCommand shared]  toJSONString ]);
     
     
+    
+    NSString *jsonString = [[NSString alloc] initWithData:[self toJSONData:[[MDUserCommand shared]  toDictionary ]]
+                                                 encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",jsonString);
+    
+    [JsonHelper sendJsonDataWithDictionary:[[MDUserCommand shared]  toDictionary]];
+     
+
     [self dismissViewControllerAnimated:TRUE completion:nil];
     
     
