@@ -7,24 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
-@interface MDDish : NSObject
+@interface MDDish : JSONModel
 
-@property(readonly,nonatomic) NSUInteger id_dish;
-@property(readonly,nonatomic) NSString *name;
-@property(readonly,nonatomic) NSUInteger price;
-@property(readonly,nonatomic) BOOL is_typed;
-@property(readonly,nonatomic) NSUInteger type_id;
-@property(readonly,nonatomic) NSString *description;
-@property(readonly,nonatomic) BOOL disabled;
-@property(readonly,nonatomic) NSDate *start_date;
-@property(readonly,nonatomic) NSDate *end_date;
-@property(readonly,nonatomic) NSDate *start_time;
-@property(readonly,nonatomic) NSDate *end_time;
+@property(assign,nonatomic) NSUInteger id_dish;
+@property(strong,nonatomic) NSString* name;
+@property(assign,nonatomic) NSUInteger price;
+@property(assign,nonatomic) BOOL is_typed;
+@property(assign,nonatomic) NSUInteger type_id;
+@property(strong,nonatomic) NSString *description;
+@property(assign,nonatomic) BOOL disabled;
+@property(strong,nonatomic) NSDate *start_date;
+@property(strong,nonatomic) NSDate *end_date;
+@property(strong,nonatomic) NSDate *start_time;
+@property(strong,nonatomic) NSDate *end_time;
 
 
 
-@property(readonly,nonatomic) NSMutableArray *dishActivities;
+@property(strong,nonatomic) NSMutableArray *dishActivities;
 
 //第一个init方法, 以后可以继续加init方法
 -(id) init;

@@ -57,5 +57,10 @@
     _price = price;
 }
 
-
++(BOOL)propertyIsIgnored:(NSString *)propertyName{
+    if ([propertyName isEqualToString:@"id_dish"]) {
+        return NO;
+    }
+    return YES;
+}
 @end
