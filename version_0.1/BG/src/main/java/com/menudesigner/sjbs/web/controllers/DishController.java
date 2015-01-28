@@ -15,14 +15,13 @@ import com.menudesigner.sjbs.service.repository.TypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -68,10 +67,36 @@ public class DishController {
     public String dish(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
+        return "redirect:/dish/page/1";
+    }
+
+    @RequestMapping(value = "/page/{pageNumber}", method = RequestMethod.GET)
+    public String dish(@PathVariable Integer pageNumber, Model model, Locale locale) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        PageRequest pageRequest =
+                new PageRequest(pageNumber - 1, 12);
+
+        Page<Dish> currentResults = dishRepository.findAll(pageRequest);
+
+        logger.info(currentResults.toString());
+        model.addAttribute(currentResults);
+
+
+        // Pagination variables
+        int current = currentResults.getNumber() + 1;
+        int begin = Math.max(1, current - 5);
+        // how many pages to display in the pagination bar
+        int end = Math.min(begin + 10, currentResults.getTotalPages());
+
+        model.addAttribute("beginIndex", begin);
+        model.addAttribute("endIndex", end);
+        model.addAttribute("currentIndex", current);
+
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-        model.addAttribute("dishes", dishRepository.findAll());
+        model.addAttribute("currentResults", currentResults);
 
         String formattedDate = dateFormat.format(date);
 
@@ -231,8 +256,10 @@ public class DishController {
     }
 
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
-    public @ResponseBody boolean removeDish(@RequestParam(value = "id", required = true)int id) {
-        Dish dish = dishRepository.findOne((long)id);
+    public
+    @ResponseBody
+    boolean removeDish(@RequestParam(value = "id", required = true) int id) {
+        Dish dish = dishRepository.findOne((long) id);
         assert dish != null;
         return dishService.removeDish(dish.getName());
     }

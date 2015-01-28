@@ -233,10 +233,10 @@
     <!-- /.main-content -->
 
     <div layout:fragment="script">
-        <script type="text/javascript">
-            $(document).ready(function () {
+        <script th:inline="javascript" type="text/javascript">
+            window.onload = function() {
                 $("#alert-success").delay(5000).fadeOut(400);
-            });
+            };
         </script>
     </div>
 </div>
