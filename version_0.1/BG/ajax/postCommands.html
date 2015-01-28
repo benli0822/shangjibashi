@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+<h1>Send Command Ajax</h1>
+<button id="send">Send Command</button>
+
+<script type="text/javascript">
+
+    var test_data = {
+        table_no: 1,
+        client_no: 3,
+        title: "Mr Test",
+        price: 20,
+        msg_extra: "",
+        dish_dictionary: {
+            3: 1,
+            4: 2,
+            5: 3
+        },
+        menu_dictionary: {},
+        activity_dictionary: {}
+    };
+
+    $("#send").on("click", function () {
+        $.ajax({
+            url: "http://localhost:9090/api/postCommands",
+            type: "post",
+            data: JSON.stringify(test_data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                alert(data);
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+    });
+</script>
+</body>
+</html>

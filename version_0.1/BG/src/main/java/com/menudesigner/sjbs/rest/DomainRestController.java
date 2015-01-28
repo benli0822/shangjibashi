@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * iMenu Domain rest service
@@ -111,26 +113,62 @@ public class DomainRestController {
     @ResponseBody
     boolean postCommands(@RequestBody CommandWrapper commandWrapper) {
 
+        logger.info(commandWrapper.toString());
+
         // use command service to create a simple no content command
         final long command_id = commandService.addCommand(
                 commandWrapper.getTitle(),
                 commandWrapper.getMsg_extra(),
                 commandWrapper.getTable_no(),
                 commandWrapper.getClient_no()
+                //TODO price
         );
 
         // add dishes to command
-        commandWrapper.getDishs().stream().forEach(
-                d -> commandService.addDishToCommand(d.getDish_id(), command_id, d.getQuantity())
-        );
+        Map<String, String> d = commandWrapper.getDish_dictionary();
+
+        for (Map.Entry<String, String> entry : d.entrySet()) {
+            // loop to get the dynamic key dish id
+            String dish_id = entry.getKey();
+            logger.info("Dish_id " + dish_id);
+
+            // get the value of the dynamic key quantity
+            String quantity = entry.getValue();
+            logger.info("Dish Quantity " + quantity);
+
+            assert !Objects.equals(quantity, "");
+            commandService.addDishToCommand(Long.parseLong(dish_id), command_id, Integer.parseInt(quantity));
+        }
+
         // add menus to command
-        commandWrapper.getMenus().stream().forEach(
-                m -> commandService.addMenuToCommand(m.getMenu_id(), command_id, m.getQuantity())
-        );
+        Map<String, String> m = commandWrapper.getMenu_dictionary();
+
+        for (Map.Entry<String, String> entry : m.entrySet()) {
+            // loop to get the dymaic key menu id
+            String menu_id = entry.getKey();
+            logger.info("Menu_id " + menu_id);
+
+            String quantity = entry.getValue();
+            logger.info("Menu Quantity " + quantity);
+
+            assert !Objects.equals(quantity, "");
+            commandService.addMenuToCommand(Long.parseLong(menu_id), command_id, Integer.parseInt(quantity));
+        }
+
         // add activities to command
-        commandWrapper.getActivities().stream().forEach(
-                a -> commandService.addActivityToCommand(a.getActivity_id(), command_id, a.getQuantity())
-        );
+        Map<String, String> a = commandWrapper.getActivity_dictionary();
+        for (Map.Entry<String, String> entry : a.entrySet()) {
+            // loop to get the dymaic key menu id
+            String activity_id = entry.getKey();
+            logger.info("Activity_id " + activity_id);
+
+            // get the value of the dynamic key quantity
+            String quantity = entry.getValue();
+            logger.info("Activity Quantity " + quantity);
+
+            assert !Objects.equals(quantity, "");
+            commandService.addActivityToCommand(Long.parseLong(activity_id), command_id, Integer.parseInt(quantity));
+        }
 
         return true;
     }
