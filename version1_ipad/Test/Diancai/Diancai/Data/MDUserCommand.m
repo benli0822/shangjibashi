@@ -9,6 +9,7 @@
 #import "MDUserCommand.h"
 #import "MDDish.h"
 
+#define id_to_string [NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]
 @implementation MDUserCommand
 
 
@@ -21,7 +22,7 @@
     _menu_list = [[NSMutableArray alloc] init];
     _activity_list = [[NSMutableArray alloc] init];
     
-    _dish_dictionary = [[NSMutableDictionary alloc] init];
+    _dishes = [[NSMutableDictionary alloc] init];
     _menu_dictionary = [[NSMutableDictionary alloc] init];
     _activity_dictionary = [[NSMutableDictionary alloc] init];
     
@@ -35,9 +36,9 @@
     //treat quantities
     //if this is the first time we add a dish, then we will create a dictionary else we will update the quantities of this dish
     
-    if(![_dish_dictionary objectForKey:object.name]){
+    if(![_dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]]){
         
-        [_dish_dictionary setObject:[NSNumber numberWithInteger:quantity] forKey:object.name];
+        [_dishes setObject:[NSNumber numberWithInteger:quantity] forKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
         if(!_dish_list){
             _dish_list = [[NSMutableArray alloc] init];
         }
@@ -48,9 +49,9 @@
     }
     else{
         //update the quantities
-        NSNumber *num = [_dish_dictionary objectForKey:object.name];
+        NSNumber *num = [_dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
         NSNumber *newNum = [NSNumber numberWithInteger:[num integerValue] + quantity ];
-        [_dish_dictionary setObject:newNum forKey:object.name];
+        [_dishes setObject:newNum forKey:object.name];
         
     }
     
@@ -89,6 +90,40 @@
     
     return _sharedObject;
 }
+
+
+//Json ignore option
++(BOOL)propertyIsIgnored:(NSString *)propertyName{
+    if ([propertyName isEqualToString:@"dishes"]) {
+        return NO;
+    }
+    if ([propertyName isEqualToString:@"table"]) {
+        return NO;
+    }
+    if ([propertyName isEqualToString:@"total_price"]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(NSData*) getJasonDate{
+    
+    
+//    
+//    NSError *error;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryOrArrayToOutput
+//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+//                                                         error:&error];
+//    
+//    if (! jsonData) {
+//        NSLog(@"Got an error: %@", error);
+//    } else {
+//        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    }
+    return  nil;
+}
+
 
 
 @end

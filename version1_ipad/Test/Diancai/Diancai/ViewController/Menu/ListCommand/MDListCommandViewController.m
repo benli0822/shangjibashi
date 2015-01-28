@@ -9,6 +9,9 @@
 #import "MDListCommandViewController.h"
 #import "MDListCommandController.h"
 #import "MDUserCommand.h"
+#import "AFHTTPSessionManager.h"
+#import "MDDish.h"
+#import "JsonHelper.h"
 
 @interface MDListCommandViewController ()
 
@@ -19,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.preferredContentSize = CGSizeMake(400.0, 560.0);
+    self.preferredContentSize = CGSizeMake(400.0, 660.0);
     
     self.listCommandController = [[MDListCommandController alloc] init];
     
@@ -31,15 +34,78 @@
                             forCellReuseIdentifier:@"Cell"];
 
     
-    _totalPriceLabel.text = [NSString stringWithFormat:@"%f", [MDUserCommand shared].total_price];
+    _totalPriceLabel.text = [NSString stringWithFormat:@"%3f", [MDUserCommand shared].total_price];
     [_listCommandTable setDataSource:_listCommandController];
     [_listCommandTable setDelegate:_listCommandController];
     
     
 }
 
+
+- (NSData *)toJSONData:(id)theData{
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:theData
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    if ([jsonData length] > 0 && error == nil){
+        return jsonData;
+    }else{
+        return nil;
+    }
+}
+
+
 - (IBAction)ConfirmeCommand:(id)sender {
+    
+    
+    
+    
+    
+    
+    
+    NSString *jsonString = [[NSString alloc] initWithData:[self toJSONData:[[MDUserCommand shared]  toDictionary ]]
+                                                 encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",jsonString);
+    
+    [JsonHelper sendJsonDataWithDictionary:[[MDUserCommand shared]  toDictionary]];
+     
+
     [self dismissViewControllerAnimated:TRUE completion:nil];
+    
+    
+    
+//    NSString *baseURL = @"http://your-server.com/";
+//    NSString *path = @"method/url/";
+//    
+//    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//    [parameters setObject:@"value" forKey:@"key"];
+//    
+//    
+//    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+//    
+//    [manager POST:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+//        NSLog(@"JSON: %@", responseObject);
+//        //here is place for code executed in success case
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//        //here is place for code executed in success case
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error while sending POST"
+//                                                            message:@"Sorry, try again."
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"Ok"
+//                                                  otherButtonTitles:nil];
+//        [alertView show];
+//        
+//        NSLog(@"Error: %@", [error localizedDescription]);
+//    }];
+    
 }
 
 

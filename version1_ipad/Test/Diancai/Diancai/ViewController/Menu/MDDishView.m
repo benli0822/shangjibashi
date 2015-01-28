@@ -84,7 +84,7 @@
 //在这里加上search的方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    NSLog(@" recipe count @%lu", (unsigned long)self.dish_data.count);
+    //NSLog(@" recipe count @%lu", (unsigned long)self.dish_data.count);
     return self.dish_data.count;
 }
 

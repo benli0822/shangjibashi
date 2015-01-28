@@ -55,6 +55,8 @@
     UIImage *background = [MYUtil imageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[_dish name]]]  targetSize:MDPopupFrameSize];
     UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
     
+    
+    
     [self.view addSubview: imageView];
     [self.view sendSubviewToBack:imageView];
     
@@ -62,7 +64,7 @@
     
     [_quantityStepper addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     _quantityStepper.maximumValue = 15;
-    _quantityStepper.minimumValue = 0;
+    _quantityStepper.minimumValue = 1;
     _quantityStepper.stepValue=1.0;
 }
 

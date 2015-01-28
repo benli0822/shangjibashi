@@ -66,8 +66,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
          MDDish *dish = [_userCommand.dish_list objectAtIndex:indexPath.row];
     cell.dishNameLabel.text = dish.name;
-    cell.dishQuantityLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dish_dictionary objectForKey:dish.name] integerValue]];
-    cell.dishPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dish_dictionary objectForKey:dish.name] integerValue] * dish.price];
+    cell.dishQuantityLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish.id_dish]] integerValue]];
+    cell.dishPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish.id_dish]] integerValue] * dish.price];
       cell.dishStausLabel.text = @"";  
     
       return cell;

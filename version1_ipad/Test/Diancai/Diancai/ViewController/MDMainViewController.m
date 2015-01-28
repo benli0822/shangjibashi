@@ -10,6 +10,8 @@
 #import "MDMenuViewController.h"
 #import "SQLiteManager.h"
 
+
+
 @interface MDMainViewController ()
 
 @end
@@ -30,10 +32,14 @@
     
     [[SQLiteManager shared] getTestReadDataFromDB];
     
+  
+    
+    
 }
 
 #pragma mark 进行点菜操作
 - (IBAction)selectOrder:(id)sender {
+    
     
     MDMenuViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     [self.navigationController pushViewController:controller animated:YES];
