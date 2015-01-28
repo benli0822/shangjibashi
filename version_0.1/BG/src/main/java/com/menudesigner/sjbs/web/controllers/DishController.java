@@ -219,7 +219,15 @@ public class DishController {
             }
         }
 
-        return "views/dish/add";
+        model.addAttribute("dish", dishRepository.findOne(id));
+
+        return "views/dish/invoice";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test(Model model) {
+        model.addAttribute("dish", dishRepository.findOne(1L));
+        return "views/dish/invoice";
     }
 
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
