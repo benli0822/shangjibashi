@@ -1,21 +1,26 @@
 package com.menudesigner.sjbs.rest;
 
 import com.menudesigner.sjbs.domain.*;
+import com.menudesigner.sjbs.rest.wrapper.CommandWrapper;
+import com.menudesigner.sjbs.service.CommandService;
 import com.menudesigner.sjbs.service.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * iMenu Domain rest service
- *
+ * <p/>
  * Created by JIN Benli on 26/01/15.
  */
 @Controller
@@ -43,6 +48,9 @@ public class DomainRestController {
 
     @Autowired
     private MenuRepository menuRepository;
+
+    @Autowired
+    private CommandService commandService;
 
     @RequestMapping(value = "/getTypes", method = RequestMethod.GET)
     public
@@ -98,5 +106,70 @@ public class DomainRestController {
     List<Option> getOptions(Locale locale) {
         logger.info("[DomainRestController]: getOptions called");
         return (List<Option>) optionRepository.findAll();
+    }
+
+    @RequestMapping(value = "/postCommands", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    boolean postCommands(@RequestBody CommandWrapper commandWrapper) {
+
+        logger.info(commandWrapper.toString());
+
+        // use command service to create a simple no content command
+        final long command_id = commandService.addCommand(
+                commandWrapper.getTitle(),
+                commandWrapper.getMsg_extra(),
+                commandWrapper.getTable_no(),
+                commandWrapper.getClient_no()
+                //TODO price
+        );
+
+        // add dishes to command
+        Map<String, String> d = commandWrapper.getDish_dictionary();
+
+        for (Map.Entry<String, String> entry : d.entrySet()) {
+            // loop to get the dynamic key dish id
+            String dish_id = entry.getKey();
+            logger.info("Dish_id " + dish_id);
+
+            // get the value of the dynamic key quantity
+            String quantity = entry.getValue();
+            logger.info("Dish Quantity " + quantity);
+
+            assert !Objects.equals(quantity, "");
+            commandService.addDishToCommand(Long.parseLong(dish_id), command_id, Integer.parseInt(quantity));
+        }
+
+        // add menus to command
+        Map<String, String> m = commandWrapper.getMenu_dictionary();
+
+        for (Map.Entry<String, String> entry : m.entrySet()) {
+            // loop to get the dymaic key menu id
+            String menu_id = entry.getKey();
+            logger.info("Menu_id " + menu_id);
+
+            String quantity = entry.getValue();
+            logger.info("Menu Quantity " + quantity);
+
+            assert !Objects.equals(quantity, "");
+            commandService.addMenuToCommand(Long.parseLong(menu_id), command_id, Integer.parseInt(quantity));
+        }
+
+        // add activities to command
+        Map<String, String> a = commandWrapper.getActivity_dictionary();
+        for (Map.Entry<String, String> entry : a.entrySet()) {
+            // loop to get the dymaic key menu id
+            String activity_id = entry.getKey();
+            logger.info("Activity_id " + activity_id);
+
+            // get the value of the dynamic key quantity
+            String quantity = entry.getValue();
+            logger.info("Activity Quantity " + quantity);
+
+            assert !Objects.equals(quantity, "");
+            commandService.addActivityToCommand(Long.parseLong(activity_id), command_id, Integer.parseInt(quantity));
+        }
+
+        return true;
     }
 }

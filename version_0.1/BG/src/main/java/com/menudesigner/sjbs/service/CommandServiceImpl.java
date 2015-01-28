@@ -77,17 +77,20 @@ public class CommandServiceImpl implements CommandService {
         Dish theDish = dishRepository.findOne(dish_id);
         Command theCommand = commandRepository.findOne(command_id);
 
+        assert theDish != null;
+        assert theCommand != null;
+
         logger.debug("Dish " + theDish.toString() + " Command " + theCommand.toString() + " with quantity: " + quantity);
 
         // first check the association
         List<CommandDish> associations = commandDishRepository.findCommandDishByCommandAndDish(theCommand, theDish);
 
-        if(associations.size() == 0) {
+        if (associations.size() == 0) {
             // if neither command nor dish has been added to each other, the add the association
             theCommand.addDish(theDish, quantity);
 
             return true;
-        } else if(associations.size() == 1) {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
@@ -108,12 +111,12 @@ public class CommandServiceImpl implements CommandService {
         // first check the association
         List<CommandActivity> associations = commandActivityRepository.findCommandActivityByCommandAndActivity(theCommand, theActivity);
 
-        if(associations.size() == 0) {
+        if (associations.size() == 0) {
             // if neither command nor activity has been added to each other, the add the association
             theCommand.addActivity(theActivity, quantity);
 
             return true;
-        } else if(associations.size() == 1) {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
@@ -134,12 +137,12 @@ public class CommandServiceImpl implements CommandService {
         // first check the association
         List<CommandMenu> associations = commandMenuRepository.findCommandMenuByCommandAndMenu(theCommand, theMenu);
 
-        if(associations.size() == 0) {
+        if (associations.size() == 0) {
             // if neither command nor activity has been added to each other, the add the association
             theCommand.addMenu(theMenu, quantity);
 
             return true;
-        } else if(associations.size() == 1) {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;

@@ -52,7 +52,7 @@
                                data-rel="colorbox">
 
                                 <img th:each="file : ${dish.files}" alt="1	50x150"
-                                     th:src="${file.location} + '' + ${file.name}"/>
+                                     th:src="${file.location} + '' + ${file.name}" width="220" height="320"/>
 
                                 <div class="tags">
 													<span class="label-holder" th:each="tag : ${dish.types}">
