@@ -119,9 +119,9 @@ public class DomainRestController {
         final long command_id = commandService.addCommand(
                 commandWrapper.getTitle(),
                 commandWrapper.getMsg_extra(),
+                commandWrapper.getPrice(),
                 commandWrapper.getTable_no(),
                 commandWrapper.getClient_no()
-                //TODO price
         );
 
         // add dishes to command

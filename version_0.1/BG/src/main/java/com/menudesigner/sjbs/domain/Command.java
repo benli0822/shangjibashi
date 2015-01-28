@@ -24,6 +24,9 @@ public class Command implements Serializable {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "price")
+    private float price;
+
     @Column(name = "msg_extra")
     @Size(max = 150)
     private String msg_extra;
@@ -182,11 +185,16 @@ public class Command implements Serializable {
         this.menus = menus;
     }
 
+    public float getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return "Command{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", price=" + price +
                 ", msg_extra='" + msg_extra + '\'' +
                 ", order_date=" + order_date +
                 ", order_time=" + order_time +
@@ -197,4 +205,9 @@ public class Command implements Serializable {
                 ", menus=" + menus +
                 '}';
     }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
 }

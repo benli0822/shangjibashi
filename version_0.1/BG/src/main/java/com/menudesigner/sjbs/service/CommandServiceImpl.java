@@ -56,12 +56,13 @@ public class CommandServiceImpl implements CommandService {
     }
 
     @Override
-    public long addCommand(String title, String msg_extra, int table_no, int client_no) {
+    public long addCommand(String title, String msg_extra, float price, int table_no, int client_no) {
         logger.debug("Try adding command");
 
         Command command = new Command();
         command.setTitle(title);
         command.setMsg_extra(msg_extra);
+        command.setPrice(price);
         command.setTable_no(table_no);
         command.setClient_no(client_no);
         java.util.Date utilDate = new java.util.Date();

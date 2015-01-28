@@ -22,7 +22,7 @@ public interface CommandService {
      * @param client_no
      * @return
      */
-    long addCommand(String title, String msg_extra, int table_no, int client_no);
+    long addCommand(String title, String msg_extra, float price, int table_no, int client_no);
 
     /**
      * Add an existed dish to command

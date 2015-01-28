@@ -1,6 +1,11 @@
 id,is_firstmenu,is_secondmenu,firstmenu_id,name,description,is_for_customize
-1,1,0,-1,hot,"Hot dish",0
-2,1,0,-1,cold,"Cold dish",0
-3,0,1,1,soup,Soup,0
-4,0,1,2,drink,Drink,0
-5,0,1,2,alcool,Alcool,0
+1,1,0,0,"choix de chef","Choix de chef",0
+2,1,0,0,Entree,Entree,0
+3,1,0,0,Plat,Plat,0
+4,1,0,0,dessert,Dessert,0
+5,1,0,0,nouilles,Nouilles,0
+6,0,1,3,Hamburgers,Hamburgers,0
+7,0,1,3,Poissons,Poissons,0
+8,0,1,3,viande,Viande,0
+9,1,0,0,drink,Drink,0
+10,1,0,0,all_data,All_data,0

@@ -64,7 +64,7 @@ public class CommandServiceTest {
 
 
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12), new Time(10, 10, 10), new Time(10, 11, 10));
-        long command_id = commandService.addCommand("Bob", "test", 1, 5);
+        long command_id = commandService.addCommand("Bob", "test", 20.2f, 1, 5);
 
         boolean res = commandService.addDishToCommand(dish_id, command_id, 2);
 
