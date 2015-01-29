@@ -235,6 +235,8 @@
     <div layout:fragment="script">
         <script th:inline="javascript" type="text/javascript">
             window.onload = function() {
+                $("#nav-dish").attr("class", "active open");
+                $("#nav-adddish").attr("class", "active");
                 $("#alert-success").delay(5000).fadeOut(400);
             };
         </script>

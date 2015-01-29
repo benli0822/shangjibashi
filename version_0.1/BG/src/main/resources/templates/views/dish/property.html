@@ -116,6 +116,9 @@
     <script th:src="@{/js/jqGrid/i18n/grid.locale-en.js}"></script>
 
     <script type="text/javascript">
+        $("#nav-dish").attr("class", "active open");
+        $("#nav-propertydish").attr("class", "active");
+
         var $path_base = "/";//this will be used in gritter alerts containing images
         /*<![CDATA[*/
         $.getJSON("/api/getTypes", function (json) {

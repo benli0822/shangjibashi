@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface TypeRepository extends CrudRepository<Type, Long> {
     List<Type> findTypeByName(String name);
+
+    List<Type> findTypeByDescription(String description);
 }
