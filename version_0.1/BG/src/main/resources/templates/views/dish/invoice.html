@@ -8,17 +8,17 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=#{label.adddish})"></div>
+    <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=${title})"></div>
     <!--/.breadcrumbs-->
 
     <div class="page-content">
-        <div th:include="common/content/pageheader :: header (label1=#{label.dishes}, label2=#{label.adddish})"></div>
+        <div th:include="common/content/pageheader :: header (label1=#{label.dishes}, label2=${title})"></div>
         <!-- /.page-header -->
 
         <div class="row">
             <!-- PAGE CONTENT BEGINS -->
 
-            <div class="col-sm-12" id="alert-success">
+            <div class="col-sm-12" id="alert-success" th:if="${show_alert}">
                 <div class="alert alert-block alert-success">
                     <button data-dismiss="alert" class="close" type="button">
                         <i class="icon-remove"></i>

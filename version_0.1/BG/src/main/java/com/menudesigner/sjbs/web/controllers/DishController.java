@@ -343,6 +343,23 @@ public class DishController {
         return false;
     }
 
+    @RequestMapping(value = "/detail/{dishId}", method = RequestMethod.GET)
+    public String detailDish(@PathVariable Integer dishId, Model model, Locale locale) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        model.addAttribute("dish", dishRepository.findOne((long)dishId));
+
+        model.addAttribute("options", optionRepository.findAll());
+
+        model.addAttribute("types", typeRepository.findAll());
+
+        model.addAttribute("title", "Dish Detail");
+
+        model.addAttribute("show_alert", false);
+
+        return "views/dish/invoice";
+    }
+
 
     // TODO error handling, class should implements ErrorController
 //    private static final String PATH = "/error";
