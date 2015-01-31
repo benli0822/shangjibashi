@@ -15,6 +15,7 @@ import com.menudesigner.sjbs.service.repository.TypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,9 @@ import java.util.*;
 @RequestMapping(value = "/dish")
 public class DishController {
     private static final Logger logger = LoggerFactory.getLogger(DishController.class);
+
+    @Autowired
+    private MessageSource messageSource;
 
     @Autowired
     private TypeRepository typeRepository;
@@ -190,6 +194,9 @@ public class DishController {
         // put all existing types into page
         model.addAttribute("types", typeRepository.findAll());
 
+        // page title
+        model.addAttribute("title", this.messageSource.getMessage("add.title", new Object[]{}, null));
+
         // put all existing options into page
         model.addAttribute("options", optionRepository.findAll());
 
@@ -304,6 +311,7 @@ public class DishController {
             }
         }
 
+        model.addAttribute("title", this.messageSource.getMessage("add.title", new Object[]{}, null));
         model.addAttribute("dish", dishRepository.findOne(id));
 
         return "views/dish/invoice";
@@ -312,6 +320,7 @@ public class DishController {
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test(Model model) {
         model.addAttribute("dish", dishRepository.findOne(1L));
+        model.addAttribute("title", this.messageSource.getMessage("add.title", new Object[]{}, null));
         return "views/dish/invoice";
     }
 
@@ -331,6 +340,8 @@ public class DishController {
         model.addAttribute("dish", dishRepository.findOne((long)dishId));
 
         model.addAttribute("options", optionRepository.findAll());
+
+        model.addAttribute("title", this.messageSource.getMessage("edit.title", new Object[]{}, null));
 
         model.addAttribute("types", typeRepository.findAll());
         return "views/dish/edit";
@@ -353,7 +364,7 @@ public class DishController {
 
         model.addAttribute("types", typeRepository.findAll());
 
-        model.addAttribute("title", "Dish Detail");
+        model.addAttribute("title", this.messageSource.getMessage("detail.title", new Object[]{}, null));
 
         model.addAttribute("show_alert", false);
 

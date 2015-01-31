@@ -100,6 +100,7 @@
                                 <img th:each="file : ${dish.files}" alt="1	50x150"
                                      th:src="'/' + ${file.location} + '' + ${file.name}" width="190" height="240"/>
 
+
                                 <div class="tags">
 													<span class="label-holder" th:each="tag : ${dish.types}">
 
@@ -193,9 +194,11 @@
 </div>
 
 <div layout:fragment="script">
+
     <!-- page specific plugin scripts -->
 
     <script th:inline="javascript">
+        /*<![CDATA[*/
         jQuery(function ($) {
             $("#nav-dish").attr("class", "active open");
             $("#nav-listdish").attr("class", "active");
@@ -235,6 +238,7 @@
                 }
             });
         })
+        /*]]>*/
     </script>
 </div>
 
