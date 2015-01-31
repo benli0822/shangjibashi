@@ -117,57 +117,55 @@ public class DishController {
         return "views/dish/list";
     }
 
-//    @RequestMapping(value = "/type?type={typeDescription}", method = RequestMethod.GET)
-//    public String type(Locale locale, Model model, @PathVariable String typeDescription) {
-//        logger.info("Welcome home! The client locale is {}.", locale);
-//
-//        model.addAttribute("options", optionRepository.findAll());
-//
-//        model.addAttribute("types", typeRepository.findAll());
-//
-//        return "redirect:/dish/page/1?type=" + typeDescription;
-//    }
-//
-//
-//    @RequestMapping(value = "/page/{pageNumber}?type={typeDescription}", method = RequestMethod.GET)
-//    public String dish(@PathVariable Integer pageNumber, @PathVariable String typeDescription, Model model, Locale locale) {
-//        logger.info("Welcome home! The client locale is {}.", locale);
-//
-//        List<Type> type = typeRepository.findTypeByDescription(typeDescription);
-//
-//        assert type != null;
-//        assert type.size() == 1;
-//
-//        Page<Dish> currentResults = dishRepository.findDishByType(type.get(0));
-//
-//        model.addAttribute(currentResults);
-//
-//        // Pagination variables
-//        int current = currentResults.getNumber() + 1;
-//        int begin = Math.max(1, current - 5);
-//        // how many pages to display in the pagination bar
-//        int end = Math.min(begin + 10, currentResults.getTotalPages());
-//
-//        model.addAttribute("beginIndex", begin);
-//        model.addAttribute("endIndex", end);
-//        model.addAttribute("currentIndex", current);
-//
-//        model.addAttribute("types", typeRepository.findAll());
-//
-//        model.addAttribute("options", optionRepository.findAll());
-//
-//        Date date = new Date();
-//        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-//
-//        model.addAttribute("currentResults", currentResults);
-//
-//        String formattedDate = dateFormat.format(date);
-//
-//        model.addAttribute("serverTime", formattedDate);
-//
-//        return "views/dish/list";
-//
-//    }
+    @RequestMapping(value = "/type", method = RequestMethod.GET)
+    public String type(Locale locale, Model model, @RequestParam(value = "type") String typeDescription) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        model.addAttribute("options", optionRepository.findAll());
+
+        model.addAttribute("types", typeRepository.findAll());
+
+        return "redirect:/dish/type/1?type=" + typeDescription;
+    }
+
+
+    @RequestMapping(value = "/type/{pageNumber}", method = RequestMethod.GET)
+    public String dish(@PathVariable Integer pageNumber, @RequestParam(value = "type") String description, Model model, Locale locale) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        PageRequest pageRequest =
+                new PageRequest(pageNumber - 1, 12);
+
+        Page<Dish> currentResults = dishRepository.findDishByTypesDescription(description, pageRequest);
+
+        model.addAttribute(currentResults);
+
+        // Pagination variables
+        int current = currentResults.getNumber() + 1;
+        int begin = Math.max(1, current - 5);
+        // how many pages to display in the pagination bar
+        int end = Math.min(begin + 10, currentResults.getTotalPages());
+
+        model.addAttribute("beginIndex", begin);
+        model.addAttribute("endIndex", end);
+        model.addAttribute("currentIndex", current);
+
+        model.addAttribute("types", typeRepository.findAll());
+
+        model.addAttribute("options", optionRepository.findAll());
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        model.addAttribute("currentResults", currentResults);
+
+        String formattedDate = dateFormat.format(date);
+
+        model.addAttribute("serverTime", formattedDate);
+
+        return "views/dish/list";
+
+    }
 
     @RequestMapping(value = "/property", method = RequestMethod.GET)
     public String property(Locale locale, Model model) {
@@ -334,10 +332,10 @@ public class DishController {
     }
 
     @RequestMapping(value = "/edit/{dishId}", method = RequestMethod.GET)
-    public String editDish(@PathVariable Integer dishId,  Model model, Locale locale) {
+    public String editDish(@PathVariable Integer dishId, Model model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
-        model.addAttribute("dish", dishRepository.findOne((long)dishId));
+        model.addAttribute("dish", dishRepository.findOne((long) dishId));
 
         model.addAttribute("options", optionRepository.findAll());
 
@@ -358,7 +356,7 @@ public class DishController {
     public String detailDish(@PathVariable Integer dishId, Model model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
-        model.addAttribute("dish", dishRepository.findOne((long)dishId));
+        model.addAttribute("dish", dishRepository.findOne((long) dishId));
 
         model.addAttribute("options", optionRepository.findAll());
 
