@@ -324,6 +324,25 @@ public class DishController {
         return dishService.removeDish(dish.getName());
     }
 
+    @RequestMapping(value = "/edit/{dishId}", method = RequestMethod.GET)
+    public String editDish(@PathVariable Integer dishId,  Model model, Locale locale) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        model.addAttribute("dish", dishRepository.findOne((long)dishId));
+
+        model.addAttribute("options", optionRepository.findAll());
+
+        model.addAttribute("types", typeRepository.findAll());
+        return "views/dish/edit";
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    boolean editDish() {
+        return false;
+    }
+
 
     // TODO error handling, class should implements ErrorController
 //    private static final String PATH = "/error";

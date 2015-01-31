@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="template">
+<head>
+    <title th:text="#{label.adddish}"></title>
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" th:href="@{/css/dropzone.css}"/>
+    <link rel="stylesheet" th:href="@{/css/jquery-ui-1.10.3.custom.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/chosen.css}"/>
+    <link rel="stylesheet" th:href="@{/css/datepicker.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-timepicker.css}"/>
+    <link rel="stylesheet" th:href="@{/css/daterangepicker.css}"/>
+    <link rel="stylesheet" th:href="@{/css/colorpicker.css}"/>
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" th:href="@{/css/ace.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ace-rtl.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ace-skins.min.css}"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" th:href="@{/css/ace-ie.min.css}"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script th:src="@{/js/ace-extra.min.js}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script th:href="@{/js/html5shiv.js}"></script>
+    <script th:href="@{/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+<div layout:fragment="content">
+    <div th:include="common/content/breadcrumbs :: header (label1=#{label.dishes}, label2=#{label.adddish})"></div>
+    <!--/.breadcrumbs-->
+
+    <div class="page-content">
+        <div th:include="common/content/pageheader :: header (label1=#{label.dishes}, label2=#{label.adddish})"></div>
+        <!-- /.page-header -->
+
+        <div class="row">
+            <!-- PAGE CONTENT BEGINS -->
+
+            <div class="col-xs-12 col-sm-6">
+                <form class="form-horizontal" id="validation-form" action="#" role="form" method="post"
+                      th:action="@{/dish/add}" th:object="${dish}">
+                    <div class="form-group"
+                         th:attr="class=${#fields.hasErrors('name') ? 'form-group has-error' : 'form-group'}">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right" for="name"
+                               th:text="#{add.name}"> </label>
+
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <input type="text" name="name" id="name" th:field="*{name}"
+                                       class="col-xs-10 col-sm-10"/>
+                            </div>
+
+                            <div for="name" class="help-block" th:if="${#fields.hasErrors('name')}"
+                                 th:errors="*{name}">Name Error
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         th:attr="class=${#fields.hasErrors('price') ? 'form-group has-error' : 'form-group'}">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right" for="price"
+                               th:text="#{add.price}"> </label>
+
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <input type="text" name="price" id="price" th:field="*{price}"
+                                       class="col-xs-10 col-sm-10"/>
+                            </div>
+
+                            <div for="name" class="help-block" th:if="${#fields.hasErrors('price')}"
+                                 th:errors="*{price}">Name Error
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         th:attr="class=${#fields.hasErrors('description') ? 'form-group has-error' : 'form-group'}">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right
+                        " for="description"
+                               th:text="#{add.description}"></label>
+
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <textarea maxlength="300" id="description" name="description"
+                                          class="col-xs-10 col-sm-10 limited" th:field="*{description}">
+                                </textarea>
+                            </div>
+
+                            <div for="description" class="help-block"
+                                 th:if="${#fields.hasErrors('description')}"
+                                 th:errors="*{description}">Description Error
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                               for="typeSelector1"
+                               th:text="#{add.type}"></label>
+
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <div>
+                                    <select id="typeSelector1" name="typeSelector"
+                                            class="col-xs-10 col-sm-8 chosen-select">
+                                        <option value=""></option>
+                                        <option th:each="type : ${types}" th:if="${type.is_firstmenu}"
+                                                th:value="${type.name}" th:attr="data-id='' + ${type.id}"
+                                                th:text="${type.description}">Option Name
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right" for="typeSelector2"
+                               th:text="#{add.typeoptional}"></label>
+
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <select multiple=""
+                                        class="tag-input-style col-xs-10 col-sm-8 chosen-select"
+                                        id="typeSelector2" name="typeSelector2">
+                                    <option th:each="type : ${types}"
+                                            th:if="${type.is_secondmenu}"
+                                            th:attr="data-id='' + ${type.firstmenu_id}"
+                                            th:value="${type.name}"
+                                            th:text="${type.description}" style="display: none">Default
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">-->
+                    <!--<label class="col-sm-5 control-label no-padding-right" for="form-field-switch-operation"-->
+                    <!--th:text="#{add.doNeedPersonalOps}"></label>-->
+
+                    <!--<div class="col-sm-5">-->
+                    <!--<label>-->
+                    <!--<input type="checkbox" class="ace ace-switch ace-switch-6" name="switch-field-1"-->
+                    <!--id="form-field-switch-operation"/>-->
+                    <!--<span class="lbl"></span>-->
+                    <!--</label>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="form-group">
+                        <!-- for="form-field-personalOps" -->
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                               th:text="#{add.personalOps}"></label>
+
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <select multiple=""
+                                        class="tag-input-style col-xs-10 col-sm-8 chosen-select"
+                                        id="optionSelector" name="optionSelector">
+                                    <option th:each="option : ${options}"
+                                            th:value="${option.name}"
+                                            th:text="${option.name}">Default
+                                    </option>
+                                </select>
+                                <span class="help-button" data-rel="popover"
+                                      th:attr="data-content=#{add.personalOpsHelpContent}" data-trigger="hover"
+                                      data-placement="right"
+                                      th:title="#{add.personalOpsHelpTitle}">?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-xs-12 col-sm-8 control-label no-padding-right"
+                                   for="form-field-switch-date"
+                                   th:text="#{add.doNeedSetDate}"></label>
+
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="clearfix">
+                                    <label>
+                                        <input type="checkbox" class="ace ace-switch ace-switch-6"
+                                               name="switch-field-date"
+                                               id="form-field-switch-date"/>
+                                        <span class="lbl"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                               for="id-date-range-picker-1"
+                               th:text="#{add.date}"></label>
+                        <!--<div class="space-4"></div>-->
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <div class="input-group col-xs-10 col-sm-10">
+                                <span class="input-group-addon">
+																		<i class="icon-calendar bigger-110"></i>
+																	</span>
+                                    <input type="text" id="id-date-range-picker-1" name="date-range-picker"
+                                           class="form-control" th:placeholder="#{add.dateplaceholder}"
+                                           disabled="disabled"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+
+                        <div class="col-xs-12 col-sm-12">
+                            <label class="col-xs-12 col-sm-8 control-label no-padding-right"
+                                   for="form-field-switch-time"
+                                   th:text="#{add.doNeedSetTime}"></label>
+
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="clearfix">
+                                    <label>
+                                        <input type="checkbox" class="ace ace-switch ace-switch-6"
+                                               name="switch-field-time"
+                                               id="form-field-switch-time"/>
+                                        <span class="lbl"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 control-label no-padding-right"
+                               for="id-date-range-picker-1"
+                               th:text="#{add.date}"></label>
+                        <!--<div class="space-4"></div>-->
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="clearfix">
+                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
+                                    <span class="input-group-addon">
+																<i class="icon-time bigger-110"></i>
+															</span>
+
+                                    <div class="bootstrap-timepicker-widget dropdown-menu">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td><a data-action="incrementHour" href="#"><i
+                                                        class="icon-chevron-up"></i></a></td>
+                                                <td class="separator">&nbsp;</td>
+                                                <td><a data-action="incrementMinute" href="#"><i
+                                                        class="icon-chevron-up"></i></a></td>
+                                                <td class="separator">&nbsp;</td>
+                                                <td><a data-action="incrementSecond" href="#"><i
+                                                        class="icon-chevron-up"></i></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" maxlength="2"
+                                                           class="bootstrap-timepicker-hour"
+                                                           name="hour"/></td>
+                                                <td class="separator">:</td>
+                                                <td><input type="text" maxlength="2"
+                                                           class="bootstrap-timepicker-minute"
+                                                           name="minute"/></td>
+                                                <td class="separator">:</td>
+                                                <td><input type="text" maxlength="2"
+                                                           class="bootstrap-timepicker-second"
+                                                           name="second"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a data-action="decrementHour" href="#"><i
+                                                        class="icon-chevron-down"></i></a></td>
+                                                <td class="separator"></td>
+                                                <td><a data-action="decrementMinute" href="#"><i
+                                                        class="icon-chevron-down"></i></a></td>
+                                                <td class="separator">&nbsp;</td>
+                                                <td><a data-action="decrementSecond" href="#"><i
+                                                        class="icon-chevron-down"></i></a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <input type="text" class="form-control" id="timepicker1" name="timepicker1"
+                                           disabled="disabled"/>
+                                </div>
+
+                                <div class="input-group bootstrap-timepicker col-xs-10 col-sm-6">
+                                    <span class="input-group-addon">
+																<i class="icon-time bigger-110"></i>
+															</span>
+
+                                    <div class="bootstrap-timepicker-widget dropdown-menu">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td><a data-action="incrementHour" href="#"><i
+                                                        class="icon-chevron-up"></i></a></td>
+                                                <td class="separator">&nbsp;</td>
+                                                <td><a data-action="incrementMinute" href="#"><i
+                                                        class="icon-chevron-up"></i></a></td>
+                                                <td class="separator">&nbsp;</td>
+                                                <td><a data-action="incrementSecond" href="#"><i
+                                                        class="icon-chevron-up"></i></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" maxlength="2"
+                                                           class="bootstrap-timepicker-hour"
+                                                           name="hour"/></td>
+                                                <td class="separator">:</td>
+                                                <td><input type="text" maxlength="2"
+                                                           class="bootstrap-timepicker-minute"
+                                                           name="minute"/></td>
+                                                <td class="separator">:</td>
+                                                <td><input type="text" maxlength="2"
+                                                           class="bootstrap-timepicker-second"
+                                                           name="second"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a data-action="decrementHour" href="#"><i
+                                                        class="icon-chevron-down"></i></a></td>
+                                                <td class="separator"></td>
+                                                <td><a data-action="decrementMinute" href="#"><i
+                                                        class="icon-chevron-down"></i></a></td>
+                                                <td class="separator">&nbsp;</td>
+                                                <td><a data-action="decrementSecond" href="#"><i
+                                                        class="icon-chevron-down"></i></a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <input type="text" class="form-control" id="timepicker2" name="timepicker2"
+                                           disabled="disabled"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="imageRes" style="display: none;">
+                        <ul id="imageResList">
+
+                        </ul>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-xs-12 col-sm-6">
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>
+                            <span>Current Image</span>
+                        </h2>
+
+                        <ul class="ace-thumbnails">
+                            <li>
+                                <a title="Photo Title"
+                                   data-rel="colorbox">
+
+                                    <img th:each="file : ${dish.files}" alt="1	50x150"
+                                         th:src="'/' + ${file.location} + '' + ${file.name}"
+                                         width="220" height="320"/>
+
+                                    <div class="tags">
+													<span class="label-holder" th:each="tag : ${dish.types}">
+
+                                                        <div th:switch="${tag.name}">
+                                                            <span class="label label-info" th:case="'plat'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-danger" th:case="'dessert'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-success" th:case="'drink'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-warning" th:case="'entree'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="label label-warning arrowed-in"
+                                                                  th:case="'choix de chef'"
+                                                                  th:text="${tag.description}"></span>
+                                                            <span class="" th:case="'all_data'"></span>
+                                                            <span class="label label-purple arrowed-in" th:case="*"
+                                                                  th:text="${tag.description}"></span>
+                                                        </div>
+													</span>
+
+                                    </div>
+                                </a>
+
+                                <div class="center"><p th:text="${dish.name}"></p></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h2>
+                            <span th:text="#{add.upload}"></span>
+                        </h2>
+
+                        <div id="dropzone">
+                            <form id="dropzone-form" class="dropzone"
+                                  enctype="multipart/form-data">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple=""/>
+                                </div>
+                            </form>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <!-- PAGE CONTENT ENDS -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-5 col-md-5">
+
+                <button type="button" class="btn btn-info" id="submit-btn">
+                    <i class="icon-ok bigger-110"></i>
+                    <span th:text="#{add.submit}"></span>
+                </button>
+
+                &nbsp; &nbsp; &nbsp;
+                <button type="reset" class="btn" id="reset-btn">
+                    <i class="icon-undo bigger-110"></i>
+                    <span th:text="#{add.reset}"></span>
+                </button>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.page-content -->
+</div>
+<!-- /.main-content -->
+
+<div layout:fragment="script">
+    <!-- page specific plugin scripts -->
+
+    <!--[if lte IE 8]>
+    <script src="@{/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <script th:src="@{/js/dropzone.min.js}"></script>
+    <script th:src="@{/js/jquery-ui-1.10.3.custom.min.js}"></script>
+    <script th:src="@{/js/jquery.ui.touch-punch.min.js}"></script>
+    <script th:src="@{/js/chosen.jquery.min.js}"></script>
+    <script th:src="@{/js/fuelux/fuelux.spinner.min.js}"></script>
+    <script th:src="@{/js/date-time/bootstrap-datepicker.min.js}"></script>
+    <script th:src="@{/js/date-time/bootstrap-timepicker.min.js}"></script>
+    <script th:src="@{/js/date-time/moment.min.js}"></script>
+    <script th:src="@{/js/date-time/daterangepicker.min.js}"></script>
+    <script th:src="@{/js/bootstrap-colorpicker.min.js}"></script>
+    <script th:src="@{/js/jquery.knob.min.js}"></script>
+    <script th:src="@{/js/jquery.autosize.min.js}"></script>
+    <script th:src="@{/js/jquery.inputlimiter.1.3.1.min.js}"></script>
+    <script th:src="@{/js/jquery.maskedinput.min.js}"></script>
+    <script th:src="@{/js/bootstrap-tag.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom/adddish.js}"></script>
+    <script th:inline="javascript">
+        // on page reload do the same thing
+        window.onload = function () {
+            //TODO soft reload issue
+            secondTypeController();
+        };
+
+        $(document).ready(function () {
+            // using Thymeleaf script inline with javascript
+            $("#typeSelector1").chosen({
+                /*<![CDATA[*/
+                placeholder_text_single: /*[[#{add.selectType}]]*/ 'Please select a option',
+                placeholder_text_multiple: /*[[#{add.selectTypes}]]*/ 'Please select a option'
+                /*]]>*/
+            });
+
+            $("#typeSelector2").chosen({
+                /*<![CDATA[*/
+                placeholder_text_single: /*[[#{add.selectType}]]*/ 'Please select a option',
+                placeholder_text_multiple: /*[[#{add.selectTypes}]]*/ 'Please select a option'
+                /*]]>*/
+            });
+
+            $("#optionSelector").chosen({
+                /*<![CDATA[*/
+                placeholder_text_multiple: /*[[#{add.selectOptions}]]*/ 'Please select a option'
+                /*]]>*/
+            })
+
+            // on change status call the controller to update second type's content
+            $("#typeSelector1").chosen().on('change', function () {
+                secondTypeController();
+            });
+
+            $("#nav-dish").attr("class", "active open");
+            $("#nav-adddish").attr("class", "active");
+        });
+
+        /**
+         * Controller for the second type's content
+         */
+        function secondTypeController() {
+            $('#typeSelector1 option:selected').each(function () {
+                var theId = $(this).attr("data-id");
+
+                // select all second menu item with the first menu id
+                $("#typeSelector2 option").each(function () {
+                    $(this).attr("style", "display: none");
+                });
+
+                // select all second menu item with the first menu id
+                $("#typeSelector2 option[data-id='" + theId + "']").each(function () {
+                    $(this).removeAttr("style");
+                });
+
+                // update second menu type
+                $("#typeSelector2").trigger("chosen:updated");
+            });
+        }
+    </script>
+</div>
+</body>
+</html>
