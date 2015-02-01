@@ -88,6 +88,10 @@
 		3C53FC881A7ED48D001584A3 /* MDFirstMenuTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC871A7ED48D001584A3 /* MDFirstMenuTableController.m */; };
 		3C53FC8D1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC8B1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m */; };
 		3C53FC8E1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC8C1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib */; };
+		3C53FC911A7EDB9C001584A3 /* MDSecondMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC901A7EDB9C001584A3 /* MDSecondMenuViewController.m */; };
+		3C53FC9A1A7EDC88001584A3 /* MDDishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC991A7EDC88001584A3 /* MDDishView.m */; };
+		3C53FC9E1A7EDE4B001584A3 /* MDDishCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC9C1A7EDE4B001584A3 /* MDDishCollectionViewCell.m */; };
+		3C53FC9F1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC9D1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +245,13 @@
 		3C53FC8A1A7ED62A001584A3 /* MDFirstMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDFirstMenuTableViewCell.h; path = ViewController/Menu/FirstMenu/Cell/MDFirstMenuTableViewCell.h; sourceTree = "<group>"; };
 		3C53FC8B1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDFirstMenuTableViewCell.m; path = ViewController/Menu/FirstMenu/Cell/MDFirstMenuTableViewCell.m; sourceTree = "<group>"; };
 		3C53FC8C1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDFirstMenuTableViewCell.xib; path = ViewController/Menu/FirstMenu/Cell/MDFirstMenuTableViewCell.xib; sourceTree = "<group>"; };
+		3C53FC8F1A7EDB9C001584A3 /* MDSecondMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSecondMenuViewController.h; path = ViewController/Menu/SecondMenu/MDSecondMenuViewController.h; sourceTree = "<group>"; };
+		3C53FC901A7EDB9C001584A3 /* MDSecondMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDSecondMenuViewController.m; path = ViewController/Menu/SecondMenu/MDSecondMenuViewController.m; sourceTree = "<group>"; };
+		3C53FC981A7EDC88001584A3 /* MDDishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishView.h; path = ViewController/Menu/SecondMenu/MDDishView.h; sourceTree = "<group>"; };
+		3C53FC991A7EDC88001584A3 /* MDDishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishView.m; path = ViewController/Menu/SecondMenu/MDDishView.m; sourceTree = "<group>"; };
+		3C53FC9B1A7EDE4B001584A3 /* MDDishCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishCollectionViewCell.h; path = ViewController/Menu/SecondMenu/Cell/MDDishCollectionViewCell.h; sourceTree = "<group>"; };
+		3C53FC9C1A7EDE4B001584A3 /* MDDishCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishCollectionViewCell.m; path = ViewController/Menu/SecondMenu/Cell/MDDishCollectionViewCell.m; sourceTree = "<group>"; };
+		3C53FC9D1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDDishCollectionViewCell.xib; path = ViewController/Menu/SecondMenu/Cell/MDDishCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,6 +658,11 @@
 		3C53FC7E1A7ED1FF001584A3 /* SecondMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC921A7EDBE8001584A3 /* Cell */,
+				3C53FC8F1A7EDB9C001584A3 /* MDSecondMenuViewController.h */,
+				3C53FC901A7EDB9C001584A3 /* MDSecondMenuViewController.m */,
+				3C53FC981A7EDC88001584A3 /* MDDishView.h */,
+				3C53FC991A7EDC88001584A3 /* MDDishView.m */,
 			);
 			name = SecondMenu;
 			sourceTree = "<group>";
@@ -657,6 +673,16 @@
 				3C53FC8A1A7ED62A001584A3 /* MDFirstMenuTableViewCell.h */,
 				3C53FC8B1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m */,
 				3C53FC8C1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		3C53FC921A7EDBE8001584A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3C53FC9B1A7EDE4B001584A3 /* MDDishCollectionViewCell.h */,
+				3C53FC9C1A7EDE4B001584A3 /* MDDishCollectionViewCell.m */,
+				3C53FC9D1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -751,6 +777,7 @@
 				3C53FBCB1A7ECCC4001584A3 /* instant_noodle_with_egg.jpg in Resources */,
 				3C53FC831A7ED30D001584A3 /* MDAppConfiguration.plist in Resources */,
 				3C53FBCA1A7ECCC4001584A3 /* hamburger.jpg in Resources */,
+				3C53FC9F1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib in Resources */,
 				3C53FBCE1A7ECCC4001584A3 /* noodle_with_bbq_pork.jpg in Resources */,
 				3C53FBC31A7ECCC4001584A3 /* angry_birds_cake.jpg in Resources */,
 				3C53FB911A7ECAF0001584A3 /* Images.xcassets in Resources */,
@@ -796,10 +823,12 @@
 				3C53FC371A7ECCDD001584A3 /* JSONModel+networking.m in Sources */,
 				3C53FC4B1A7ECCDD001584A3 /* UIWebView+AFNetworking.m in Sources */,
 				3C53FC6C1A7ECCFB001584A3 /* MDActivicy.m in Sources */,
+				3C53FC9E1A7EDE4B001584A3 /* MDDishCollectionViewCell.m in Sources */,
 				3C53FC3D1A7ECCDD001584A3 /* AFHTTPSessionManager.m in Sources */,
 				3C53FC441A7ECCDD001584A3 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				3C53FC691A7ECCFB001584A3 /* MDCommand.m in Sources */,
 				3C53FC3A1A7ECCDD001584A3 /* XTSegmentControl.m in Sources */,
+				3C53FC911A7EDB9C001584A3 /* MDSecondMenuViewController.m in Sources */,
 				3C53FC461A7ECCDD001584A3 /* UIAlertView+AFNetworking.m in Sources */,
 				3C53FBAD1A7ECBA1001584A3 /* ViewController.m in Sources */,
 				3C53FC5D1A7ECCEE001584A3 /* SQLiteManager.m in Sources */,
@@ -831,6 +860,7 @@
 				3C53FC3C1A7ECCDD001584A3 /* AFHTTPRequestOperationManager.m in Sources */,
 				3C53FC3F1A7ECCDD001584A3 /* AFSecurityPolicy.m in Sources */,
 				3C53FBDB1A7ECCD5001584A3 /* MDMenuHelper.m in Sources */,
+				3C53FC9A1A7EDC88001584A3 /* MDDishView.m in Sources */,
 				3C53FC4E1A7ECCDD001584A3 /* FMDatabasePool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

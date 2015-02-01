@@ -8,10 +8,13 @@
 
 #import "MDFirstMenuTableController.h"
 #import  "MDFirstMenuTableViewCell.h"
+#import "MDFirstMenuViewController.h"
 
 
 
 @implementation MDFirstMenuTableController
+
+@synthesize parentViewController = _parentViewController;
 
 - (CGFloat)tableView:(UITableView *)tableView
 estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,7 +68,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark 点击cell的事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //[_parentViewController refreshDataWithFirstMenuNumber:indexPath.row];
+    [_parentViewController refreshDataWithFirstMenuNumber:indexPath.row];
+
 }
 
 

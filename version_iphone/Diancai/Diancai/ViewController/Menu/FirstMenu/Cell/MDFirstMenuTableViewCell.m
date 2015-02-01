@@ -13,7 +13,6 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    NSLog(@"I am awak ");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -118,6 +118,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 }
+
+
 -(void) refreshDataWithFirstMenuNumber:(NSInteger)number{
     NSLog(@"click at row : %@", [[_firstMenuList objectAtIndex:number] name]);
     

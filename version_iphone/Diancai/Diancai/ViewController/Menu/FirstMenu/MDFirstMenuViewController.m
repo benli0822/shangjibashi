@@ -10,6 +10,8 @@
 #import "SQLiteManager.h"
 #import "MDMenuHelper.h"
 #import "MDFirstMenuTableController.h"
+#import "MDSecondMenuViewController.h"
+
 
 
 @interface MDFirstMenuViewController ()
@@ -41,7 +43,7 @@
     _firstMenuTableViewController.separatorColor = [UIColor clearColor];
     [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
     [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
-    
+    _firstMenuTableController.parentViewController = self;
     
     //set section
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:2 inSection:0];
@@ -52,6 +54,16 @@
     
 }
 
+
+
+-(void) refreshDataWithFirstMenuNumber:(NSInteger)number{
+    MDSecondMenuViewController *secondMenuVC = [[MDSecondMenuViewController alloc] init];
+    secondMenuVC.dishDictionary = _dishDictionary;
+    secondMenuVC.firstMenuList = _firstMenuList;
+    [secondMenuVC refreshDataWithFirstMenuNumber:number];
+    [self.navigationController pushViewController:secondMenuVC animated:TRUE];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

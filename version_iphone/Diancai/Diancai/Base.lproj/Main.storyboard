@@ -74,11 +74,11 @@
             </objects>
             <point key="canvasLocation" x="773" y="144"/>
         </scene>
-        <!--View Controller-->
+        <!--Second Menu View Controller-->
         <scene sceneID="cln-Si-QP5">
             <objects>
-                <viewController id="rzz-xQ-tIj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D55-Ne-dI9">
+                <viewController id="rzz-xQ-tIj" customClass="MDSecondMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D55-Ne-dI9" customClass="Sec">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

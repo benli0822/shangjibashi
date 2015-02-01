@@ -39,6 +39,7 @@
 @property(nonatomic, strong) NSMutableArray *firstMenuList;
 
 
+-(void) refreshDataWithFirstMenuNumber:(NSInteger)number;
 
 
 
