@@ -86,6 +86,8 @@
 		3C53FC831A7ED30D001584A3 /* MDAppConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC821A7ED30D001584A3 /* MDAppConfiguration.plist */; };
 		3C53FC851A7ED3C7001584A3 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC841A7ED3C7001584A3 /* database.sqlite */; };
 		3C53FC881A7ED48D001584A3 /* MDFirstMenuTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC871A7ED48D001584A3 /* MDFirstMenuTableController.m */; };
+		3C53FC8D1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC8B1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m */; };
+		3C53FC8E1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC8C1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +238,9 @@
 		3C53FC841A7ED3C7001584A3 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		3C53FC861A7ED48D001584A3 /* MDFirstMenuTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDFirstMenuTableController.h; path = ViewController/Menu/FirstMenu/MDFirstMenuTableController.h; sourceTree = "<group>"; };
 		3C53FC871A7ED48D001584A3 /* MDFirstMenuTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDFirstMenuTableController.m; path = ViewController/Menu/FirstMenu/MDFirstMenuTableController.m; sourceTree = "<group>"; };
+		3C53FC8A1A7ED62A001584A3 /* MDFirstMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDFirstMenuTableViewCell.h; path = ViewController/Menu/FirstMenu/Cell/MDFirstMenuTableViewCell.h; sourceTree = "<group>"; };
+		3C53FC8B1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDFirstMenuTableViewCell.m; path = ViewController/Menu/FirstMenu/Cell/MDFirstMenuTableViewCell.m; sourceTree = "<group>"; };
+		3C53FC8C1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDFirstMenuTableViewCell.xib; path = ViewController/Menu/FirstMenu/Cell/MDFirstMenuTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -630,6 +635,7 @@
 		3C53FC7D1A7ED1D1001584A3 /* FirstMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC891A7ED607001584A3 /* Cell */,
 				3C53FC7F1A7ED245001584A3 /* MDFirstMenuViewController.h */,
 				3C53FC801A7ED245001584A3 /* MDFirstMenuViewController.m */,
 				3C53FC861A7ED48D001584A3 /* MDFirstMenuTableController.h */,
@@ -643,6 +649,16 @@
 			children = (
 			);
 			name = SecondMenu;
+			sourceTree = "<group>";
+		};
+		3C53FC891A7ED607001584A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3C53FC8A1A7ED62A001584A3 /* MDFirstMenuTableViewCell.h */,
+				3C53FC8B1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m */,
+				3C53FC8C1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -741,6 +757,7 @@
 				3C53FBC81A7ECCC4001584A3 /* ham_and_cheese_panini.jpg in Resources */,
 				3C53FBC71A7ECCC4001584A3 /* green_tea.jpg in Resources */,
 				3C53FC851A7ED3C7001584A3 /* database.sqlite in Resources */,
+				3C53FC8E1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib in Resources */,
 				3C53FBCD1A7ECCC4001584A3 /* mushroom_risotto.jpg in Resources */,
 				3C53FBCF1A7ECCC4001584A3 /* starbucks_coffee.jpg in Resources */,
 				3C53FBC51A7ECCC4001584A3 /* egg_benedict.jpg in Resources */,
@@ -809,6 +826,7 @@
 				3C53FB861A7ECAF0001584A3 /* main.m in Sources */,
 				3C53FC331A7ECCDD001584A3 /* JSONModelError.m in Sources */,
 				3C53FC471A7ECCDD001584A3 /* UIButton+AFNetworking.m in Sources */,
+				3C53FC8D1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m in Sources */,
 				3C53FC4A1A7ECCDD001584A3 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3C53FC3C1A7ECCDD001584A3 /* AFHTTPRequestOperationManager.m in Sources */,
 				3C53FC3F1A7ECCDD001584A3 /* AFSecurityPolicy.m in Sources */,

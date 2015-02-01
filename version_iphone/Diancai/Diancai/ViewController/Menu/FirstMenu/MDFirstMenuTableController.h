@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface MDFirstMenuTableController : NSObject
+
+@interface MDFirstMenuTableController : NSObject <UITableViewDelegate,UITableViewDataSource>
+
+@property(strong, nonatomic) NSMutableArray* data; //存放列表的数据，每个元素都是Menu对象
+
 
 @end

@@ -149,7 +149,7 @@
     }
     
     
-    [self LogAllDishesOfDB:data];
+    //[self LogAllDishesOfDB:data];
     [db close];
 
     return data;
