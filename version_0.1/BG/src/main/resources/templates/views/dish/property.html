@@ -127,7 +127,7 @@
             var type_data = "";
             var type_nb = 0;
             $.each(json, function (i, value) {
-                type_nb ++;
+                type_nb++;
                 var type = {
                     id: value["id"],
                     name: value["description"]
@@ -229,6 +229,7 @@
                             updateActionIcons(table);
                             updatePagerIcons(table);
                             enableTooltips(table);
+                            changeEditableByContain(table, 'root', 'Yes');
                         }, 0);
                     },
 
@@ -417,27 +418,36 @@
                      */
                 }
 
-                function changeEditableByContain(gr, colName, text, doNonEditable) {
-                    var pos = getColumnIndexByName(gr, colName);
-                    // nth-child need 1-based index so we use (i+1) below
-                    var cells = $("tbody > tr.jqgrow > td:nth-child(" + (pos + 1) + ")", gr[0]);
-                    for (var i = 0; i < cells.length; i++) {
-                        var cell = $(cells[i]);
-                        //var cellText = cell.text();
-                        var unformatedText = $.unformat(cell, {
-                            rowId: cell[0].id,
-                            colModel: gr[0].p.colModel[pos]
-                        }, pos);
-                        if (text === unformatedText) { // one can use cell.text() instead of unformatedText if needed
-                            if (doNonEditable) {
-                                cell.addClass('not-editable-cell');
-                            } else {
-                                cell.removeClass('not-editable-cell');
-                            }
+                function getColumnIndexByName(gr,columnName) {
+                    var cm = jQuery(gr).jqGrid('getGridParam','colModel');
+                    for (var i=0,l=cm.length; i<l; i++) {
+                        if (cm[i].name===columnName) {
+                            return i; // return the index
                         }
                     }
-                };
+                    return -1;
+                }
 
+                function changeEditableByContain(gr, colNameCond, textCond) {
+                    var posCond = getColumnIndexByName(gr, colNameCond);
+                    // nth-child need 1-based index so we use (i+1) below
+                    var cells = $("tbody > tr.jqgrow > td:nth-child(" + (posCond + 1) + ")", gr[0]);
+                    for (var i = 0; i < cells.length; i++) {
+                        var cellCond = $(cells[i]);
+                        //var cellText = cell.text();
+                        var unformatedTextCond = $.unformat(cellCond, {
+                            rowId: cellCond[0].id,
+                            colModel: gr[0].p.colModel[posCond]
+                        }, posCond);
+                        if (textCond === unformatedTextCond) { // one can use cell.text() instead of unformatedText if needed
+                            var cellSeq = $(cells[i + 2]);
+
+                            console.log(cellSeq);
+
+                            cellSeq.addClass('not-editable-cell');
+                        }
+                    }
+                }
 
                 //unlike navButtons icons, action icons in rows seem to be hard-coded
                 //you can change them like this in here if you want
@@ -484,14 +494,15 @@
 
 
             });
-        });
+        })
+        ;
 
         $.getJSON("/api/getOptions", function (json) {
             // retrieve types' data in json format
             var grid_data = [];
             var option_nb = 0;
             $.each(json, function (i, value) {
-                option_nb ++;
+                option_nb++;
                 var option = {
                     id: value["id"],
                     name: value["name"]

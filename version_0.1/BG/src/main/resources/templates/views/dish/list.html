@@ -95,7 +95,7 @@
                     <ul class="ace-thumbnails">
                         <li th:each="dish : ${currentResults}">
                             <a title="Photo Title"
-                               data-rel="colorbox">
+                               data-rel="colorbox" th:href="@{'/dish/detail/'+${dish.id}}">
 
                                 <img th:each="file : ${dish.files}" alt="1	50x150"
                                      th:src="'/' + ${file.location} + '' + ${file.name}" width="190" height="240"/>
@@ -120,7 +120,7 @@
                                                             <span class="label label-purple arrowed-in" th:case="*"
                                                                   th:text="${tag.description}"></span>
                                                         </div>
-													</span>
+                </span>
 
                                 </div>
                             </a>
