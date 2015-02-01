@@ -101,21 +101,16 @@
     
     _firstMenuTableController.data = [[MDMenuHelper shared] getAllFirstMenuNames];
     
-    
-    
+    _firstMenuTableViewController.separatorColor = [UIColor clearColor];
     [_firstMenuTableViewController setDataSource:self.firstMenuTableController];
     [_firstMenuTableViewController setDelegate:self.firstMenuTableController];
     [_firstMenuTableController setParentViewController:self];
     
     
+    //set section
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:2 inSection:0];
+    [_firstMenuTableViewController selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
     
-    
-    //[_ColletionView registerNib:[UINib nibWithNibName:@"DishCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
-    
-    //[_ColletionView setDelegate:self.MenuDishCollectionViewController];
-    //[_ColletionView setDataSource:self.MenuDishCollectionViewController];
-   
-        
     
 #pragma mark command list table setting
     
