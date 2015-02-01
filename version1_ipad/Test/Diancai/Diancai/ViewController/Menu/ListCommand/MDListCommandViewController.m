@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.preferredContentSize = CGSizeMake(400.0, 660.0);
+    self.preferredContentSize = CGSizeMake(400.0, 600.0);
     
     self.listCommandController = [[MDListCommandController alloc] init];
     
@@ -34,10 +34,16 @@
                             forCellReuseIdentifier:@"Cell"];
 
     
-    _totalPriceLabel.text = [NSString stringWithFormat:@"%3f", [MDUserCommand shared].total_price];
+    _totalPriceLabel.text = [NSString stringWithFormat:@"%.f", [MDUserCommand shared].total_price];
     [_listCommandTable setDataSource:_listCommandController];
     [_listCommandTable setDelegate:_listCommandController];
     
+    if ([MDUserCommand shared].total_price / 3 > 60) {
+        _WarningLabel.text = @"You have order too much for 3 persons.";
+    }
+    else {
+        _WarningLabel.text = @"Here is your command : ";
+    }
     
 }
 

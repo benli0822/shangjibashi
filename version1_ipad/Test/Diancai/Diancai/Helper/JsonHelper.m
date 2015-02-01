@@ -21,8 +21,8 @@
     
 
     
-    NSString *baseURL = @"http://192.168.1.26:8080/api/";
-    NSString *path = @"article/restPostArticle";
+    NSString *baseURL = @"http://192.168.1.41:9090/api";
+    NSString *path = @"postCommands";
     
     
     

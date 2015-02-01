@@ -22,7 +22,7 @@
     _menu_list = [[NSMutableArray alloc] init];
     _activity_list = [[NSMutableArray alloc] init];
     
-    _dishes = [[NSMutableDictionary alloc] init];
+    _dish_dictionary = [[NSMutableDictionary alloc] init];
     _menu_dictionary = [[NSMutableDictionary alloc] init];
     _activity_dictionary = [[NSMutableDictionary alloc] init];
     
@@ -36,9 +36,9 @@
     //treat quantities
     //if this is the first time we add a dish, then we will create a dictionary else we will update the quantities of this dish
     
-    if(![_dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]]){
+    if(![_dish_dictionary objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]]){
         
-        [_dishes setObject:[NSNumber numberWithInteger:quantity] forKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
+        [_dish_dictionary setObject:[NSNumber numberWithInteger:quantity] forKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
         if(!_dish_list){
             _dish_list = [[NSMutableArray alloc] init];
         }
@@ -49,9 +49,9 @@
     }
     else{
         //update the quantities
-        NSNumber *num = [_dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
+        NSNumber *num = [_dish_dictionary objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
         NSNumber *newNum = [NSNumber numberWithInteger:[num integerValue] + quantity ];
-        [_dishes setObject:newNum forKey:object.name];
+        [_dish_dictionary setObject:newNum forKey:[NSString stringWithFormat:@"%lu", (unsigned long)object.id_dish]];
         
     }
     
@@ -94,7 +94,7 @@
 
 //Json ignore option
 +(BOOL)propertyIsIgnored:(NSString *)propertyName{
-    if ([propertyName isEqualToString:@"dishes"]) {
+    if ([propertyName isEqualToString:@"dish_dictionary"]) {
         return NO;
     }
     if ([propertyName isEqualToString:@"table"]) {

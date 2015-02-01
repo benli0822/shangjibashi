@@ -47,7 +47,7 @@
  *  each dictionary means each dishies, activies, menus and their quantities
  *  [key : humbergers , value : 2]
  */
-@property (nonatomic,strong) NSMutableDictionary* dishes;
+@property (nonatomic,strong) NSMutableDictionary* dish_dictionary;
 @property (nonatomic,strong) NSMutableDictionary* activity_dictionary;
 @property (nonatomic,strong) NSMutableDictionary* menu_dictionary;
 
