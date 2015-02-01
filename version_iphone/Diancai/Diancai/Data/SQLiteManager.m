@@ -22,7 +22,7 @@
 {
     NSString *plicastConfigPath = [[NSBundle mainBundle] pathForResource:@"MDAppConfiguration" ofType:@"plist"];
     NSDictionary *DBConfigDictionary = [[NSDictionary alloc] initWithContentsOfFile:plicastConfigPath][@"DBConfiguration"] ;
-    //NSLog(@"Dictionary value%@",DBConfigDictionary[@"DBName"]);
+    NSLog(@"Dictionary value : %@",DBConfigDictionary[@"DBName"]);
     
     _databaseName = DBConfigDictionary[@"DBName"];
     
@@ -41,7 +41,7 @@
     
     if(!success){
         NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:_databaseName];
-         //NSLog(@"path %@",_databasePath);
+         NSLog(@"path %@",_databasePath);
         [fileManager copyItemAtPath:databasePathFromApp toPath:_databasePath error:nil];
     }
 }
@@ -69,6 +69,9 @@
 }
 
 -(NSString*) getTestReadDataFromDB{
+    
+    
+    
     FMDatabase *db = [[FMDatabase alloc] initWithPath:_databasePath];
     
     
@@ -146,7 +149,7 @@
     }
     
     
-    //[self LogAllDishesOfDB:data];
+    [self LogAllDishesOfDB:data];
     [db close];
 
     return data;

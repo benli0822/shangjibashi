@@ -82,6 +82,10 @@
 		3C53FC741A7ECD37001584A3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FC731A7ECD37001584A3 /* SystemConfiguration.framework */; };
 		3C53FC761A7ECD3C001584A3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FC751A7ECD3C001584A3 /* CFNetwork.framework */; };
 		3C53FC781A7ECD44001584A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FC771A7ECD44001584A3 /* libsqlite3.dylib */; };
+		3C53FC811A7ED245001584A3 /* MDFirstMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC801A7ED245001584A3 /* MDFirstMenuViewController.m */; };
+		3C53FC831A7ED30D001584A3 /* MDAppConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC821A7ED30D001584A3 /* MDAppConfiguration.plist */; };
+		3C53FC851A7ED3C7001584A3 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC841A7ED3C7001584A3 /* database.sqlite */; };
+		3C53FC881A7ED48D001584A3 /* MDFirstMenuTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC871A7ED48D001584A3 /* MDFirstMenuTableController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +110,6 @@
 		3C53FB991A7ECAF0001584A3 /* DiancaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiancaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C53FB9E1A7ECAF0001584A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C53FB9F1A7ECAF0001584A3 /* DiancaiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiancaiTests.m; sourceTree = "<group>"; };
-		3C53FBA91A7ECB08001584A3 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
 		3C53FBAB1A7ECBA1001584A3 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ViewController/ViewController.h; sourceTree = "<group>"; };
 		3C53FBAC1A7ECBA1001584A3 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ViewController/ViewController.m; sourceTree = "<group>"; };
 		3C53FBB31A7ECCC4001584A3 /* angry_birds_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = angry_birds_cake.jpg; path = resource/image/angry_birds_cake.jpg; sourceTree = "<group>"; };
@@ -227,6 +230,12 @@
 		3C53FC731A7ECD37001584A3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3C53FC751A7ECD3C001584A3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3C53FC771A7ECD44001584A3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		3C53FC7F1A7ED245001584A3 /* MDFirstMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDFirstMenuViewController.h; path = ViewController/Menu/FirstMenu/MDFirstMenuViewController.h; sourceTree = "<group>"; };
+		3C53FC801A7ED245001584A3 /* MDFirstMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDFirstMenuViewController.m; path = ViewController/Menu/FirstMenu/MDFirstMenuViewController.m; sourceTree = "<group>"; };
+		3C53FC821A7ED30D001584A3 /* MDAppConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MDAppConfiguration.plist; sourceTree = "<group>"; };
+		3C53FC841A7ED3C7001584A3 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
+		3C53FC861A7ED48D001584A3 /* MDFirstMenuTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDFirstMenuTableController.h; path = ViewController/Menu/FirstMenu/MDFirstMenuTableController.h; sourceTree = "<group>"; };
+		3C53FC871A7ED48D001584A3 /* MDFirstMenuTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDFirstMenuTableController.m; path = ViewController/Menu/FirstMenu/MDFirstMenuTableController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +265,6 @@
 		3C53FB771A7ECAF0001584A3 = {
 			isa = PBXGroup;
 			children = (
-				3C53FBA91A7ECB08001584A3 /* database.sqlite */,
 				3C53FB821A7ECAF0001584A3 /* Diancai */,
 				3C53FB9C1A7ECAF0001584A3 /* DiancaiTests */,
 				3C53FB811A7ECAF0001584A3 /* Products */,
@@ -275,6 +283,7 @@
 		3C53FB821A7ECAF0001584A3 /* Diancai */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC841A7ED3C7001584A3 /* database.sqlite */,
 				3C53FBB21A7ECC8C001584A3 /* Resources */,
 				3C53FBB11A7ECC80001584A3 /* Helper */,
 				3C53FBB01A7ECC79001584A3 /* Libraries */,
@@ -289,6 +298,7 @@
 		3C53FB831A7ECAF0001584A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC821A7ED30D001584A3 /* MDAppConfiguration.plist */,
 				3C53FB921A7ECAF0001584A3 /* LaunchScreen.xib */,
 				3C53FB901A7ECAF0001584A3 /* Images.xcassets */,
 				3C53FB871A7ECAF0001584A3 /* AppDelegate.h */,
@@ -620,6 +630,10 @@
 		3C53FC7D1A7ED1D1001584A3 /* FirstMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC7F1A7ED245001584A3 /* MDFirstMenuViewController.h */,
+				3C53FC801A7ED245001584A3 /* MDFirstMenuViewController.m */,
+				3C53FC861A7ED48D001584A3 /* MDFirstMenuTableController.h */,
+				3C53FC871A7ED48D001584A3 /* MDFirstMenuTableController.m */,
 			);
 			name = FirstMenu;
 			sourceTree = "<group>";
@@ -719,12 +733,14 @@
 				3C53FB941A7ECAF0001584A3 /* LaunchScreen.xib in Resources */,
 				3C53FBD21A7ECCC4001584A3 /* white_chocolate_donut.jpg in Resources */,
 				3C53FBCB1A7ECCC4001584A3 /* instant_noodle_with_egg.jpg in Resources */,
+				3C53FC831A7ED30D001584A3 /* MDAppConfiguration.plist in Resources */,
 				3C53FBCA1A7ECCC4001584A3 /* hamburger.jpg in Resources */,
 				3C53FBCE1A7ECCC4001584A3 /* noodle_with_bbq_pork.jpg in Resources */,
 				3C53FBC31A7ECCC4001584A3 /* angry_birds_cake.jpg in Resources */,
 				3C53FB911A7ECAF0001584A3 /* Images.xcassets in Resources */,
 				3C53FBC81A7ECCC4001584A3 /* ham_and_cheese_panini.jpg in Resources */,
 				3C53FBC71A7ECCC4001584A3 /* green_tea.jpg in Resources */,
+				3C53FC851A7ED3C7001584A3 /* database.sqlite in Resources */,
 				3C53FBCD1A7ECCC4001584A3 /* mushroom_risotto.jpg in Resources */,
 				3C53FBCF1A7ECCC4001584A3 /* starbucks_coffee.jpg in Resources */,
 				3C53FBC51A7ECCC4001584A3 /* egg_benedict.jpg in Resources */,
@@ -749,6 +765,7 @@
 			files = (
 				3C53FC491A7ECCDD001584A3 /* UIProgressView+AFNetworking.m in Sources */,
 				3C53FC481A7ECCDD001584A3 /* UIImageView+AFNetworking.m in Sources */,
+				3C53FC811A7ED245001584A3 /* MDFirstMenuViewController.m in Sources */,
 				3C53FC3B1A7ECCDD001584A3 /* AFHTTPRequestOperation.m in Sources */,
 				3C53FC4C1A7ECCDD001584A3 /* FMDatabase.m in Sources */,
 				3C53FC301A7ECCDD001584A3 /* JSONModel.m in Sources */,
@@ -785,6 +802,7 @@
 				3C53FC4D1A7ECCDD001584A3 /* FMDatabaseAdditions.m in Sources */,
 				3C53FC381A7ECCDD001584A3 /* JSONKeyMapper.m in Sources */,
 				3C53FC411A7ECCDD001584A3 /* AFURLRequestSerialization.m in Sources */,
+				3C53FC881A7ED48D001584A3 /* MDFirstMenuTableController.m in Sources */,
 				3C53FC341A7ECCDD001584A3 /* NSArray+JSONModel.m in Sources */,
 				3C53FC391A7ECCDD001584A3 /* JSONValueTransformer.m in Sources */,
 				3C53FC351A7ECCDD001584A3 /* JSONAPI.m in Sources */,
