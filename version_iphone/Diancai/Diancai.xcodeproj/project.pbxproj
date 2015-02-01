@@ -256,12 +256,6 @@
 		3C53FB771A7ECAF0001584A3 = {
 			isa = PBXGroup;
 			children = (
-				3C53FC771A7ECD44001584A3 /* libsqlite3.dylib */,
-				3C53FC751A7ECD3C001584A3 /* CFNetwork.framework */,
-				3C53FC731A7ECD37001584A3 /* SystemConfiguration.framework */,
-				3C53FC711A7ECD2E001584A3 /* MobileCoreServices.framework */,
-				3C53FC6F1A7ECD29001584A3 /* CoreGraphics.framework */,
-				3C53FC6D1A7ECD23001584A3 /* libz.dylib */,
 				3C53FBA91A7ECB08001584A3 /* database.sqlite */,
 				3C53FB821A7ECAF0001584A3 /* Diancai */,
 				3C53FB9C1A7ECAF0001584A3 /* DiancaiTests */,
@@ -325,6 +319,10 @@
 		3C53FBAA1A7ECB7D001584A3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC7C1A7ED12D001584A3 /* Reserve */,
+				3C53FC7B1A7ED127001584A3 /* Map */,
+				3C53FC7A1A7ED11E001584A3 /* More */,
+				3C53FC791A7ED10F001584A3 /* Menu */,
 				3C53FBAB1A7ECBA1001584A3 /* ViewController.h */,
 				3C53FBAC1A7ECBA1001584A3 /* ViewController.m */,
 			);
@@ -367,6 +365,12 @@
 		3C53FBB01A7ECC79001584A3 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FC771A7ECD44001584A3 /* libsqlite3.dylib */,
+				3C53FC751A7ECD3C001584A3 /* CFNetwork.framework */,
+				3C53FC731A7ECD37001584A3 /* SystemConfiguration.framework */,
+				3C53FC711A7ECD2E001584A3 /* MobileCoreServices.framework */,
+				3C53FC6F1A7ECD29001584A3 /* CoreGraphics.framework */,
+				3C53FC6D1A7ECD23001584A3 /* libz.dylib */,
 				3C53FBDC1A7ECCDC001584A3 /* JSON */,
 				3C53FBF61A7ECCDC001584A3 /* XTSegmentControl */,
 				3C53FBF91A7ECCDC001584A3 /* AFNetworking */,
@@ -581,6 +585,50 @@
 			);
 			name = iCarousel;
 			path = Librarie/iCarousel;
+			sourceTree = "<group>";
+		};
+		3C53FC791A7ED10F001584A3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3C53FC7E1A7ED1FF001584A3 /* SecondMenu */,
+				3C53FC7D1A7ED1D1001584A3 /* FirstMenu */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		3C53FC7A1A7ED11E001584A3 /* More */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
+		3C53FC7B1A7ED127001584A3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		3C53FC7C1A7ED12D001584A3 /* Reserve */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reserve;
+			sourceTree = "<group>";
+		};
+		3C53FC7D1A7ED1D1001584A3 /* FirstMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FirstMenu;
+			sourceTree = "<group>";
+		};
+		3C53FC7E1A7ED1FF001584A3 /* SecondMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SecondMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
