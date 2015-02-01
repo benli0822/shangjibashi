@@ -45,6 +45,9 @@
         _WarningLabel.text = @"Here is your command : ";
     }
     
+    [_listCommandTable reloadData];
+    
+    
 }
 
 

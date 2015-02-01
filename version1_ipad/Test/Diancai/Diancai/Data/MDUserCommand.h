@@ -52,17 +52,18 @@
 @property (nonatomic,strong) NSMutableDictionary* menu_dictionary;
 
 
-
+//add actions
 -(void) addDishWithQuantity:(MDDish *)object quantity:(NSUInteger)quantity;
 -(void) addMenu:(MDMenu *)object;
 -(void) addActivity:(MDActivicy *)object;
 
+//delete actions
+-(void) deleteDish:(NSInteger )object;
 
 
 
 + (MDUserCommand*)shared;
 
 -(NSData*) getJasonDate;
-
 
 @end

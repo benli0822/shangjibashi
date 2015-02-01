@@ -124,6 +124,17 @@
     return  nil;
 }
 
-
+-(void) deleteDish:(NSInteger)index{
+    
+    //first we delete the array list
+    MDDish *dish = [_dish_list objectAtIndex:index];
+    NSUInteger dish_id = dish.id_dish;
+    [_dish_list removeObjectAtIndex:index];
+    
+    
+    //and delete the object in NSDictonary
+    
+    [_dish_dictionary removeObjectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish_id]];
+}
 
 @end
