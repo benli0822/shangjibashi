@@ -1072,6 +1072,7 @@
 				3C53FBA51A7ECAF0001584A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C53FBA61A7ECAF0001584A3 /* Build configuration list for PBXNativeTarget "DiancaiTests" */ = {
 			isa = XCConfigurationList;
@@ -1080,6 +1081,7 @@
 				3C53FBA81A7ECAF0001584A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
