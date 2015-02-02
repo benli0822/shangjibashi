@@ -144,6 +144,12 @@ public class DishServiceImpl implements DishService {
 
                 // command ? should be considered, if this will crash all database
 
+                // make sure all association has been unbound
+                assert dish.getActivities().size() == 0;
+                assert dish.getMenus().size() == 0;
+                assert dish.getTypes().size() == 0;
+                assert dish.getOptions().size() == 0;
+
                 dishRepository.delete(dish);
             }
             logger.info("Dish removed!");
