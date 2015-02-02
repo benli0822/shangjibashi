@@ -92,6 +92,10 @@
 		3C53FC9A1A7EDC88001584A3 /* MDDishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC991A7EDC88001584A3 /* MDDishView.m */; };
 		3C53FC9E1A7EDE4B001584A3 /* MDDishCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FC9C1A7EDE4B001584A3 /* MDDishCollectionViewCell.m */; };
 		3C53FC9F1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FC9D1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib */; };
+		3C53FCA21A7F8BA0001584A3 /* MDReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FCA11A7F8BA0001584A3 /* MDReserveViewController.m */; };
+		3C53FCA41A7F8FB9001584A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FCA31A7F8FB9001584A3 /* CoreLocation.framework */; };
+		3C53FCA61A7F8FD1001584A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FCA51A7F8FD1001584A3 /* MapKit.framework */; };
+		3C53FCA91A7F91ED001584A3 /* MDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FCA81A7F91ED001584A3 /* MDMapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +256,12 @@
 		3C53FC9B1A7EDE4B001584A3 /* MDDishCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishCollectionViewCell.h; path = ViewController/Menu/SecondMenu/Cell/MDDishCollectionViewCell.h; sourceTree = "<group>"; };
 		3C53FC9C1A7EDE4B001584A3 /* MDDishCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishCollectionViewCell.m; path = ViewController/Menu/SecondMenu/Cell/MDDishCollectionViewCell.m; sourceTree = "<group>"; };
 		3C53FC9D1A7EDE4B001584A3 /* MDDishCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDDishCollectionViewCell.xib; path = ViewController/Menu/SecondMenu/Cell/MDDishCollectionViewCell.xib; sourceTree = "<group>"; };
+		3C53FCA01A7F8BA0001584A3 /* MDReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDReserveViewController.h; path = ViewController/Reserve/MDReserveViewController.h; sourceTree = "<group>"; };
+		3C53FCA11A7F8BA0001584A3 /* MDReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDReserveViewController.m; path = ViewController/Reserve/MDReserveViewController.m; sourceTree = "<group>"; };
+		3C53FCA31A7F8FB9001584A3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3C53FCA51A7F8FD1001584A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3C53FCA71A7F91ED001584A3 /* MDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMapViewController.h; path = ViewController/Map/MDMapViewController.h; sourceTree = "<group>"; };
+		3C53FCA81A7F91ED001584A3 /* MDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMapViewController.m; path = ViewController/Map/MDMapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +269,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C53FCA61A7F8FD1001584A3 /* MapKit.framework in Frameworks */,
+				3C53FCA41A7F8FB9001584A3 /* CoreLocation.framework in Frameworks */,
 				3C53FC781A7ECD44001584A3 /* libsqlite3.dylib in Frameworks */,
 				3C53FC761A7ECD3C001584A3 /* CFNetwork.framework in Frameworks */,
 				3C53FC741A7ECD37001584A3 /* SystemConfiguration.framework in Frameworks */,
@@ -281,6 +293,8 @@
 		3C53FB771A7ECAF0001584A3 = {
 			isa = PBXGroup;
 			children = (
+				3C53FCA51A7F8FD1001584A3 /* MapKit.framework */,
+				3C53FCA31A7F8FB9001584A3 /* CoreLocation.framework */,
 				3C53FB821A7ECAF0001584A3 /* Diancai */,
 				3C53FB9C1A7ECAF0001584A3 /* DiancaiTests */,
 				3C53FB811A7ECAF0001584A3 /* Products */,
@@ -632,6 +646,8 @@
 		3C53FC7B1A7ED127001584A3 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FCA71A7F91ED001584A3 /* MDMapViewController.h */,
+				3C53FCA81A7F91ED001584A3 /* MDMapViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -639,6 +655,8 @@
 		3C53FC7C1A7ED12D001584A3 /* Reserve */ = {
 			isa = PBXGroup;
 			children = (
+				3C53FCA01A7F8BA0001584A3 /* MDReserveViewController.h */,
+				3C53FCA11A7F8BA0001584A3 /* MDReserveViewController.m */,
 			);
 			name = Reserve;
 			sourceTree = "<group>";
@@ -832,6 +850,7 @@
 				3C53FC461A7ECCDD001584A3 /* UIAlertView+AFNetworking.m in Sources */,
 				3C53FBAD1A7ECBA1001584A3 /* ViewController.m in Sources */,
 				3C53FC5D1A7ECCEE001584A3 /* SQLiteManager.m in Sources */,
+				3C53FCA91A7F91ED001584A3 /* MDMapViewController.m in Sources */,
 				3C53FC3E1A7ECCDD001584A3 /* AFNetworkReachabilityManager.m in Sources */,
 				3C53FC6B1A7ECCFB001584A3 /* MDType.m in Sources */,
 				3C53FC5B1A7ECCEE001584A3 /* MDFirstMenu.m in Sources */,
@@ -855,6 +874,7 @@
 				3C53FB861A7ECAF0001584A3 /* main.m in Sources */,
 				3C53FC331A7ECCDD001584A3 /* JSONModelError.m in Sources */,
 				3C53FC471A7ECCDD001584A3 /* UIButton+AFNetworking.m in Sources */,
+				3C53FCA21A7F8BA0001584A3 /* MDReserveViewController.m in Sources */,
 				3C53FC8D1A7ED62A001584A3 /* MDFirstMenuTableViewCell.m in Sources */,
 				3C53FC4A1A7ECCDD001584A3 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3C53FC3C1A7ECCDD001584A3 /* AFHTTPRequestOperationManager.m in Sources */,
