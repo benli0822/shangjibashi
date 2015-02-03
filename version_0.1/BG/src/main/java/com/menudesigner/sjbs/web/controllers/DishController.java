@@ -117,6 +117,17 @@ public class DishController {
         return "views/dish/list";
     }
 
+    @RequestMapping(value = "/type", method = RequestMethod.GET)
+    public String type(Locale locale, Model model, @RequestParam(value = "type") String typeDescription) {
+        logger.info("Welcome home! The client locale is {}.", locale);
+
+        model.addAttribute("options", optionRepository.findAll());
+
+        model.addAttribute("types", typeRepository.findAll());
+
+        return "redirect:/dish/type/1?type=" + typeDescription;
+    }
+
     @RequestMapping(value = "/type/{pageNumber}", method = RequestMethod.GET)
     public String dish(@PathVariable Integer pageNumber, @RequestParam(value = "type") String description, Model model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);

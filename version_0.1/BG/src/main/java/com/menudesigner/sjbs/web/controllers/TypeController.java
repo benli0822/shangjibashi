@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,17 +37,6 @@ public class TypeController {
 
     @Autowired
     private OptionRepository optionRepository;
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String type(Locale locale, Model model, @RequestParam(value = "type") String typeDescription) {
-        logger.info("Welcome home! The client locale is {}.", locale);
-
-        model.addAttribute("options", optionRepository.findAll());
-
-        model.addAttribute("types", typeRepository.findAll());
-
-        return "redirect:/dish/type/1?type=" + typeDescription;
-    }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public @ResponseBody boolean addType(Locale locale,

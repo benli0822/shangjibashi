@@ -36,8 +36,8 @@
             margin: 2px 2px 2px 2px;
             padding: 5px;
             float: left;
-            width: 90px;
-            height: 90px;
+            /*width: 190px;*/
+            /*height: 2500px;*/
             font-size: 1.2em;
             text-align: center;
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -66,6 +66,14 @@
     <script th:href="@{/js/html5shiv.js}"></script>
     <script th:href="@{/js/respond.min.js}"></script>
     <![endif]-->
+    <style>
+        .crop {
+            width: 190px;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 
@@ -123,17 +131,22 @@
                                                 your dishes</h3>
 
                                             <div class="row">
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-8">
                                                     <h4>Dishes</h4>
 
                                                     <ul id="sortable1" class="droptrue sortable"
                                                         style="height:35em; overflow:auto;">
                                                         <li class="ui-state-default" th:each="dish : ${dishes}"
-                                                            th:text="${dish.description}" th:id="${dish.id}"></li>
+                                                            th:id="${dish.id}">
+                                                            <div class="crop">
+                                                                <img th:each="file : ${dish.files}" alt="1	50x150"
+                                                                     th:src="'/' + ${file.location} + '' + ${file.name}" onload="OnImageLoad(event);"/>
+                                                            </div>
+                                                        </li>
                                                     </ul>
                                                 </div>
 
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-4">
                                                     <h4>Drop in your wished section</h4>
 
                                                     <div class="row">
@@ -370,8 +383,69 @@
                     btn_down_class: 'btn-danger'
                 });
             });
-            /*]]>*/
         });
+
+        function ScaleImage(srcwidth, srcheight, targetwidth, targetheight, fLetterBox) {
+
+            var result = { width: 0, height: 0, fScaleToTargetWidth: true };
+
+            if ((srcwidth <= 0) || (srcheight <= 0) || (targetwidth <= 0) || (targetheight <= 0)) {
+                return result;
+            }
+
+            // scale to the target width
+            var scaleX1 = targetwidth;
+            var scaleY1 = (srcheight * targetwidth) / srcwidth;
+
+            // scale to the target height
+            var scaleX2 = (srcwidth * targetheight) / srcheight;
+            var scaleY2 = targetheight;
+
+            // now figure out which one we should use
+            var fScaleOnWidth = (scaleX2 > targetwidth);
+            if (fScaleOnWidth) {
+                fScaleOnWidth = fLetterBox;
+            }
+            else {
+                fScaleOnWidth = !fLetterBox;
+            }
+
+            if (fScaleOnWidth) {
+                result.width = Math.floor(scaleX1);
+                result.height = Math.floor(scaleY1);
+                result.fScaleToTargetWidth = true;
+            }
+            else {
+                result.width = Math.floor(scaleX2);
+                result.height = Math.floor(scaleY2);
+                result.fScaleToTargetWidth = false;
+            }
+            result.targetleft = Math.floor((targetwidth - result.width) / 2);
+            result.targettop = Math.floor((targetheight - result.height) / 2);
+
+            return result;
+        }
+
+        function OnImageLoad(evt) {
+
+            var img = evt.currentTarget;
+
+            // what's the size of this image and it's parent
+            var w = $(img).width();
+            var h = $(img).height();
+            var tw = $(img).parent().width();
+            var th = $(img).parent().height();
+
+            // compute the new size and offsets
+            var result = ScaleImage(w, h, tw, th, false);
+
+            // adjust the image coordinates and size
+            img.width = result.width;
+            img.height = result.height;
+            $(img).css("left", result.targetleft);
+            $(img).css("top", result.targettop);
+        }
+        /*]]>*/
     </script>
 </div>
 
