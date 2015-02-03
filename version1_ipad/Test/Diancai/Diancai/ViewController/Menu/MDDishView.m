@@ -129,16 +129,18 @@
     //设置价格
     cell.platPriceLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[dish price]];
     
+    //corner setting
+    
     
     //add shadow to layer
-//    cell.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
-//    cell.layer.shadowOffset = CGSizeMake(4,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
-//    cell.layer.shadowOpacity = 0.1;//阴影透明度，默认0
-//    cell.layer.shadowRadius = 3;//阴影半径，默认3
-//    cell.layer.masksToBounds = NO;
-//    cell.layer.shouldRasterize = YES;
-//    cell.layer.borderWidth = 0.1f;
-
+    cell.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
+    cell.layer.shadowOffset = CGSizeMake(2,1);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+    cell.layer.shadowOpacity = 0.2;//阴影透明度，默认0
+    cell.layer.shadowRadius = 1;//阴影半径，默认3
+    cell.layer.masksToBounds = NO;
+    //cell.layer.borderWidth = 0.1f;
+    
+    cell.GardienView.layer.shadowOpacity = 0;
     
     return cell;
 }

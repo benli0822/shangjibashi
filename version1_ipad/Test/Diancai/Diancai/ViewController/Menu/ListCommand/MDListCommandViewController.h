@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *waitingTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topAlertLabel;
+@property (weak, nonatomic) IBOutlet UILabel *WarningLabel;
 
 //list controller
 @property(nonatomic, strong) MDListCommandController *listCommandController;

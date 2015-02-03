@@ -27,12 +27,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
-#pragma mark 表单setion
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
+//#pragma mark 表单setion
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    // Return the number of sections.
+//    return 1;
+//}
 
 #pragma mark 返回行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -54,24 +54,37 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
         cell = [[MDListCommandCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //设置数据
-    //FCDoubleBet* doubleBet = _data[indexPath.row];
-    //cell.firstMenuLabel.text = _data[indexPath.row];
-    //cell.dishNameLabel.text = _data[indexPath.row];
+
     
-   
-    
-    
+    if([_userCommand.dish_list count] >= 1){
   
     
-         MDDish *dish = [_userCommand.dish_list objectAtIndex:indexPath.row];
+    MDDish *dish = [_userCommand.dish_list objectAtIndex:indexPath.row];
     cell.dishNameLabel.text = dish.name;
-    cell.dishQuantityLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish.id_dish]] integerValue]];
-    cell.dishPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dishes objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish.id_dish]] integerValue] * dish.price];
+    cell.dishQuantityLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dish_dictionary objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish.id_dish]] integerValue]];
+    cell.dishPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)[(NSNumber*)[_userCommand.dish_dictionary objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)dish.id_dish]] integerValue] * dish.price];
       cell.dishStausLabel.text = @"";  
+    }
     
       return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source.
+        [_userCommand deleteDish:indexPath.row];
+        //[[MDUserCommand shared] deleteDish:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadData];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
 
 @end
