@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="refresh" content="5"/>
+    <title layout:fragment="title">Commands</title>
+
+    <meta name="description" content="overview &amp; stats"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- basic styles -->
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800"/>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" th:href="@{/css/font-awesome-ie7.min.css}"/>
+    <![endif]-->
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" th:href="@{/css/ace.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ace-rtl.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/ace-skins.min.css}"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" th:href="@{/css/ace-ie.min.css}"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script th:src="@{/js/ace-extra.min.js}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/js/html5shiv.js}"></script>
+    <script th:src="@{/js/respond.min.js}"></script>
+    <![endif]-->
+    <style>
+        table {
+            font-size: 150%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Your Commands</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Order Data</th>
+                        <th>Order Time</th>
+                        <th>Table Number</th>
+                        <th>Client Number</th>
+                        <th>Dish</th>
+                        <th>Menu</th>
+                        <th>Activity</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody th:each="command: ${commands}">
+                    <tr>
+                        <td th:text="${command.title}">Mr Null</td>
+                        <td th:text="${command.order_date}"></td>
+                        <td th:text="${command.order_time}"></td>
+                        <td th:text="${command.table_no}"></td>
+                        <td th:text="${command.client_no}"></td>
+
+                        <td th:if="${#lists.isEmpty(dishes)}" th:text="Empty"></td>
+                        <td th:unless="${#lists.isEmpty(dishes)}" th:each="dish : ${dishes}">
+                            <span th:text="${dish.name}"></span>
+                        </td>
+
+                        <td th:if="${#lists.isEmpty(menus)}" th:text="Empty"></td>
+                        <td th:unless="${#lists.isEmpty(menus)}" th:each="menu : ${menus}">
+                            <span th:text="${menu.name}"></span>
+                        </td>
+
+                        <td th:if="${#lists.isEmpty(activities)}" th:text="Empty"></td>
+                        <td th:unless="${#lists.isEmpty(activities)}" th:each="activity : ${activities}">
+                            <span th:text="${activity.name}"></span>
+                        </td>
+                        <td>
+                            <a class="btn btn-app btn-success" href="#">
+                                <i class=" icon-bullhorn bigger-230"></i>
+                                Call Server
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <h1>First Dish</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Dish Name</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Test</td>
+                        <td>2</td>
+                        <td>
+                            <button class="btn btn-app btn-purple btn-sm">
+                                <i class="icon-check bigger-200"></i>
+                                Finish
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-3">
+                <h1>Main course</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Dish Name</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Test</td>
+                        <td>2</td>
+                        <td>
+                            <button class="btn btn-app btn-purple btn-sm">
+                                <i class="icon-check bigger-200"></i>
+                                Finish
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-3">
+                <h1>Dessert</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Dish Name</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Test</td>
+                        <td>2</td>
+                        <td>
+                            <button class="btn btn-app btn-purple btn-sm">
+                                <i class="icon-check bigger-200"></i>
+                                Finish
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-3">
+                <h1>Drink</h1>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Dish Name</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Test</td>
+                        <td>2</td>
+                        <td>
+                            <button class="btn btn-app btn-purple btn-sm">
+                                <i class="icon-check bigger-200"></i>
+                                Finish
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.main-container-inner -->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+<!-- /.main-container -->
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    window.jQuery || document.write("<script src='/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    /*]]>*/
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    window.jQuery || document.write("<script src='/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    /*]]>*/
+</script>
+<![endif]-->
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    if ("ontouchend" in document) document.write("<script src='/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    /*]]>*/
+</script>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/typeahead-bs2.min.js}"></script>
+
+<div layout:fragment="script"></div>
+
+<!-- ace scripts -->
+
+<script th:src="@{/js/ace-elements.min.js}"></script>
+<script th:src="@{/js/ace.min.js}"></script>
+
+<!--[if lte IE 8]>
+<script th:src="@{/js/excanvas.min.js}"></script>
+<![endif]-->
+
+<!-- inline scripts related to this page -->
+
+</body>
+</html>
