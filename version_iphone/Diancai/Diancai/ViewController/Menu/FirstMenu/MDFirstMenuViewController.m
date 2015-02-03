@@ -50,7 +50,8 @@
     [_firstMenuTableViewController selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionBottom];
     
 
-    
+    //header setting
+    self.navigationController.navigationBar.topItem.title = @"Menu";
     
 }
 

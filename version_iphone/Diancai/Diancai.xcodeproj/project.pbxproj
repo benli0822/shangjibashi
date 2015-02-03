@@ -96,6 +96,8 @@
 		3C53FCA41A7F8FB9001584A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FCA31A7F8FB9001584A3 /* CoreLocation.framework */; };
 		3C53FCA61A7F8FD1001584A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C53FCA51A7F8FD1001584A3 /* MapKit.framework */; };
 		3C53FCA91A7F91ED001584A3 /* MDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FCA81A7F91ED001584A3 /* MDMapViewController.m */; };
+		3C9CE2161A80FD1F00C1E07B /* MDDishDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CE2141A80FD1F00C1E07B /* MDDishDetialViewController.m */; };
+		3C9CE2171A80FD1F00C1E07B /* MDDishDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C9CE2151A80FD1F00C1E07B /* MDDishDetialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +264,9 @@
 		3C53FCA51A7F8FD1001584A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3C53FCA71A7F91ED001584A3 /* MDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDMapViewController.h; path = ViewController/Map/MDMapViewController.h; sourceTree = "<group>"; };
 		3C53FCA81A7F91ED001584A3 /* MDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDMapViewController.m; path = ViewController/Map/MDMapViewController.m; sourceTree = "<group>"; };
+		3C9CE2131A80FD1F00C1E07B /* MDDishDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDishDetialViewController.h; path = ViewController/Menu/SecondMenu/MDDishDetialViewController.h; sourceTree = "<group>"; };
+		3C9CE2141A80FD1F00C1E07B /* MDDishDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDishDetialViewController.m; path = ViewController/Menu/SecondMenu/MDDishDetialViewController.m; sourceTree = "<group>"; };
+		3C9CE2151A80FD1F00C1E07B /* MDDishDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDDishDetialViewController.xib; path = ViewController/Menu/SecondMenu/MDDishDetialViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -681,6 +686,9 @@
 				3C53FC901A7EDB9C001584A3 /* MDSecondMenuViewController.m */,
 				3C53FC981A7EDC88001584A3 /* MDDishView.h */,
 				3C53FC991A7EDC88001584A3 /* MDDishView.m */,
+				3C9CE2131A80FD1F00C1E07B /* MDDishDetialViewController.h */,
+				3C9CE2141A80FD1F00C1E07B /* MDDishDetialViewController.m */,
+				3C9CE2151A80FD1F00C1E07B /* MDDishDetialViewController.xib */,
 			);
 			name = SecondMenu;
 			sourceTree = "<group>";
@@ -787,6 +795,7 @@
 			files = (
 				3C53FBC61A7ECCC4001584A3 /* full_breakfast.jpg in Resources */,
 				3C53FB8F1A7ECAF0001584A3 /* Main.storyboard in Resources */,
+				3C9CE2171A80FD1F00C1E07B /* MDDishDetialViewController.xib in Resources */,
 				3C53FBC41A7ECCC4001584A3 /* creme_brelee.jpg in Resources */,
 				3C53FBD11A7ECCC4001584A3 /* vegetable_curry.jpg in Resources */,
 				3C53FBD01A7ECCC4001584A3 /* thai_shrimp_cake.jpg in Resources */,
@@ -835,6 +844,7 @@
 				3C53FC501A7ECCDD001584A3 /* FMResultSet.m in Sources */,
 				3C53FC321A7ECCDD001584A3 /* JSONModelClassProperty.m in Sources */,
 				3C53FB891A7ECAF0001584A3 /* AppDelegate.m in Sources */,
+				3C9CE2161A80FD1F00C1E07B /* MDDishDetialViewController.m in Sources */,
 				3C53FBD91A7ECCD5001584A3 /* JsonHelper.m in Sources */,
 				3C53FC4F1A7ECCDD001584A3 /* FMDatabaseQueue.m in Sources */,
 				3C53FC451A7ECCDD001584A3 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

@@ -9,6 +9,7 @@
 #import "MDDishView.h"
 #import "MDDishCollectionViewCell.h"
 #import "MDDish.h"
+#import "MDDishDetialViewController.h"
 
 
 @implementation MDDishView
@@ -148,24 +149,18 @@
     return CGSizeMake(150, 120);
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView
-//didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    [_contentCollectionView deselectItemAtIndexPath:indexPath animated:NO];
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [_contentCollectionView deselectItemAtIndexPath:indexPath animated:NO];
 //    CGRect rect = CGRectMake(_contentCollectionView.frame.size.width/2, _contentCollectionView.frame.size.height/2, 1, 1);
-//    
-//    MDDishPopoverControllerViewController *PopoverView =[[MDDishPopoverControllerViewController alloc] initWithNibName:@"MDDishPopoverControllerViewController" bundle:nil];
-//    
-//#pragma 这里还有问题!!
-//    
-//    
-//    [PopoverView setPopoverWithData:[_dish_data objectAtIndex:indexPath.row]];
-//    UIPopoverController *popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
-//    
-//    
-//    [popOver presentPopoverFromRect:rect inView:_contentCollectionView permittedArrowDirections:0 animated:YES];
-//    
-//    //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-//}
+    
+ 
+    
+    MDDishDetialViewController *newVC = [[MDDishDetialViewController alloc] initWithNibName:@"MDDishDetialViewController" bundle:nil];
+    [newVC setPopoverWithData:[_dish_data objectAtIndex:indexPath.row]];
+    [_parentNavigationController pushViewController:newVC animated:YES];
+    //[popOver presentPopoverFromRect:rect inView:cell permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
 
 @end
