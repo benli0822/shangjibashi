@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *dish_data;
 
 @property (nonatomic , strong) UICollectionView *contentCollectionView;
+@property (nonatomic,strong) UINavigationController *parentNavigationController;
 
 
 @end

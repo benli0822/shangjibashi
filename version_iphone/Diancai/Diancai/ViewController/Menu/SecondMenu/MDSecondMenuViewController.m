@@ -160,12 +160,14 @@
         view = [[UIView alloc] initWithFrame:carousel.bounds];
         listView = [[MDDishView alloc] initWithFrame:view.bounds];
         listView.tag = 1;
+        listView.parentNavigationController = [self navigationController];
         //listView.delegate = self;
         [view addSubview:listView];
         
     }else{
         
         listView = (MDDishView *)[view viewWithTag:1];
+        listView.parentNavigationController = [self navigationController];
     }
     
     MDSecondMenu* secondMenu =[_dishDictionary objectForKey:[_sousMenuList objectAtIndex:index]];
