@@ -20,7 +20,7 @@
     <link rel="stylesheet" th:href="@{/js/jquery-ui-1.10.3.custom.min.css}"/>
 
     <style>
-        .sortable {
+        #sortable1 {
             list-style-type: none;
             margin: 8px;
             float: left;
@@ -31,7 +31,7 @@
             border-radius: 0;
         }
 
-        .sortable li {
+        #sortable1 li {
             background: none repeat scroll 0 0 rgba(0, 0, 0, 0.08);
             margin: 2px 2px 2px 2px;
             padding: 5px;
@@ -44,14 +44,23 @@
             border-radius: 0;
         }
 
-        .sortable li:hover {
-            background: none repeat scroll 0 0 #f4f6f7;
+        #sortable2, #sortable3 {
+            border: 1px solid #eee;
+            width: 142px;
+            min-height: 20px;
+            list-style-type: none;
+            margin: 0;
+            padding: 5px 0 0 0;
+            float: left;
+            margin-right: 10px;
+        }
+        #sortable2 li, #sortable3 li {
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
         }
 
-        .menu {
-            width: 100%;
-            min-height: 180px;
-        }
     </style>
 
     <!-- inline styles related to this page -->
@@ -157,7 +166,7 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <h5>Main course</h5>
-                                                            <ul id="sortable4" class="droptrue sortable menu">
+                                                            <ul id="sortable3" class="droptrue sortable menu">
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -165,12 +174,12 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <h5>Dessert</h5>
-                                                            <ul id="sortable5" class="droptrue sortable menu">
+                                                            <ul id="sortable4" class="droptrue sortable menu">
                                                             </ul>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <h5>Drinks</h5>
-                                                            <ul id="sortable6" class="droptrue sortable menu">
+                                                            <ul id="sortable5" class="droptrue sortable menu">
                                                             </ul>
                                                         </div>
                                                     </div>
