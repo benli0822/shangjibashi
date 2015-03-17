@@ -29,38 +29,41 @@
     
     [tabBarController.tabBar setTintColor:[UIColor colorWithRed:237.0/255.0 green:85.0/255.0 blue:56.0/255.0 alpha:1]];
     
-    
+    UIImage *homeImage = [UIImage imageNamed:@"menu"];
+    [homeImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    ((UITabBarItem *)tabBarController.tabBar.items[0]).image = homeImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[0]).selectedImage = homeImage;
     
     UIImage *reserveImage = [UIImage imageNamed:@"reserve"];
     [reserveImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    ((UITabBarItem *)tabBarController.tabBar.items[0]).image = reserveImage;
-    ((UITabBarItem *)tabBarController.tabBar.items[0]).selectedImage = reserveImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[1]).image = reserveImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[1]).selectedImage = reserveImage;
     
     
     
     UIImage *menuImage = [UIImage imageNamed:@"menu"];
     [menuImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    ((UITabBarItem *)tabBarController.tabBar.items[1]).image = menuImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[2]).image = menuImage;
     
-    ((UITabBarItem *)tabBarController.tabBar.items[1]).selectedImage = menuImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[2]).selectedImage = menuImage;
 
     
     UIImage *map = [UIImage imageNamed:@"map"];
     [map imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    ((UITabBarItem *)tabBarController.tabBar.items[2]).image = map;
+    ((UITabBarItem *)tabBarController.tabBar.items[3]).image = map;
     
-    ((UITabBarItem *)tabBarController.tabBar.items[2]).selectedImage = map;
+    ((UITabBarItem *)tabBarController.tabBar.items[3]).selectedImage = map;
     
   
     
     UIImage *settingImage = [UIImage imageNamed:@"settings"];
     [settingImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    ((UITabBarItem *)tabBarController.tabBar.items[3]).image = settingImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[4]).image = settingImage;
     
-    ((UITabBarItem *)tabBarController.tabBar.items[3]).selectedImage = settingImage;
+    ((UITabBarItem *)tabBarController.tabBar.items[4]).selectedImage = settingImage;
 
     
     return YES;

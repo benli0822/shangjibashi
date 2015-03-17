@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16554EE31AB885B200378106 /* MDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16554EE21AB885B200378106 /* MDHomeViewController.m */; };
 		3C53FB861A7ECAF0001584A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FB851A7ECAF0001584A3 /* main.m */; };
 		3C53FB891A7ECAF0001584A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C53FB881A7ECAF0001584A3 /* AppDelegate.m */; };
 		3C53FB8F1A7ECAF0001584A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C53FB8D1A7ECAF0001584A3 /* Main.storyboard */; };
@@ -131,6 +132,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16554EE11AB885B200378106 /* MDHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDHomeViewController.h; path = ViewController/Home/MDHomeViewController.h; sourceTree = "<group>"; };
+		16554EE21AB885B200378106 /* MDHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDHomeViewController.m; path = ViewController/Home/MDHomeViewController.m; sourceTree = "<group>"; };
 		3C53FB801A7ECAF0001584A3 /* Diancai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diancai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C53FB841A7ECAF0001584A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C53FB851A7ECAF0001584A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -335,6 +338,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16554EE41AB885B700378106 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				16554EE11AB885B200378106 /* MDHomeViewController.h */,
+				16554EE21AB885B200378106 /* MDHomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		3C53FB771A7ECAF0001584A3 = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +416,7 @@
 		3C53FBAA1A7ECB7D001584A3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				16554EE41AB885B700378106 /* Home */,
 				3C53FC7C1A7ED12D001584A3 /* Reserve */,
 				3C53FC7B1A7ED127001584A3 /* Map */,
 				3C53FC7A1A7ED11E001584A3 /* More */,
@@ -941,6 +954,7 @@
 				3C53FBAD1A7ECBA1001584A3 /* ViewController.m in Sources */,
 				3C53FC5D1A7ECCEE001584A3 /* SQLiteManager.m in Sources */,
 				3C53FCA91A7F91ED001584A3 /* MDMapViewController.m in Sources */,
+				16554EE31AB885B200378106 /* MDHomeViewController.m in Sources */,
 				3C53FC3E1A7ECCDD001584A3 /* AFNetworkReachabilityManager.m in Sources */,
 				3C53FC6B1A7ECCFB001584A3 /* MDType.m in Sources */,
 				3C53FC5B1A7ECCEE001584A3 /* MDFirstMenu.m in Sources */,
