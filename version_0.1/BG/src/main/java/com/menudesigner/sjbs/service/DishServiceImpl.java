@@ -31,8 +31,6 @@ public class DishServiceImpl implements DishService {
 
     private final OptionService optionService;
 
-    private final FileService fileService;
-
     private final MenuService menuService;
 
     private final ActivityService activityService;
@@ -42,7 +40,7 @@ public class DishServiceImpl implements DishService {
         this.dishRepository = dishRepository;
         this.typeService = typeService;
         this.optionService = optionService;
-        this.fileService = fileService;
+        FileService fileService1 = fileService;
         this.menuService = menuService;
         this.activityService = activityService;
     }

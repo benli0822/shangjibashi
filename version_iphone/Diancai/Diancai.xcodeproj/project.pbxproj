@@ -119,6 +119,7 @@
 		3C9CE3371A81101000C1E07B /* Cappucino.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C9CE3231A81101000C1E07B /* Cappucino.jpg */; };
 		3C9CE3381A81101000C1E07B /* Chicken with Salade.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C9CE3241A81101000C1E07B /* Chicken with Salade.jpg */; };
 		3C9CE3391A81101000C1E07B /* Chocolate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C9CE3251A81101000C1E07B /* Chocolate.jpg */; };
+		B0236FB41AC84D020063C20E /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0236FB31AC84D020063C20E /* HomeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +311,7 @@
 		3C9CE3231A81101000C1E07B /* Cappucino.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Cappucino.jpg; path = resource/image/Cappucino.jpg; sourceTree = "<group>"; };
 		3C9CE3241A81101000C1E07B /* Chicken with Salade.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Chicken with Salade.jpg"; path = "resource/image/Chicken with Salade.jpg"; sourceTree = "<group>"; };
 		3C9CE3251A81101000C1E07B /* Chocolate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Chocolate.jpg; path = resource/image/Chocolate.jpg; sourceTree = "<group>"; };
+		B0236FB31AC84D020063C20E /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeView.xib; path = Views/Home/HomeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +380,7 @@
 				3C53FBAA1A7ECB7D001584A3 /* ViewController */,
 				3C53FB8D1A7ECAF0001584A3 /* Main.storyboard */,
 				3C53FB831A7ECAF0001584A3 /* Supporting Files */,
+				B0236FB51AC84D170063C20E /* Views */,
 			);
 			path = Diancai;
 			sourceTree = "<group>";
@@ -786,6 +789,22 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		B0236FB51AC84D170063C20E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0236FB61AC84D1E0063C20E /* Home */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B0236FB61AC84D1E0063C20E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B0236FB31AC84D020063C20E /* HomeView.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -895,6 +914,7 @@
 				3C53FC851A7ED3C7001584A3 /* database.sqlite in Resources */,
 				3C9CE32C1A81101000C1E07B /* Salade Dish.jpg in Resources */,
 				3C53FC8E1A7ED62A001584A3 /* MDFirstMenuTableViewCell.xib in Resources */,
+				B0236FB41AC84D020063C20E /* HomeView.xib in Resources */,
 				3C53FBCD1A7ECCC4001584A3 /* mushroom_risotto.jpg in Resources */,
 				3C9CE3291A81101000C1E07B /* Cafe Coca.jpg in Resources */,
 				3C9CE32B1A81101000C1E07B /* Black Cake.jpg in Resources */,

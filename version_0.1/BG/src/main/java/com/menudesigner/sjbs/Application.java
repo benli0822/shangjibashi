@@ -9,8 +9,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -27,6 +30,9 @@ import java.util.Locale;
  */
 
 @SpringBootApplication
+@ComponentScan("com.menudesigner.sjbs")
+@EnableJpaRepositories
+@ImportResource("classpath:spring/application.properties")
 public class Application extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) throws Exception {
