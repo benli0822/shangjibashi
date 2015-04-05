@@ -3,13 +3,14 @@ package com.menudesigner.sjbs.rest;
 import com.menudesigner.sjbs.service.connection.SQLiteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,8 @@ import java.net.URL;
 public class DBSyncController {
     private static final Logger logger = LoggerFactory.getLogger(DBSyncController.class);
 
-    @Autowired
+    @Resource
+    @Qualifier("SQLiteService")
     private SQLiteService sqLiteService;
 
     @RequestMapping(value = "/getDbFile/database.sqlite", method = RequestMethod.GET)
