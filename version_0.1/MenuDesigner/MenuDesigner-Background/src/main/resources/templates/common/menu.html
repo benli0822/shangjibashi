@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div th:fragment="menu" th:class="sidebar" th:id="sidebar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('sidebar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-success">
+                <i class="icon-signal"></i>
+            </button>
+
+            <button class="btn btn-info">
+                <i class="icon-pencil"></i>
+            </button>
+
+            <button class="btn btn-warning">
+                <i class="icon-group"></i>
+            </button>
+
+            <button class="btn btn-danger">
+                <i class="icon-cogs"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
+
+            <span class="btn btn-info"></span>
+
+            <span class="btn btn-warning"></span>
+
+            <span class="btn btn-danger"></span>
+        </div>
+    </div>
+    <!-- #sidebar-shortcuts -->
+
+    <ul class="nav nav-list">
+        <li id="nav-index">
+            <a href="/">
+                <i class="icon-dashboard"></i>
+                <span class="menu-text" th:text="#{label.index}"></span>
+            </a>
+        </li>
+
+        <li id="nav-dish">
+            <a href="" class="dropdown-toggle">
+                <i class="icon-food"></i>
+                <span class="menu-text" th:text="#{label.dishes}"></span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li id="nav-adddish">
+                    <a href="/dish/add">
+                        <i class="icon-double-angle-right"></i>
+                        <span th:text="#{label.adddish}"></span>
+                    </a>
+                </li>
+                <li id="nav-listdish">
+                    <a href="/dish">
+                        <i class="icon-double-angle-right"></i>
+                        <span th:text="#{label.listdish}"></span>
+                    </a>
+                </li>
+                <li id="nav-propertydish">
+                    <a href="/dish/property">
+                        <i class="icon-double-angle-right"></i>
+                        <span th:text="#{label.property}"></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li id="nav-menu">
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-glass"></i>
+                <span class="menu-text" th:text="#{label.menu}"></span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li id="nav-menuadd">
+                    <a href="/menu/add" th:text="#{label.addnewmenu}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+                <li id="nav-menulist">
+                    <a href="/menu" th:text="#{label.listmenu}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li id="nav-activity">
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-bullhorn"></i>
+                <span class="menu-text" th:text="#{label.activites}"></span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li id="nav-activityadd">
+                    <a href="/activity/add" th:text="#{label.addnewactivity}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+                <li id="nav-activitylist">
+                    <a href="/activity" th:text="#{label.listactivity}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li id="nav-statistic">
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-credit-card "></i>
+                <span class="menu-text" th:text="#{label.statistic}"></span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li id="nav-statisticcommand">
+                    <a href="/statistic/command" th:text="#{label.command}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+                <li id="nav-statisticreservation">
+                    <a href="/statistic/reservation" th:text="#{label.reservation}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li id="nav-system">
+            <a href="#" class="dropdown-toggle
+                ">
+                <i class="icon-laptop"></i>
+                <span class="menu-text" th:text="#{label.system}"></span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li id="nav-systemgeneral">
+                    <a href="/property/general" th:text="#{label.general}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+                <li id="nav-systemconfig">
+                    <a href="/property/config" th:text="#{label.config}">
+                        <i class="icon-double-angle-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li>
+            <a href="widgets.html">
+                <i class="icon-list-alt"></i>
+                <span class="menu-text" th:text="#{label.info}"></span>
+            </a>
+        </li>
+    </ul>
+    <!-- /.nav-list -->
+
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+           data-icon2="icon-double-angle-right"></i>
+    </div>
+
+    <script type="text/javascript">
+        try {
+            ace.settings.check('sidebar', 'collapsed')
+        } catch (e) {
+        }
+    </script>
+        <span>
+    <a href="?lang=en_US">en</a>
+    |
+    <a href="?lang=zh_CN">cn</a>
+    |
+    <a href="?lang=fr_FR">fr</a>
+</span>
+
+</div>
+<!-- end sidebar -->
+</body>
+</html>
