@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>MenuDesigner</artifactId>
+        <groupId>com.sjbs</groupId>
+        <version>${module.current.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>MenuDesigner-Terminal</artifactId>
+    <packaging>pom</packaging>
+    <name>Terminal Module</name>
+
+    <properties>
+        <start-class>com.menudesigner.sjbs.Application</start-class>
+    </properties>
+
+
+</project>
