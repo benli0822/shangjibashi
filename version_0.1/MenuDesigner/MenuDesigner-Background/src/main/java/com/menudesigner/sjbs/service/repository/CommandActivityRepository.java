@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * Created by JIN Benli on 22/12/14.
  */
-public interface CommandActivityRepository extends CrudRepository<CommandActivity, Long>
-{
+public interface CommandActivityRepository extends CrudRepository<CommandActivity, Long> {
     List<CommandActivity> findCommandActivityByCommandAndActivity(Command command, Activity activity);
 }

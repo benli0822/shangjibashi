@@ -8,21 +8,18 @@ import java.util.Map;
 /**
  * Created by JIN Benli on 12/11/14.
  */
-public class ResourcesService
-{
+public class ResourcesService {
 
     private Map<String, List<String[]>> cssList;
     private Map<String, List<String[]>> jsList;
 
-    public ResourcesService()
-    {
+    public ResourcesService() {
         this.cssList = new HashMap<>();
         this.jsList = new HashMap<>();
         this.processData();
     }
 
-    private void processData()
-    {
+    private void processData() {
         ArrayList<String[]> tmpList = new ArrayList<>();
 
         // index page css

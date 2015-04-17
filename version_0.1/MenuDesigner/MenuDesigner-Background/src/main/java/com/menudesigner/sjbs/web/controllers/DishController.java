@@ -34,8 +34,7 @@ import java.util.*;
  */
 @Controller
 @RequestMapping(value = "/dish")
-public class DishController
-{
+public class DishController {
     private static final Logger logger = LoggerFactory.getLogger(DishController.class);
 
     @Autowired
@@ -69,8 +68,7 @@ public class DishController
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String dish(Locale locale, Model model)
-    {
+    public String dish(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         model.addAttribute("options", optionRepository.findAll());
@@ -81,8 +79,7 @@ public class DishController
     }
 
     @RequestMapping(value = "/page/{pageNumber}", method = RequestMethod.GET)
-    public String dish(@PathVariable Integer pageNumber, Model model, Locale locale)
-    {
+    public String dish(@PathVariable Integer pageNumber, Model model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         PageRequest pageRequest =
@@ -121,8 +118,7 @@ public class DishController
     }
 
     @RequestMapping(value = "/type", method = RequestMethod.GET)
-    public String type(Locale locale, Model model, @RequestParam(value = "type") String typeDescription)
-    {
+    public String type(Locale locale, Model model, @RequestParam(value = "type") String typeDescription) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         model.addAttribute("options", optionRepository.findAll());
@@ -134,8 +130,7 @@ public class DishController
 
     @RequestMapping(value = "/type/{pageNumber}", method = RequestMethod.GET)
     public String dish(@PathVariable Integer pageNumber, @RequestParam(value = "type") String description, Model
-            model, Locale locale)
-    {
+            model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         PageRequest pageRequest =
@@ -173,8 +168,7 @@ public class DishController
     }
 
     @RequestMapping(value = "/property", method = RequestMethod.GET)
-    public String property(Locale locale, Model model)
-    {
+    public String property(Locale locale, Model model) {
         logger.info("[DishController: property] Called");
 
 //        model.addAttribute("types", typeRepository.findAll());
@@ -185,8 +179,7 @@ public class DishController
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addNewDish(Dish dish, Locale locale, Model model)
-    {
+    public String addNewDish(Dish dish, Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
@@ -222,11 +215,9 @@ public class DishController
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String checkDishInfo(@Valid Dish dish, BindingResult bindingResult, Locale locale, ModelMap model,
-                                HttpServletRequest request)
-    {
+                                HttpServletRequest request) {
         logger.info("[DishesController: addNewDish], posting a new Dish");
-        if (bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             logger.error("[DishesController: postNewDish]", bindingResult.getAllErrors());
             return "views/dish/add";
         }
@@ -240,55 +231,43 @@ public class DishController
         Type type1 = null;
         // get the keyword from http request
         Map<String, String[]> parameterMap = request.getParameterMap();
-        for (Map.Entry<String, String[]> entry : parameterMap.entrySet())
-        {
-            if (entry.getKey().equals("typeSelector"))
-            {
+        for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
+            if (entry.getKey().equals("typeSelector")) {
                 String type1_key = entry.getValue()[0];
                 type1List = typeRepository.findTypeByName(type1_key);
                 type1 = type1List.get(0);
                 logger.info(type1.toString());
 
             }
-            if (entry.getKey().equals("typeSelector2"))
-            {
+            if (entry.getKey().equals("typeSelector2")) {
                 String[] type2_key = entry.getValue();
-                for (String s : type2_key)
-                {
+                for (String s : type2_key) {
                     logger.info("Found key " + s);
                     List<Type> tempList = typeRepository.findTypeByName(s);
-                    for (Type t : tempList)
-                    {
-                        if (!type2List.contains(t))
-                        {
+                    for (Type t : tempList) {
+                        if (!type2List.contains(t)) {
                             type2List.add(t);
                         }
                     }
                 }
             }
-            if (entry.getKey().equals("optionSelector"))
-            {
+            if (entry.getKey().equals("optionSelector")) {
                 String option_key = entry.getValue()[0];
                 List<Option> tempList = optionRepository.findOptionByName(option_key);
 
-                for (Option o : tempList)
-                {
-                    if (!optionList.contains(o))
-                    {
+                for (Option o : tempList) {
+                    if (!optionList.contains(o)) {
                         optionList.add(o);
                     }
                 }
             }
-            if (entry.getKey().equals("image"))
-            {
+            if (entry.getKey().equals("image")) {
                 String[] option_key = entry.getValue();
 
-                for (String s : option_key)
-                {
+                for (String s : option_key) {
                     logger.info("Found key " + s);
                     File file = fileRepository.findOne(Long.parseLong(s));
-                    if (!imageList.contains(file))
-                    {
+                    if (!imageList.contains(file)) {
                         imageList.add(file);
                     }
                 }
@@ -301,8 +280,7 @@ public class DishController
 
         logger.info(dishRepository.findAll().toString());
 
-        if (type1 != null)
-        {
+        if (type1 != null) {
             boolean res = typeService.addTypeToDish(id, type1.getId());
             assert res;
             dishRepository.findOne(id).setIs_typed(true);
@@ -310,29 +288,23 @@ public class DishController
 
         logger.info(type2List.toString());
         assert type2List.size() != 0;
-        if (type2List.size() != 0)
-        {
-            for (Type t : type2List)
-            {
+        if (type2List.size() != 0) {
+            for (Type t : type2List) {
                 boolean res = typeService.addTypeToDish(id, t.getId());
                 assert res;
                 dishRepository.findOne(id).setIs_typed(true);
             }
         }
 
-        if (optionList.size() != 0)
-        {
-            for (Option o : optionList)
-            {
+        if (optionList.size() != 0) {
+            for (Option o : optionList) {
                 boolean res = optionService.addOptionToDish(id, o.getId());
                 assert res;
             }
         }
 
-        if (imageList.size() != 0)
-        {
-            for (File f : imageList)
-            {
+        if (imageList.size() != 0) {
+            for (File f : imageList) {
                 boolean res = fileService.addFileToDish(id, f.getId());
                 assert res;
             }
@@ -345,8 +317,7 @@ public class DishController
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test(Model model)
-    {
+    public String test(Model model) {
         model.addAttribute("dish", dishRepository.findOne(1L));
         model.addAttribute("title", this.messageSource.getMessage("add.title", new Object[]{}, null));
         return "views/dish/invoice";
@@ -355,16 +326,14 @@ public class DishController
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
     public
     @ResponseBody
-    boolean removeDish(@RequestParam(value = "id", required = true) int id)
-    {
+    boolean removeDish(@RequestParam(value = "id", required = true) int id) {
         Dish dish = dishRepository.findOne((long) id);
         assert dish != null;
         return dishService.removeDish(dish.getName());
     }
 
     @RequestMapping(value = "/edit/{dishId}", method = RequestMethod.GET)
-    public String editDish(@PathVariable Integer dishId, Model model, Locale locale)
-    {
+    public String editDish(@PathVariable Integer dishId, Model model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         model.addAttribute("dish", dishRepository.findOne((long) dishId));
@@ -380,14 +349,12 @@ public class DishController
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public
     @ResponseBody
-    boolean editDish()
-    {
+    boolean editDish() {
         return false;
     }
 
     @RequestMapping(value = "/detail/{dishId}", method = RequestMethod.GET)
-    public String detailDish(@PathVariable Integer dishId, Model model, Locale locale)
-    {
+    public String detailDish(@PathVariable Integer dishId, Model model, Locale locale) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         model.addAttribute("dish", dishRepository.findOne((long) dishId));

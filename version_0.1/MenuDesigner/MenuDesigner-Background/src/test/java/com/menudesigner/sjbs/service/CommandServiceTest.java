@@ -33,8 +33,7 @@ import static org.junit.Assert.assertTrue;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class CommandServiceTest
-{
+public class CommandServiceTest {
     private static final Logger logger = LoggerFactory.getLogger(CommandServiceTest.class);
 
     @Autowired
@@ -49,8 +48,7 @@ public class CommandServiceTest
     private CommandDishRepository commandDishRepository;
 
     @Test
-    public void addDishToCommandTest()
-    {
+    public void addDishToCommandTest() {
 
 //        Dish newDish = new Dish();
 //        newDish.setName("coca");

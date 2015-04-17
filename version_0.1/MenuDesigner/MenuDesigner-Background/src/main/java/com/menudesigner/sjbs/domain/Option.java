@@ -10,8 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "md_options")
-public class Option implements Serializable
-{
+public class Option implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,65 +26,53 @@ public class Option implements Serializable
             inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
     private Set<Dish> dishes = new HashSet<>();
 
-    public Option()
-    {
+    public Option() {
     }
 
-    public Option(String name, Set<Dish> dishes)
-    {
+    public Option(String name, Set<Dish> dishes) {
         this.name = name;
         this.dishes = dishes;
     }
 
-    public static long getSerialVersionUID()
-    {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Set<Dish> getDishes()
-    {
+    public Set<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes)
-    {
+    public void setDishes(Set<Dish> dishes) {
         this.dishes = dishes;
     }
 
-    public void addDish(Dish dish)
-    {
+    public void addDish(Dish dish) {
         this.dishes.add(dish);
         dish.addOption(this);
     }
 
-    public void removeDish(Dish dish)
-    {
+    public void removeDish(Dish dish) {
         this.dishes.remove(dish);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Option{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

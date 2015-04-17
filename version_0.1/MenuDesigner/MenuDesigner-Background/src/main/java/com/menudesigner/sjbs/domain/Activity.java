@@ -13,8 +13,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "md_activity")
-public class Activity implements Serializable
-{
+public class Activity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,8 +51,7 @@ public class Activity implements Serializable
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "activities")
     private Set<File> files = new HashSet<>();
 
-    public Activity()
-    {
+    public Activity() {
     }
 
     /**
@@ -62,8 +60,7 @@ public class Activity implements Serializable
      * @param dish
      * @param quantity
      */
-    public void addDish(Dish dish, int quantity)
-    {
+    public void addDish(Dish dish, int quantity) {
         ActivityDish association = new ActivityDish();
         association.setActivity(this);
         association.setDish(dish);
@@ -73,124 +70,100 @@ public class Activity implements Serializable
         dish.getActivities().add(association);
     }
 
-    public static long getSerialVersionUID()
-    {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Time getStart_time()
-    {
+    public Time getStart_time() {
         return start_time;
     }
 
-    public void setStart_time(Time start_time)
-    {
+    public void setStart_time(Time start_time) {
         this.start_time = start_time;
     }
 
-    public Time getEnd_time()
-    {
+    public Time getEnd_time() {
         return end_time;
     }
 
-    public void setEnd_time(Time end_time)
-    {
+    public void setEnd_time(Time end_time) {
         this.end_time = end_time;
     }
 
-    public Date getStart_date()
-    {
+    public Date getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Date start_date)
-    {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
-    public Date getEnd_date()
-    {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(Date end_date)
-    {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description)
-    {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public Set<CommandActivity> getCommands()
-    {
+    public Set<CommandActivity> getCommands() {
         return commands;
     }
 
-    public void setCommands(Set<CommandActivity> commands)
-    {
+    public void setCommands(Set<CommandActivity> commands) {
         this.commands = commands;
     }
 
-    public Set<ActivityDish> getDishes()
-    {
+    public Set<ActivityDish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<ActivityDish> dishes)
-    {
+    public void setDishes(Set<ActivityDish> dishes) {
         this.dishes = dishes;
     }
 
-    public Set<File> getFiles()
-    {
+    public Set<File> getFiles() {
         return files;
     }
 
-    public void setFiles(Set<File> files)
-    {
+    public void setFiles(Set<File> files) {
         this.files = files;
     }
 
-    public void addFile(File file)
-    {
+    public void addFile(File file) {
         this.files.add(file);
     }
 
-    public void removeFile(File file)
-    {
+    public void removeFile(File file) {
         this.files.remove(file);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Activity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

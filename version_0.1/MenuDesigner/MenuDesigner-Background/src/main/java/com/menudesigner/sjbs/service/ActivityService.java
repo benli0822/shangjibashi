@@ -9,8 +9,7 @@ import java.sql.Time;
 /**
  * Created by JIN Benli on 17/12/14.
  */
-public interface ActivityService
-{
+public interface ActivityService {
     /**
      * Make sure that the activity added is unique
      *

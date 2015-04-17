@@ -7,8 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "md_command_menu")
-public class CommandMenu
-{
+public class CommandMenu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,47 +24,38 @@ public class CommandMenu
     @PrimaryKeyJoinColumn(name = "menu_id", referencedColumnName = "id")
     private Menu menu;
 
-    public CommandMenu()
-    {
+    public CommandMenu() {
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getQuantity()
-    {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity)
-    {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Command getCommand()
-    {
+    public Command getCommand() {
         return command;
     }
 
-    public void setCommand(Command command)
-    {
+    public void setCommand(Command command) {
         this.command = command;
     }
 
-    public Menu getMenu()
-    {
+    public Menu getMenu() {
         return menu;
     }
 
-    public void setMenu(Menu menu)
-    {
+    public void setMenu(Menu menu) {
         this.menu = menu;
     }
 }

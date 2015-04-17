@@ -11,27 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController
-{
+public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/general", method = RequestMethod.GET)
-    public String general()
-    {
+    public String general() {
         return "views/user/general";
     }
 
     @RequestMapping(value = "/facebook", method = RequestMethod.GET)
-    public String facebook()
-    {
+    public String facebook() {
         //TODO social network connection
         return "";
     }
 
     @RequestMapping(value = "/twitter", method = RequestMethod.GET)
-    public String twitter()
-    {
+    public String twitter() {
         //TODO twitter connection
         return "";
     }

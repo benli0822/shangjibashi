@@ -8,8 +8,7 @@ import java.util.List;
 /**
  * Created by JIN Benli on 20/12/14.
  */
-public interface OptionRepository extends CrudRepository<Option, Long>
-{
+public interface OptionRepository extends CrudRepository<Option, Long> {
     List<Option> findOptionByName(String name);
 
 }

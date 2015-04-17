@@ -23,8 +23,7 @@ import java.util.Objects;
  */
 @Controller
 @RequestMapping(value = "/type")
-public class TypeController
-{
+public class TypeController {
     private static final Logger logger = LoggerFactory.getLogger(TypeController.class);
 
     @Autowired
@@ -46,24 +45,19 @@ public class TypeController
                     @RequestParam(value = "oper", required = true) String operation,
                     @RequestParam(value = "name", required = true) String name,
                     @RequestParam(value = "parent", required = true) String parent,
-                    @RequestParam(value = "root", required = true) String isRoot)
-    {
+                    @RequestParam(value = "root", required = true) String isRoot) {
         assert !Objects.equals(operation, "") && operation != null;
 
-        switch (operation)
-        {
-            case "add":
-            {
+        switch (operation) {
+            case "add": {
                 logger.info("Trying add type: " + name);
                 // TODO type name not null in entity
                 // TODO change description to name
                 // TODO is_for_customize?
-                if (Objects.equals(isRoot, "Yes"))
-                {
+                if (Objects.equals(isRoot, "Yes")) {
                     long res = typeService.createType(true, false, -1L, name, name, false);
                     return res != -1L && res > 0L;
-                } else
-                {
+                } else {
                     List<Type> theParent = typeRepository.findTypeByDescription(parent);
                     logger.info(theParent.toString());
                     assert theParent.size() != 0;

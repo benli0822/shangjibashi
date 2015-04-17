@@ -11,20 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/property")
-public class SystemController
-{
+public class SystemController {
 
     private static final Logger logger = LoggerFactory.getLogger(SystemController.class);
 
     @RequestMapping(value = "/general", method = RequestMethod.GET)
-    public String general()
-    {
+    public String general() {
         return "views/property/general";
     }
 
     @RequestMapping(value = "/config", method = RequestMethod.GET)
-    public String config()
-    {
+    public String config() {
         return "views/property/config";
     }
 

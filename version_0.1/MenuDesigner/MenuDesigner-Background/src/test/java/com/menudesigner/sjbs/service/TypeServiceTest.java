@@ -31,8 +31,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class TypeServiceTest
-{
+public class TypeServiceTest {
     private static final Logger logger = LoggerFactory.getLogger(TypeServiceTest.class);
 
     @Autowired
@@ -48,8 +47,7 @@ public class TypeServiceTest
     private DishService dishService;
 
     @Test
-    public void createTypeTest()
-    {
+    public void createTypeTest() {
         logger.debug("Create Type Test");
 
         long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
@@ -68,8 +66,7 @@ public class TypeServiceTest
     }
 
     @Test
-    public void addDishToTypeTest()
-    {
+    public void addDishToTypeTest() {
         logger.debug("Add dish to type test");
 
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
@@ -91,8 +88,7 @@ public class TypeServiceTest
     }
 
     @Test
-    public void addConflictTypeTest()
-    {
+    public void addConflictTypeTest() {
         logger.debug("Testing conflict type");
 
         long type_id1 = typeService.createType(true, false, -1L, "hottest", "hottest", false);
@@ -117,8 +113,7 @@ public class TypeServiceTest
     }
 
     @Test
-    public void removeDishFromTypeTest()
-    {
+    public void removeDishFromTypeTest() {
         logger.debug("Add dish to type test");
 
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),

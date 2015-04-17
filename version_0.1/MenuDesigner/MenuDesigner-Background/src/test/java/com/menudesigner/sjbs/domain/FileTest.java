@@ -26,8 +26,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class FileTest
-{
+public class FileTest {
 
     private static final Logger logger = LoggerFactory.getLogger(FileTest.class);
 
@@ -35,8 +34,7 @@ public class FileTest
     private FileRepository fileRepository;
 
     @Test
-    public void addSimpleFileTest()
-    {
+    public void addSimpleFileTest() {
 
         File file = new File();
 
@@ -55,8 +53,7 @@ public class FileTest
     }
 
     @Test
-    public void removeSimpleFileTest()
-    {
+    public void removeSimpleFileTest() {
 
         File file = new File();
 

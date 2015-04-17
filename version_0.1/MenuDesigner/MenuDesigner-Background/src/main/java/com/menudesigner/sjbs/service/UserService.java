@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
  * Created by JIN Benli on 04/04/15.
  */
 @Service
-public interface UserService
-{
+public interface UserService {
 
     long createUser(User user);
 

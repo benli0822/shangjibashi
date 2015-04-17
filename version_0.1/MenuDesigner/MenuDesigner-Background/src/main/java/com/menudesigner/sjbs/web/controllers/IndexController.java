@@ -21,16 +21,14 @@ import java.util.Locale;
  */
 
 @Controller
-public class IndexController implements BaseController
-{
+public class IndexController implements BaseController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     /**
      * Simply selects the home view to render by returning its name.
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Locale locale, Model model)
-    {
+    public String index(Locale locale, Model model) {
         logger.info("Welcome home! The client locale is {}.", locale);
 
         Date date = new Date();
@@ -45,8 +43,7 @@ public class IndexController implements BaseController
 
     @Override
     public void process(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext,
-                        TemplateEngine templateEngine)
-    {
+                        TemplateEngine templateEngine) {
 
     }
 }

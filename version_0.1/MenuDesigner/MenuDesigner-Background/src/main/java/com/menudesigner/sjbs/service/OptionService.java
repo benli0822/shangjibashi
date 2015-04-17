@@ -6,8 +6,7 @@ import com.menudesigner.sjbs.domain.Option;
 /**
  * Created by JIN Benli on 13/01/15.
  */
-public interface OptionService
-{
+public interface OptionService {
 
     long addOption(Option option);
 

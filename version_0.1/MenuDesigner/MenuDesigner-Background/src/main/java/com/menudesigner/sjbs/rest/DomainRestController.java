@@ -25,8 +25,7 @@ import java.util.Objects;
  */
 @Controller
 @RequestMapping("/api")
-public class DomainRestController
-{
+public class DomainRestController {
     private static final Logger logger = LoggerFactory.getLogger(DomainRestController.class);
 
     @Autowired
@@ -56,8 +55,7 @@ public class DomainRestController
     @RequestMapping(value = "/getTypes", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Type> getTypes(Locale locale)
-    {
+    List<Type> getTypes(Locale locale) {
         logger.info("[DomainRestController]: getTypes called");
         return (List<Type>) typeRepository.findAll();
     }
@@ -65,8 +63,7 @@ public class DomainRestController
     @RequestMapping(value = "/getMenus", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Menu> getMenus(Locale locale)
-    {
+    List<Menu> getMenus(Locale locale) {
         logger.info("[DomainRestController]: getMenus called");
         return (List<Menu>) menuRepository.findAll();
     }
@@ -74,8 +71,7 @@ public class DomainRestController
     @RequestMapping(value = "/getActivities", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Activity> getActivities(Locale locale)
-    {
+    List<Activity> getActivities(Locale locale) {
         logger.info("[DomainRestController]: getActivities called");
         return (List<Activity>) activityRepository.findAll();
     }
@@ -83,8 +79,7 @@ public class DomainRestController
     @RequestMapping(value = "/getCommands", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Command> getCommands(Locale locale)
-    {
+    List<Command> getCommands(Locale locale) {
         logger.info("[DomainRestController]: getCommands called");
         return (List<Command>) commandRepository.findAll();
     }
@@ -92,8 +87,7 @@ public class DomainRestController
     @RequestMapping(value = "/getDishes", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Dish> getDishes(Locale locale)
-    {
+    List<Dish> getDishes(Locale locale) {
         logger.info("[DomainRestController]: getDishes called");
         return (List<Dish>) dishRepository.findAll();
     }
@@ -101,8 +95,7 @@ public class DomainRestController
     @RequestMapping(value = "/getFiles", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<File> getFiles(Locale locale)
-    {
+    List<File> getFiles(Locale locale) {
         logger.info("[DomainRestController]: getFiles called");
         return (List<File>) fileRepository.findAll();
     }
@@ -110,8 +103,7 @@ public class DomainRestController
     @RequestMapping(value = "/getOptions", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Option> getOptions(Locale locale)
-    {
+    List<Option> getOptions(Locale locale) {
         logger.info("[DomainRestController]: getOptions called");
         return (List<Option>) optionRepository.findAll();
     }
@@ -119,8 +111,7 @@ public class DomainRestController
     @RequestMapping(value = "/postCommands", method = RequestMethod.POST)
     public
     @ResponseBody
-    boolean postCommands(@RequestBody CommandDTO commandDTO)
-    {
+    boolean postCommands(@RequestBody CommandDTO commandDTO) {
 
         logger.info(commandDTO.toString());
 
@@ -136,8 +127,7 @@ public class DomainRestController
         // add dishes to command
         Map<String, String> d = commandDTO.getDish_dictionary();
 
-        for (Map.Entry<String, String> entry : d.entrySet())
-        {
+        for (Map.Entry<String, String> entry : d.entrySet()) {
             // loop to get the dynamic key dish id
             String dish_id = entry.getKey();
             logger.info("Dish_id " + dish_id);
@@ -153,8 +143,7 @@ public class DomainRestController
         // add menus to command
         Map<String, String> m = commandDTO.getMenu_dictionary();
 
-        for (Map.Entry<String, String> entry : m.entrySet())
-        {
+        for (Map.Entry<String, String> entry : m.entrySet()) {
             // loop to get the dymaic key menu id
             String menu_id = entry.getKey();
             logger.info("Menu_id " + menu_id);
@@ -168,8 +157,7 @@ public class DomainRestController
 
         // add activities to command
         Map<String, String> a = commandDTO.getActivity_dictionary();
-        for (Map.Entry<String, String> entry : a.entrySet())
-        {
+        for (Map.Entry<String, String> entry : a.entrySet()) {
             // loop to get the dymaic key menu id
             String activity_id = entry.getKey();
             logger.info("Activity_id " + activity_id);

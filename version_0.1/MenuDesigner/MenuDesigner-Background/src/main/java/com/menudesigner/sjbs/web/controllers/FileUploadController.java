@@ -28,8 +28,7 @@ import java.util.Map;
  * Created by JIN Benli on 28/12/14.
  */
 @Controller
-public class FileUploadController
-{
+public class FileUploadController {
     private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
     @Autowired
@@ -42,8 +41,7 @@ public class FileUploadController
     public
     @ResponseBody
     List<File> upload(MultipartHttpServletRequest request,
-                      HttpServletResponse response) throws IOException
-    {
+                      HttpServletResponse response) throws IOException {
         // Getting uploaded files from the request object
         Map<String, MultipartFile> fileMap = request.getFileMap();
 
@@ -51,19 +49,15 @@ public class FileUploadController
         List<File> uploadedFiles = new ArrayList<File>();
 
         // Iterate through the map
-        for (MultipartFile multipartFile : fileMap.values())
-        {
+        for (MultipartFile multipartFile : fileMap.values()) {
 
             // if already existed, directly return files info
-            if (fileRepository.findFileByName(multipartFile.getOriginalFilename()).size() != 0)
-            {
+            if (fileRepository.findFileByName(multipartFile.getOriginalFilename()).size() != 0) {
                 List<File> files = fileRepository.findFileByName(multipartFile.getOriginalFilename());
-                for (File f : files)
-                {
+                for (File f : files) {
                     uploadedFiles.add(f);
                 }
-            } else
-            {
+            } else {
 
                 // Save the file to local disk
                 saveFileToLocalDisk(multipartFile);
@@ -81,26 +75,21 @@ public class FileUploadController
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public
     @ResponseBody
-    boolean delete(@RequestParam("id") String filename)
-    {
-        try
-        {
+    boolean delete(@RequestParam("id") String filename) {
+        try {
 
             java.io.File file = new java.io.File(getDestinationLocation() + "" + filename);
 
-            if (file.delete())
-            {
+            if (file.delete()) {
                 fileService.removeFile(filename);
 
                 logger.info(file.getName() + " is deleted!");
                 return true;
-            } else
-            {
+            } else {
                 logger.info("Delete operation is failed.");
                 return false;
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -108,8 +97,7 @@ public class FileUploadController
 
 
     private File saveFileToDatabase(MultipartFile multipartFile)
-            throws IOException
-    {
+            throws IOException {
 
         // save upload file to repository and return it
         long file_id = fileService.saveFile(
@@ -121,14 +109,12 @@ public class FileUploadController
         return fileRepository.findOne(file_id);
     }
 
-    private String getDestinationLocation()
-    {
+    private String getDestinationLocation() {
         return "images/";
     }
 
     private void saveFileToLocalDisk(MultipartFile multipartFile)
-            throws IOException, FileNotFoundException
-    {
+            throws IOException, FileNotFoundException {
 
         String outputFileName = getOutputFilename(multipartFile);
 
@@ -136,16 +122,14 @@ public class FileUploadController
                 outputFileName));
     }
 
-    private String getOutputFilename(MultipartFile multipartFile)
-    {
+    private String getOutputFilename(MultipartFile multipartFile) {
         URL url = this.getClass().getResource("/static/");
         return url.getPath() + getDestinationLocation() + multipartFile.getOriginalFilename();
     }
 
 
     @RequestMapping(value = {"/img_list"})
-    public String listBooks(Map<String, Object> map)
-    {
+    public String listBooks(Map<String, Object> map) {
 
         map.put("fileList", fileRepository.findAll());
 

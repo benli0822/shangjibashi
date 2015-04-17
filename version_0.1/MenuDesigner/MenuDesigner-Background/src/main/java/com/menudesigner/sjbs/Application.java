@@ -25,11 +25,9 @@ import javax.servlet.ServletContextListener;
 @SpringBootApplication
 @ComponentScan("com.menudesigner.sjbs")
 @EnableJpaRepositories
-public class Application
-{
+public class Application {
 
-    public static void main(String[] args) throws Exception
-    {
+    public static void main(String[] args) throws Exception {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
         DishRepository dishRepository = context.getBean(DishRepository.class);
         CommandRepository commandRepository = context.getBean(CommandRepository.class);
@@ -40,20 +38,16 @@ public class Application
     private static Log logger = LogFactory.getLog(Application.class);
 
     @Bean
-    protected ServletContextListener listener()
-    {
-        return new ServletContextListener()
-        {
+    protected ServletContextListener listener() {
+        return new ServletContextListener() {
 
             @Override
-            public void contextInitialized(ServletContextEvent sce)
-            {
+            public void contextInitialized(ServletContextEvent sce) {
                 logger.info("ServletContext initialized");
             }
 
             @Override
-            public void contextDestroyed(ServletContextEvent sce)
-            {
+            public void contextDestroyed(ServletContextEvent sce) {
                 logger.info("ServletContext destroyed");
             }
 
@@ -63,8 +57,7 @@ public class Application
     // not working
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
-    CharacterEncodingFilter characterEncodingFilter()
-    {
+    CharacterEncodingFilter characterEncodingFilter() {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
         filter.setForceEncoding(true);

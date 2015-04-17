@@ -20,39 +20,33 @@ import java.util.Set;
 @Service
 @Component("optionService")
 @Transactional
-public class OptionServiceImpl implements OptionService
-{
+public class OptionServiceImpl implements OptionService {
     private static final Logger logger = LoggerFactory.getLogger(OptionServiceImpl.class);
 
     private final OptionRepository optionRepository;
     private final DishRepository dishRepository;
 
     @Autowired
-    public OptionServiceImpl(OptionRepository optionRepository, DishRepository dishRepository)
-    {
+    public OptionServiceImpl(OptionRepository optionRepository, DishRepository dishRepository) {
         this.optionRepository = optionRepository;
         this.dishRepository = dishRepository;
     }
 
     @Override
-    public long addOption(Option option)
-    {
+    public long addOption(Option option) {
         logger.debug("Try adding option: " + option.toString());
-        if (optionRepository.findOptionByName(option.getName()).size() == 0)
-        {
+        if (optionRepository.findOptionByName(option.getName()).size() == 0) {
             Option theOption = optionRepository.save(option);
             logger.info("Option");
             return theOption.getId();
-        } else
-        {
+        } else {
             logger.error("Option " + option.toString() + " existed!");
             return -1L;
         }
     }
 
     @Override
-    public long addOption(String name)
-    {
+    public long addOption(String name) {
         logger.debug("Try adding option");
 
         Option option = new Option();
@@ -63,20 +57,17 @@ public class OptionServiceImpl implements OptionService
     }
 
     @Override
-    public boolean addOptionToDish(long dish_id, long option_id)
-    {
+    public boolean addOptionToDish(long dish_id, long option_id) {
         logger.debug("Try adding option to dish");
         Dish dish = dishRepository.findOne(dish_id);
         Option option = optionRepository.findOne(option_id);
         assert dish != null;
         assert option != null;
 
-        if (dish.getOptions().contains(option) && option.getDishes().contains(dish))
-        {
+        if (dish.getOptions().contains(option) && option.getDishes().contains(dish)) {
             logger.info("Option " + option.toString() + " existed in dish " + dish.toString());
             return false;
-        } else
-        {
+        } else {
             logger.info("Option " + option.toString() + " added to dish" + dish.toString());
             option.addDish(dish);
 
@@ -85,20 +76,17 @@ public class OptionServiceImpl implements OptionService
     }
 
     @Override
-    public boolean removeOption(String name)
-    {
+    public boolean removeOption(String name) {
         logger.debug("Removing option name " + name);
 
         List<Option> options = optionRepository.findOptionByName(name);
 
-        if (options.size() == 0)
-        {
+        if (options.size() == 0) {
             logger.debug("Option not found!");
             return false;
         }
 
-        for (Option o : options)
-        {
+        for (Option o : options) {
             logger.debug("Removing option " + o.toString());
             optionRepository.delete(o);
         }
@@ -114,17 +102,14 @@ public class OptionServiceImpl implements OptionService
      * @return
      */
     @Override
-    public boolean removeDishFromOption(Dish dish)
-    {
+    public boolean removeDishFromOption(Dish dish) {
         assert dishRepository.exists(dish.getId());
 
         List<Option> optionList = (List<Option>) optionRepository.findAll();
 
-        for (Option o : optionList)
-        {
+        for (Option o : optionList) {
             Set<Dish> dishSet = o.getDishes();
-            if (dishSet.contains(dish))
-            {
+            if (dishSet.contains(dish)) {
                 dishSet.remove(dish);
                 dish.getOptions().remove(o);
                 optionRepository.save(o);

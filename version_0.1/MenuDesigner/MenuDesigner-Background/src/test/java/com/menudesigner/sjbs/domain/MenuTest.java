@@ -30,8 +30,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class MenuTest
-{
+public class MenuTest {
 
     private static final Logger logger = LoggerFactory.getLogger(CommandTest.class);
 
@@ -45,8 +44,7 @@ public class MenuTest
     private MenuDishRepository menuDishRepository;
 
     @Test
-    public void addSimpleMenuTest()
-    {
+    public void addSimpleMenuTest() {
         Menu menu = new Menu();
 
         menu.setName("test");
@@ -64,8 +62,7 @@ public class MenuTest
     }
 
     @Test
-    public void removeSimpleMenuTest()
-    {
+    public void removeSimpleMenuTest() {
         Menu menu = new Menu();
 
         menu.setName("test");
@@ -87,8 +84,7 @@ public class MenuTest
     }
 
     @Test
-    public void addMenuWithDishTest()
-    {
+    public void addMenuWithDishTest() {
         Menu menu = new Menu();
 
         menu.setName("test");

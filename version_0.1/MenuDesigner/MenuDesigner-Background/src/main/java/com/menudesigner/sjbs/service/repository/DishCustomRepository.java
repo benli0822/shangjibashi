@@ -8,8 +8,7 @@ import org.springframework.data.domain.Pageable;
 /**
  * Created by JIN Benli on 31/01/15.
  */
-public interface DishCustomRepository
-{
+public interface DishCustomRepository {
 
     Page<Dish> findDishByTypesDescription(String description, Pageable pageable);
 

@@ -24,8 +24,7 @@ import java.util.Set;
 @Service
 @Component("menuService")
 @Transactional
-public class MenuServiceImpl implements MenuService
-{
+public class MenuServiceImpl implements MenuService {
     private static final Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class);
 
     private final MenuRepository menuRepository;
@@ -34,32 +33,27 @@ public class MenuServiceImpl implements MenuService
 
     @Autowired
     public MenuServiceImpl(MenuRepository menuRepository, DishRepository dishRepository, MenuDishRepository
-            menuDishRepository)
-    {
+            menuDishRepository) {
         this.menuRepository = menuRepository;
         this.dishRepository = dishRepository;
         this.menuDishRepository = menuDishRepository;
     }
 
     @Override
-    public long addMenu(Menu menu)
-    {
+    public long addMenu(Menu menu) {
         logger.debug("Try adding menu: " + menu.toString());
-        if (menuRepository.findMenuByName(menu.getName()).size() == 0)
-        {
+        if (menuRepository.findMenuByName(menu.getName()).size() == 0) {
             Menu theMenu = menuRepository.save(menu);
             logger.info("Menu " + menu.toString() + " added!");
             return theMenu.getId();
-        } else
-        {
+        } else {
             logger.error("Menu " + menu.toString() + " existed!");
             return -1L;
         }
     }
 
     @Override
-    public long addMenu(String name, String description)
-    {
+    public long addMenu(String name, String description) {
         logger.debug("Try adding menu");
 
         Menu menu = new Menu();
@@ -71,8 +65,7 @@ public class MenuServiceImpl implements MenuService
     }
 
     @Override
-    public long addMenu(String name, String description, Date start_date, Date end_date, Time start_time, Time end_time)
-    {
+    public long addMenu(String name, String description, Date start_date, Date end_date, Time start_time, Time end_time) {
         logger.debug("Try adding menu");
 
         long menu_id = this.addMenu(name, description);
@@ -83,8 +76,7 @@ public class MenuServiceImpl implements MenuService
     }
 
     @Override
-    public void setPeriodToMenu(long menu_id, Date start_date, Date end_date, Time start_time, Time end_time)
-    {
+    public void setPeriodToMenu(long menu_id, Date start_date, Date end_date, Time start_time, Time end_time) {
         Menu theMenu = menuRepository.findOne(menu_id);
 
         theMenu.setStart_date(start_date);
@@ -96,8 +88,7 @@ public class MenuServiceImpl implements MenuService
     }
 
     @Override
-    public boolean addDishToMenu(long dish_id, long menu_id, int quantity)
-    {
+    public boolean addDishToMenu(long dish_id, long menu_id, int quantity) {
         logger.debug("Try adding dish to menu");
         Dish theDish = dishRepository.findOne(dish_id);
         Menu theMenu = menuRepository.findOne(menu_id);
@@ -107,19 +98,16 @@ public class MenuServiceImpl implements MenuService
         // first check the association
         List<MenuDish> associations = menuDishRepository.findMenuDishByMenuAndDish(theMenu, theDish);
 
-        if (associations.size() == 0)
-        {
+        if (associations.size() == 0) {
             // if neither activity nor dish has been added to each other, the add the association
             theMenu.addDish(theDish, quantity);
 
             return true;
-        } else if (associations.size() == 1)
-        {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
-        } else
-        {
+        } else {
             logger.error("neither dish " + theDish.toString() + "nor menu " + theMenu.toString() + "has already " +
                     "associated with each other more than one time!");
             return false;
@@ -128,20 +116,17 @@ public class MenuServiceImpl implements MenuService
     }
 
     @Override
-    public boolean removeMenu(String name)
-    {
+    public boolean removeMenu(String name) {
         logger.debug("Removing menu name " + name);
 
         List<Menu> menus = menuRepository.findMenuByName(name);
 
-        if (menus.size() == 0)
-        {
+        if (menus.size() == 0) {
             logger.debug("Menu not found!");
             return false;
         }
 
-        for (Menu m : menus)
-        {
+        for (Menu m : menus) {
             logger.debug("Removing menu " + m.toString());
             menuRepository.delete(m);
         }
@@ -157,14 +142,12 @@ public class MenuServiceImpl implements MenuService
      * @return
      */
     @Override
-    public boolean removeDishFromMenu(Dish dish)
-    {
+    public boolean removeDishFromMenu(Dish dish) {
         assert dishRepository.exists(dish.getId());
 
         Set<MenuDish> menuDishs = dish.getMenus();
 
-        for (MenuDish md : menuDishs)
-        {
+        for (MenuDish md : menuDishs) {
             Menu m = md.getMenu();
             m.getDishes().remove(md);
             dish.getMenus().remove(md);

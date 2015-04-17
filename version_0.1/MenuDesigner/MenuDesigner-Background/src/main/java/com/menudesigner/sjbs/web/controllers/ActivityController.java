@@ -11,20 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/activity")
-public class ActivityController
-{
+public class ActivityController {
 
     private static final Logger logger = LoggerFactory.getLogger(ActivityController.class);
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add()
-    {
+    public String add() {
         return "views/activity/add";
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String list()
-    {
+    public String list() {
         return "views/activity/list";
     }
 }

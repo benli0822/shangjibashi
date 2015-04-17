@@ -33,8 +33,7 @@ import static org.junit.Assert.assertTrue;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class ActivityServiceTest
-{
+public class ActivityServiceTest {
     private static final Logger logger = LoggerFactory.getLogger(ActivityServiceTest.class);
 
     @Autowired
@@ -53,8 +52,7 @@ public class ActivityServiceTest
     private DishService dishService;
 
     @Test
-    public void addActivityWithoutPeriodTest()
-    {
+    public void addActivityWithoutPeriodTest() {
         long activity_id = activityService.addActivity("noel", "noel");
 
         Activity activity = activityRepository.findOne(activity_id);
@@ -67,8 +65,7 @@ public class ActivityServiceTest
     }
 
     @Test
-    public void addActivityWithPeriodTest()
-    {
+    public void addActivityWithPeriodTest() {
         long activity_id = activityService.addActivity("noel", "noel", new Date(2014, 12, 24), new Date(2014, 12, 25)
                 , new Time(8, 20, 00), new Time(20, 20, 00));
 
@@ -87,8 +84,7 @@ public class ActivityServiceTest
     }
 
     @Test
-    public void addDishToActivityTest()
-    {
+    public void addDishToActivityTest() {
 
 //        Dish newDish = new Dish();
 //        newDish.setName("coca");
@@ -121,8 +117,7 @@ public class ActivityServiceTest
     }
 
     @Test
-    public void removeDishFromActivityTest()
-    {
+    public void removeDishFromActivityTest() {
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
                 new Time(10, 10, 10), new Time(10, 11, 10));
         long activity_id = activityService.addActivity("noel", "noel");

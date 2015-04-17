@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by JIN Benli on 12/11/14.
  */
-public interface BaseController
-{
+public interface BaseController {
     public void process(
             HttpServletRequest request, HttpServletResponse response,
             ServletContext servletContext, TemplateEngine templateEngine);

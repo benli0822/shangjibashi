@@ -11,7 +11,6 @@ import java.util.List;
  * Created by JIN Benli on 12/10/14.
  */
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
-public interface UserRepository extends CrudRepository<User, Long>
-{
+public interface UserRepository extends CrudRepository<User, Long> {
     List<User> findUserByUsername(@Param("name") String username);
 }

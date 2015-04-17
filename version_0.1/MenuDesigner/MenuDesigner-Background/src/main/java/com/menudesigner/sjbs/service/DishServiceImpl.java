@@ -21,8 +21,7 @@ import java.util.List;
 @Service
 @Component("dishService")
 @Transactional
-public class DishServiceImpl implements DishService
-{
+public class DishServiceImpl implements DishService {
 
     private static final Logger logger = LoggerFactory.getLogger(DishServiceImpl.class);
 
@@ -38,8 +37,7 @@ public class DishServiceImpl implements DishService
 
     @Autowired
     public DishServiceImpl(DishRepository dishRepository, TypeService typeService, OptionService optionService,
-                           FileService fileService, MenuService menuService, ActivityService activityService)
-    {
+                           FileService fileService, MenuService menuService, ActivityService activityService) {
         this.dishRepository = dishRepository;
         this.typeService = typeService;
         this.optionService = optionService;
@@ -57,26 +55,22 @@ public class DishServiceImpl implements DishService
      * @return
      */
     @Override
-    public long addDish(Dish dish)
-    {
+    public long addDish(Dish dish) {
         logger.debug("Try adding dish: " + dish.toString());
 
         //TODO create dish with params
-        if (dishRepository.findDishByName(dish.getName()).size() == 0)
-        {
+        if (dishRepository.findDishByName(dish.getName()).size() == 0) {
             Dish theDish = dishRepository.save(dish);
             logger.info("Dish " + dish.toString() + " added!");
             return theDish.getId();
-        } else
-        {
+        } else {
             logger.error("Dish " + dish.toString() + " existed!");
             return -1L;
         }
     }
 
     @Override
-    public long addDish(String name, String description, float price, boolean disabled)
-    {
+    public long addDish(String name, String description, float price, boolean disabled) {
         logger.debug("Try adding dish");
         Dish newDish = new Dish();
         newDish.setName(name);
@@ -89,8 +83,7 @@ public class DishServiceImpl implements DishService
 
     @Override
     public long addDish(String name, String description, float price, boolean disabled, Date start_date, Date
-            end_date, Time start_time, Time end_time)
-    {
+            end_date, Time start_time, Time end_time) {
         logger.debug("Try adding dish");
 
         long dish_id = this.addDish(name, description, price, disabled);
@@ -101,8 +94,7 @@ public class DishServiceImpl implements DishService
     }
 
     @Override
-    public void setPeriodToDish(long dish_id, Date start_date, Date end_date, Time start_time, Time end_time)
-    {
+    public void setPeriodToDish(long dish_id, Date start_date, Date end_date, Time start_time, Time end_time) {
         Dish dish = dishRepository.findOne(dish_id);
         dish.setStart_date(start_date);
         dish.setEnd_date(end_date);
@@ -112,8 +104,7 @@ public class DishServiceImpl implements DishService
     }
 
     @Override
-    public void setImagePath(String imagePath)
-    {
+    public void setImagePath(String imagePath) {
         // TODO set the image path to dish
     }
 
@@ -126,19 +117,15 @@ public class DishServiceImpl implements DishService
      * @return
      */
     @Override
-    public boolean removeDish(String dishName)
-    {
+    public boolean removeDish(String dishName) {
         logger.debug("Try removing dish: " + dishName);
-        if (dishRepository.findDishByName(dishName).size() == 0)
-        {
+        if (dishRepository.findDishByName(dishName).size() == 0) {
             logger.error("Dish " + dishName + " not found!");
             return false;
-        } else
-        {
+        } else {
             logger.debug("Deleting requested dish " + dishName);
             List<Dish> toDeleteDish = dishRepository.findDishByName(dishName);
-            for (Dish dish : toDeleteDish)
-            {
+            for (Dish dish : toDeleteDish) {
                 logger.debug("Deleted dish " + dish.toString());
                 // when the dish has been found, first should check all its associations
                 // type association

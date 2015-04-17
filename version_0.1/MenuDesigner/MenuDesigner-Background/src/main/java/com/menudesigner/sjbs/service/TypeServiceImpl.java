@@ -20,16 +20,14 @@ import java.util.Set;
 @Service
 @Component("typeService")
 @Transactional
-public class TypeServiceImpl implements TypeService
-{
+public class TypeServiceImpl implements TypeService {
     private static final Logger logger = LoggerFactory.getLogger(TypeServiceImpl.class);
 
     private final TypeRepository typeRepository;
     private final DishRepository dishRepository;
 
     @Autowired
-    public TypeServiceImpl(TypeRepository typeRepository, DishRepository dishRepository)
-    {
+    public TypeServiceImpl(TypeRepository typeRepository, DishRepository dishRepository) {
         this.typeRepository = typeRepository;
         this.dishRepository = dishRepository;
     }
@@ -41,18 +39,15 @@ public class TypeServiceImpl implements TypeService
      * @return
      */
     @Override
-    public long createType(Type type)
-    {
+    public long createType(Type type) {
         logger.debug("Try adding type: " + type.toString());
 
         //TODO create dish with params
-        if (typeRepository.findTypeByName(type.getName()).size() == 0)
-        {
+        if (typeRepository.findTypeByName(type.getName()).size() == 0) {
             Type theType = typeRepository.save(type);
             logger.info("Type " + type.toString() + " added!");
             return theType.getId();
-        } else
-        {
+        } else {
             logger.error("Type " + type.toString() + " existed!");
             return -1L;
         }
@@ -71,8 +66,7 @@ public class TypeServiceImpl implements TypeService
      */
     @Override
     public long createType(boolean is_firstmenu, boolean is_secondmenu, long firstmenu_id, String name, String
-            description, boolean is_for_customize)
-    {
+            description, boolean is_for_customize) {
         logger.debug("Try adding type");
         Type type = new Type();
 
@@ -96,8 +90,7 @@ public class TypeServiceImpl implements TypeService
      * @return
      */
     @Override
-    public boolean addTypeToDish(long dish_id, long type_id)
-    {
+    public boolean addTypeToDish(long dish_id, long type_id) {
         Dish dish = dishRepository.findOne(dish_id);
         Type type = typeRepository.findOne(type_id);
 
@@ -108,18 +101,15 @@ public class TypeServiceImpl implements TypeService
         logger.info(type.toString());
         assert dish != null;
         assert type != null;
-        if (dish.getTypes().contains(type) && type.getDishes().contains(dish))
-        {
+        if (dish.getTypes().contains(type) && type.getDishes().contains(dish)) {
             logger.info("Type " + type.toString() + " existed in dish " + dish.toString());
             return false;
-        } else
-        {
+        } else {
             logger.info("Type " + type.toString() + " added to dish " + dish.toString());
 //            dish.addType(type);
             type.addDish(dish);
 
-            for (Type t : allData)
-            {
+            for (Type t : allData) {
                 t.addDish(dish);
             }
 
@@ -137,17 +127,14 @@ public class TypeServiceImpl implements TypeService
      * @return
      */
     @Override
-    public boolean addConflictToType(long type_id, long conflict_type_id)
-    {
+    public boolean addConflictToType(long type_id, long conflict_type_id) {
         Type type = typeRepository.findOne(type_id);
         Type conflict_type = typeRepository.findOne(conflict_type_id);
 
-        if (type.getConflictTypes().contains(conflict_type) && conflict_type.getConflictTypes().contains(type))
-        {
+        if (type.getConflictTypes().contains(conflict_type) && conflict_type.getConflictTypes().contains(type)) {
             logger.info("Type " + type.toString() + " already is conflict type to type " + conflict_type.toString());
             return false;
-        } else
-        {
+        } else {
             logger.info("Type " + type.toString() + " added as conflict type to type " + conflict_type.toString());
             type.addConflictType(conflict_type);
             conflict_type.addConflictType(type);
@@ -162,17 +149,14 @@ public class TypeServiceImpl implements TypeService
      * @return
      */
     @Override
-    public boolean removeDishFromType(Dish dish)
-    {
+    public boolean removeDishFromType(Dish dish) {
         assert dishRepository.exists(dish.getId());
 
         List<Type> typeList = (List<Type>) typeRepository.findAll();
 
-        for (Type t : typeList)
-        {
+        for (Type t : typeList) {
             Set<Dish> dishSet = t.getDishes();
-            if (dishSet.contains(dish))
-            {
+            if (dishSet.contains(dish)) {
                 dishSet.remove(dish);
                 dish.getTypes().remove(t);
                 typeRepository.save(t);

@@ -21,29 +21,24 @@ import java.util.Map;
  *
  * @author David Green
  */
-public abstract class MockFactory<T>
-{
+public abstract class MockFactory<T> {
 
     private static Map<Class<?>, MockFactory<?>> factories =
             new HashMap<Class<?>, MockFactory<?>>();
 
-    static
-    {
+    static {
         register(new MockActivityFactory());
         register(new MockDishFactory());
     }
 
-    private static void register(MockFactory<?> mockFactory)
-    {
+    private static void register(MockFactory<?> mockFactory) {
         factories.put(mockFactory.domainClass, mockFactory);
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> MockFactory<T> on(Class<T> domainClass)
-    {
+    public static <T> MockFactory<T> on(Class<T> domainClass) {
         MockFactory<?> factory = factories.get(domainClass);
-        if (factory == null)
-        {
+        if (factory == null) {
             throw new IllegalStateException(
                     "Did you forget to register a mock factory for " +
                             domainClass.getClass().getName() + "?");
@@ -55,10 +50,8 @@ public abstract class MockFactory<T>
 
     private int seed;
 
-    protected MockFactory(Class<T> domainClass)
-    {
-        if (domainClass.getAnnotation(Entity.class) == null)
-        {
+    protected MockFactory(Class<T> domainClass) {
+        if (domainClass.getAnnotation(Entity.class) == null) {
             throw new IllegalArgumentException();
         }
         this.domainClass = domainClass;
@@ -72,11 +65,9 @@ public abstract class MockFactory<T>
      * @param count         the number of objects to create
      * @return the created objects
      */
-    public List<T> create(EntityManager entityManager, int count)
-    {
+    public List<T> create(EntityManager entityManager, int count) {
         List<T> mocks = new ArrayList<T>(count);
-        for (int x = 0; x < count; ++x)
-        {
+        for (int x = 0; x < count; ++x) {
             T t = create(entityManager);
             mocks.add(t);
         }
@@ -90,20 +81,16 @@ public abstract class MockFactory<T>
      *                      should not be persisted
      * @return the mocked object
      */
-    public T create(EntityManager entityManager)
-    {
+    public T create(EntityManager entityManager) {
         T mock;
-        try
-        {
+        try {
             mock = domainClass.newInstance();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             // must have a default constructor
             throw new IllegalStateException();
         }
         populate(++seed, mock);
-        if (entityManager != null)
-        {
+        if (entityManager != null) {
             entityManager.persist(mock);
         }
         return mock;
@@ -118,31 +105,25 @@ public abstract class MockFactory<T>
     protected abstract void populate(int seed, T mock);
 
 
-    private static class MockActivityFactory extends MockFactory<Activity>
-    {
-        public MockActivityFactory()
-        {
+    private static class MockActivityFactory extends MockFactory<Activity> {
+        public MockActivityFactory() {
             super(Activity.class);
         }
 
         @Override
-        protected void populate(int seed, Activity mock)
-        {
+        protected void populate(int seed, Activity mock) {
             mock.setName("Activity " + seed);
         }
     }
 
-    private static class MockDishFactory extends MockFactory<Dish>
-    {
+    private static class MockDishFactory extends MockFactory<Dish> {
 
-        public MockDishFactory()
-        {
+        public MockDishFactory() {
             super(Dish.class);
         }
 
         @Override
-        protected void populate(int seed, Dish mock)
-        {
+        protected void populate(int seed, Dish mock) {
             mock.setName("Dish " + seed);
             mock.setIs_typed(false);
             mock.setDescription("Description Dish " + seed);

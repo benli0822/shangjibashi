@@ -30,8 +30,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class ActivityTest
-{
+public class ActivityTest {
 
     private static final Logger logger = LoggerFactory.getLogger(DishTest.class);
 
@@ -46,8 +45,7 @@ public class ActivityTest
     private ActivityDishRepository activityDishRepository;
 
     @Test
-    public void addSimpleActivityTest()
-    {
+    public void addSimpleActivityTest() {
 
         Activity activity = new Activity();
 
@@ -66,8 +64,7 @@ public class ActivityTest
     }
 
     @Test
-    public void removeSimpleActivityTest()
-    {
+    public void removeSimpleActivityTest() {
         Activity activity = new Activity();
 
         activity.setName("test");
@@ -88,8 +85,7 @@ public class ActivityTest
     }
 
     @Test
-    public void addActivityWithDishTest()
-    {
+    public void addActivityWithDishTest() {
         Activity activity = new Activity();
 
         activity.setName("test");

@@ -5,8 +5,7 @@ import com.menudesigner.sjbs.domain.Command;
 /**
  * Created by JIN Benli on 22/12/14.
  */
-public interface CommandService
-{
+public interface CommandService {
 
     /**
      * Make sure that the command added is unique

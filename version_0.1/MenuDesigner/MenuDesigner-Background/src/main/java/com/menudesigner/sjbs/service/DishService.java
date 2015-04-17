@@ -8,8 +8,7 @@ import java.sql.Time;
 /**
  * Created by JIN Benli on 10/11/14.
  */
-public interface DishService
-{
+public interface DishService {
     /**
      * Make sure this is the unique dish created in repository
      *

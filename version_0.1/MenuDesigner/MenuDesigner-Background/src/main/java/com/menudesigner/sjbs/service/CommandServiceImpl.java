@@ -19,8 +19,7 @@ import java.util.List;
 @Service
 @Component("commandService")
 @Transactional
-public class CommandServiceImpl implements CommandService
-{
+public class CommandServiceImpl implements CommandService {
     private static final Logger logger = LoggerFactory.getLogger(CommandServiceImpl.class);
 
     private final CommandRepository commandRepository;
@@ -35,8 +34,7 @@ public class CommandServiceImpl implements CommandService
     public CommandServiceImpl(CommandRepository commandRepository, DishRepository dishRepository, ActivityRepository
             activityRepository, MenuRepository menuRepository, CommandDishRepository commandDishRepository,
                               CommandActivityRepository commandActivityRepository, CommandMenuRepository
-                                          commandMenuRepository)
-    {
+                                      commandMenuRepository) {
         this.commandRepository = commandRepository;
         this.dishRepository = dishRepository;
         this.activityRepository = activityRepository;
@@ -47,25 +45,21 @@ public class CommandServiceImpl implements CommandService
     }
 
     @Override
-    public long addCommand(Command command)
-    {
+    public long addCommand(Command command) {
         logger.debug("Try adding command: " + command.toString());
 
-        if (commandRepository.findCommandByTitle(command.getTitle()).size() == 0)
-        {
+        if (commandRepository.findCommandByTitle(command.getTitle()).size() == 0) {
             Command theCommand = commandRepository.save(command);
             logger.info("Command " + command.toString() + " added!");
             return theCommand.getId();
-        } else
-        {
+        } else {
             logger.error("Command " + command.toString() + " existed!");
             return -1L;
         }
     }
 
     @Override
-    public long addCommand(String title, String msg_extra, float price, int table_no, int client_no)
-    {
+    public long addCommand(String title, String msg_extra, float price, int table_no, int client_no) {
         logger.debug("Try adding command");
 
         Command command = new Command();
@@ -82,8 +76,7 @@ public class CommandServiceImpl implements CommandService
     }
 
     @Override
-    public boolean addDishToCommand(long dish_id, long command_id, int quantity)
-    {
+    public boolean addDishToCommand(long dish_id, long command_id, int quantity) {
         logger.debug("Try adding dish to command");
         Dish theDish = dishRepository.findOne(dish_id);
         Command theCommand = commandRepository.findOne(command_id);
@@ -97,19 +90,16 @@ public class CommandServiceImpl implements CommandService
         // first check the association
         List<CommandDish> associations = commandDishRepository.findCommandDishByCommandAndDish(theCommand, theDish);
 
-        if (associations.size() == 0)
-        {
+        if (associations.size() == 0) {
             // if neither command nor dish has been added to each other, the add the association
             theCommand.addDish(theDish, quantity);
 
             return true;
-        } else if (associations.size() == 1)
-        {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
-        } else
-        {
+        } else {
             logger.error("neither dish " + theDish.toString() + "nor command " + theCommand.toString() + "has already" +
                     " associated with each other more than one time!");
             return false;
@@ -117,8 +107,7 @@ public class CommandServiceImpl implements CommandService
     }
 
     @Override
-    public boolean addActivityToCommand(long activity_id, long command_id, int quantity)
-    {
+    public boolean addActivityToCommand(long activity_id, long command_id, int quantity) {
         logger.debug("Try adding activity to command");
         Activity theActivity = activityRepository.findOne(activity_id);
         Command theCommand = commandRepository.findOne(command_id);
@@ -130,19 +119,16 @@ public class CommandServiceImpl implements CommandService
         List<CommandActivity> associations = commandActivityRepository.findCommandActivityByCommandAndActivity
                 (theCommand, theActivity);
 
-        if (associations.size() == 0)
-        {
+        if (associations.size() == 0) {
             // if neither command nor activity has been added to each other, the add the association
             theCommand.addActivity(theActivity, quantity);
 
             return true;
-        } else if (associations.size() == 1)
-        {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
-        } else
-        {
+        } else {
             logger.error("neither activity " + theActivity.toString() + "nor command " + theCommand.toString() + "has" +
                     " already associated with each other more than one time!");
             return false;
@@ -150,8 +136,7 @@ public class CommandServiceImpl implements CommandService
     }
 
     @Override
-    public boolean addMenuToCommand(long menu_id, long command_id, int quantity)
-    {
+    public boolean addMenuToCommand(long menu_id, long command_id, int quantity) {
         logger.debug("Try adding menu to command");
         Menu theMenu = menuRepository.findOne(menu_id);
         Command theCommand = commandRepository.findOne(command_id);
@@ -162,19 +147,16 @@ public class CommandServiceImpl implements CommandService
         // first check the association
         List<CommandMenu> associations = commandMenuRepository.findCommandMenuByCommandAndMenu(theCommand, theMenu);
 
-        if (associations.size() == 0)
-        {
+        if (associations.size() == 0) {
             // if neither command nor activity has been added to each other, the add the association
             theCommand.addMenu(theMenu, quantity);
 
             return true;
-        } else if (associations.size() == 1)
-        {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
-        } else
-        {
+        } else {
             logger.error("neither menu " + theMenu.toString() + "nor command " + theCommand.toString() + "has already" +
                     " associated with each other more than one time!");
             return false;
@@ -182,20 +164,17 @@ public class CommandServiceImpl implements CommandService
     }
 
     @Override
-    public boolean removeCommand(String title)
-    {
+    public boolean removeCommand(String title) {
         logger.debug("Removing command title " + title);
 
         List<Command> commands = commandRepository.findCommandByTitle(title);
 
-        if (commands.size() == 0)
-        {
+        if (commands.size() == 0) {
             logger.debug("Command not found!");
             return false;
         }
 
-        for (Command c : commands)
-        {
+        for (Command c : commands) {
             logger.debug("Removing command " + c.toString());
             commandRepository.delete(c);
         }

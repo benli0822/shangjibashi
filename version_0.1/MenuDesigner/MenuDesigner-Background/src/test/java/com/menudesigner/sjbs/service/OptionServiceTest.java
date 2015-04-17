@@ -30,8 +30,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class OptionServiceTest
-{
+public class OptionServiceTest {
     private static final Logger logger = LoggerFactory.getLogger(OptionServiceTest.class);
 
     @Autowired
@@ -47,8 +46,7 @@ public class OptionServiceTest
     private DishService dishService;
 
     @Test
-    public void removeDishFromOptionTest()
-    {
+    public void removeDishFromOptionTest() {
         logger.debug("remove dish from option test");
 
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),

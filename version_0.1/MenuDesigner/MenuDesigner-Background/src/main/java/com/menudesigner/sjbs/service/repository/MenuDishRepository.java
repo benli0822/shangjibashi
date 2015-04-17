@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * Created by JIN Benli on 22/12/14.
  */
-public interface MenuDishRepository extends CrudRepository<MenuDish, Long>
-{
+public interface MenuDishRepository extends CrudRepository<MenuDish, Long> {
     List<MenuDish> findMenuDishByMenuAndDish(Menu menu, Dish dish);
 }

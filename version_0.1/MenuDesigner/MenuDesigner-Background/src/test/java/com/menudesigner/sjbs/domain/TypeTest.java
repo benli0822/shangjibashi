@@ -28,8 +28,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class TypeTest
-{
+public class TypeTest {
 
     private static final Logger logger = LoggerFactory.getLogger(CommandTest.class);
 
@@ -40,8 +39,7 @@ public class TypeTest
     private DishRepository dishRepository;
 
     @Test
-    public void addSimpleTypeTest()
-    {
+    public void addSimpleTypeTest() {
         Type type = new Type();
 
         type.setIs_firstmenu(true);
@@ -56,8 +54,7 @@ public class TypeTest
     }
 
     @Test
-    public void removeSimpleTypeTest()
-    {
+    public void removeSimpleTypeTest() {
         Type type = new Type();
 
         type.setIs_firstmenu(true);
@@ -77,8 +74,7 @@ public class TypeTest
     }
 
     @Test
-    public void addTypeWithDishTest()
-    {
+    public void addTypeWithDishTest() {
         Type type = new Type();
 
         type.setIs_firstmenu(true);
@@ -112,8 +108,7 @@ public class TypeTest
     }
 
     @Test
-    public void addConflictTypeTest()
-    {
+    public void addConflictTypeTest() {
         Type type1 = new Type();
 
         type1.setIs_firstmenu(true);

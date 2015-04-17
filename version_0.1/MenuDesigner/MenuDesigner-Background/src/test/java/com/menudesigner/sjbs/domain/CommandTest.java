@@ -28,8 +28,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class CommandTest
-{
+public class CommandTest {
 
     private static final Logger logger = LoggerFactory.getLogger(CommandTest.class);
 
@@ -55,8 +54,7 @@ public class CommandTest
     private CommandMenuRepository commandMenuRepository;
 
     @Test
-    public void addSimpleCommandTest()
-    {
+    public void addSimpleCommandTest() {
         Command command = new Command();
 
         command.setTitle("Bob");
@@ -75,8 +73,7 @@ public class CommandTest
     }
 
     @Test
-    public void removeSimpleCommandTest()
-    {
+    public void removeSimpleCommandTest() {
         Command command = new Command();
 
         command.setTitle("Bob");
@@ -99,8 +96,7 @@ public class CommandTest
     }
 
     @Test
-    public void addCommandWithActivityTest()
-    {
+    public void addCommandWithActivityTest() {
         Command command = new Command();
 
         command.setTitle("Bob");
@@ -140,8 +136,7 @@ public class CommandTest
     }
 
     @Test
-    public void addCommandWithDishTest()
-    {
+    public void addCommandWithDishTest() {
         Command command = new Command();
 
         command.setTitle("Bob");
@@ -183,8 +178,7 @@ public class CommandTest
     }
 
     @Test
-    public void addCommandWithMenuTest()
-    {
+    public void addCommandWithMenuTest() {
         Command command = new Command();
 
         command.setTitle("Bob");

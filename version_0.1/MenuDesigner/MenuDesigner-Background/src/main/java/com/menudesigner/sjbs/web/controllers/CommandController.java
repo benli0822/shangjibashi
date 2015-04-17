@@ -17,8 +17,7 @@ import java.util.Locale;
  */
 @Controller
 @RequestMapping(value = "/command")
-public class CommandController
-{
+public class CommandController {
     private static final Logger logger = LoggerFactory.getLogger(CommandController.class);
 
     @Autowired
@@ -28,8 +27,7 @@ public class CommandController
     private CommandService commandService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listCommand(Locale locale, Model model)
-    {
+    public String listCommand(Locale locale, Model model) {
         model.addAttribute("commands", commandRepository.findAll());
         return "views/command/list";
     }

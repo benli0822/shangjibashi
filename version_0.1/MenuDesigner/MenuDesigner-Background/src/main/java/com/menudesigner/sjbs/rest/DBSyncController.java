@@ -23,8 +23,7 @@ import java.net.URL;
  */
 @Controller
 @RequestMapping("/api/sync")
-public class DBSyncController
-{
+public class DBSyncController {
     private static final Logger logger = LoggerFactory.getLogger(DBSyncController.class);
 
     @Resource
@@ -35,8 +34,7 @@ public class DBSyncController
     public
     @ResponseBody
     FileSystemResource getDbFile(HttpServletRequest request,
-                                 HttpServletResponse response) throws URISyntaxException
-    {
+                                 HttpServletResponse response) throws URISyntaxException {
         URL url = this.getClass().getResource("/shell/database.sqlite");
 
         sqLiteService.generateDB();
@@ -47,8 +45,7 @@ public class DBSyncController
 
         // get MIME type of the file
         String mimeType = context.getMimeType(url.getPath());
-        if (mimeType == null)
-        {
+        if (mimeType == null) {
             // set to binary type if MIME mapping not found
             mimeType = "application/octet-stream";
         }

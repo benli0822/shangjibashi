@@ -22,8 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles(value = "test")
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
-public class FileUploadControllerTest
-{
+public class FileUploadControllerTest {
 
     @Autowired
     private FileUploadController fileUploadController;
@@ -34,8 +33,7 @@ public class FileUploadControllerTest
     private WebApplicationContext wac;
 
     @Before
-    public void setup()
-    {
+    public void setup() {
         // Process mock annotations
         MockitoAnnotations.initMocks(this);
 
@@ -44,8 +42,7 @@ public class FileUploadControllerTest
     }
 
     @Test
-    public void testUpload() throws Exception
-    {
+    public void testUpload() throws Exception {
         this.mockMvc.perform(post("/upload")
                 .contentType(MediaType.MULTIPART_FORM_DATA))
                 .andExpect(status().isOk());

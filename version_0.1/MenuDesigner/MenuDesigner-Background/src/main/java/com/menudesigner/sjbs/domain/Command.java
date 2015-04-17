@@ -13,8 +13,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "md_command")
-public class Command implements Serializable
-{
+public class Command implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -54,8 +53,7 @@ public class Command implements Serializable
     @OneToMany(mappedBy = "command", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<CommandMenu> menus = new HashSet<>();
 
-    public Command()
-    {
+    public Command() {
     }
 
     /**
@@ -64,8 +62,7 @@ public class Command implements Serializable
      * @param dish
      * @param quantity
      */
-    public void addDish(Dish dish, int quantity)
-    {
+    public void addDish(Dish dish, int quantity) {
         CommandDish association = new CommandDish();
         association.setCommand(this);
         association.setDish(dish);
@@ -81,8 +78,7 @@ public class Command implements Serializable
      * @param activity
      * @param quantity
      */
-    public void addActivity(Activity activity, int quantity)
-    {
+    public void addActivity(Activity activity, int quantity) {
         CommandActivity association = new CommandActivity();
         association.setCommand(this);
         association.setActivity(activity);
@@ -98,8 +94,7 @@ public class Command implements Serializable
      * @param menu
      * @param quantity
      */
-    public void addMenu(Menu menu, int quantity)
-    {
+    public void addMenu(Menu menu, int quantity) {
         CommandMenu association = new CommandMenu();
         association.setCommand(this);
         association.setMenu(menu);
@@ -109,119 +104,96 @@ public class Command implements Serializable
         menu.getCommands().add(association);
     }
 
-    public static long getSerialVersionUID()
-    {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getMsg_extra()
-    {
+    public String getMsg_extra() {
         return msg_extra;
     }
 
-    public void setMsg_extra(String msg_extra)
-    {
+    public void setMsg_extra(String msg_extra) {
         this.msg_extra = msg_extra;
     }
 
-    public Date getOrder_date()
-    {
+    public Date getOrder_date() {
         return order_date;
     }
 
-    public void setOrder_date(Date order_date)
-    {
+    public void setOrder_date(Date order_date) {
         this.order_date = order_date;
     }
 
-    public Time getOrder_time()
-    {
+    public Time getOrder_time() {
         return order_time;
     }
 
-    public void setOrder_time(Time order_time)
-    {
+    public void setOrder_time(Time order_time) {
         this.order_time = order_time;
     }
 
-    public Integer getTable_no()
-    {
+    public Integer getTable_no() {
         return table_no;
     }
 
-    public void setTable_no(Integer table_no)
-    {
+    public void setTable_no(Integer table_no) {
         this.table_no = table_no;
     }
 
-    public Integer getClient_no()
-    {
+    public Integer getClient_no() {
         return client_no;
     }
 
-    public void setClient_no(Integer client_no)
-    {
+    public void setClient_no(Integer client_no) {
         this.client_no = client_no;
     }
 
-    public Set<CommandActivity> getActivities()
-    {
+    public Set<CommandActivity> getActivities() {
         return activities;
     }
 
-    public void setActivities(Set<CommandActivity> activities)
-    {
+    public void setActivities(Set<CommandActivity> activities) {
         this.activities = activities;
     }
 
-    public Set<CommandDish> getDishes()
-    {
+    public Set<CommandDish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<CommandDish> dishes)
-    {
+    public void setDishes(Set<CommandDish> dishes) {
         this.dishes = dishes;
     }
 
-    public Set<CommandMenu> getMenus()
-    {
+    public Set<CommandMenu> getMenus() {
         return menus;
     }
 
-    public void setMenus(Set<CommandMenu> menus)
-    {
+    public void setMenus(Set<CommandMenu> menus) {
         this.menus = menus;
     }
 
-    public float getPrice()
-    {
+    public float getPrice() {
         return price;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Command{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
@@ -237,8 +209,7 @@ public class Command implements Serializable
                 '}';
     }
 
-    public void setPrice(float price)
-    {
+    public void setPrice(float price) {
         this.price = price;
     }
 

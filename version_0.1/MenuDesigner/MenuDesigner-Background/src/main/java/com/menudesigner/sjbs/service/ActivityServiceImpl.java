@@ -25,8 +25,7 @@ import java.util.Set;
 @Service
 @Component("activityService")
 @Transactional
-public class ActivityServiceImpl implements ActivityService
-{
+public class ActivityServiceImpl implements ActivityService {
     private static final Logger logger = LoggerFactory.getLogger(ActivityServiceImpl.class);
 
     private final ActivityRepository activityRepository;
@@ -35,32 +34,27 @@ public class ActivityServiceImpl implements ActivityService
 
     @Autowired
     public ActivityServiceImpl(ActivityRepository activityRepository, DishRepository dishRepository,
-                               ActivityDishRepository activityDishRepository)
-    {
+                               ActivityDishRepository activityDishRepository) {
         this.activityRepository = activityRepository;
         this.dishRepository = dishRepository;
         this.activityDishRepository = activityDishRepository;
     }
 
     @Override
-    public long addActivity(Activity activity)
-    {
+    public long addActivity(Activity activity) {
         logger.debug("Try adding activity: " + activity.toString());
-        if (activityRepository.findActivityByName(activity.getName()).size() == 0)
-        {
+        if (activityRepository.findActivityByName(activity.getName()).size() == 0) {
             Activity theActivity = activityRepository.save(activity);
             logger.info("Activity " + activity.toString() + " added!");
             return theActivity.getId();
-        } else
-        {
+        } else {
             logger.error("Activity " + activity.toString() + " existed!");
             return -1L;
         }
     }
 
     @Override
-    public long addActivity(String name, String description)
-    {
+    public long addActivity(String name, String description) {
         logger.debug("Try adding activity");
 
         Activity activity = new Activity();
@@ -73,8 +67,7 @@ public class ActivityServiceImpl implements ActivityService
 
     @Override
     public long addActivity(String name, String description, Date start_date, Date end_date, Time start_time, Time
-            end_time)
-    {
+            end_time) {
         logger.debug("Try adding activity");
 
         long activity_id = this.addActivity(name, description);
@@ -85,8 +78,7 @@ public class ActivityServiceImpl implements ActivityService
     }
 
     @Override
-    public void setPeriodToActivity(long activity_id, Date start_date, Date end_date, Time start_time, Time end_time)
-    {
+    public void setPeriodToActivity(long activity_id, Date start_date, Date end_date, Time start_time, Time end_time) {
         Activity theActivity = activityRepository.findOne(activity_id);
 
         theActivity.setStart_date(start_date);
@@ -98,8 +90,7 @@ public class ActivityServiceImpl implements ActivityService
     }
 
     @Override
-    public boolean addDishToActivity(long dish_id, long activity_id, int quantity)
-    {
+    public boolean addDishToActivity(long dish_id, long activity_id, int quantity) {
         logger.debug("Try adding dish to activity");
         Dish theDish = dishRepository.findOne(dish_id);
         Activity theActivity = activityRepository.findOne(activity_id);
@@ -111,19 +102,16 @@ public class ActivityServiceImpl implements ActivityService
         List<ActivityDish> associations = activityDishRepository.findActivityDishByActivityAndDish(theActivity,
                 theDish);
 
-        if (associations.size() == 0)
-        {
+        if (associations.size() == 0) {
             // if neither activity nor dish has been added to each other, the add the association
             theActivity.addDish(theDish, quantity);
 
             return true;
-        } else if (associations.size() == 1)
-        {
+        } else if (associations.size() == 1) {
             associations.get(0).setQuantity(quantity);
 
             return true;
-        } else
-        {
+        } else {
             logger.error("neither dish " + theDish.toString() + "nor activity " + theActivity.toString() + "has " +
                     "already associated with each other more than one time!");
             return false;
@@ -131,20 +119,17 @@ public class ActivityServiceImpl implements ActivityService
     }
 
     @Override
-    public boolean removeActivity(String name)
-    {
+    public boolean removeActivity(String name) {
         logger.debug("Removing activity name " + name);
 
         List<Activity> activities = activityRepository.findActivityByName(name);
 
-        if (activities.size() == 0)
-        {
+        if (activities.size() == 0) {
             logger.debug("Activity not found!");
             return false;
         }
 
-        for (Activity a : activities)
-        {
+        for (Activity a : activities) {
             logger.debug("Removing activity " + a.toString());
             activityRepository.delete(a);
         }
@@ -154,14 +139,12 @@ public class ActivityServiceImpl implements ActivityService
     }
 
     @Override
-    public boolean removeDishFromActivity(Dish dish)
-    {
+    public boolean removeDishFromActivity(Dish dish) {
         assert dishRepository.exists(dish.getId());
 
         Set<ActivityDish> activityDishs = dish.getActivities();
 
-        for (ActivityDish ad : activityDishs)
-        {
+        for (ActivityDish ad : activityDishs) {
             Activity a = ad.getActivity();
             a.getDishes().remove(ad);
             dish.getActivities().remove(ad);

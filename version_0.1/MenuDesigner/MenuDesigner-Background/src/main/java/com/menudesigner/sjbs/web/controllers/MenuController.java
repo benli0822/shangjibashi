@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/menu")
-public class MenuController
-{
+public class MenuController {
 
     private static final Logger logger = LoggerFactory.getLogger(MenuController.class);
 
@@ -23,8 +22,7 @@ public class MenuController
     private DishRepository dishRepository;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add(Model model)
-    {
+    public String add(Model model) {
         logger.info("[MenuController: add] Called");
 
         model.addAttribute("dishes", dishRepository.findAll());
@@ -33,8 +31,7 @@ public class MenuController
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String list()
-    {
+    public String list() {
         return "views/menu/list";
     }
 

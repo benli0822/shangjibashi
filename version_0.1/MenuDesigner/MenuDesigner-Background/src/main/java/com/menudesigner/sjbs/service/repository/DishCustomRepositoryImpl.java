@@ -16,23 +16,20 @@ import java.util.stream.Collectors;
  * Created by JIN Benli on 31/01/15.
  */
 @Repository
-public class DishCustomRepositoryImpl implements DishCustomRepository
-{
+public class DishCustomRepositoryImpl implements DishCustomRepository {
 
     private final DishRepository dishRepository;
 
     private final TypeRepository typeRepository;
 
     @Autowired
-    public DishCustomRepositoryImpl(DishRepository dishRepository, TypeRepository typeRepository)
-    {
+    public DishCustomRepositoryImpl(DishRepository dishRepository, TypeRepository typeRepository) {
         this.dishRepository = dishRepository;
         this.typeRepository = typeRepository;
     }
 
     @Override
-    public Page<Dish> findDishByTypesDescription(String description, Pageable pageable)
-    {
+    public Page<Dish> findDishByTypesDescription(String description, Pageable pageable) {
 
         List<Type> typeList = typeRepository.findTypeByDescription(description);
 
@@ -40,8 +37,7 @@ public class DishCustomRepositoryImpl implements DishCustomRepository
 
         List<Dish> dishSelected = new ArrayList<>();
 
-        for (Type t : typeList)
-        {
+        for (Type t : typeList) {
             dishSelected.addAll(dishList.stream().filter(d -> d.getTypes().contains(t)).collect(Collectors.toList()));
         }
 

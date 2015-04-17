@@ -8,6 +8,5 @@ import org.springframework.context.annotation.PropertySource;
  */
 @Configuration
 @PropertySource({"classpath:config/datasource.properties"})
-public class DatabaseConfig
-{
+public class DatabaseConfig {
 }

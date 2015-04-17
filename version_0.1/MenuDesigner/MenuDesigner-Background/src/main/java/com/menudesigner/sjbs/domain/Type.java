@@ -10,8 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "md_types")
-public class Type implements Serializable
-{
+public class Type implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -49,13 +48,11 @@ public class Type implements Serializable
             inverseJoinColumns = {@JoinColumn(name = "conflict_id", referencedColumnName = "id")})
     private Set<Type> conflictTypes = new HashSet<>();
 
-    public Type()
-    {
+    public Type() {
     }
 
     public Type(boolean is_firstmenu, boolean is_secondmenu, long firstmenu_id, String name, String description,
-                boolean is_for_customize, Set<Dish> dishes, Set<Type> conflictTypes)
-    {
+                boolean is_for_customize, Set<Dish> dishes, Set<Type> conflictTypes) {
         this.is_firstmenu = is_firstmenu;
         this.is_secondmenu = is_secondmenu;
         this.firstmenu_id = firstmenu_id;
@@ -66,126 +63,102 @@ public class Type implements Serializable
         this.conflictTypes = conflictTypes;
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public boolean isIs_firstmenu()
-    {
+    public boolean isIs_firstmenu() {
         return is_firstmenu;
     }
 
-    public void setIs_firstmenu(boolean is_firstmenu)
-    {
+    public void setIs_firstmenu(boolean is_firstmenu) {
         this.is_firstmenu = is_firstmenu;
     }
 
-    public boolean isIs_secondmenu()
-    {
+    public boolean isIs_secondmenu() {
         return is_secondmenu;
     }
 
-    public void setIs_secondmenu(boolean is_secondmenu)
-    {
+    public void setIs_secondmenu(boolean is_secondmenu) {
         this.is_secondmenu = is_secondmenu;
     }
 
-    public long getFirstmenu_id()
-    {
+    public long getFirstmenu_id() {
         return firstmenu_id;
     }
 
-    public void setFirstmenu_id(long firstmenu_id)
-    {
+    public void setFirstmenu_id(long firstmenu_id) {
         this.firstmenu_id = firstmenu_id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description)
-    {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public boolean isIs_for_customize()
-    {
+    public boolean isIs_for_customize() {
         return is_for_customize;
     }
 
-    public void setIs_for_customize(boolean is_for_customize)
-    {
+    public void setIs_for_customize(boolean is_for_customize) {
         this.is_for_customize = is_for_customize;
     }
 
-    public static long getSerialVersionUID()
-    {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public Set<Dish> getDishes()
-    {
+    public Set<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes)
-    {
+    public void setDishes(Set<Dish> dishes) {
         this.dishes = dishes;
     }
 
-    public void addDish(Dish dish)
-    {
+    public void addDish(Dish dish) {
         this.dishes.add(dish);
         //TODO notice that here add into dish will give duplicate res in mysql
         dish.addType(this);
     }
 
-    public void removeDish(Dish dish)
-    {
+    public void removeDish(Dish dish) {
         this.dishes.remove(dish);
     }
 
-    public Set<Type> getConflictTypes()
-    {
+    public Set<Type> getConflictTypes() {
         return conflictTypes;
     }
 
-    public void setConflictTypes(Set<Type> conflictTypes)
-    {
+    public void setConflictTypes(Set<Type> conflictTypes) {
         this.conflictTypes = conflictTypes;
     }
 
-    public void addConflictType(Type type)
-    {
+    public void addConflictType(Type type) {
         this.conflictTypes.add(type);
     }
 
-    public void removeConflictType(Type type)
-    {
+    public void removeConflictType(Type type) {
         this.conflictTypes.remove(type);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Type{" +
                 "id=" + id +
                 ", is_firstmenu=" + is_firstmenu +

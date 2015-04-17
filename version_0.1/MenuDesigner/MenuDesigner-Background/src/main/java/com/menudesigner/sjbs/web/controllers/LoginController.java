@@ -15,15 +15,13 @@ import java.util.Locale;
  * Created by JIN Benli on 17/09/14.
  */
 @Controller
-public class LoginController
-{
+public class LoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 
     @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
-    public String login(Locale locale, Model model)
-    {
+    public String login(Locale locale, Model model) {
         logger.info("Welcome login! The client locale is {}.", locale);
 
         Date date = new Date();

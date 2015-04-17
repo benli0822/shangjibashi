@@ -7,8 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "md_activity_dish")
-public class ActivityDish
-{
+public class ActivityDish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,47 +24,38 @@ public class ActivityDish
     @PrimaryKeyJoinColumn(name = "dish_id", referencedColumnName = "id")
     private Dish dish;
 
-    public ActivityDish()
-    {
+    public ActivityDish() {
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getQuantity()
-    {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity)
-    {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Activity getActivity()
-    {
+    public Activity getActivity() {
         return activity;
     }
 
-    public void setActivity(Activity activity)
-    {
+    public void setActivity(Activity activity) {
         this.activity = activity;
     }
 
-    public Dish getDish()
-    {
+    public Dish getDish() {
         return dish;
     }
 
-    public void setDish(Dish dish)
-    {
+    public void setDish(Dish dish) {
         this.dish = dish;
     }
 }

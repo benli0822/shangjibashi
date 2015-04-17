@@ -33,8 +33,7 @@ import static org.junit.Assert.assertTrue;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class MenuServiceTest
-{
+public class MenuServiceTest {
     private static final Logger logger = LoggerFactory.getLogger(MenuServiceTest.class);
 
     @Autowired
@@ -53,8 +52,7 @@ public class MenuServiceTest
     private DishService dishService;
 
     @Test
-    public void addMenuWithoutPeriodTest()
-    {
+    public void addMenuWithoutPeriodTest() {
         long menu_id = menuService.addMenu("noel", "noel");
 
         Menu menu = menuRepository.findOne(menu_id);
@@ -66,8 +64,7 @@ public class MenuServiceTest
     }
 
     @Test
-    public void addMenuWithPeriodTest()
-    {
+    public void addMenuWithPeriodTest() {
         long menu_id = menuService.addMenu("noel", "noel", new Date(2014, 12, 24), new Date(2014, 12, 25), new Time
                 (8, 20, 00), new Time(20, 20, 00));
 
@@ -86,8 +83,7 @@ public class MenuServiceTest
     }
 
     @Test
-    public void addDishToMenuTest()
-    {
+    public void addDishToMenuTest() {
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
                 new Time(10, 10, 10), new Time(10, 11, 10));
         long menu_id = menuService.addMenu("noel", "noel");
@@ -105,8 +101,7 @@ public class MenuServiceTest
     }
 
     @Test
-    public void removeDishFromMenuTest()
-    {
+    public void removeDishFromMenuTest() {
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
                 new Time(10, 10, 10), new Time(10, 11, 10));
         long menu_id = menuService.addMenu("noel", "noel");

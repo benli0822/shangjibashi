@@ -9,8 +9,7 @@ import java.sql.Time;
 /**
  * Created by JIN Benli on 22/12/14.
  */
-public interface MenuService
-{
+public interface MenuService {
 
     /**
      * Create a unique menu entity and store it in repository

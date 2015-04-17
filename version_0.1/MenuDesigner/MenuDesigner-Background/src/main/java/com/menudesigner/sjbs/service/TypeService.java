@@ -6,8 +6,7 @@ import com.menudesigner.sjbs.domain.Type;
 /**
  * Created by JIN Benli on 21/12/14.
  */
-public interface TypeService
-{
+public interface TypeService {
     /**
      * Make sure this is the unique type created in repository
      *

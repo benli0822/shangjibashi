@@ -5,8 +5,7 @@ import com.menudesigner.sjbs.domain.File;
 /**
  * Created by JIN Benli on 28/12/14.
  */
-public interface FileService
-{
+public interface FileService {
 
     /**
      * Make sure is the unique file created in repository

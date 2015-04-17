@@ -10,8 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "md_file")
-public class File implements Serializable
-{
+public class File implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -49,129 +48,105 @@ public class File implements Serializable
             inverseJoinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")})
     private Set<Activity> activities = new HashSet<>();
 
-    public File()
-    {
+    public File() {
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getLocation()
-    {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location)
-    {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public long getSize()
-    {
+    public long getSize() {
         return size;
     }
 
-    public void setSize(long size)
-    {
+    public void setSize(long size) {
         this.size = size;
     }
 
-    public String getType()
-    {
+    public String getType() {
         return type;
     }
 
-    public void setType(String type)
-    {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Set<Dish> getDishes()
-    {
+    public Set<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(Set<Dish> dishes)
-    {
+    public void setDishes(Set<Dish> dishes) {
         this.dishes = dishes;
     }
 
-    public void addDish(Dish dish)
-    {
+    public void addDish(Dish dish) {
         this.dishes.add(dish);
         dish.addFile(this);
     }
 
-    public void removeDish(Dish dish)
-    {
+    public void removeDish(Dish dish) {
         this.dishes.remove(dish);
         dish.removeFile(this);
     }
 
-    public Set<Menu> getMenus()
-    {
+    public Set<Menu> getMenus() {
         return menus;
     }
 
-    public void setMenus(Set<Menu> menus)
-    {
+    public void setMenus(Set<Menu> menus) {
         this.menus = menus;
     }
 
-    public void addMenu(Menu menu)
-    {
+    public void addMenu(Menu menu) {
         this.menus.add(menu);
         menu.addFile(this);
     }
 
-    public void removeMenu(Menu menu)
-    {
+    public void removeMenu(Menu menu) {
         this.menus.remove(menu);
         menu.removeFile(this);
     }
 
-    public Set<Activity> getActivities()
-    {
+    public Set<Activity> getActivities() {
         return activities;
     }
 
-    public void setActivities(Set<Activity> activities)
-    {
+    public void setActivities(Set<Activity> activities) {
         this.activities = activities;
     }
 
-    public void addActivity(Activity activity)
-    {
+    public void addActivity(Activity activity) {
         this.activities.add(activity);
         activity.addFile(this);
     }
 
-    public void removeActivity(Activity activity)
-    {
+    public void removeActivity(Activity activity) {
         this.activities.remove(activity);
         activity.removeFile(this);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "File{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

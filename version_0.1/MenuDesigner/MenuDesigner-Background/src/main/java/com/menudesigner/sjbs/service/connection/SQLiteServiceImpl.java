@@ -14,16 +14,13 @@ import java.io.InputStreamReader;
  */
 @Service
 @Component("SQLiteService")
-public class SQLiteServiceImpl implements SQLiteService
-{
+public class SQLiteServiceImpl implements SQLiteService {
 
     private static final Logger logger = LoggerFactory.getLogger(SQLiteServiceImpl.class);
 
     @Override
-    public void generateDB()
-    {
-        try
-        {
+    public void generateDB() {
+        try {
             String file = this.getClass().getClassLoader().getResource("shell/export2sqlite.sh").getPath();
             assert file != null;
             System.out.println(file);
@@ -54,20 +51,17 @@ public class SQLiteServiceImpl implements SQLiteService
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
 
             String line = "";
-            while ((line = reader.readLine()) != null)
-            {
+            while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
 
             logger.debug("Script executed successfully " + rc + "\n" + output);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SQLiteServiceImpl s = new SQLiteServiceImpl();
         s.generateDB();
     }

@@ -34,8 +34,7 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
-public class FileServiceTest
-{
+public class FileServiceTest {
 
     private static final Logger logger = LoggerFactory.getLogger(FileServiceTest.class);
 
@@ -64,8 +63,7 @@ public class FileServiceTest
     private ActivityRepository activityRepository;
 
     @Test
-    public void addSimpleFileTest()
-    {
+    public void addSimpleFileTest() {
         long file_id = fileService.saveFile("test", "test", 20L, "media");
 
         File file = fileRepository.findOne(file_id);
@@ -80,8 +78,7 @@ public class FileServiceTest
     }
 
     @Test
-    public void removeSimpleFileTest()
-    {
+    public void removeSimpleFileTest() {
         long file_id = fileService.saveFile("test", "test", 20L, "media");
 
         File file = fileRepository.findOne(file_id);
@@ -103,8 +100,7 @@ public class FileServiceTest
     }
 
     @Test
-    public void addFileToDishTest()
-    {
+    public void addFileToDishTest() {
         long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
                 new Time(10, 10, 10), new Time(10, 11, 10));
 
@@ -129,8 +125,7 @@ public class FileServiceTest
     }
 
     @Test
-    public void addFileToMenuTest()
-    {
+    public void addFileToMenuTest() {
         long menu_id = menuService.addMenu("noel", "noel");
 
         long file_id = fileService.saveFile("test", "test", 20L, "media");
@@ -154,8 +149,7 @@ public class FileServiceTest
     }
 
     @Test
-    public void addFileToActivityTest()
-    {
+    public void addFileToActivityTest() {
         long activity_id = activityService.addActivity("noel", "noel");
 
         long file_id = fileService.saveFile("test", "test", 20L, "media");
