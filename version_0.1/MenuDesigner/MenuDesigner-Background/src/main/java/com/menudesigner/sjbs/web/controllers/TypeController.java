@@ -24,51 +24,51 @@ import java.util.Objects;
 @Controller
 @RequestMapping(value = "/type")
 public class TypeController {
-    private static final Logger logger = LoggerFactory.getLogger(TypeController.class);
+  private static final Logger logger = LoggerFactory.getLogger(TypeController.class);
 
-    @Autowired
-    private TypeRepository typeRepository;
+  @Autowired
+  private TypeRepository typeRepository;
 
-    @Autowired
-    private TypeService typeService;
+  @Autowired
+  private TypeService typeService;
 
-    @Autowired
-    private DishRepository dishRepository;
+  @Autowired
+  private DishRepository dishRepository;
 
-    @Autowired
-    private OptionRepository optionRepository;
+  @Autowired
+  private OptionRepository optionRepository;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    boolean addType(Locale locale,
-                    @RequestParam(value = "oper", required = true) String operation,
-                    @RequestParam(value = "name", required = true) String name,
-                    @RequestParam(value = "parent", required = true) String parent,
-                    @RequestParam(value = "root", required = true) String isRoot) {
-        assert !Objects.equals(operation, "") && operation != null;
+  @RequestMapping(value = "/add", method = RequestMethod.POST)
+  public
+  @ResponseBody
+  boolean addType(Locale locale,
+                  @RequestParam(value = "oper", required = true) String operation,
+                  @RequestParam(value = "name", required = true) String name,
+                  @RequestParam(value = "parent", required = true) String parent,
+                  @RequestParam(value = "root", required = true) String isRoot) {
+    assert !Objects.equals(operation, "") && operation != null;
 
-        switch (operation) {
-            case "add": {
-                logger.info("Trying add type: " + name);
-                // TODO type name not null in entity
-                // TODO change description to name
-                // TODO is_for_customize?
-                if (Objects.equals(isRoot, "Yes")) {
-                    long res = typeService.createType(true, false, -1L, name, name, false);
-                    return res != -1L && res > 0L;
-                } else {
-                    List<Type> theParent = typeRepository.findTypeByDescription(parent);
-                    logger.info(theParent.toString());
-                    assert theParent.size() != 0;
-                    long res = typeService.createType(false, true, theParent.get(0).getId(), name, name, false);
-                    return res != -1L && res > 0L;
-                }
-            }
-            default:
+    switch (operation) {
+      case "add": {
+        logger.info("Trying add type: " + name);
+        // TODO type name not null in entity
+        // TODO change description to name
+        // TODO is_for_customize?
+        if (Objects.equals(isRoot, "Yes")) {
+          long res = typeService.createType(true, false, -1L, name, name, false);
+          return res != -1L && res > 0L;
+        } else {
+          List<Type> theParent = typeRepository.findTypeByDescription(parent);
+          logger.info(theParent.toString());
+          assert theParent.size() != 0;
+          long res = typeService.createType(false, true, theParent.get(0).getId(), name, name, false);
+          return res != -1L && res > 0L;
         }
-
-        return false;
+      }
+      default:
     }
+
+    return false;
+  }
 
 }

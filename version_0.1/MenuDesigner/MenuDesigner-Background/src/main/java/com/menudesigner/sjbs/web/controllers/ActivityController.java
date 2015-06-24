@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/activity")
 public class ActivityController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ActivityController.class);
+  private static final Logger logger = LoggerFactory.getLogger(ActivityController.class);
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add() {
-        return "views/activity/add";
-    }
+  @RequestMapping(value = "/add", method = RequestMethod.GET)
+  public String add() {
+    return "views/activity/add";
+  }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String list() {
-        return "views/activity/list";
-    }
+  @RequestMapping(method = RequestMethod.GET)
+  public String list() {
+    return "views/activity/list";
+  }
 }

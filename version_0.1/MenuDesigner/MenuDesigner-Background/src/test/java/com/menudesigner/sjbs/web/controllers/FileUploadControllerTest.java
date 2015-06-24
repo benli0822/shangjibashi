@@ -24,29 +24,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 public class FileUploadControllerTest {
 
-    @Autowired
-    private FileUploadController fileUploadController;
+  @Autowired
+  private FileUploadController fileUploadController;
 
-    private MockMvc mockMvc;
+  private MockMvc mockMvc;
 
-    @Autowired
-    private WebApplicationContext wac;
+  @Autowired
+  private WebApplicationContext wac;
 
-    @Before
-    public void setup() {
-        // Process mock annotations
-        MockitoAnnotations.initMocks(this);
+  @Before
+  public void setup() {
+    // Process mock annotations
+    MockitoAnnotations.initMocks(this);
 
-        // Setup Spring test in webapp-mode (same config as spring-boot)
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-    }
+    // Setup Spring test in webapp-mode (same config as spring-boot)
+    this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+  }
 
-    @Test
-    public void testUpload() throws Exception {
-        this.mockMvc.perform(post("/upload")
-                .contentType(MediaType.MULTIPART_FORM_DATA))
-                .andExpect(status().isOk());
-    }
+  @Test
+  public void testUpload() throws Exception {
+    this.mockMvc.perform(post("/upload")
+        .contentType(MediaType.MULTIPART_FORM_DATA))
+        .andExpect(status().isOk());
+  }
 
 //    @Test
 //    public void testListBooks() throws Exception {

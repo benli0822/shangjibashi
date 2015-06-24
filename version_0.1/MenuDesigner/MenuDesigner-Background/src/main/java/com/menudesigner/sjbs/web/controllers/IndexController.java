@@ -16,34 +16,44 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
+ * Back office index page.
  * Created by JIN Benli on 16/09/13.
- * wo ri ni ma bi
  */
 
 @Controller
 public class IndexController implements BaseController {
-    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+  private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-    /**
-     * Simply selects the home view to render by returning its name.
-     */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Locale locale, Model model) {
-        logger.info("Welcome home! The client locale is {}.", locale);
+  /**
+   * Simply selects the home view to render by returning its name.
+   * @param locale Localisation settings
+   * @param model Page model
+   * @return Thymeleaf path
+   */
+  @RequestMapping(value = "/", method = RequestMethod.GET)
+  public String index(Locale locale, Model model) {
+    logger.info("Welcome home! The client locale is {}.", locale);
 
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+    Date date = new Date();
+    DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-        String formattedDate = dateFormat.format(date);
+    String formattedDate = dateFormat.format(date);
 
-        model.addAttribute("serverTime", formattedDate);
+    model.addAttribute("serverTime", formattedDate);
 
-        return "views/index";
-    }
+    return "views/index";
+  }
 
-    @Override
-    public void process(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext,
-                        TemplateEngine templateEngine) {
+  /**
+   *
+   * @param request
+   * @param response
+   * @param servletContext
+   * @param templateEngine
+   */
+  @Override
+  public void process(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext,
+                      TemplateEngine templateEngine) {
 
-    }
+  }
 }

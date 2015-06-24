@@ -10,6 +10,6 @@ import org.springframework.data.domain.Pageable;
  */
 public interface DishCustomRepository {
 
-    Page<Dish> findDishByTypesDescription(String description, Pageable pageable);
+  Page<Dish> findDishByTypesDescription(String description, Pageable pageable);
 
 }

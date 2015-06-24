@@ -11,5 +11,5 @@ import java.util.List;
  * Created by JIN Benli on 22/12/14.
  */
 public interface ActivityDishRepository extends CrudRepository<ActivityDish, Long> {
-    List<ActivityDish> findActivityDishByActivityAndDish(Activity activity, Dish dish);
+  List<ActivityDish> findActivityDishByActivityAndDish(Activity activity, Dish dish);
 }

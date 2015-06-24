@@ -18,29 +18,29 @@ import java.util.stream.Collectors;
 @Repository
 public class DishCustomRepositoryImpl implements DishCustomRepository {
 
-    private final DishRepository dishRepository;
+  private final DishRepository dishRepository;
 
-    private final TypeRepository typeRepository;
+  private final TypeRepository typeRepository;
 
-    @Autowired
-    public DishCustomRepositoryImpl(DishRepository dishRepository, TypeRepository typeRepository) {
-        this.dishRepository = dishRepository;
-        this.typeRepository = typeRepository;
+  @Autowired
+  public DishCustomRepositoryImpl(DishRepository dishRepository, TypeRepository typeRepository) {
+    this.dishRepository = dishRepository;
+    this.typeRepository = typeRepository;
+  }
+
+  @Override
+  public Page<Dish> findDishByTypesDescription(String description, Pageable pageable) {
+
+    List<Type> typeList = typeRepository.findTypeByDescription(description);
+
+    List<Dish> dishList = (List<Dish>) dishRepository.findAll();
+
+    List<Dish> dishSelected = new ArrayList<>();
+
+    for (Type t : typeList) {
+      dishSelected.addAll(dishList.stream().filter(d -> d.getTypes().contains(t)).collect(Collectors.toList()));
     }
 
-    @Override
-    public Page<Dish> findDishByTypesDescription(String description, Pageable pageable) {
-
-        List<Type> typeList = typeRepository.findTypeByDescription(description);
-
-        List<Dish> dishList = (List<Dish>) dishRepository.findAll();
-
-        List<Dish> dishSelected = new ArrayList<>();
-
-        for (Type t : typeList) {
-            dishSelected.addAll(dishList.stream().filter(d -> d.getTypes().contains(t)).collect(Collectors.toList()));
-        }
-
-        return new PageImpl<>(dishList);
-    }
+    return new PageImpl<>(dishList);
+  }
 }

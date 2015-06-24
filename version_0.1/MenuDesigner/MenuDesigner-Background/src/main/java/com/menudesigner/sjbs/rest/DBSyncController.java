@@ -24,43 +24,43 @@ import java.net.URL;
 @Controller
 @RequestMapping("/api/sync")
 public class DBSyncController {
-    private static final Logger logger = LoggerFactory.getLogger(DBSyncController.class);
+  private static final Logger logger = LoggerFactory.getLogger(DBSyncController.class);
 
-    @Resource
-    @Qualifier("SQLiteService")
-    private SQLiteService sqLiteService;
+  @Resource
+  @Qualifier("SQLiteService")
+  private SQLiteService sqLiteService;
 
-    @RequestMapping(value = "/getDbFile/database.sqlite", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    FileSystemResource getDbFile(HttpServletRequest request,
-                                 HttpServletResponse response) throws URISyntaxException {
-        URL url = this.getClass().getResource("/shell/database.sqlite");
+  @RequestMapping(value = "/getDbFile/database.sqlite", method = RequestMethod.GET)
+  public
+  @ResponseBody
+  FileSystemResource getDbFile(HttpServletRequest request,
+                               HttpServletResponse response) throws URISyntaxException {
+    URL url = this.getClass().getResource("/shell/database.sqlite");
 
-        sqLiteService.generateDB();
+    sqLiteService.generateDB();
 
-        File file = new File(url.toURI());
+    File file = new File(url.toURI());
 
-        ServletContext context = request.getServletContext();
+    ServletContext context = request.getServletContext();
 
-        // get MIME type of the file
-        String mimeType = context.getMimeType(url.getPath());
-        if (mimeType == null) {
-            // set to binary type if MIME mapping not found
-            mimeType = "application/octet-stream";
-        }
-        logger.info("MIME type: " + mimeType);
-
-        // set content attributes for the response
-        response.setContentType(mimeType);
-        response.setContentLength((int) file.length());
-
-        // set headers for the response
-        String headerKey = "Content-Disposition";
-        String headerValue = String.format("attachment; filename=\"%s\"",
-                file.getName());
-        response.setHeader(headerKey, headerValue);
-
-        return new FileSystemResource(url.getFile());
+    // get MIME type of the file
+    String mimeType = context.getMimeType(url.getPath());
+    if (mimeType == null) {
+      // set to binary type if MIME mapping not found
+      mimeType = "application/octet-stream";
     }
+    logger.info("MIME type: " + mimeType);
+
+    // set content attributes for the response
+    response.setContentType(mimeType);
+    response.setContentLength((int) file.length());
+
+    // set headers for the response
+    String headerKey = "Content-Disposition";
+    String headerValue = String.format("attachment; filename=\"%s\"",
+        file.getName());
+    response.setHeader(headerKey, headerValue);
+
+    return new FileSystemResource(url.getFile());
+  }
 }

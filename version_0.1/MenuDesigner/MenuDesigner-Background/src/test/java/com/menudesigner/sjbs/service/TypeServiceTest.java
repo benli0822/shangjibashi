@@ -32,109 +32,109 @@ import static org.junit.Assert.assertThat;
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
 public class TypeServiceTest {
-    private static final Logger logger = LoggerFactory.getLogger(TypeServiceTest.class);
+  private static final Logger logger = LoggerFactory.getLogger(TypeServiceTest.class);
 
-    @Autowired
-    private TypeRepository typeRepository;
+  @Autowired
+  private TypeRepository typeRepository;
 
-    @Autowired
-    private TypeService typeService;
+  @Autowired
+  private TypeService typeService;
 
-    @Autowired
-    private DishRepository dishRepository;
+  @Autowired
+  private DishRepository dishRepository;
 
-    @Autowired
-    private DishService dishService;
+  @Autowired
+  private DishService dishService;
 
-    @Test
-    public void createTypeTest() {
-        logger.debug("Create Type Test");
+  @Test
+  public void createTypeTest() {
+    logger.debug("Create Type Test");
 
-        long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
+    long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
 
-        Type type = typeRepository.findOne(type_id);
+    Type type = typeRepository.findOne(type_id);
 
-        assertThat(type_id, notNullValue());
-        assertThat(type, notNullValue());
+    assertThat(type_id, notNullValue());
+    assertThat(type, notNullValue());
 
-        assertThat(type.isIs_firstmenu(), is(Boolean.TRUE));
-        assertThat(type.isIs_secondmenu(), is(Boolean.FALSE));
-        assertThat(type.getFirstmenu_id(), is(-1L));
-        assertThat(type.getName(), is("hottest"));
-        assertThat(type.getDescription(), is("hottest"));
-        assertThat(type.isIs_for_customize(), is(false));
-    }
+    assertThat(type.isIs_firstmenu(), is(Boolean.TRUE));
+    assertThat(type.isIs_secondmenu(), is(Boolean.FALSE));
+    assertThat(type.getFirstmenu_id(), is(-1L));
+    assertThat(type.getName(), is("hottest"));
+    assertThat(type.getDescription(), is("hottest"));
+    assertThat(type.isIs_for_customize(), is(false));
+  }
 
-    @Test
-    public void addDishToTypeTest() {
-        logger.debug("Add dish to type test");
+  @Test
+  public void addDishToTypeTest() {
+    logger.debug("Add dish to type test");
 
-        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
-                new Time(10, 10, 10), new Time(10, 11, 10));
-        long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
+    long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
+        new Time(10, 10, 10), new Time(10, 11, 10));
+    long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
 
-        boolean res = typeService.addTypeToDish(dish_id, type_id);
+    boolean res = typeService.addTypeToDish(dish_id, type_id);
 
-        Type type = typeRepository.findOne(type_id);
-        Dish dish = dishRepository.findOne(dish_id);
+    Type type = typeRepository.findOne(type_id);
+    Dish dish = dishRepository.findOne(dish_id);
 
-        assertThat(dish_id > 0L, is(true));
-        assertThat(type_id > 0L, is(true));
+    assertThat(dish_id > 0L, is(true));
+    assertThat(type_id > 0L, is(true));
 
-        assertThat(res, is(Boolean.TRUE));
+    assertThat(res, is(Boolean.TRUE));
 
-        assertThat(type.getDishes().contains(dish), is(Boolean.TRUE));
-        assertThat(dish.getTypes().contains(type), is(Boolean.TRUE));
-    }
+    assertThat(type.getDishes().contains(dish), is(Boolean.TRUE));
+    assertThat(dish.getTypes().contains(type), is(Boolean.TRUE));
+  }
 
-    @Test
-    public void addConflictTypeTest() {
-        logger.debug("Testing conflict type");
+  @Test
+  public void addConflictTypeTest() {
+    logger.debug("Testing conflict type");
 
-        long type_id1 = typeService.createType(true, false, -1L, "hottest", "hottest", false);
-        long type_id2 = typeService.createType(true, false, -1L, "coldtest", "coldtest", false);
+    long type_id1 = typeService.createType(true, false, -1L, "hottest", "hottest", false);
+    long type_id2 = typeService.createType(true, false, -1L, "coldtest", "coldtest", false);
 
-        boolean res = typeService.addConflictToType(type_id1, type_id2);
+    boolean res = typeService.addConflictToType(type_id1, type_id2);
 
-        Type type1 = typeRepository.findOne(type_id1);
-        Type type2 = typeRepository.findOne(type_id2);
+    Type type1 = typeRepository.findOne(type_id1);
+    Type type2 = typeRepository.findOne(type_id2);
 
-        assertThat(type_id1, notNullValue());
-        assertThat(type_id2, notNullValue());
+    assertThat(type_id1, notNullValue());
+    assertThat(type_id2, notNullValue());
 
-        assertThat(type1, notNullValue());
-        assertThat(type2, notNullValue());
+    assertThat(type1, notNullValue());
+    assertThat(type2, notNullValue());
 
-        assertThat(res, is(Boolean.TRUE));
+    assertThat(res, is(Boolean.TRUE));
 
-        assertThat(type1.getConflictTypes().contains(type2), is(Boolean.TRUE));
-        assertThat(type2.getConflictTypes().contains(type1), is(Boolean.TRUE));
-        // TODO need to test with database
-    }
+    assertThat(type1.getConflictTypes().contains(type2), is(Boolean.TRUE));
+    assertThat(type2.getConflictTypes().contains(type1), is(Boolean.TRUE));
+    // TODO need to test with database
+  }
 
-    @Test
-    public void removeDishFromTypeTest() {
-        logger.debug("Add dish to type test");
+  @Test
+  public void removeDishFromTypeTest() {
+    logger.debug("Add dish to type test");
 
-        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
-                new Time(10, 10, 10), new Time(10, 11, 10));
-        long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
+    long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
+        new Time(10, 10, 10), new Time(10, 11, 10));
+    long type_id = typeService.createType(true, false, -1L, "hottest", "hottest", false);
 
-        boolean res = typeService.addTypeToDish(dish_id, type_id);
+    boolean res = typeService.addTypeToDish(dish_id, type_id);
 
 
-        Type type = typeRepository.findOne(type_id);
-        Dish dish = dishRepository.findOne(dish_id);
+    Type type = typeRepository.findOne(type_id);
+    Dish dish = dishRepository.findOne(dish_id);
 
-        boolean res1 = typeService.removeDishFromType(dish);
+    boolean res1 = typeService.removeDishFromType(dish);
 
-        assertThat(dish_id > 0L, is(true));
-        assertThat(type_id > 0L, is(true));
+    assertThat(dish_id > 0L, is(true));
+    assertThat(type_id > 0L, is(true));
 
-        assertThat(res, is(Boolean.TRUE));
-        assertThat(res1, is(Boolean.TRUE));
+    assertThat(res, is(Boolean.TRUE));
+    assertThat(res1, is(Boolean.TRUE));
 
-        assertThat(type.getDishes().contains(dish), is(Boolean.FALSE));
-        assertThat(dish.getTypes().contains(type), is(Boolean.FALSE));
-    }
+    assertThat(type.getDishes().contains(dish), is(Boolean.FALSE));
+    assertThat(dish.getTypes().contains(type), is(Boolean.FALSE));
+  }
 }

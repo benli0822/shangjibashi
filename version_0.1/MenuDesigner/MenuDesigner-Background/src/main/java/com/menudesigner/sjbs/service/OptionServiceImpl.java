@@ -21,101 +21,101 @@ import java.util.Set;
 @Component("optionService")
 @Transactional
 public class OptionServiceImpl implements OptionService {
-    private static final Logger logger = LoggerFactory.getLogger(OptionServiceImpl.class);
+  private static final Logger logger = LoggerFactory.getLogger(OptionServiceImpl.class);
 
-    private final OptionRepository optionRepository;
-    private final DishRepository dishRepository;
+  private final OptionRepository optionRepository;
+  private final DishRepository dishRepository;
 
-    @Autowired
-    public OptionServiceImpl(OptionRepository optionRepository, DishRepository dishRepository) {
-        this.optionRepository = optionRepository;
-        this.dishRepository = dishRepository;
+  @Autowired
+  public OptionServiceImpl(OptionRepository optionRepository, DishRepository dishRepository) {
+    this.optionRepository = optionRepository;
+    this.dishRepository = dishRepository;
+  }
+
+  @Override
+  public long addOption(Option option) {
+    logger.debug("Try adding option: " + option.toString());
+    if (optionRepository.findOptionByName(option.getName()).size() == 0) {
+      Option theOption = optionRepository.save(option);
+      logger.info("Option");
+      return theOption.getId();
+    } else {
+      logger.error("Option " + option.toString() + " existed!");
+      return -1L;
+    }
+  }
+
+  @Override
+  public long addOption(String name) {
+    logger.debug("Try adding option");
+
+    Option option = new Option();
+
+    option.setName(name);
+
+    return this.addOption(option);
+  }
+
+  @Override
+  public boolean addOptionToDish(long dish_id, long option_id) {
+    logger.debug("Try adding option to dish");
+    Dish dish = dishRepository.findOne(dish_id);
+    Option option = optionRepository.findOne(option_id);
+    assert dish != null;
+    assert option != null;
+
+    if (dish.getOptions().contains(option) && option.getDishes().contains(dish)) {
+      logger.info("Option " + option.toString() + " existed in dish " + dish.toString());
+      return false;
+    } else {
+      logger.info("Option " + option.toString() + " added to dish" + dish.toString());
+      option.addDish(dish);
+
+      return true;
+    }
+  }
+
+  @Override
+  public boolean removeOption(String name) {
+    logger.debug("Removing option name " + name);
+
+    List<Option> options = optionRepository.findOptionByName(name);
+
+    if (options.size() == 0) {
+      logger.debug("Option not found!");
+      return false;
     }
 
-    @Override
-    public long addOption(Option option) {
-        logger.debug("Try adding option: " + option.toString());
-        if (optionRepository.findOptionByName(option.getName()).size() == 0) {
-            Option theOption = optionRepository.save(option);
-            logger.info("Option");
-            return theOption.getId();
-        } else {
-            logger.error("Option " + option.toString() + " existed!");
-            return -1L;
-        }
+    for (Option o : options) {
+      logger.debug("Removing option " + o.toString());
+      optionRepository.delete(o);
     }
 
-    @Override
-    public long addOption(String name) {
-        logger.debug("Try adding option");
+    logger.debug("Remove finish");
+    return true;
+  }
 
-        Option option = new Option();
+  /**
+   * Remove a given dish from option
+   *
+   * @param dish
+   * @return
+   */
+  @Override
+  public boolean removeDishFromOption(Dish dish) {
+    assert dishRepository.exists(dish.getId());
 
-        option.setName(name);
+    List<Option> optionList = (List<Option>) optionRepository.findAll();
 
-        return this.addOption(option);
+    for (Option o : optionList) {
+      Set<Dish> dishSet = o.getDishes();
+      if (dishSet.contains(dish)) {
+        dishSet.remove(dish);
+        dish.getOptions().remove(o);
+        optionRepository.save(o);
+      }
     }
-
-    @Override
-    public boolean addOptionToDish(long dish_id, long option_id) {
-        logger.debug("Try adding option to dish");
-        Dish dish = dishRepository.findOne(dish_id);
-        Option option = optionRepository.findOne(option_id);
-        assert dish != null;
-        assert option != null;
-
-        if (dish.getOptions().contains(option) && option.getDishes().contains(dish)) {
-            logger.info("Option " + option.toString() + " existed in dish " + dish.toString());
-            return false;
-        } else {
-            logger.info("Option " + option.toString() + " added to dish" + dish.toString());
-            option.addDish(dish);
-
-            return true;
-        }
-    }
-
-    @Override
-    public boolean removeOption(String name) {
-        logger.debug("Removing option name " + name);
-
-        List<Option> options = optionRepository.findOptionByName(name);
-
-        if (options.size() == 0) {
-            logger.debug("Option not found!");
-            return false;
-        }
-
-        for (Option o : options) {
-            logger.debug("Removing option " + o.toString());
-            optionRepository.delete(o);
-        }
-
-        logger.debug("Remove finish");
-        return true;
-    }
-
-    /**
-     * Remove a given dish from option
-     *
-     * @param dish
-     * @return
-     */
-    @Override
-    public boolean removeDishFromOption(Dish dish) {
-        assert dishRepository.exists(dish.getId());
-
-        List<Option> optionList = (List<Option>) optionRepository.findAll();
-
-        for (Option o : optionList) {
-            Set<Dish> dishSet = o.getDishes();
-            if (dishSet.contains(dish)) {
-                dishSet.remove(dish);
-                dish.getOptions().remove(o);
-                optionRepository.save(o);
-            }
-        }
-        dishRepository.save(dish);
-        return true;
-    }
+    dishRepository.save(dish);
+    return true;
+  }
 }

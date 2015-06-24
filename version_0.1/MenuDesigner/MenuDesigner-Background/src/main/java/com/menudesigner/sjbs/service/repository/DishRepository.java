@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface DishRepository extends PagingAndSortingRepository<Dish, Long>, DishCustomRepository {
 
-    List<Dish> findDishByName(String name);
+  List<Dish> findDishByName(String name);
 }

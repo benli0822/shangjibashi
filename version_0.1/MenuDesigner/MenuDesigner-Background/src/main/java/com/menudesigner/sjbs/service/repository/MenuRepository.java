@@ -9,5 +9,5 @@ import java.util.List;
  * Created by JIN Benli on 10/11/14.
  */
 public interface MenuRepository extends CrudRepository<Menu, Long> {
-    List<Menu> findMenuByName(String name);
+  List<Menu> findMenuByName(String name);
 }

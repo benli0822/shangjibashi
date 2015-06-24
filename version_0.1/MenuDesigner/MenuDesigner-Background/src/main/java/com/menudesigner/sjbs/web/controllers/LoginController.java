@@ -17,21 +17,21 @@ import java.util.Locale;
 @Controller
 public class LoginController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+  private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 
-    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
-    public String login(Locale locale, Model model) {
-        logger.info("Welcome login! The client locale is {}.", locale);
+  @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+  public String login(Locale locale, Model model) {
+    logger.info("Welcome login! The client locale is {}.", locale);
 
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+    Date date = new Date();
+    DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-        String formattedDate = dateFormat.format(date);
+    String formattedDate = dateFormat.format(date);
 
-        model.addAttribute("serverTime", formattedDate);
-        return "views/login";
+    model.addAttribute("serverTime", formattedDate);
+    return "views/login";
 
-    }
+  }
 
 }

@@ -12,71 +12,71 @@ import java.util.Set;
 @Table(name = "md_options")
 public class Option implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    private String name;
+  private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "md_dish_option",
-            joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-    private Set<Dish> dishes = new HashSet<>();
+  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JoinTable(name = "md_dish_option",
+      joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
+      inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
+  private Set<Dish> dishes = new HashSet<>();
 
-    public Option() {
-    }
+  public Option() {
+  }
 
-    public Option(String name, Set<Dish> dishes) {
-        this.name = name;
-        this.dishes = dishes;
-    }
+  public Option(String name, Set<Dish> dishes) {
+    this.name = name;
+    this.dishes = dishes;
+  }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+  public static long getSerialVersionUID() {
+    return serialVersionUID;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public Set<Dish> getDishes() {
-        return dishes;
-    }
+  public Set<Dish> getDishes() {
+    return dishes;
+  }
 
-    public void setDishes(Set<Dish> dishes) {
-        this.dishes = dishes;
-    }
+  public void setDishes(Set<Dish> dishes) {
+    this.dishes = dishes;
+  }
 
-    public void addDish(Dish dish) {
-        this.dishes.add(dish);
-        dish.addOption(this);
-    }
+  public void addDish(Dish dish) {
+    this.dishes.add(dish);
+    dish.addOption(this);
+  }
 
-    public void removeDish(Dish dish) {
-        this.dishes.remove(dish);
-    }
+  public void removeDish(Dish dish) {
+    this.dishes.remove(dish);
+  }
 
-    @Override
-    public String toString() {
-        return "Option{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", dishes=" + dishes +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Option{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", dishes=" + dishes +
+        '}';
+  }
 }

@@ -11,5 +11,5 @@ import java.util.List;
  * Created by JIN Benli on 22/12/14.
  */
 public interface CommandMenuRepository extends CrudRepository<CommandMenu, Long> {
-    List<CommandMenu> findCommandMenuByCommandAndMenu(Command command, Menu menu);
+  List<CommandMenu> findCommandMenuByCommandAndMenu(Command command, Menu menu);
 }

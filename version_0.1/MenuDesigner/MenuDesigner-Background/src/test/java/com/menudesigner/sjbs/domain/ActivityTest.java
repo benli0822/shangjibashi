@@ -32,98 +32,98 @@ import static org.junit.Assert.assertThat;
 @SpringApplicationConfiguration(classes = Application.class)
 public class ActivityTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(DishTest.class);
+  private static final Logger logger = LoggerFactory.getLogger(DishTest.class);
 
 
-    @Autowired
-    private ActivityRepository activityRepository;
+  @Autowired
+  private ActivityRepository activityRepository;
 
-    @Autowired
-    private DishRepository dishRepository;
+  @Autowired
+  private DishRepository dishRepository;
 
-    @Autowired
-    private ActivityDishRepository activityDishRepository;
+  @Autowired
+  private ActivityDishRepository activityDishRepository;
 
-    @Test
-    public void addSimpleActivityTest() {
+  @Test
+  public void addSimpleActivityTest() {
 
-        Activity activity = new Activity();
+    Activity activity = new Activity();
 
-        activity.setName("test");
-        activity.setDescription("test");
-        activity.setStart_date(new Date(2014, 1, 2));
-        activity.setEnd_date(new Date(2014, 1, 10));
-        activity.setStart_time(new Time(19, 20, 55));
-        activity.setEnd_time(new Time(19, 21, 55));
+    activity.setName("test");
+    activity.setDescription("test");
+    activity.setStart_date(new Date(2014, 1, 2));
+    activity.setEnd_date(new Date(2014, 1, 10));
+    activity.setStart_time(new Time(19, 20, 55));
+    activity.setEnd_time(new Time(19, 21, 55));
 
-        logger.info("[ActivityTest] addSimpleActivityTest", activity);
+    logger.info("[ActivityTest] addSimpleActivityTest", activity);
 
-        Activity theActivity = activityRepository.save(activity);
+    Activity theActivity = activityRepository.save(activity);
 
-        assertThat(theActivity.getId(), notNullValue());
-    }
+    assertThat(theActivity.getId(), notNullValue());
+  }
 
-    @Test
-    public void removeSimpleActivityTest() {
-        Activity activity = new Activity();
+  @Test
+  public void removeSimpleActivityTest() {
+    Activity activity = new Activity();
 
-        activity.setName("test");
-        activity.setDescription("test");
-        activity.setStart_date(new Date(2014, 1, 2));
-        activity.setEnd_date(new Date(2014, 1, 10));
-        activity.setStart_time(new Time(19, 20, 55));
-        activity.setEnd_time(new Time(19, 21, 55));
+    activity.setName("test");
+    activity.setDescription("test");
+    activity.setStart_date(new Date(2014, 1, 2));
+    activity.setEnd_date(new Date(2014, 1, 10));
+    activity.setStart_time(new Time(19, 20, 55));
+    activity.setEnd_time(new Time(19, 21, 55));
 
-        logger.info("[ActivityTest] removeSimpleActivityTest", activity);
+    logger.info("[ActivityTest] removeSimpleActivityTest", activity);
 
-        Activity theActivity = activityRepository.save(activity);
-        activityRepository.delete(theActivity);
-        Activity theRes = activityRepository.findOne(theActivity.getId());
+    Activity theActivity = activityRepository.save(activity);
+    activityRepository.delete(theActivity);
+    Activity theRes = activityRepository.findOne(theActivity.getId());
 
-        assertThat(theActivity, notNullValue());
-        assertThat(theRes, nullValue());
-    }
+    assertThat(theActivity, notNullValue());
+    assertThat(theRes, nullValue());
+  }
 
-    @Test
-    public void addActivityWithDishTest() {
-        Activity activity = new Activity();
+  @Test
+  public void addActivityWithDishTest() {
+    Activity activity = new Activity();
 
-        activity.setName("test");
-        activity.setDescription("test");
-        activity.setStart_date(new Date(2014, 1, 2));
-        activity.setEnd_date(new Date(2014, 1, 10));
-        activity.setStart_time(new Time(19, 20, 55));
-        activity.setEnd_time(new Time(19, 21, 55));
+    activity.setName("test");
+    activity.setDescription("test");
+    activity.setStart_date(new Date(2014, 1, 2));
+    activity.setEnd_date(new Date(2014, 1, 10));
+    activity.setStart_time(new Time(19, 20, 55));
+    activity.setEnd_time(new Time(19, 21, 55));
 
-        Dish newDish = new Dish();
-        newDish.setName("coca");
-        newDish.setIs_typed(false);
-        newDish.setPrice(5f);
-        newDish.setDescription("abc");
-        newDish.setDisabled(false);
-        newDish.setStart_time(new Time(10, 10, 10));
-        newDish.setEnd_time(new Time(10, 11, 10));
-        newDish.setStart_date(new Date(2014, 10, 12));
-        newDish.setEnd_date(new Date(2014, 11, 12));
+    Dish newDish = new Dish();
+    newDish.setName("coca");
+    newDish.setIs_typed(false);
+    newDish.setPrice(5f);
+    newDish.setDescription("abc");
+    newDish.setDisabled(false);
+    newDish.setStart_time(new Time(10, 10, 10));
+    newDish.setEnd_time(new Time(10, 11, 10));
+    newDish.setStart_date(new Date(2014, 10, 12));
+    newDish.setEnd_date(new Date(2014, 11, 12));
 
 //        newDish.addActivity(activity);
 
-        Dish theRes2 = dishRepository.save(newDish);
-        Activity theRes1 = activityRepository.save(activity);
+    Dish theRes2 = dishRepository.save(newDish);
+    Activity theRes1 = activityRepository.save(activity);
 
-        activity.addDish(newDish, 2);
-
-
-        List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(theRes1, theRes2);
+    activity.addDish(newDish, 2);
 
 
-        assertThat(theRes1, notNullValue());
-        assertThat(theRes2, notNullValue());
+    List<ActivityDish> activityDishs = activityDishRepository.findActivityDishByActivityAndDish(theRes1, theRes2);
 
-        assertThat(activityDishs.size(), is(1));
-        assertThat(activityDishs.get(0).getQuantity(), is(2));
 
-        assertThat(theRes1.getDishes().contains(activityDishs.get(0)), is(Boolean.TRUE));
-        assertThat(theRes2.getActivities().contains(activityDishs.get(0)), is(Boolean.TRUE));
-    }
+    assertThat(theRes1, notNullValue());
+    assertThat(theRes2, notNullValue());
+
+    assertThat(activityDishs.size(), is(1));
+    assertThat(activityDishs.get(0).getQuantity(), is(2));
+
+    assertThat(theRes1.getDishes().contains(activityDishs.get(0)), is(Boolean.TRUE));
+    assertThat(theRes2.getActivities().contains(activityDishs.get(0)), is(Boolean.TRUE));
+  }
 }

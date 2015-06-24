@@ -12,5 +12,5 @@ import java.util.List;
  */
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
 public interface UserRepository extends CrudRepository<User, Long> {
-    List<User> findUserByUsername(@Param("name") String username);
+  List<User> findUserByUsername(@Param("name") String username);
 }

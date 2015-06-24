@@ -5,9 +5,9 @@ package com.menudesigner.sjbs.service.connection;
  */
 public interface SQLiteService {
 
-    /**
-     * Run mysql2sqlite.sh to generate database.sqlite
-     */
-    void generateDB();
+  /**
+   * Run mysql2sqlite.sh to generate database.sqlite
+   */
+  void generateDB();
 
 }

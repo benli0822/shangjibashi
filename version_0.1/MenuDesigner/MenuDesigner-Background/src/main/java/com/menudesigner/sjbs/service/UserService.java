@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
 
-    long createUser(User user);
+  long createUser(User user);
 
-    long createUser(String username, String password, String type);
+  long createUser(String username, String password, String type);
 
 }

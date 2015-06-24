@@ -9,53 +9,53 @@ import javax.persistence.*;
 @Table(name = "md_command_menu")
 public class CommandMenu {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @Column(name = "quantity")
-    private int quantity;
+  @Column(name = "quantity")
+  private int quantity;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "command_id", referencedColumnName = "id")
-    private Command command;
+  @ManyToOne
+  @PrimaryKeyJoinColumn(name = "command_id", referencedColumnName = "id")
+  private Command command;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "menu_id", referencedColumnName = "id")
-    private Menu menu;
+  @ManyToOne
+  @PrimaryKeyJoinColumn(name = "menu_id", referencedColumnName = "id")
+  private Menu menu;
 
-    public CommandMenu() {
-    }
+  public CommandMenu() {
+  }
 
-    public long getId() {
-        return id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public int getQuantity() {
-        return quantity;
-    }
+  public int getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 
-    public Command getCommand() {
-        return command;
-    }
+  public Command getCommand() {
+    return command;
+  }
 
-    public void setCommand(Command command) {
-        this.command = command;
-    }
+  public void setCommand(Command command) {
+    this.command = command;
+  }
 
-    public Menu getMenu() {
-        return menu;
-    }
+  public Menu getMenu() {
+    return menu;
+  }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
+  public void setMenu(Menu menu) {
+    this.menu = menu;
+  }
 }

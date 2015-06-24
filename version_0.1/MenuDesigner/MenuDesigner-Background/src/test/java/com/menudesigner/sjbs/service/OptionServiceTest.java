@@ -31,43 +31,43 @@ import static org.junit.Assert.assertThat;
 @TransactionConfiguration(defaultRollback = true)
 @SpringApplicationConfiguration(classes = Application.class)
 public class OptionServiceTest {
-    private static final Logger logger = LoggerFactory.getLogger(OptionServiceTest.class);
+  private static final Logger logger = LoggerFactory.getLogger(OptionServiceTest.class);
 
-    @Autowired
-    private OptionRepository optionRepository;
+  @Autowired
+  private OptionRepository optionRepository;
 
-    @Autowired
-    private OptionService optionService;
+  @Autowired
+  private OptionService optionService;
 
-    @Autowired
-    private DishRepository dishRepository;
+  @Autowired
+  private DishRepository dishRepository;
 
-    @Autowired
-    private DishService dishService;
+  @Autowired
+  private DishService dishService;
 
-    @Test
-    public void removeDishFromOptionTest() {
-        logger.debug("remove dish from option test");
+  @Test
+  public void removeDishFromOptionTest() {
+    logger.debug("remove dish from option test");
 
-        long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
-                new Time(10, 10, 10), new Time(10, 11, 10));
-        long option_id = optionService.addOption("test");
+    long dish_id = dishService.addDish("coca", "abc", 5, false, new Date(2014, 10, 12), new Date(2014, 11, 12),
+        new Time(10, 10, 10), new Time(10, 11, 10));
+    long option_id = optionService.addOption("test");
 
-        boolean res = optionService.addOptionToDish(dish_id, option_id);
+    boolean res = optionService.addOptionToDish(dish_id, option_id);
 
-        Option option = optionRepository.findOne(option_id);
-        Dish dish = dishRepository.findOne(dish_id);
+    Option option = optionRepository.findOne(option_id);
+    Dish dish = dishRepository.findOne(dish_id);
 
-        boolean res1 = optionService.removeDishFromOption(dish);
+    boolean res1 = optionService.removeDishFromOption(dish);
 
-        assertThat(dish_id > 0L, is(true));
-        assertThat(option_id > 0L, is(true));
+    assertThat(dish_id > 0L, is(true));
+    assertThat(option_id > 0L, is(true));
 
-        assertThat(res, is(Boolean.TRUE));
-        assertThat(res1, is(Boolean.TRUE));
+    assertThat(res, is(Boolean.TRUE));
+    assertThat(res1, is(Boolean.TRUE));
 
-        assertThat(option.getDishes().contains(dish), is(Boolean.FALSE));
-        assertThat(dish.getOptions().contains(option), is(Boolean.FALSE));
-    }
+    assertThat(option.getDishes().contains(dish), is(Boolean.FALSE));
+    assertThat(dish.getOptions().contains(option), is(Boolean.FALSE));
+  }
 
 }

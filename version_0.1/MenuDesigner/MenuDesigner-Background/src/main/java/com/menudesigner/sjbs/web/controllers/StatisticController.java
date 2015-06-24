@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/statistic")
 public class StatisticController {
-    private static final Logger logger = LoggerFactory.getLogger(StatisticController.class);
+  private static final Logger logger = LoggerFactory.getLogger(StatisticController.class);
 
-    @RequestMapping(value = "/command", method = RequestMethod.GET)
-    public String command() {
-        return "views/statistic/command";
-    }
+  @RequestMapping(value = "/command", method = RequestMethod.GET)
+  public String command() {
+    return "views/statistic/command";
+  }
 
-    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public String reservation() {
-        return "views/statistic/reservation";
-    }
+  @RequestMapping(value = "/reservation", method = RequestMethod.GET)
+  public String reservation() {
+    return "views/statistic/reservation";
+  }
 
 }

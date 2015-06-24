@@ -163,7 +163,7 @@
             if (b = a.regexLiterals) {
                 var s = (b = b > 1 ? "" : "\n\r") ? "." : "[\\S\\s]";
                 g.push(["lang-regex", RegExp("^(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*(" + ("/(?=[^/*" + b + "])(?:[^/\\x5B\\x5C" + b + "]|\\x5C" + s + "|\\x5B(?:[^\\x5C\\x5D" + b + "]|\\x5C" +
-                s + ")*(?:\\x5D|$))+/") + ")")])
+                    s + ")*(?:\\x5D|$))+/") + ")")])
             }
             (b = a.types) && g.push(["typ", b]);
             b = ("" + a.keywords).replace(/^ | $/g, "");

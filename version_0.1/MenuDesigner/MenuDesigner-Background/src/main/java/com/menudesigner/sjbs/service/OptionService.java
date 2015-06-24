@@ -8,13 +8,13 @@ import com.menudesigner.sjbs.domain.Option;
  */
 public interface OptionService {
 
-    long addOption(Option option);
+  long addOption(Option option);
 
-    long addOption(String name);
+  long addOption(String name);
 
-    boolean addOptionToDish(long dish_id, long option_id);
+  boolean addOptionToDish(long dish_id, long option_id);
 
-    boolean removeOption(String name);
+  boolean removeOption(String name);
 
-    boolean removeDishFromOption(Dish dish);
+  boolean removeDishFromOption(Dish dish);
 }

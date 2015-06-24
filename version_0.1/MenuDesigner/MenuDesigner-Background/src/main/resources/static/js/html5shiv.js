@@ -39,15 +39,15 @@
             supportsHtml5Styles = ('hidden' in a);
 
             supportsUnknownElements = a.childNodes.length == 1 || (function () {
-                // assign a false positive if unable to shiv
-                (document.createElement)('a');
-                var frag = document.createDocumentFragment();
-                return (
-                typeof frag.cloneNode == 'undefined' ||
-                typeof frag.createDocumentFragment == 'undefined' ||
-                typeof frag.createElement == 'undefined'
-                );
-            }());
+                    // assign a false positive if unable to shiv
+                    (document.createElement)('a');
+                    var frag = document.createDocumentFragment();
+                    return (
+                        typeof frag.cloneNode == 'undefined' ||
+                        typeof frag.createDocumentFragment == 'undefined' ||
+                        typeof frag.createElement == 'undefined'
+                    );
+                }());
         } catch (e) {
             // assign a false positive if detection fails => unable to shiv
             supportsHtml5Styles = true;

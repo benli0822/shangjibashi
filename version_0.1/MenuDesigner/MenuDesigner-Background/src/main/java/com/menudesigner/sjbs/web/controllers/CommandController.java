@@ -18,17 +18,17 @@ import java.util.Locale;
 @Controller
 @RequestMapping(value = "/command")
 public class CommandController {
-    private static final Logger logger = LoggerFactory.getLogger(CommandController.class);
+  private static final Logger logger = LoggerFactory.getLogger(CommandController.class);
 
-    @Autowired
-    private CommandRepository commandRepository;
+  @Autowired
+  private CommandRepository commandRepository;
 
-    @Autowired
-    private CommandService commandService;
+  @Autowired
+  private CommandService commandService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listCommand(Locale locale, Model model) {
-        model.addAttribute("commands", commandRepository.findAll());
-        return "views/command/list";
-    }
+  @RequestMapping(value = "/list", method = RequestMethod.GET)
+  public String listCommand(Locale locale, Model model) {
+    model.addAttribute("commands", commandRepository.findAll());
+    return "views/command/list";
+  }
 }

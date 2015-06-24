@@ -8,53 +8,53 @@ import javax.persistence.*;
 @Entity
 @Table(name = "md_command_dish")
 public class CommandDish {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @Column(name = "quantity")
-    private int quantity;
+  @Column(name = "quantity")
+  private int quantity;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "command_id", referencedColumnName = "id")
-    private Command command;
+  @ManyToOne
+  @PrimaryKeyJoinColumn(name = "command_id", referencedColumnName = "id")
+  private Command command;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "dish_id", referencedColumnName = "id")
-    private Dish dish;
+  @ManyToOne
+  @PrimaryKeyJoinColumn(name = "dish_id", referencedColumnName = "id")
+  private Dish dish;
 
-    public CommandDish() {
-    }
+  public CommandDish() {
+  }
 
-    public long getId() {
-        return id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public int getQuantity() {
-        return quantity;
-    }
+  public int getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 
-    public Command getCommand() {
-        return command;
-    }
+  public Command getCommand() {
+    return command;
+  }
 
-    public void setCommand(Command command) {
-        this.command = command;
-    }
+  public void setCommand(Command command) {
+    this.command = command;
+  }
 
-    public Dish getDish() {
-        return dish;
-    }
+  public Dish getDish() {
+    return dish;
+  }
 
-    public void setDish(Dish dish) {
-        this.dish = dish;
-    }
+  public void setDish(Dish dish) {
+    this.dish = dish;
+  }
 }

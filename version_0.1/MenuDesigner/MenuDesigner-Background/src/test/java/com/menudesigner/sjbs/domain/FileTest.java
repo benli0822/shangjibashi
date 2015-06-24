@@ -28,48 +28,48 @@ import static org.junit.Assert.assertThat;
 @SpringApplicationConfiguration(classes = Application.class)
 public class FileTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileTest.class);
+  private static final Logger logger = LoggerFactory.getLogger(FileTest.class);
 
-    @Autowired
-    private FileRepository fileRepository;
+  @Autowired
+  private FileRepository fileRepository;
 
-    @Test
-    public void addSimpleFileTest() {
+  @Test
+  public void addSimpleFileTest() {
 
-        File file = new File();
+    File file = new File();
 
-        file.setName("test");
-        file.setLocation("test");
-        file.setSize(100L);
-        file.setType("media");
+    file.setName("test");
+    file.setLocation("test");
+    file.setSize(100L);
+    file.setType("media");
 
-        File theFile = fileRepository.save(file);
+    File theFile = fileRepository.save(file);
 
-        List<File> newAddedFile = fileRepository.findFileByName(file.getName());
+    List<File> newAddedFile = fileRepository.findFileByName(file.getName());
 
-        assertThat(theFile.getId(), notNullValue());
-        assertThat(newAddedFile.size(), is(1));
-        assertThat(newAddedFile.get(0).getName(), is(theFile.getName()));
-    }
+    assertThat(theFile.getId(), notNullValue());
+    assertThat(newAddedFile.size(), is(1));
+    assertThat(newAddedFile.get(0).getName(), is(theFile.getName()));
+  }
 
-    @Test
-    public void removeSimpleFileTest() {
+  @Test
+  public void removeSimpleFileTest() {
 
-        File file = new File();
+    File file = new File();
 
-        file.setName("test");
-        file.setLocation("test");
-        file.setSize(100L);
-        file.setType("media");
+    file.setName("test");
+    file.setLocation("test");
+    file.setSize(100L);
+    file.setType("media");
 
-        File res1 = fileRepository.save(file);
+    File res1 = fileRepository.save(file);
 
-        fileRepository.delete(res1);
+    fileRepository.delete(res1);
 
-        File res2 = fileRepository.findOne(res1.getId());
+    File res2 = fileRepository.findOne(res1.getId());
 
-        assertThat(res1, notNullValue());
-        assertThat(res2, nullValue());
-    }
+    assertThat(res1, notNullValue());
+    assertThat(res2, nullValue());
+  }
 
 }

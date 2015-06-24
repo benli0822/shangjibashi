@@ -13,25 +13,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/user")
 public class UserController {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+  private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping(value = "/general", method = RequestMethod.GET)
-    public String general() {
-        return "views/user/general";
-    }
+  @RequestMapping(value = "/general", method = RequestMethod.GET)
+  public String general() {
+    return "views/user/general";
+  }
 
-    @RequestMapping(value = "/facebook", method = RequestMethod.GET)
-    public String facebook() {
-        //TODO social network connection
-        return "";
-    }
+  @RequestMapping(value = "/facebook", method = RequestMethod.GET)
+  public String facebook() {
+    //TODO social network connection
+    return "";
+  }
 
-    @RequestMapping(value = "/twitter", method = RequestMethod.GET)
-    public String twitter() {
-        //TODO twitter connection
-        return "";
-    }
+  @RequestMapping(value = "/twitter", method = RequestMethod.GET)
+  public String twitter() {
+    //TODO twitter connection
+    return "";
+  }
 
-    //TODO other social network connection
+  //TODO other social network connection
 
 }
