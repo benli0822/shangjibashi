@@ -1,9 +1,9 @@
 package com.sjbs.menudesigner.background.service;
 
-import com.sjbs.menudesigner.background.domain.Dish;
-import com.sjbs.menudesigner.background.domain.Option;
-import com.sjbs.menudesigner.background.service.repository.DishRepository;
-import com.sjbs.menudesigner.background.service.repository.OptionRepository;
+import com.sjbs.menudesigner.background.common.bo.Dish;
+import com.sjbs.menudesigner.background.common.bo.Option;
+import com.sjbs.menudesigner.background.common.dao.DishRepository;
+import com.sjbs.menudesigner.background.common.dao.OptionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,17 +1,17 @@
 package com.sjbs.menudesigner.background.web.controllers;
 
-import com.sjbs.menudesigner.background.domain.Dish;
-import com.sjbs.menudesigner.background.domain.File;
-import com.sjbs.menudesigner.background.domain.Option;
-import com.sjbs.menudesigner.background.domain.Type;
+import com.sjbs.menudesigner.background.common.bo.Dish;
+import com.sjbs.menudesigner.background.common.bo.File;
+import com.sjbs.menudesigner.background.common.bo.Option;
+import com.sjbs.menudesigner.background.common.bo.Type;
 import com.sjbs.menudesigner.background.service.DishService;
 import com.sjbs.menudesigner.background.service.FileService;
 import com.sjbs.menudesigner.background.service.OptionService;
 import com.sjbs.menudesigner.background.service.TypeService;
-import com.sjbs.menudesigner.background.service.repository.DishRepository;
-import com.sjbs.menudesigner.background.service.repository.FileRepository;
-import com.sjbs.menudesigner.background.service.repository.OptionRepository;
-import com.sjbs.menudesigner.background.service.repository.TypeRepository;
+import com.sjbs.menudesigner.background.common.dao.DishRepository;
+import com.sjbs.menudesigner.background.common.dao.FileRepository;
+import com.sjbs.menudesigner.background.common.dao.OptionRepository;
+import com.sjbs.menudesigner.background.common.dao.TypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

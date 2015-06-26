@@ -1,7 +1,7 @@
 package com.sjbs.menudesigner.background.service;
 
-import com.sjbs.menudesigner.background.domain.Dish;
-import com.sjbs.menudesigner.background.domain.Menu;
+import com.sjbs.menudesigner.background.common.bo.Dish;
+import com.sjbs.menudesigner.background.common.bo.Menu;
 
 import java.sql.Date;
 import java.sql.Time;

@@ -1,8 +1,8 @@
 package com.sjbs.menudesigner.background;
 
 import com.sjbs.menudesigner.background.service.CommandService;
-import com.sjbs.menudesigner.background.service.repository.CommandRepository;
-import com.sjbs.menudesigner.background.service.repository.DishRepository;
+import com.sjbs.menudesigner.background.common.dao.CommandRepository;
+import com.sjbs.menudesigner.background.common.dao.DishRepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;

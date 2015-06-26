@@ -1,7 +1,7 @@
 package com.sjbs.menudesigner.background.service;
 
-import com.sjbs.menudesigner.background.domain.Dish;
-import com.sjbs.menudesigner.background.domain.Option;
+import com.sjbs.menudesigner.background.common.bo.Dish;
+import com.sjbs.menudesigner.background.common.bo.Option;
 
 /**
  * Created by JIN Benli on 13/01/15.

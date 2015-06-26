@@ -1,8 +1,8 @@
 package com.sjbs.menudesigner.background.web.controllers;
 
-import com.sjbs.menudesigner.background.domain.File;
+import com.sjbs.menudesigner.background.common.bo.File;
 import com.sjbs.menudesigner.background.service.FileService;
-import com.sjbs.menudesigner.background.service.repository.FileRepository;
+import com.sjbs.menudesigner.background.common.dao.FileRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.sjbs.menudesigner.background.service;
 
-import com.sjbs.menudesigner.background.domain.File;
+import com.sjbs.menudesigner.background.common.bo.File;
 
 /**
  * Created by JIN Benli on 28/12/14.

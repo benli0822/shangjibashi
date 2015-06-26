@@ -1,9 +1,9 @@
 package com.sjbs.menudesigner.background.rest;
 
-import com.sjbs.menudesigner.background.domain.*;
+import com.sjbs.menudesigner.background.common.bo.*;
+import com.sjbs.menudesigner.background.common.dao.*;
 import com.sjbs.menudesigner.background.rest.dto.CommandDTO;
 import com.sjbs.menudesigner.background.service.CommandService;
-import com.sjbs.menudesigner.background.service.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

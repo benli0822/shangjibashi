@@ -1,13 +1,13 @@
 package com.sjbs.menudesigner.background.service;
 
-import com.sjbs.menudesigner.background.domain.Activity;
-import com.sjbs.menudesigner.background.domain.Dish;
-import com.sjbs.menudesigner.background.domain.File;
-import com.sjbs.menudesigner.background.domain.Menu;
-import com.sjbs.menudesigner.background.service.repository.ActivityRepository;
-import com.sjbs.menudesigner.background.service.repository.DishRepository;
-import com.sjbs.menudesigner.background.service.repository.FileRepository;
-import com.sjbs.menudesigner.background.service.repository.MenuRepository;
+import com.sjbs.menudesigner.background.common.bo.Activity;
+import com.sjbs.menudesigner.background.common.bo.Dish;
+import com.sjbs.menudesigner.background.common.bo.File;
+import com.sjbs.menudesigner.background.common.bo.Menu;
+import com.sjbs.menudesigner.background.common.dao.ActivityRepository;
+import com.sjbs.menudesigner.background.common.dao.DishRepository;
+import com.sjbs.menudesigner.background.common.dao.FileRepository;
+import com.sjbs.menudesigner.background.common.dao.MenuRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

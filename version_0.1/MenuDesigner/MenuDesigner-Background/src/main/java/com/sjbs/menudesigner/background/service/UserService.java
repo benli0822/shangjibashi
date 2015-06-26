@@ -1,6 +1,6 @@
 package com.sjbs.menudesigner.background.service;
 
-import com.sjbs.menudesigner.background.domain.User;
+import com.sjbs.menudesigner.background.common.bo.User;
 import org.springframework.stereotype.Service;
 
 /**
