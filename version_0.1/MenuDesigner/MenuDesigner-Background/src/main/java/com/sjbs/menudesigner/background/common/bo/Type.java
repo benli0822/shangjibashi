@@ -40,13 +40,13 @@ public class Type implements Serializable {
   @JoinTable(name = "md_dish_type",
       joinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")},
       inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-  private Set<Dish> dishes = new HashSet<>();
+  private Set<Dish> dishes = new HashSet<Dish>();
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(name = "md_conflict_dish_type",
       joinColumns = {@JoinColumn(name = "type_id", referencedColumnName = "id")},
       inverseJoinColumns = {@JoinColumn(name = "conflict_id", referencedColumnName = "id")})
-  private Set<Type> conflictTypes = new HashSet<>();
+  private Set<Type> conflictTypes = new HashSet<Type>();
 
   public Type() {
   }

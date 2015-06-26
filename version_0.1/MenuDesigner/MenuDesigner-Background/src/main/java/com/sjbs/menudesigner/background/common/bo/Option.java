@@ -24,7 +24,7 @@ public class Option implements Serializable {
   @JoinTable(name = "md_dish_option",
       joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
       inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-  private Set<Dish> dishes = new HashSet<>();
+  private Set<Dish> dishes = new HashSet<Dish>();
 
   public Option() {
   }

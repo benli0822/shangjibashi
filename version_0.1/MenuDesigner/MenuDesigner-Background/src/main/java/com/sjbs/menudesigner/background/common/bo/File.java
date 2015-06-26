@@ -34,19 +34,19 @@ public class File implements Serializable {
   @JoinTable(name = "md_file_dish",
       joinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")},
       inverseJoinColumns = {@JoinColumn(name = "dish_id", referencedColumnName = "id")})
-  private Set<Dish> dishes = new HashSet<>();
+  private Set<Dish> dishes = new HashSet<Dish>();
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(name = "md_file_menu",
       joinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")},
       inverseJoinColumns = {@JoinColumn(name = "menu_id", referencedColumnName = "id")})
-  private Set<Menu> menus = new HashSet<>();
+  private Set<Menu> menus = new HashSet<Menu>();
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinTable(name = "md_file_activity",
       joinColumns = {@JoinColumn(name = "file_id", referencedColumnName = "id")},
       inverseJoinColumns = {@JoinColumn(name = "activity_id", referencedColumnName = "id")})
-  private Set<Activity> activities = new HashSet<>();
+  private Set<Activity> activities = new HashSet<Activity>();
 
   public File() {
   }

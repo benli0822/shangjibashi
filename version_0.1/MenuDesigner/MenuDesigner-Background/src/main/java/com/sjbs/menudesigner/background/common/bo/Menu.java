@@ -41,13 +41,13 @@ public class Menu implements Serializable {
   private Date end_date;
 
   @OneToMany(mappedBy = "menu", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<CommandMenu> commands = new HashSet<>();
+  private Set<CommandMenu> commands = new HashSet<CommandMenu>();
 
   @OneToMany(mappedBy = "menu", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<MenuDish> dishes = new HashSet<>();
+  private Set<MenuDish> dishes = new HashSet<MenuDish>();
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "menus")
-  private Set<File> files = new HashSet<>();
+  private Set<File> files = new HashSet<File>();
 
   public Menu() {
   }

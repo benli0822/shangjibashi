@@ -44,13 +44,13 @@ public class Activity implements Serializable {
   private String description;
 
   @OneToMany(mappedBy = "activity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<CommandActivity> commands = new HashSet<>();
+  private Set<CommandActivity> commands = new HashSet<CommandActivity>();
 
   @OneToMany(mappedBy = "activity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<ActivityDish> dishes = new HashSet<>();
+  private Set<ActivityDish> dishes = new HashSet<ActivityDish>();
 
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "activities")
-  private Set<File> files = new HashSet<>();
+  private Set<File> files = new HashSet<File>();
 
   public Activity() {
   }

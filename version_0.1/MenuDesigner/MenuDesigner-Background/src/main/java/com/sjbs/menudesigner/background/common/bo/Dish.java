@@ -62,28 +62,28 @@ public class Dish implements Serializable {
 
   @JsonIgnore
   @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<ActivityDish> activities = new HashSet<>();
+  private Set<ActivityDish> activities = new HashSet<ActivityDish>();
 
   @JsonIgnore
   @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<CommandDish> commands = new HashSet<>();
+  private Set<CommandDish> commands = new HashSet<CommandDish>();
 
   @JsonIgnore
   @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<MenuDish> menus = new HashSet<>();
+  private Set<MenuDish> menus = new HashSet<MenuDish>();
 
   //TODO manytomany annotation should also be donned with mappedBy
   @JsonIgnore
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
-  private Set<Type> types = new HashSet<>();
+  private Set<Type> types = new HashSet<Type>();
 
   @JsonIgnore
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
-  private Set<File> files = new HashSet<>();
+  private Set<File> files = new HashSet<File>();
 
   @JsonIgnore
   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "dishes")
-  private Set<Option> options = new HashSet<>();
+  private Set<Option> options = new HashSet<Option>();
 
   public Dish() {
   }
