@@ -3,18 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>com.sjbs</groupId>
-        <artifactId>MenuDesigner</artifactId>
+        <artifactId>MenuDesigner-Parent</artifactId>
         <version>${module.current.version}</version>
+        <relativePath>../MenuDesigner-Parent</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>MenuDesigner-Background</artifactId>
-    <packaging>pom</packaging>
     <name>Background module</name>
 
     <properties>
-        <start-class>com.menudesigner.sjbs.Application</start-class>
-        <!--<main.basedir>${basedir}/../..</main.basedir>-->
+        <start-class>com.sjbs.menudesigner.background.Application</start-class>
+        <!--<main.basedir>${basedir}/../../..</main.basedir>-->
     </properties>
 
     <!-- Add typical dependencies for a web application -->
@@ -70,4 +70,13 @@
             <version>20080701</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
