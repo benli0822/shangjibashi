@@ -1,4 +1,4 @@
-package com.sjbs.menudesigner.background.common.dao;
+package com.sjbs.menudesigner.background.common.repository;
 
 import com.sjbs.menudesigner.background.common.bo.File;
 import org.springframework.data.repository.CrudRepository;

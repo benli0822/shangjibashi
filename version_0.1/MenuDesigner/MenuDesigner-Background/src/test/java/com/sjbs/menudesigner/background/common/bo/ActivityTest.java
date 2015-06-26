@@ -1,9 +1,9 @@
 package com.sjbs.menudesigner.background.common.bo;
 
 import com.sjbs.menudesigner.background.Application;
-import com.sjbs.menudesigner.background.common.dao.ActivityDishRepository;
-import com.sjbs.menudesigner.background.common.dao.ActivityRepository;
-import com.sjbs.menudesigner.background.common.dao.DishRepository;
+import com.sjbs.menudesigner.background.common.repository.ActivityDishRepository;
+import com.sjbs.menudesigner.background.common.repository.ActivityRepository;
+import com.sjbs.menudesigner.background.common.repository.DishRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

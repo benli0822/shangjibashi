@@ -1,7 +1,7 @@
 package com.sjbs.menudesigner.background.common.bo;
 
 import com.sjbs.menudesigner.background.Application;
-import com.sjbs.menudesigner.background.common.dao.FileRepository;
+import com.sjbs.menudesigner.background.common.repository.FileRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

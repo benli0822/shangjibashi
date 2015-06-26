@@ -44,14 +44,14 @@ public class Command implements Serializable {
   private Integer client_no;
 
   @OneToMany(mappedBy = "command", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<CommandActivity> activities = new HashSet<>();
+  private Set<CommandActivity> activities = new HashSet<CommandActivity>();
 
   @OneToMany(mappedBy = "command", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<CommandDish> dishes = new HashSet<>();
+  private Set<CommandDish> dishes = new HashSet<CommandDish>();
 
   //TODO really should consider the quantity problem, perhaps we go with JDBCTemplate
   @OneToMany(mappedBy = "command", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Set<CommandMenu> menus = new HashSet<>();
+  private Set<CommandMenu> menus = new HashSet<CommandMenu>();
 
   public Command() {
   }

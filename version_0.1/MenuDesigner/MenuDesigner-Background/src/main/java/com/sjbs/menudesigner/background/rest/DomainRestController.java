@@ -1,7 +1,7 @@
 package com.sjbs.menudesigner.background.rest;
 
 import com.sjbs.menudesigner.background.common.bo.*;
-import com.sjbs.menudesigner.background.common.dao.*;
+import com.sjbs.menudesigner.background.common.repository.*;
 import com.sjbs.menudesigner.background.rest.dto.CommandDTO;
 import com.sjbs.menudesigner.background.service.CommandService;
 import org.slf4j.Logger;

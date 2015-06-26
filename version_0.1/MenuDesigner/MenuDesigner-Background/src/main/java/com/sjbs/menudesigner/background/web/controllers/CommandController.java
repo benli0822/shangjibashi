@@ -1,7 +1,7 @@
 package com.sjbs.menudesigner.background.web.controllers;
 
 import com.sjbs.menudesigner.background.service.CommandService;
-import com.sjbs.menudesigner.background.common.dao.CommandRepository;
+import com.sjbs.menudesigner.background.common.repository.CommandRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
