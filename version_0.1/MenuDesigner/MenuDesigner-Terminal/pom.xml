@@ -3,9 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>MenuDesigner</artifactId>
+        <artifactId>MenuDesigner-Parent</artifactId>
         <groupId>com.sjbs</groupId>
-        <version>${module.current.version}</version>
+        <version>x.x.x-SNAPSHOT</version>
+        <relativePath>../MenuDesigner-Parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,7 +15,7 @@
     <name>Terminal Module</name>
 
     <properties>
-        <start-class>com.menudesigner.sjbs.Application</start-class>
+        <start-class>com.sjbs.menudesigner.terminal.Application</start-class>
     </properties>
 
 
