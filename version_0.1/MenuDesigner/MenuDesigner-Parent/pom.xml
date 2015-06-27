@@ -16,7 +16,7 @@
     <artifactId>MenuDesigner-Parent</artifactId>
     <name>MenuDesigner global parent</name>
     <packaging>pom</packaging>
-    <version>${module.current.version}</version>
+    <version>x.x.x-SNAPSHOT</version>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>

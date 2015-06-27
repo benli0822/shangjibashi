@@ -5,7 +5,7 @@
     <parent>
         <artifactId>MenuDesigner-Parent</artifactId>
         <groupId>com.sjbs</groupId>
-        <version>${module.current.version}</version>
+        <version>x.x.x-SNAPSHOT</version>
         <relativePath>../MenuDesigner-Parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
