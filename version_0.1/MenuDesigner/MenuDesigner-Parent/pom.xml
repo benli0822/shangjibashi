@@ -8,7 +8,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.7</java.version>
-        <module.current.version>x.x.x-SNAPSHOT</module.current.version>
+        <module.current.version>0.0.1-SNAPSHOT</module.current.version>
+        <org.springframework.boot-version>1.2.4.RELEASE</org.springframework.boot-version>
         <main.basedir>${basedir}/../..</main.basedir>
     </properties>
 
@@ -16,7 +17,7 @@
     <artifactId>MenuDesigner-Parent</artifactId>
     <name>MenuDesigner global parent</name>
     <packaging>pom</packaging>
-    <version>${module.current.version}</version>
+    <version>0.1.0</version>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
@@ -25,16 +26,18 @@
         <version>1.2.4.RELEASE</version>
     </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <!-- SPRING-BOOT ... -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <type>pom</type>
+                <version>${org.springframework.boot-version}</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
