@@ -4,13 +4,15 @@
     <parent>
         <groupId>com.sjbs</groupId>
         <artifactId>MenuDesigner-Parent</artifactId>
-        <version>x.x.x-SNAPSHOT</version>
-        <relativePath>../MenuDesigner-Parent</relativePath>
+        <version>${module.current.version}</version>
+        <relativePath>../../MenuDesigner-Parent</relativePath>
     </parent>
 
+    <groupId>com.sjbs.menudesigner.background</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>MenuDesigner-Background-Parent</artifactId>
     <packaging>pom</packaging>
+    <version>${module.current.version}</version>
     <name>Background parent module</name>
 
     <dependencies>

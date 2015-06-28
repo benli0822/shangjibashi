@@ -3,27 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>com.sjbs</groupId>
-        <artifactId>MenuDesigner-Background-Parent</artifactId>
-        <version>x.x.x-SNAPSHOT</version>
-        <relativePath>../MenuDesigner-Backgroud-Parent</relativePath>
+        <artifactId>MenuDesigner-Parent</artifactId>
+        <version>${module.current.version}</version>
+        <relativePath>../MenuDesigner-Parent</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>MenuDesigner-Background</artifactId>
-    <name>Background module</name>
+    <artifactId>MenuDesigner-ForDetermined</artifactId>
+    <name>For Determined module</name>
 
     <properties>
         <start-class>com.sjbs.menudesigner.background.Application</start-class>
         <!--<main.basedir>${basedir}/../../..</main.basedir>-->
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.sjbs</groupId>
-            <artifactId>MenuDesigner-Background-Common</artifactId>
-            <version>${module.current.version}</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
