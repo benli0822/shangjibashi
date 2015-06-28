@@ -11,11 +11,20 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>MenuDesigner-ForDetermined</artifactId>
     <name>For Determined module</name>
+    <version>${module.current.version}</version>
 
     <properties>
         <start-class>com.sjbs.menudesigner.background.Application</start-class>
         <!--<main.basedir>${basedir}/../../..</main.basedir>-->
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sjbs.menudesigner.background</groupId>
+            <artifactId>MenuDesigner-Background-Common</artifactId>
+            <version>${module.current.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

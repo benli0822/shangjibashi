@@ -13,6 +13,8 @@
     <groupId>com.sjbs.menudesigner.background</groupId>
     <artifactId>MenuDesigner-Background-Common</artifactId>
     <name>Background common module</name>
+    <version>${module.current.version}</version>
+    <packaging>jar</packaging>
 
     <properties>
         <start-class>com.sjbs.menudesigner.background.Application</start-class>
