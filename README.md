@@ -26,7 +26,7 @@ iPad Module should be able
 ## Back-end Module
 ### Management
 ### System and user configurations
-### CLient service support
+### Client service support
 ### Staff service support
 ## Terminal Chef Module
 ### Order push
