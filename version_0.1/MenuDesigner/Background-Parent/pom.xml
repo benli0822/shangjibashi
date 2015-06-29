@@ -14,9 +14,4 @@
     <packaging>pom</packaging>
     <name>Background parent module</name>
 
-    <modules>
-        <module>../Background-ForDetermined</module>
-        <module>../Background-Common</module>
-    </modules>
-
 </project>
