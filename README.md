@@ -5,7 +5,7 @@ Presentation
 This is a Collective Management System for the menu ordering and management. The system includes:
 
 * An iPad interface application for customer interactions.
-    * [Ordering and servicing](# Ordering and servicing)
+    * [Ordering and servicing](#ordering-and-servicing)
     * Gaming (In planning)
 * A back-end service platform.
     * Management
