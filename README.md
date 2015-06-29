@@ -17,9 +17,20 @@ This is a Collective Management System for the menu ordering and management. The
     * Order push
     * Cook time calculate (Smart assistance)
 
-## Ordering and servicing
 
+## iPad Module
+iPad Module represent MDv2.0 system's user interface, it gives restaurant's costumer a direct touch experience to our system.
+### Ordering and servicing
+iPad Module should be able 
+### Gaming (Under planning)
+## Back-end Module
+### Management
+### System and user configurations
+### CLient service support
+### Staff service support
+## Terminal Chef Module
+### Order push
+### Cook time calculate (Smart assitance)
 
-## Gaming (Under planning)
 
 
