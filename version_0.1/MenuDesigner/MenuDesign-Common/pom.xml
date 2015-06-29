@@ -10,8 +10,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sjbs.menudesigner.background</groupId>
-    <artifactId>MenuDesigner-Background-Common</artifactId>
+    <groupId>com.sjbs.menudesigner</groupId>
+    <artifactId>MenuDesigner-Common</artifactId>
     <name>MenuDesigner Common module</name>
     <packaging>jar</packaging>
 
