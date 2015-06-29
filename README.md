@@ -6,7 +6,7 @@ This is a Collective Management System for the menu ordering and management. The
 
 * An iPad interface application for customer interactions.
     * [Ordering and servicing](#ordering-and-servicing)
-    * [Gaming (Under planning)](#gaming-(under-planning))
+    * [Gaming (Under planning)](#gaming-under-planning)
 * A back-end service platform.
     * Management
     * System and user configurations
